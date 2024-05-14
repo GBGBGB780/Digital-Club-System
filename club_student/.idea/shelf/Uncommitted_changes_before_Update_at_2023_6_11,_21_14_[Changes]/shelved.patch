@@ -1,0 +1,102 @@
+Index: src/main/java/com/chinahitech/shop/controller/ApplicationController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.chinahitech.shop.controller;\r\n\r\nimport com.chinahitech.shop.bean.Application;\r\nimport com.chinahitech.shop.service.ApplicationService;\r\nimport com.chinahitech.shop.utils.Result;\r\nimport com.chinahitech.shop.service.GroupService;\r\nimport org.springframework.beans.factory.annotation.Autowired;\r\nimport org.springframework.beans.factory.annotation.Value;\r\nimport org.springframework.http.ResponseEntity;\r\nimport org.springframework.web.bind.annotation.*;\r\nimport org.springframework.web.multipart.MultipartFile;\r\nimport org.springframework.web.servlet.support.ServletUriComponentsBuilder;\r\n\r\nimport java.io.IOException;\r\nimport java.nio.file.Files;\r\nimport java.nio.file.Path;\r\nimport java.nio.file.Paths;\r\nimport java.nio.file.StandardCopyOption;\r\nimport java.time.LocalDateTime;\r\nimport java.time.format.DateTimeFormatter;\r\nimport java.util.HashMap;\r\nimport java.util.List;\r\nimport java.util.Map;\r\n\r\n@RestController\r\n@RequestMapping(\"/application\")\r\n@CrossOrigin\r\npublic class ApplicationController {\r\n    @Autowired\r\n    private ApplicationService applicationService;\r\n    @Autowired\r\n    private GroupService groupService;\r\n\r\n    //学生端\r\n    @Value(\"${upload-dir}\")\r\n    private String uploadDir;\r\n\r\n    @RequestMapping(\"/all\")\r\n    public Result getAll() {\r\n        List<Application> applications = applicationService.query();\r\n        System.out.println(applications);\r\n        return Result.ok().data(\"items\", applications);\r\n    }\r\n\r\n    @PostMapping(\"/myapps\")\r\n    public Result getMyapps(String stunumber) {\r\n        List<Application> applications = applicationService.queryMyapp(stunumber);\r\n        System.out.println(stunumber);\r\n        return Result.ok().data(\"items\", applications);\r\n    }\r\n\r\n    @PostMapping(\"/submit\")\r\n    public Result submit(@RequestBody Application application) {\r\n        // application.setIsaccepted(false);\r\n        application.setTime(new java.sql.Timestamp(System.currentTimeMillis()));\r\n        System.out.println(application);\r\n        applicationService.insert(application);\r\n        groupService.addHot(application.getGroupname());\r\n        return Result.ok();\r\n    }\r\n    //\r\n\r\n\r\n\r\n    // 管理员端\r\n\r\n    // 申请列表\r\n    @PostMapping(\"/recvapps\")\r\n    public Result getRecvapps(String groupname){\r\n        List<Application> applications = applicationService.queryRecvapp(groupname);\r\n        System.out.println(groupname);\r\n        return Result.ok().data(\"items\",applications);\r\n    }\r\n\r\n    // 申请列表->详情\r\n    @PostMapping\r\n    public Result getRecvapp(Integer id) {\r\n        List<Application> applications = applicationService.queryDetailapp(id);\r\n        System.out.println(id);\r\n        return Result.ok().data(\"items\",applications);\r\n    }\r\n    //\r\n\r\n    @PostMapping(\"/updateAttachment\")\r\n    public Result updateAttachment(@RequestParam(\"applicationid\") int applicationid,\r\n                                   @RequestParam(\"attachment\") String attachmentUrl) {\r\n        applicationService.updateAttachment(applicationid, attachmentUrl);\r\n        return Result.ok().data(\"applicationid\", applicationid).data(\"attachment\", attachmentUrl);\r\n    }\r\n\r\n    @PostMapping(\"/uploadzip\")\r\n    public ResponseEntity<Map<String, String>> uploadFile(@RequestParam(\"file\") MultipartFile file) {\r\n        String contentType = file.getContentType();\r\n        if (!(contentType.equals(\"application/zip\") || contentType.equals(\"application/x-zip-compressed\"))) {\r\n            return ResponseEntity.badRequest().body(createErrorResponse(\"Only zip files are allowed.\"));\r\n        }\r\n\r\n        String fileName = generateUniqueFileName(file.getOriginalFilename());\r\n\r\n        try {\r\n            Path targetLocation = Paths.get(uploadDir, fileName);\r\n            Files.copy(file.getInputStream(), targetLocation, StandardCopyOption.REPLACE_EXISTING);\r\n\r\n            String fileUrl = ServletUriComponentsBuilder.fromCurrentContextPath()\r\n                    .pathSegment(\"upload\")\r\n                    .pathSegment(fileName)\r\n                    .toUriString();\r\n\r\n            Map<String, String> response = new HashMap<>();\r\n            response.put(\"fileUrl\", fileUrl);\r\n\r\n            return ResponseEntity.ok(response);\r\n        } catch (IOException e) {\r\n            e.printStackTrace();\r\n            return ResponseEntity.badRequest().body(createErrorResponse(\"Failed to upload the file.\"));\r\n        }\r\n    }\r\n\r\n    private String generateUniqueFileName(String originalFilename) {\r\n        String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern(\"yyyyMMddHHmmssSSS\"));\r\n        return timestamp + \"_\" + originalFilename;\r\n    }\r\n\r\n    private Map<String, String> createErrorResponse(String errorMessage) {\r\n        Map<String, String> errorResponse = new HashMap<>();\r\n        errorResponse.put(\"error\", errorMessage);\r\n        return errorResponse;\r\n    }\r\n\r\n    @PostMapping(\"/accept\")\r\n    public Result acceptApplication(Integer applicationid){\r\n        System.out.println(applicationid);\r\n        // System.out.println(isaccepted);\r\n        applicationService.confirmApplication(applicationid);\r\n        return Result.ok();\r\n    }\r\n\r\n    @PostMapping(\"/reject\")\r\n    public Result rejectApplication(Integer applicationid){\r\n        System.out.println(applicationid);\r\n        // System.out.println(isaccepted);\r\n        applicationService.denyApplication(applicationid);\r\n        return Result.ok();\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/chinahitech/shop/controller/ApplicationController.java b/src/main/java/com/chinahitech/shop/controller/ApplicationController.java
+--- a/src/main/java/com/chinahitech/shop/controller/ApplicationController.java	(revision a86c26205b3382fc39421c6b39906dde96fb3399)
++++ b/src/main/java/com/chinahitech/shop/controller/ApplicationController.java	(date 1686227154643)
+@@ -53,8 +53,9 @@
+     public Result submit(@RequestBody Application application) {
+         // application.setIsaccepted(false);
+         application.setTime(new java.sql.Timestamp(System.currentTimeMillis()));
+-        System.out.println(application);
++        System.out.println("application");
+         applicationService.insert(application);
++        System.out.println(application);
+         groupService.addHot(application.getGroupname());
+         return Result.ok();
+     }
+Index: src/main/java/com/chinahitech/shop/bean/notAddedToDatabase/EmailInfo.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.chinahitech.shop.bean.notAddedToDatabase;\n\npublic class EmailInfo {\n    public String getEmail() {\n        return email;\n    }\n\n    public void setEmail(String email) {\n        this.email = email;\n    }\n\n    public String email;\n\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/chinahitech/shop/bean/notAddedToDatabase/EmailInfo.java b/src/main/java/com/chinahitech/shop/bean/notAddedToDatabase/EmailInfo.java
+--- a/src/main/java/com/chinahitech/shop/bean/notAddedToDatabase/EmailInfo.java	(revision a86c26205b3382fc39421c6b39906dde96fb3399)
++++ b/src/main/java/com/chinahitech/shop/bean/notAddedToDatabase/EmailInfo.java	(date 1686238334666)
+@@ -1,14 +1,12 @@
+ package com.chinahitech.shop.bean.notAddedToDatabase;
+ 
+ public class EmailInfo {
++    private String email;
+     public String getEmail() {
+         return email;
+     }
+-
+     public void setEmail(String email) {
+         this.email = email;
+     }
+ 
+-    public String email;
+-
+ }
+Index: src/main/java/com/chinahitech/shop/controller/StuController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.chinahitech.shop.controller;\n\nimport com.chinahitech.shop.bean.Students;\nimport com.chinahitech.shop.bean.notAddedToDatabase.EmailInfo;\nimport com.chinahitech.shop.bean.notAddedToDatabase.RegisterUser;\nimport com.chinahitech.shop.defineException.EmailException;\nimport com.chinahitech.shop.service.EmailService;\nimport com.chinahitech.shop.service.StuService;\nimport com.chinahitech.shop.utils.JwtUtils;\nimport com.chinahitech.shop.utils.RedisUtils;\nimport com.chinahitech.shop.utils.Result;\nimport org.springframework.beans.factory.annotation.Autowired;\nimport org.springframework.web.bind.annotation.*;\n\nimport java.util.Objects;\n\n@RestController\n@RequestMapping(\"/user\")\n@CrossOrigin\npublic class StuController {\n    @Autowired\n    private StuService stuService;\n\n    @PostMapping(\"/login\")\n    // querystring: username=zhangsan&password=123   User user,String username,String password\n    // json: {username:zhangsan,password:123}\n    // 如果前端传递的数据是json格式，必须使用对象接收，同时需要添加@RequestBody\n    public Result login(@RequestBody Students student){\n        System.out.println(student);\n        Students dbStudent = stuService.getByStunumber(student.getStunumber());\n        if (dbStudent != null && dbStudent.getPassword().equals(student.getPassword())) {\n            // 验证通过，生成 token 返回给前端\n            String token = JwtUtils.generateToken(student.getStunumber());\n            return Result.ok().data(\"token\", token);\n        } else {\n            // 验证失败，返回错误信息\n            return Result.error().message(\"用户名或密码不正确\");\n        }\n    }\n\n    @PostMapping(\"/register\")\n    public Result register(@RequestBody RegisterUser student) {\n//        System.out.println(student);\n        String stunumber = student.getUsername();\n        String password = student.getPassword();\n        String email = student.getEmail();\n        String valicode = student.getValicode();\n\n//        System.out.println(stunumber);\n//        System.out.println(password);\n//        System.out.println(email);\n//        System.out.println(valicode);\n\n        String correctValicode = RedisUtils.get(email).toString();\n\n//        System.out.println(\"this\" + correctValicode);\n\n        if (Objects.equals(correctValicode, valicode)){\n            stuService.addStudent(stunumber, password, email);\n        }\n        else\n            return Result.error().message(\"Register Error!\");\n\n        return Result.ok().message(\"Register Success\");\n    }\n\n    @PostMapping(\"/validateEmail\")\n    public Result validateEmail(@RequestBody EmailInfo emailInfo) throws Exception {\n        String email = emailInfo.getEmail();\n        System.out.println(email);\n        EmailService sEmail;\n        try{\n            sEmail = new EmailService(email);\n        } catch(EmailException err){\n            return Result.error().message(err.expMessage());\n        }\n        sEmail.sendEmail();\n        return Result.ok().message(\"email send successfully!\");\n    }\n\n    @PostMapping(\"/modifypass\")\n    public Result modifypassword(String stunumber, String password){\n        System.out.println(stunumber);\n        System.out.println(password);\n        stuService.updatePassword(stunumber, password);\n        return Result.ok();\n    }\n\n    @PostMapping(\"/modifyphone\")\n    public Result modifyphone(String stunumber, String phone){\n        System.out.println(stunumber);\n        System.out.println(phone);\n        stuService.updatePhone(stunumber, phone);\n        return Result.ok();\n    }\n\n    @PostMapping(\"/profile\")\n    public Result getProfile(String stunumber){\n        System.out.println(stunumber);\n        Students student = stuService.getByStunumber(stunumber);\n        return Result.ok().data(\"student\", student);\n    }\n\n\n    @GetMapping(\"/info\")  // \"token:xxx\"\n    public Result info(String token){\n        String username = JwtUtils.getClaimsByToken(token).getSubject();\n        String url = \"https://img1.baidu.com/it/u=3079149788,2510641134&fm=253&app=120&size=w931&n=0&f=JPEG&fmt=auto?sec=1685293200&t=b4fdd67eb0eb877a23df58dfe2dffca6\";\n        return Result.ok().data(\"name\",username).data(\"avatar\",url);\n    }\n\n    @PostMapping(\"/logout\")  // \"token:xxx\"\n    public Result logout(){\n        return Result.ok();\n    }\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/chinahitech/shop/controller/StuController.java b/src/main/java/com/chinahitech/shop/controller/StuController.java
+--- a/src/main/java/com/chinahitech/shop/controller/StuController.java	(revision a86c26205b3382fc39421c6b39906dde96fb3399)
++++ b/src/main/java/com/chinahitech/shop/controller/StuController.java	(date 1686236924079)
+@@ -102,7 +102,7 @@
+     }
+ 
+ 
+-    @GetMapping("/info")  // "token:xxx"
++    @GetMapping("/info")     // "token:xxx"
+     public Result info(String token){
+         String username = JwtUtils.getClaimsByToken(token).getSubject();
+         String url = "https://img1.baidu.com/it/u=3079149788,2510641134&fm=253&app=120&size=w931&n=0&f=JPEG&fmt=auto?sec=1685293200&t=b4fdd67eb0eb877a23df58dfe2dffca6";
+Index: target/classes/application.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>server.port=8081\n\nspring.datasource.url=jdbc:mysql://localhost:3306/clubnew\nspring.datasource.username=root\nspring.datasource.password=123456\nspring.datasource.driverClassName=com.mysql.cj.jdbc.Driver\n\nmybatis.type-aliases-package=com.chinahitech.shop.bean\n\nlogging.level.com.chinahitech.shop.mapper=debug\nupload-dir= upload/\n\nspring.servlet.multipart.max-file-size=10MB\nspring.servlet.multipart.max-request-size=10MB\n\nspring.redis.database=0\nspring.redis.host=127.0.0.1\nspring.redis.port=6379\nspring.redis.password=\nspring.redis.jedis.pool.max-active=200
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================
+diff --git a/target/classes/application.properties b/target/classes/application.properties
+--- a/target/classes/application.properties	(revision a86c26205b3382fc39421c6b39906dde96fb3399)
++++ b/target/classes/application.properties	(date 1686224412486)
+@@ -1,6 +1,6 @@
+ server.port=8081
+ 
+-spring.datasource.url=jdbc:mysql://localhost:3306/clubnew
++spring.datasource.url=jdbc:mysql://localhost:3306/club
+ spring.datasource.username=root
+ spring.datasource.password=123456
+ spring.datasource.driverClassName=com.mysql.cj.jdbc.Driver
+Index: src/main/resources/application.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>server.port=8081\n\nspring.datasource.url=jdbc:mysql://localhost:3306/clubnew\nspring.datasource.username=root\nspring.datasource.password=123456\nspring.datasource.driverClassName=com.mysql.cj.jdbc.Driver\n\nmybatis.type-aliases-package=com.chinahitech.shop.bean\n\nlogging.level.com.chinahitech.shop.mapper=debug\nupload-dir= upload/\n\nspring.servlet.multipart.max-file-size=10MB\nspring.servlet.multipart.max-request-size=10MB\n\nspring.redis.database=0\nspring.redis.host=127.0.0.1\nspring.redis.port=6379\nspring.redis.password=\nspring.redis.jedis.pool.max-active=200
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================
+diff --git a/src/main/resources/application.properties b/src/main/resources/application.properties
+--- a/src/main/resources/application.properties	(revision a86c26205b3382fc39421c6b39906dde96fb3399)
++++ b/src/main/resources/application.properties	(date 1686224409940)
+@@ -1,6 +1,6 @@
+ server.port=8081
+ 
+-spring.datasource.url=jdbc:mysql://localhost:3306/clubnew
++spring.datasource.url=jdbc:mysql://localhost:3306/club
+ spring.datasource.username=root
+ spring.datasource.password=123456
+ spring.datasource.driverClassName=com.mysql.cj.jdbc.Driver
