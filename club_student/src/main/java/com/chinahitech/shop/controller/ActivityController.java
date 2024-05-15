@@ -1,7 +1,7 @@
 package com.chinahitech.shop.controller;
 
-import com.chinahitech.shop.bean.Group;
-import com.chinahitech.shop.service.GroupService;
+import com.chinahitech.shop.bean.Activity;
+import com.chinahitech.shop.service.ActivityService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -29,11 +29,11 @@ import com.chinahitech.shop.utils.JwtUtils;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/group")
+@RequestMapping("/activity")
 @CrossOrigin
-public class GroupController {
+public class ActivityController {
     @Autowired
-    private GroupService groupService;
+    private ActivityService activityService;
 
     // 学生端
     @Value("${upload-dir}")
@@ -41,9 +41,9 @@ public class GroupController {
 
     @RequestMapping("/all")
     public Result getAll(String searchinfo){
-        List<Group> groups = groupService.query(searchinfo);
-        System.out.println(groups);
-        return Result.ok().data("items",groups);
+        List<Activity> activities = activityService.query(searchinfo);
+        System.out.println(activities);
+        return Result.ok().data("items",activities);
     }
 
     @RequestMapping("/getvideo")
@@ -66,21 +66,21 @@ public class GroupController {
 
     @RequestMapping("/top")
     public Result getTop() {
-        List<Group> groups = groupService.queryTop();
-        System.out.println(groups);
-        return Result.ok().data("item", groups);
+        List<Activity> activities = activityService.queryTop();
+        System.out.println(activities);
+        return Result.ok().data("item", activities);
     }
     // end
 
 
 
     // 管理员端
-    
+
     // 登录系统
     @PostMapping("/login")
-    public Result login(@RequestBody Group manager){
+    public Result login(@RequestBody Activity manager){
         System.out.println(manager);
-        Group dbManager = groupService.getByName(manager.getName());
+        Activity dbManager = activityService.getByName(manager.getName());
         if (dbManager != null && dbManager.getPassword().equals(manager.getPassword())) {
             // 验证通过，生成 token 返回给前端
             String token = JwtUtils.generateToken(manager.getName());
@@ -97,7 +97,7 @@ public class GroupController {
         String url = "https://nimg.ws.126.net/?url=http%3A%2F%2Fdingyue.ws.126.net%2F2021%2F1120%2F783a7b4ej00r2tvvx002fd200hs00hsg00hs00hs.jpg&thumbnail=660x2147483647&quality=80&type=jpg";
         return Result.ok().data("name",username).data("avatar",url);
     }
-    
+
     // 退出系统
     @PostMapping("/logout")  // "token:xxx"
     public Result logout(){
@@ -106,35 +106,35 @@ public class GroupController {
 
     // 我的社团
     @PostMapping("/myclub")
-    public Result getMyclub(String groupname){
-        List<Group> myclubs = groupService.queryGroup(groupname);
-        System.out.println(groupname);
+    public Result getMyclub(String name){
+        List<Activity> myclubs = activityService.queryActivity(name);
+        System.out.println(name);
         return Result.ok().data("items",myclubs);
     }
 
     // 我的社团
     @PostMapping("/detail")
-    public Result getGroupDetail(String groupname){
-        System.out.println(groupname);
-        Group group = groupService.getByName(groupname);
-        return Result.ok().data("group",group);
+    public Result getGroupDetail(String name){
+        System.out.println(name);
+        Activity activity = activityService.getByName(name);
+        return Result.ok().data("activity",name);
     }
 
     // 社团编辑详情->更新详情
     @PostMapping("/modifydescription")
-    public Result  modifyDescription(String groupname, String description,String attachment,String image){
-        System.out.println(groupname);
+    public Result  modifyDescription(String name, String description,String attachment,String image){
+        System.out.println(name);
         System.out.println(description);
-        groupService.updateDescription(groupname, description, attachment,image);
+        activityService.updateDescription(name, description, attachment,image);
         return Result.ok();
     }
 
     // 社团编辑详情->更新密码
     @PostMapping("/modifypassword")
-    public Result  modifyPassword(String groupname, String password){
-        System.out.println(groupname);
+    public Result  modifyPassword(String name, String password){
+        System.out.println(name);
         System.out.println(password);
-        groupService.updatePassword(groupname, password);
+        activityService.updatePassword(name, password);
         return Result.ok();
     }
 
@@ -165,7 +165,7 @@ public class GroupController {
     @PostMapping("/submitzip")
     public ResponseEntity<Map<String, String>> submitZip(@RequestParam("attachment") String attachment, @RequestParam("name") String name) {
         try {
-            groupService.updateAttachment(name, attachment);
+            activityService.updateAttachment(name, attachment);
 
             Map<String, String> response = new HashMap<>();
             response.put("message", "Successfully updated attachment.");
@@ -203,7 +203,7 @@ public class GroupController {
     @PostMapping("/submitphoto")
     public ResponseEntity<Map<String, String>> submitPhoto(@RequestParam("image") String image, @RequestParam("name") String name) {
         try {
-            groupService.updateImage(name, image);
+            activityService.updateImage(name, image);
 
             Map<String, String> response = new HashMap<>();
             response.put("message", "Successfully updated image.");
@@ -217,16 +217,16 @@ public class GroupController {
     @PostMapping("/getattachment")//能直接下载文件，而不是在新标签页中打开的比较难搞，涉及到http报文，暂时不搞了
     // 这个是在新标签页中打开，对于zip完全没问题
     public ResponseEntity<Map<String, Object>> getAttachment(@RequestParam("id") String id) {
-        Group group = groupService.getGroupById(id);
+        Activity activity = activityService.getActivityById(id);
         Map<String, Object> response = new HashMap<>();
-        if (group != null) {
+        if (activity != null) {
             response.put("code", 20000);
             response.put("success", true);
-            response.put("attachment", group.getAttachment());
+            response.put("attachment", activity.getAttachment());
         } else {
             response.put("code", 50000);
             response.put("success", false);
-            response.put("message", "Group not found");
+            response.put("message", "Activity not found");
         }
         return ResponseEntity.ok(response);
     }

@@ -1,8 +1,8 @@
 package com.chinahitech.shop.service;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.chinahitech.shop.bean.Group;
-import com.chinahitech.shop.mapper.GroupMapper;
+import com.chinahitech.shop.bean.Activity;
+import com.chinahitech.shop.mapper.ActivityMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.function.Function;
 
 @Service
-public class GroupService {
+public class ActivityService {
     interface EntityNotFoundExceptionInterface {
         String getMessage();
     }
@@ -28,65 +28,66 @@ public class GroupService {
         }
     }
     @Autowired
-    private GroupMapper groupMapper;
+    private ActivityMapper activityMapper;
 
-    public Group getByName(String name) {
-        return groupMapper.getByName(name);
+    public Activity getByName(String name) {
+        return activityMapper.getByName(name);
     }
 
     // public void updatePassword(String id, String password){
     //     manMapper.updatePassword(id, password);
     // }
 
-    public List<Group> query(String searchinfo) {
+    public List<Activity> query(String searchinfo) {
         if (searchinfo == null || searchinfo.trim().isEmpty()) {
-            return groupMapper.findall();
+            return activityMapper.findall();
         } else {
-            return groupMapper.findBySearch(searchinfo);
+            return activityMapper.findBySearch(searchinfo);
         }
     }
 
-    public List<Group> queryTop() {
-        return groupMapper.findtop();
+    public List<Activity> queryTop() {
+        return activityMapper.findtop();
     }
 
-    public List<Group> queryGroup(String groupname){
-        return groupMapper.findGroup(groupname);
+    public List<Activity> queryActivity(String name){
+        return activityMapper.findActivity(name);
     }
 
     public void updateDescription(String groupname, String description,String attachment,String image) {
-        groupMapper.updateDescriptionByName(groupname, description, attachment,image);
+        activityMapper.updateDescriptionByName(groupname, description, attachment,image);
     }
 
     public void updatePassword(String groupname, String password) {
-        groupMapper.updatePasswordByName(groupname, password);
-    }
-        
-    public Group getGroupById(String id) {
-        return groupMapper.getGroupById(id);
+        activityMapper.updatePasswordByName(groupname, password);
     }
 
-    public void addHot(String groupName) {
-        System.out.println(groupName);
-        Group group = groupMapper.getHot(groupName);
-        int hot = group.getHot();
+    public Activity getActivityById(String id) {
+        return activityMapper.getActivityById(id);
+    }
+
+    public void addHot(String name) {
+        System.out.println(name);
+        Activity activity = activityMapper.getHot(name);
+        int hot = activity.getHot();
         hot++;
-        groupMapper.updateHot(groupName, hot);
+        activityMapper.updateHot(name, hot);
     }
 
     public void updateAttachment(String name, String attachment) {
-        int rowsUpdated = groupMapper.updateAttachment(name, attachment);
+        int rowsUpdated = activityMapper.updateAttachment(name, attachment);
         if (rowsUpdated == 0) {
-            throw new EntityNotFoundException("Group with name " + name + " not found");
+            throw new EntityNotFoundException("Activity with name " + name + " not found");
         }
     }
 
     public void updateImage(String name, String image) {
-        int rowsUpdated = groupMapper.updateImage(name, image);
+        int rowsUpdated = activityMapper.updateImage(name, image);
         if (rowsUpdated == 0) {
-            throw new EntityNotFoundException("Group with name " + name + " not found");
+            throw new EntityNotFoundException("Activity with name " + name + " not found");
         }
     }
 }
+
 
 

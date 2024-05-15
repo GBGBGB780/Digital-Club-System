@@ -98,6 +98,7 @@ public class StuController {
     public Result getProfile(String stunumber){
         System.out.println(stunumber);
         Students student = stuService.getByStunumber(stunumber);
+        System.out.println(student);
         return Result.ok().data("student", student);
     }
 
