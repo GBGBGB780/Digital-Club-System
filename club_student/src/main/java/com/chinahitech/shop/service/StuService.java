@@ -15,16 +15,24 @@ public class StuService {
         return stuMapper.getByNum(num);
     }
 
-    public void updatePassword(String stunumber, String password){
-        stuMapper.updatePassword(stunumber, password);
-    }
-
     public void addStudent(String stunumber, String password, String email) {
         stuMapper.addStudent(stunumber, password, email);
     }
 
+    public void updatePassword(String stunumber, String password){
+        stuMapper.updatePassword(stunumber, password);
+    }
+
     public void updatePhone(String stunumber, String phone){
         stuMapper.updatePhone(stunumber, phone);
+    }
+
+    public void updateDescription(String stunumber, String description){
+        stuMapper.updateDescription(stunumber, description);
+    }
+
+    public void updateNickname(String stunumber, String nickname){
+        stuMapper.updateNickname(stunumber, nickname);
     }
 
 }

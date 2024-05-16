@@ -35,6 +35,7 @@ CREATE TABLE `activity` (
   `time` datetime DEFAULT NULL COMMENT '活动时间',
   `number` int DEFAULT NULL COMMENT '活动人数',
   `place` varchar(100) DEFAULT NULL COMMENT '活动地点',
+  `type` int DEFAULT NULL COMMENT '活动类型',
   PRIMARY KEY (`id`,`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -112,6 +113,31 @@ INSERT INTO `group` VALUES ('1','足球社','B费','https://img1.baidu.com/it/u=
 UNLOCK TABLES;
 
 --
+-- Table structure for table `individual_group`
+--
+
+DROP TABLE IF EXISTS `individual_group`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `individual_group` (
+  `Id` int NOT NULL AUTO_INCREMENT COMMENT '编号',
+  `studentId` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '学生编号',
+  `groupId` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '社团编号',
+  `position` varchar(100) DEFAULT NULL COMMENT '学生职位',
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `individual_group`
+--
+
+LOCK TABLES `individual_group` WRITE;
+/*!40000 ALTER TABLE `individual_group` DISABLE KEYS */;
+/*!40000 ALTER TABLE `individual_group` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `students`
 --
 
@@ -128,7 +154,6 @@ CREATE TABLE `students` (
   `major` varchar(45) DEFAULT NULL COMMENT '学生专业',
   `description` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '学生简介',
   `status` varchar(20) DEFAULT NULL COMMENT '学生身份',
-  `position` varchar(45) DEFAULT NULL COMMENT '学生职位',
   `nickname` varchar(100) DEFAULT NULL COMMENT '学生昵称',
   `avatar` varchar(100) DEFAULT NULL COMMENT '学生头像',
   PRIMARY KEY (`stunumber`) USING BTREE
@@ -141,7 +166,7 @@ CREATE TABLE `students` (
 
 LOCK TABLES `students` WRITE;
 /*!40000 ALTER TABLE `students` DISABLE KEYS */;
-INSERT INTO `students` VALUES ('21311272',NULL,NULL,NULL,'666666',NULL,NULL,NULL,NULL,NULL,NULL,NULL),('21311366',NULL,'luik@mail2.sysu.edu.cn',NULL,'666666','珠海校区','软件工程','真ikun','学生','普通成员',NULL,NULL),('21952107',NULL,NULL,NULL,'888888',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `students` VALUES ('21311272',NULL,NULL,NULL,'666666',NULL,NULL,NULL,NULL,NULL,NULL),('21311366',NULL,'luik@mail2.sysu.edu.cn',NULL,'666666','珠海校区','软件工程','真ikun','学生',NULL,NULL),('21952107',NULL,NULL,NULL,'888888',NULL,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `students` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -154,4 +179,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-05-15 17:32:02
+-- Dump completed on 2024-05-16 13:17:37

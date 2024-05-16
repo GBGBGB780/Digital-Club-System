@@ -24,19 +24,6 @@ class ShopApplicationTests {
         Assertions.assertEquals(groupName, group.getName());
 
         // 输出Group对象的属性
-        System.out.println("Group ID: " + group.getId());
-        System.out.println("Group Name: " + group.getName());
-        System.out.println("Group Description: " + group.getDescription());
-        System.out.println("Group Attachment: " + group.getAttachment());
-        System.out.println("Group Password: " + group.getPassword());
-    }
-    @Test
-    void findGroupById() {
-        List<Group> groups = groupMapper.findall();
-        for (Group group : groups) {
-            System.out.println(group.getId());
-            Group group1 = groupMapper.getGroupById(group.getId());
-            System.out.println(group1.getName());
-        }
-    }
+        System.out.println(group);
+    }   
 }

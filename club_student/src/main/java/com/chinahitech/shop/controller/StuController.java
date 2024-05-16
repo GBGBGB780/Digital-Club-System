@@ -94,6 +94,22 @@ public class StuController {
         return Result.ok();
     }
 
+    @PostMapping("/modifydescription")
+    public Result modifydescription(String stunumber, String description){
+        System.out.println(stunumber);
+        System.out.println(description);
+        stuService.updateDescription(stunumber, description);
+        return Result.ok();
+    }
+
+    @PostMapping("/modifynickname")
+    public Result modifynickname(String stunumber, String nickname){
+        System.out.println(stunumber);
+        System.out.println(nickname);
+        stuService.updateNickname(stunumber, nickname);
+        return Result.ok();
+    }
+
     @PostMapping("/profile")
     public Result getProfile(String stunumber){
         System.out.println(stunumber);
