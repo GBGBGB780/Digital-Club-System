@@ -29,5 +29,14 @@ class ShopApplicationTests {
         System.out.println("Group Description: " + group.getDescription());
         System.out.println("Group Attachment: " + group.getAttachment());
         System.out.println("Group Password: " + group.getPassword());
-    }   
+    }
+    @Test
+    void findGroupById() {
+        List<Group> groups = groupMapper.findall();
+        for (Group group : groups) {
+            System.out.println(group.getId());
+            Group group1 = groupMapper.getGroupById(group.getId());
+            System.out.println(group1.getName());
+        }
+    }
 }
