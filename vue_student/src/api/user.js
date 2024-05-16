@@ -33,6 +33,22 @@ export function modifyphone(stunumber, phone) {
   })
 }
 
+export function modifydescription(stunumber, description) {
+  return request({
+      url: '/user/modifydescription',
+      method: 'post',
+      params: { stunumber, description }
+  })
+}
+
+export function modifynickname(stunumber, nickname) {
+  return request({
+      url: '/user/modifynickname',
+      method: 'post',
+      params: { stunumber, nickname }
+  })
+}
+
 export function validateEmail(email) {
   console.error({ email })
   return request({

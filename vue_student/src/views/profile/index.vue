@@ -10,7 +10,7 @@
           <el-input v-model="profile.stuname" :disabled="true" class="custom-data" />
         </el-form-item>
         <el-form-item label="昵称">
-          <el-input v-model="profile.nickname" class="custom-data" />
+          <el-input v-model="newForm.nickname" class="custom-data" />
         </el-form-item>
         <el-form-item label="邮箱">
           <el-input v-model="profile.email" :disabled="true" class="custom-data" />
@@ -30,7 +30,7 @@
           <el-input v-model="newForm.phone" type="phone" maxlength="11" class="custom-data" />
           <!-- <span style="margin-right: 20px;" /> 添加空白元素 -->
         </el-form-item>
-        <span style="margin-left: 100px;" /><el-button type="primary" @click="submitPhone('newForm')">更新</el-button>
+        <span style="margin-left: 100px;" /><el-button type="primary" @click="submit('newForm')">更新</el-button>
       </el-form>
       <el-form ref="ruleForm" :model="ruleForm" status-icon :rules="rules" label-width="100px" class="demo-ruleForm">
         <el-form-item label="------------------------修改密码------------------------" label-width="360px" />
@@ -51,7 +51,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import { modifypassword, getProfile, modifyphone } from '@/api/user.js'
+import { modifypassword, getProfile, modifyphone,modifynickname,modifydescription } from '@/api/user.js'
 import router from '@/router'
 export default {
   name: 'Profile',
@@ -98,12 +98,11 @@ export default {
         campus: '',
         major: '',
         position: '',
-        nickname: '',
-
       },
       newForm: {
         phone: '',
-        description: ''
+        description: '',
+        nickname: '',
       }
     }
   },
@@ -117,7 +116,7 @@ export default {
         this.profile.campus = response.data.student.campus
         this.profile.major = response.data.student.major
         this.profile.position = response.data.student.position
-        this.profile.nickname = response.data.student.nickname
+        this.newForm.nickname = response.data.student.nickname
         this.newForm.description = response.data.student.description
       })
       .catch((error) => {
@@ -155,14 +154,16 @@ export default {
     resetForm(formName) {
       this.$refs[formName].resetFields()
     },
-    submitPhone(formName) {
+    submit(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
           this.$message({
-            message: '手机号修改成功',
+            message: '修改成功',
             type: 'success'
           })
           setTimeout(() => {
+            modifydescription(this.name, this.newForm.description)
+            modifynickname(this.name, this.newForm.nickname)
             modifyphone(this.name, this.newForm.phone)
               .then((response) => {
                 console.log(response.data)
