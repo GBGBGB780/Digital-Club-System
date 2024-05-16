@@ -16,7 +16,7 @@ public class Students extends Organization{
     private String phone;
     private String campus;
     private String major;
-    private String introduction;
+    private String description;
     private String status;
     private String position;
     private String nickname;
