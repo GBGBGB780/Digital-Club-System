@@ -9,22 +9,31 @@
         <el-form-item label="姓名">
           <el-input v-model="profile.stuname" :disabled="true" class="custom-data" />
         </el-form-item>
+        <el-form-item label="昵称">
+          <el-input v-model="profile.nickname" class="custom-data" />
+        </el-form-item>
         <el-form-item label="邮箱">
           <el-input v-model="profile.email" :disabled="true" class="custom-data" />
         </el-form-item>
-        <el-form-item label="手机号">
-          <el-input v-model="profile.phone" :disabled="true" class="custom-data" />
+        <el-form-item label="校区">
+          <el-input v-model="profile.campus" :disabled="true" class="custom-data" />
+        </el-form-item>
+        <el-form-item label="专业">
+          <el-input v-model="profile.major" :disabled="true" class="custom-data" />
+        </el-form-item>
+        <el-form-item label="简介">
+          <el-input v-model="newForm.description" type="textarea" maxlength="200" :rows="4" class="custom-input" />
         </el-form-item>
       </el-form>
       <el-form ref="newForm" :model="newForm" status-icon :rules="rules" label-width="100px" class="demo-ruleForm">
-        <el-form-item label="新手机号" prop="phone">
-          <el-input v-model="newForm.phone" type="phone" maxlength="11" class="custom-input" />
-          <span style="margin-right: 20px;" /> <!-- 添加空白元素 -->
-          <el-button type="primary" @click="submitPhone('newForm')">更新</el-button>
+        <el-form-item label="手机号" prop="phone">
+          <el-input v-model="newForm.phone" type="phone" maxlength="11" class="custom-data" />
+          <!-- <span style="margin-right: 20px;" /> 添加空白元素 -->
         </el-form-item>
+        <span style="margin-left: 100px;" /><el-button type="primary" @click="submitPhone('newForm')">更新</el-button>
       </el-form>
       <el-form ref="ruleForm" :model="ruleForm" status-icon :rules="rules" label-width="100px" class="demo-ruleForm">
-        <el-form-item label="修改密码" label-width="180px" />
+        <el-form-item label="------------------------修改密码------------------------" label-width="360px" />
         <el-form-item label="新密码" prop="pass">
           <el-input v-model="ruleForm.pass" type="password" autocomplete="off" class="custom-data" />
         </el-form-item>
@@ -86,10 +95,15 @@ export default {
         stunumber: '',
         stuname: '',
         email: '',
-        phone: ''
+        campus: '',
+        major: '',
+        position: '',
+        nickname: '',
+
       },
       newForm: {
-        phone: ''
+        phone: '',
+        description: ''
       }
     }
   },
@@ -99,7 +113,12 @@ export default {
       .then((response) => {
         this.profile.stuname = response.data.student.stuname
         this.profile.email = response.data.student.email
-        this.profile.phone = response.data.student.phone
+        this.newForm.phone = response.data.student.phone
+        this.profile.campus = response.data.student.campus
+        this.profile.major = response.data.student.major
+        this.profile.position = response.data.student.position
+        this.profile.nickname = response.data.student.nickname
+        this.newForm.description = response.data.student.description
       })
       .catch((error) => {
         console.error(error)
@@ -165,7 +184,7 @@ export default {
 
 <style>
 .custom-input {
-  width: 200px;
+  width: 300px;
 }
 .custom-data {
   width: 300px;
@@ -181,7 +200,7 @@ export default {
   height: 100vh;
 }
 .content {
-  position: absolute;
+  position: relative;
   top: 20px;
   left: 100px;
 }
