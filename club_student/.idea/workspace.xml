@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b849962b-f7a7-45d1-bd6b-140ec1eb19ac" name="变更" comment="前端个人信息页面">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/chinahitech/shop/bean/Students.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chinahitech/shop/bean/Students.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/chinahitech/shop/bean/Students.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/chinahitech/shop/bean/Students.class" afterDir="false" />
-    </list>
+    <list default="true" id="b849962b-f7a7-45d1-bd6b-140ec1eb19ac" name="变更" comment="框架搭建" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -68,7 +62,7 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/java program/test_project2",
+    "last_opened_file_path": "D:/java program/club_student/src/main/java/com/chinahitech/shop/service/exception",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -79,10 +73,22 @@
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "advanced.settings",
     "spring.configuration.checksum": "fb54f3c5992b96d001bb16e8e92d968d",
-    "ts.external.directory.path": "D:\\IntelliJ IDEA\\IntelliJ IDEA 2023.3.2\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql_aurora_aws"
+    ]
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\java program\club_student\src\main\java\com\chinahitech\shop\service\exception" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.chinahitech.shop.bean" />
+    </key>
+  </component>
   <component name="RunManager" selected="Spring Boot.ShopApplication (1)">
     <configuration name="ShopApplicationTests.findGroup" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="shop" />
@@ -120,6 +126,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="test_projectApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="test_project" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.test_project.test_projectApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.ShopApplicationTests.findGroup" />
@@ -130,7 +144,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-1.8.0_402-corretto-1.8.0_402-f644763e9732-af3fa2b8" />
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.15989.150" />
+        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-IU-241.15989.150" />
       </set>
     </attachedChunks>
   </component>
@@ -152,8 +167,13 @@
       <workItem from="1715687181368" duration="1315000" />
       <workItem from="1715751246071" duration="2628000" />
       <workItem from="1715755119623" duration="6883000" />
-      <workItem from="1715828466660" duration="2425000" />
-      <workItem from="1715855561362" duration="2242000" />
+      <workItem from="1715764889449" duration="9096000" />
+      <workItem from="1715788666699" duration="9000" />
+      <workItem from="1715836301156" duration="552000" />
+      <workItem from="1715837402261" duration="3716000" />
+      <workItem from="1715861700865" duration="5000" />
+      <workItem from="1715863832118" duration="60000" />
+      <workItem from="1715865009345" duration="7831000" />
     </task>
     <task id="LOCAL-00001" summary="增加了一个查询天气的api">
       <created>1686468078163</created>
@@ -178,38 +198,11 @@
       <option name="project" value="LOCAL" />
       <updated>1715764531485</updated>
     </task>
-    <task id="LOCAL-00004" summary="测试类更新">
-      <option name="closed" value="true" />
-      <created>1715828558535</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1715828558535</updated>
-    </task>
-    <task id="LOCAL-00005" summary="前端个人信息页面">
-      <option name="closed" value="true" />
-      <created>1715859995994</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1715859995994</updated>
-    </task>
-    <option name="localTasksCounter" value="6" />
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.History.Properties">
-    <option name="COLUMN_ID_ORDER">
-      <list>
-        <option value="Default.Root" />
-        <option value="Default.Author" />
-        <option value="Default.Date" />
-        <option value="Default.Subject" />
-        <option value="Space.CommitStatus" />
-      </list>
-    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -226,9 +219,7 @@
     <MESSAGE value="增加了一个查询天气的api" />
     <MESSAGE value="增加了接口，超类，lamda表达式，抛出异常的知识点。" />
     <MESSAGE value="框架搭建" />
-    <MESSAGE value="测试类更新" />
-    <MESSAGE value="前端个人信息页面" />
-    <option name="LAST_COMMIT_MESSAGE" value="前端个人信息页面" />
+    <option name="LAST_COMMIT_MESSAGE" value="框架搭建" />
     <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">

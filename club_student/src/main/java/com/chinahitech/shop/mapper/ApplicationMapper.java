@@ -11,6 +11,8 @@ import java.util.List;
 
 @Repository
 public interface ApplicationMapper extends BaseMapper<Application> {
+
+
     @Select("select * from `application`")
     List<Application> findall();
 
@@ -27,11 +29,11 @@ public interface ApplicationMapper extends BaseMapper<Application> {
     String findIsAccepted(Integer id);
 
     @Update("UPDATE application SET attachment = #{attachment} WHERE applicationid = #{applicationid}")
-    void updateAttachment(@Param("applicationid") int applicationid, @Param("attachment") String attachment);
+    int updateAttachment(@Param("applicationid") int applicationid, @Param("attachment") String attachment);
 
     @Update("update `application` set isaccepted = true where applicationid = #{applicationid}")
-    void confirmApplicationByid(@Param("applicationid") Integer applicationid);
+    int confirmApplicationByid(@Param("applicationid") Integer applicationid);
 
     @Update("update `application` set isaccepted = false where applicationid = #{applicationid}")
-    void denyApplicationByid(@Param("applicationid") Integer applicationid);
+    int denyApplicationByid(@Param("applicationid") Integer applicationid);
 }

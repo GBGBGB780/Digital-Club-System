@@ -13,7 +13,7 @@ import java.util.List;
 public interface GroupMapper extends BaseMapper<Group> {
 
     @Select("SELECT * FROM `group` WHERE name = #{name}")
-    public Group getByName(String name);
+    Group getByName(String name);
 
     // @Update("UPDATE group SET password = #{password} WHERE id = #{id}")
     // void updatePassword(@Param("id") String id, @Param("password") String password);
@@ -39,19 +39,19 @@ public interface GroupMapper extends BaseMapper<Group> {
 
 
     @Update("update `group` set description = #{description}, attachment=#{attachment}, image=#{image} where name = #{name}")
-    void updateDescriptionByName(@Param("name") String groupname,
+    int updateDescriptionByName(@Param("name") String groupname,
                                  @Param("description") String description,
                                  @Param("attachment") String attachment,
                                  @Param("image") String image);
 
     @Update("update `group` set password = #{password} where name = #{name}")
-    void updatePasswordByName(@Param("name") String groupname, @Param("password") String password);
+    int updatePasswordByName(@Param("name") String groupname, @Param("password") String password);
 
     @Select("select * from `group` where name = #{name}")
     Group getHot(String name);
 
     @Update("update `group` set hot = #{hot} where name = #{name}")
-    void updateHot(String name, int hot);
+    int updateHot(String name, int hot);
 
     @Select("select * from `group` order by hot desc limit 5")
     List<Group> findtop();

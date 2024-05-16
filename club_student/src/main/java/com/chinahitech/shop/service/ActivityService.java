@@ -3,6 +3,8 @@ package com.chinahitech.shop.service;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.chinahitech.shop.bean.Activity;
 import com.chinahitech.shop.mapper.ActivityMapper;
+import com.chinahitech.shop.service.exception.EntityNotFoundException;
+import com.chinahitech.shop.service.exception.UpdateException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,27 +13,31 @@ import java.util.function.Function;
 
 @Service
 public class ActivityService {
-    interface EntityNotFoundExceptionInterface {
-        String getMessage();
-    }
-
-    class EntityNotFoundException extends RuntimeException implements EntityNotFoundExceptionInterface {
-        private final Function<String, String> ex = (String message) -> message;
-
-        public EntityNotFoundException(String message) {
-            super(message);  // 使用超类抛出异常
-        }
-
-        @Override
-        public String getMessage() {
-            return ex.apply(super.getMessage());  // 调用lambda表达式
-        }
-    }
+//    interface EntityNotFoundExceptionInterface {
+//        String getMessage();
+//    }
+//
+//    class EntityNotFoundException extends RuntimeException implements EntityNotFoundExceptionInterface {
+//        private final Function<String, String> ex = (String message) -> message;
+//
+//        public EntityNotFoundException(String message) {
+//            super(message);  // 使用超类抛出异常
+//        }
+//
+//        @Override
+//        public String getMessage() {
+//            return ex.apply(super.getMessage());  // 调用lambda表达式
+//        }
+//    }
     @Autowired
     private ActivityMapper activityMapper;
 
     public Activity getByName(String name) {
-        return activityMapper.getByName(name);
+        Activity activity = activityMapper.getByName(name);
+        if(activity == null){
+            throw new EntityNotFoundException("活动"+ name +"不存在");
+        }
+        return activity;
     }
 
     // public void updatePassword(String id, String password){
@@ -55,36 +61,52 @@ public class ActivityService {
     }
 
     public void updateDescription(String groupname, String description,String attachment,String image) {
-        activityMapper.updateDescriptionByName(groupname, description, attachment,image);
+        int i = activityMapper.updateDescriptionByName(groupname, description, attachment,image);
+        if(i != 1){
+            throw new UpdateException("活动"+ groupname +"简介修改失败");
+        }
     }
 
     public void updatePassword(String groupname, String password) {
-        activityMapper.updatePasswordByName(groupname, password);
+        int i = activityMapper.updatePasswordByName(groupname, password);
+        if(i != 1){
+            throw new UpdateException("活动"+ groupname +"密码修改失败");
+        }
     }
 
     public Activity getActivityById(String id) {
-        return activityMapper.getActivityById(id);
+        Activity activity = activityMapper.getActivityById(id);
+        if(activity == null){
+            throw new EntityNotFoundException("活动"+ id +"不存在");
+        }
+        return activity;
     }
 
     public void addHot(String name) {
         System.out.println(name);
         Activity activity = activityMapper.getHot(name);
+        if(activity == null){
+            throw new EntityNotFoundException("活动"+ name +"不存在");
+        }
         int hot = activity.getHot();
         hot++;
-        activityMapper.updateHot(name, hot);
+        int i = activityMapper.updateHot(name, hot);
+        if(i != 1){
+            throw new UpdateException("活动"+ name +"热度修改失败");
+        }
     }
 
     public void updateAttachment(String name, String attachment) {
         int rowsUpdated = activityMapper.updateAttachment(name, attachment);
         if (rowsUpdated == 0) {
-            throw new EntityNotFoundException("Activity with name " + name + " not found");
+            throw new UpdateException("活动"+ name +"附件修改失败");
         }
     }
 
     public void updateImage(String name, String image) {
         int rowsUpdated = activityMapper.updateImage(name, image);
         if (rowsUpdated == 0) {
-            throw new EntityNotFoundException("Activity with name " + name + " not found");
+            throw new UpdateException("活动"+ name +"图片修改失败");
         }
     }
 }

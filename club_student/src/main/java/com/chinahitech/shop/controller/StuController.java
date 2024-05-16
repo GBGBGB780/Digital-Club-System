@@ -25,17 +25,18 @@ public class StuController {
     // querystring: username=zhangsan&password=123   User user,String username,String password
     // json: {username:zhangsan,password:123}
     // 如果前端传递的数据是json格式，必须使用对象接收，同时需要添加@RequestBody
-    public Result login(@RequestBody Students student){
-        System.out.println(student);
-        Students dbStudent = stuService.getByStunumber(student.getStunumber());
-        if (dbStudent != null && dbStudent.getPassword().equals(student.getPassword())) {
+    public Result login(String stunumber, String password){
+        Students dbStudent = stuService.login(stunumber, password);
+//        Students dbStudent = stuService.getByStunumber(student.getStunumber());
+//        if (dbStudent != null && dbStudent.getPassword().equals(student.getPassword())) {
             // 验证通过，生成 token 返回给前端
-            String token = JwtUtils.generateToken(student.getStunumber());
-            return Result.ok().data("token", token);
-        } else {
-            // 验证失败，返回错误信息
-            return Result.error().message("用户名或密码不正确");
-        }
+        String token = JwtUtils.generateToken(dbStudent.getStunumber());
+//        System.out.println(stunumber + password);
+        return Result.ok().data("token", token);
+//        } else {
+//            // 验证失败，返回错误信息
+//            return Result.error().message("用户名或密码不正确");
+//        }
     }
 
     @PostMapping("/register")

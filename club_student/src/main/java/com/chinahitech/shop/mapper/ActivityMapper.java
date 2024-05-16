@@ -13,7 +13,7 @@ import java.util.List;
 public interface ActivityMapper extends BaseMapper<Activity> {
 
     @Select("SELECT * FROM `Activity` WHERE name = #{name}")
-    public Activity getByName(String name);
+    Activity getByName(String name);
 
     // @Update("UPDATE group SET password = #{password} WHERE id = #{id}")
     // void updatePassword(@Param("id") String id, @Param("password") String password);
@@ -39,19 +39,19 @@ public interface ActivityMapper extends BaseMapper<Activity> {
 
 
     @Update("update `Activity` set description = #{description}, attachment=#{attachment}, image=#{image} where name = #{name}")
-    void updateDescriptionByName(@Param("name") String groupname,
+    int updateDescriptionByName(@Param("name") String groupname,
                                  @Param("description") String description,
                                  @Param("attachment") String attachment,
                                  @Param("image") String image);
 
     @Update("update `Activity` set password = #{password} where name = #{name}")
-    void updatePasswordByName(@Param("name") String groupname, @Param("password") String password);
+    int updatePasswordByName(@Param("name") String groupname, @Param("password") String password);
 
     @Select("select * from `Activity` where name = #{name}")
     Activity getHot(String name);
 
     @Update("update `Activity` set hot = #{hot} where name = #{name}")
-    void updateHot(String name, int hot);
+    int updateHot(String name, int hot);
 
     @Select("select * from `Activity` order by hot desc limit 5")
     List<Activity> findtop();
