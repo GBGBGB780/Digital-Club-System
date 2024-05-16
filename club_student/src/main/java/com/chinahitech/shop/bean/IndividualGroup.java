@@ -11,7 +11,7 @@ import lombok.*;
 public class IndividualGroup {
     //    private String id;
     @JsonProperty("username")
-    private int IndividualId;
+    private int individualId;
     private String groupId;
     private String studentId;
     private String position;
