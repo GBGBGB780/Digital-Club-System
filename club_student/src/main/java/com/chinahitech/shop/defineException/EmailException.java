@@ -7,6 +7,6 @@ public class EmailException extends Exception {
     }
 
     public String expMessage() {
-        return email + "不属于校园邮箱，请用中大邮箱注册";
+        return email + "不属于校园邮箱，请使用中大邮箱注册";
     }
 }

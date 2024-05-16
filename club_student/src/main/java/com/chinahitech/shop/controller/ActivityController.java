@@ -104,23 +104,23 @@ public class ActivityController {
         return Result.ok();
     }
 
-    // 我的社团
-    @PostMapping("/myclub")
-    public Result getMyclub(String name){
-        List<Activity> myclubs = activityService.queryActivity(name);
+    // 我的活动
+    @PostMapping("/myactivity")
+    public Result getMyActivities(String name){
+        List<Activity> activities = activityService.queryActivity(name);
         System.out.println(name);
-        return Result.ok().data("items",myclubs);
+        return Result.ok().data("items",activities);
     }
 
-    // 我的社团
+    // 我的活动细节
     @PostMapping("/detail")
-    public Result getGroupDetail(String name){
+    public Result getActivityDetail(String name){
         System.out.println(name);
         Activity activity = activityService.getByName(name);
         return Result.ok().data("activity",name);
     }
 
-    // 社团编辑详情->更新详情
+    // 活动编辑详情->更新详情
     @PostMapping("/modifydescription")
     public Result  modifyDescription(String name, String description,String attachment,String image){
         System.out.println(name);
@@ -129,7 +129,7 @@ public class ActivityController {
         return Result.ok();
     }
 
-    // 社团编辑详情->更新密码
+    // 活动编辑详情->更新密码
     @PostMapping("/modifypassword")
     public Result  modifyPassword(String name, String password){
         System.out.println(name);
