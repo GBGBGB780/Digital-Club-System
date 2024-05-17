@@ -29,13 +29,17 @@ CREATE TABLE `activity` (
   `image` varchar(1200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '活动照片',
   `description` varchar(700) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '活动介绍',
   `attachment` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '活动附件',
-  `password` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '活动管理人员密码',
   `hot` int DEFAULT '0' COMMENT '当前热度',
   `arrange` varchar(100) DEFAULT NULL COMMENT '活动事项安排',
   `time` datetime DEFAULT NULL COMMENT '活动时间',
   `number` int DEFAULT NULL COMMENT '活动人数',
   `place` varchar(100) DEFAULT NULL COMMENT '活动地点',
   `type` int DEFAULT NULL COMMENT '活动类型',
+  `groupId` varchar(45) DEFAULT NULL COMMENT '活动负责社团编号',
+  `createUser` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '创建者',
+  `createTime` datetime DEFAULT NULL COMMENT '创建时间',
+  `modifyUser` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '修改者',
+  `modifyTime` datetime DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`,`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -98,6 +102,11 @@ CREATE TABLE `group` (
   `attachment` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '社团附件',
   `password` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '社团管理人员密码',
   `hot` int DEFAULT '0' COMMENT '当前热度',
+  `salt` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '盐值',
+  `createUser` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '创建者',
+  `createTime` datetime DEFAULT NULL COMMENT '创建时间',
+  `modifyUser` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '修改者',
+  `modifyTime` datetime DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`,`name`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -108,7 +117,7 @@ CREATE TABLE `group` (
 
 LOCK TABLES `group` WRITE;
 /*!40000 ALTER TABLE `group` DISABLE KEYS */;
-INSERT INTO `group` VALUES ('1','足球社','B费','https://img1.baidu.com/it/u=2830895879,1858512659&fm=253&fmt=auto&app=138&f=JPEG?w=499&h=367','C罗siuuuuuu!',NULL,'111111',9),('2','飞盘社','陈建铧','https://pic3.zhimg.com/v2-d44ffaccc42c2639b20bae7f980994aa_r.jpg','大神飞盘教学',NULL,'111111',2),('3','文学社','贾宝玉','https://img1.baidu.com/it/u=4003599851,1156152734&fm=253&app=138&size=w931&n=0&f=JPEG&fmt=auto?sec=1685293200&t=982158c0ce50753b778bd348cd23c72f','红楼梦',NULL,'111111',0),('4','说唱社','丁真','https://img1.baidu.com/it/u=3079149788,2510641134&fm=253&app=120&size=w931&n=0&f=JPEG&fmt=auto?sec=1685293200&t=b4fdd67eb0eb877a23df58dfe2dffca6','理塘丁真',NULL,'111111',0),('5','唱跳社','坤坤','https://img2.baidu.com/it/u=4022135548,2767225744&fm=253&app=120&size=w931&n=0&f=JPEG&fmt=auto?sec=1685293200&t=c7fb5fb46e1d0af0a5cda28717085867','基尼太美',NULL,'111111',0),('6','羽毛球社','hh','https://img.zcool.cn/community/01828f595df60ba8012193a35a606e.JPG@1280w_1l_2o_100sh.jpg','badminton',NULL,'111111',1);
+INSERT INTO `group` VALUES ('1','足球社','B费','https://img1.baidu.com/it/u=2830895879,1858512659&fm=253&fmt=auto&app=138&f=JPEG?w=499&h=367','C罗siuuuuuu!',NULL,'111111',9,NULL,NULL,NULL,NULL,NULL),('2','飞盘社','陈建铧','https://pic3.zhimg.com/v2-d44ffaccc42c2639b20bae7f980994aa_r.jpg','大神飞盘教学',NULL,'111111',2,NULL,NULL,NULL,NULL,NULL),('3','文学社','贾宝玉','https://img1.baidu.com/it/u=4003599851,1156152734&fm=253&app=138&size=w931&n=0&f=JPEG&fmt=auto?sec=1685293200&t=982158c0ce50753b778bd348cd23c72f','红楼梦',NULL,'111111',0,NULL,NULL,NULL,NULL,NULL),('4','说唱社','丁真','https://img1.baidu.com/it/u=3079149788,2510641134&fm=253&app=120&size=w931&n=0&f=JPEG&fmt=auto?sec=1685293200&t=b4fdd67eb0eb877a23df58dfe2dffca6','理塘丁真',NULL,'111111',0,NULL,NULL,NULL,NULL,NULL),('5','唱跳社','坤坤','https://img2.baidu.com/it/u=4022135548,2767225744&fm=253&app=120&size=w931&n=0&f=JPEG&fmt=auto?sec=1685293200&t=c7fb5fb46e1d0af0a5cda28717085867','基尼太美',NULL,'111111',0,NULL,NULL,NULL,NULL,NULL),('6','羽毛球社','hh','https://img.zcool.cn/community/01828f595df60ba8012193a35a606e.JPG@1280w_1l_2o_100sh.jpg','badminton',NULL,'111111',1,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `group` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -121,9 +130,10 @@ DROP TABLE IF EXISTS `individual_group`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `individual_group` (
   `Id` int NOT NULL AUTO_INCREMENT COMMENT '编号',
-  `studentId` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '学生编号',
+  `stuId` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '学生编号',
   `groupId` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '社团编号',
   `position` varchar(100) DEFAULT NULL COMMENT '学生职位',
+  `stuName` varchar(100) DEFAULT NULL COMMENT '学生姓名',
   PRIMARY KEY (`Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -184,4 +194,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-05-16 23:28:44
+-- Dump completed on 2024-05-17 18:37:31

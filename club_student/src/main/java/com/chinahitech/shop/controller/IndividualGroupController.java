@@ -26,10 +26,20 @@ public class IndividualGroupController {
     private IndividualGroupService individualGroupService;
 
     // 学生端
-    @RequestMapping("/all")
+    //获取该学生参加的所有社团及其在对应社团的职位
+    @RequestMapping("/allGroups")
     public Result getIndividualGroup(String studentId) {
-        List<IndividualGroup> individualGroupList = individualGroupService.getGroupByStudentId(studentId);
+        List<IndividualGroup> individualGroupList = individualGroupService.getGroupByStuId(studentId);
         System.out.println(individualGroupList);
         return Result.ok().data("items", individualGroupList);
+    }
+
+    //管理员端
+    //获取该社团的所有学生及其职位
+    @RequestMapping("/allStudents")
+    public Result getStudentsByGroup(String groupId) {
+        List<IndividualGroup> studentList = individualGroupService.getGroupByGroupId(groupId);
+        System.out.println(studentList);
+        return Result.ok().data("items", studentList);
     }
 }

@@ -1,7 +1,7 @@
 package com.chinahitech.shop.service.exception;
 
 /*
-地址不存在
+该实体不存在
  */
 public class EntityNotFoundException extends ServiceException {
     public EntityNotFoundException() {

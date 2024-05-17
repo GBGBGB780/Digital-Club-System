@@ -25,5 +25,6 @@ public class Activity extends Organization{
     private int number;
     private String place;
     private int type;
+    private int groupId;
 }
 

@@ -13,7 +13,11 @@ public class IndividualGroupService {
     @Autowired
     private IndividualGroupMapper individualGroupMapper;
 
-    public List<IndividualGroup> getGroupByStudentId(String StudentId) {
-        return individualGroupMapper.getGroupByStudentId(StudentId);
+    public List<IndividualGroup> getGroupByStuId(String stuId) {
+        return individualGroupMapper.getGroupByStuId(stuId);
+    }
+
+    public List<IndividualGroup> getGroupByGroupId(String groupId) {
+        return individualGroupMapper.getGroupByGroupId(groupId);
     }
 }

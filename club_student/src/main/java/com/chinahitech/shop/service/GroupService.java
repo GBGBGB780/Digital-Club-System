@@ -1,6 +1,5 @@
 package com.chinahitech.shop.service;
 
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.chinahitech.shop.bean.Group;
 import com.chinahitech.shop.mapper.GroupMapper;
 import com.chinahitech.shop.service.exception.EntityNotFoundException;
@@ -8,8 +7,8 @@ import com.chinahitech.shop.service.exception.UpdateException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
-import java.util.function.Function;
 
 @Service
 public class GroupService {
@@ -31,6 +30,7 @@ public class GroupService {
 //    }
     @Autowired
     private GroupMapper groupMapper;
+    private md5 md5 = new md5();
 
     public Group getByName(String name) {
         Group group = groupMapper.getByName(name);
@@ -40,9 +40,25 @@ public class GroupService {
         return group;
     }
 
-    // public void updatePassword(String id, String password){
-    //     manMapper.updatePassword(id, password);
-    // }
+    public Group login(String name, String pwd) {
+        Group group = groupMapper.getByName(name);
+        if (group == null){
+            throw new EntityNotFoundException("社团"+ name +"不存在");
+        }
+        String oldPwd = group.getPassword();
+        //获取盐值
+        String salt = group.getSalt();
+//        System.out.println(salt);
+        //获取用户输入的密码对应的加密
+//        String newPwd = MD5handler(pwd,salt);
+        if (!md5.isEqual(oldPwd,pwd,salt)){
+//            System.out.println(oldPwd);
+//            System.out.println(pwd);
+            group.setPassword(null);
+//            throw new PwdNotMatchException("密码错误");
+        }
+        return group;
+    }
 
     public List<Group> query(String searchinfo) {
         if (searchinfo == null || searchinfo.trim().isEmpty()) {
@@ -61,14 +77,24 @@ public class GroupService {
     }
 
     public void updateDescription(String groupname, String description,String attachment,String image) {
-        int i = groupMapper.updateDescriptionByName(groupname, description, attachment,image);
+        Date date = new Date();
+        int i = groupMapper.updateDescriptionByName(groupname, description, attachment, image, date);
         if(i != 1){
             throw new UpdateException("社团"+ groupname +"简介修改失败");
         }
     }
 
     public void updatePassword(String groupname, String password) {
-        int i = groupMapper.updatePasswordByName(groupname, password);
+        Group group = groupMapper.getByName(groupname);
+//        String oldMD5pwd = stu.getPwd();
+        String salt = group.getSalt();
+//        if (!isEqual(oldMD5pwd, oldPwd, salt)){
+//            throw new PwdNotMatchException("密码错误");
+//        }
+        String newMD5pwd = md5.MD5handler(password, salt);
+        Date date = new Date();
+
+        int i = groupMapper.updatePasswordByName(groupname, newMD5pwd, date);
         if(i != 1){
             throw new UpdateException("社团"+ groupname +"密码修改失败");
         }
@@ -90,21 +116,25 @@ public class GroupService {
         }
         int hot = group.getHot();
         hot++;
-        int i = groupMapper.updateHot(groupName, hot);
+
+        Date date = new Date();
+        int i = groupMapper.updateHot(groupName, hot, date);
         if(i != 1){
             throw new UpdateException("社团"+ groupName +"热度修改失败");
         }
     }
 
     public void updateAttachment(String name, String attachment) {
-        int rowsUpdated = groupMapper.updateAttachment(name, attachment);
+        Date date = new Date();
+        int rowsUpdated = groupMapper.updateAttachment(name, attachment, date);
         if (rowsUpdated == 0) {
             throw new UpdateException("社团"+ name +"附件修改失败");
         }
     }
 
     public void updateImage(String name, String image) {
-        int rowsUpdated = groupMapper.updateImage(name, image);
+        Date date = new Date();
+        int rowsUpdated = groupMapper.updateImage(name, image, date);
         if (rowsUpdated == 0) {
             throw new UpdateException("社团"+ name +"图片修改失败");
         }

@@ -13,6 +13,7 @@ public class IndividualGroup {
     @JsonProperty("username")
     private int individualId;
     private String groupId;
-    private String studentId;
+    private String stuId;
     private String position;
+    private String stuName;
 }

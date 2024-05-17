@@ -11,6 +11,9 @@ import java.util.List;
 
 @Repository
 public interface IndividualGroupMapper extends BaseMapper<IndividualGroup> {
-    @Select("select * from `Individual_group` WHERE studentId = #{studentId}")
-    List<IndividualGroup> getGroupByStudentId(@Param("studentId") String studentId);
+    @Select("select * from `Individual_group` WHERE stuId = #{stuId}")
+    List<IndividualGroup> getGroupByStuId(@Param("stuId") String stuId);
+
+    @Select("select * from `Individual_group` WHERE groupId = #{groupId}")
+    List<IndividualGroup> getGroupByGroupId(@Param("groupId") String groupId);
 }

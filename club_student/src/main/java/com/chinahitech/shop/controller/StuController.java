@@ -26,17 +26,18 @@ public class StuController {
     // json: {username:zhangsan,password:123}
     // 如果前端传递的数据是json格式，必须使用对象接收，同时需要添加@RequestBody
     public Result login(String stunumber, String password){
-        Students dbStudent = stuService.login(stunumber, password);
+        Students stu = stuService.login(stunumber, password);
 //        Students dbStudent = stuService.getByStunumber(student.getStunumber());
 //        if (dbStudent != null && dbStudent.getPassword().equals(student.getPassword())) {
+        if (stu.getPassword() != null){
             // 验证通过，生成 token 返回给前端
-        String token = JwtUtils.generateToken(dbStudent.getStunumber());
+            String token = JwtUtils.generateToken(stu.getStunumber());
 //        System.out.println(stunumber + password);
-        return Result.ok().data("token", token);
-//        } else {
-//            // 验证失败，返回错误信息
-//            return Result.error().message("用户名或密码不正确");
-//        }
+            return Result.ok().data("token", token);
+        } else {
+            // 验证失败，返回错误信息
+            return Result.error().message("用户名或密码不正确");
+        }
     }
 
     @PostMapping("/register")
@@ -58,11 +59,10 @@ public class StuController {
 
         if (Objects.equals(correctValicode, valicode)){
             stuService.addStudent(stunumber, password, email);
-        }
-        else
+            return Result.ok().message("注册成功");
+        } else {
             return Result.error().message("注册出错!");
-
-        return Result.ok().message("注册成功");
+        }
     }
 
     @PostMapping("/validateEmail")

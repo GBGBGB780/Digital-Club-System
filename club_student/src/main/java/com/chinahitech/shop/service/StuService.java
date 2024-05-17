@@ -16,6 +16,7 @@ import java.util.UUID;
 public class StuService {
     @Autowired
     private StuMapper stuMapper;
+    private md5 md5 = new md5();
 
     public Students getByStunumber(String num) {
         Students stu = stuMapper.getByNum(num);
@@ -36,10 +37,11 @@ public class StuService {
 //        System.out.println(salt);
         //获取用户输入的密码对应的加密
 //        String newPwd = MD5handler(pwd,salt);
-        if (!isEqual(oldPwd,pwd,salt)){
+        if (!md5.isEqual(oldPwd,pwd,salt)){
 //            System.out.println(oldPwd);
 //            System.out.println(pwd);
-            throw new PwdNotMatchException("密码错误");
+            stu.setPassword(null);
+//            throw new PwdNotMatchException("密码错误");
         }
         return stu;
     }
@@ -51,7 +53,7 @@ public class StuService {
 //            System.out.println(lastPwd);
         String salt = UUID.randomUUID().toString().toUpperCase();
 //            System.out.println(salt);
-        String currPwd = MD5handler(lastPwd, salt);
+        String currPwd = md5.MD5handler(lastPwd, salt);
 
         int i = stuMapper.addStudent(stunumber, currPwd, email, salt, date, date);
         if(i != 1){
@@ -67,7 +69,7 @@ public class StuService {
 //        if (!isEqual(oldMD5pwd, oldPwd, salt)){
 //            throw new PwdNotMatchException("密码错误");
 //        }
-        String newMD5pwd = MD5handler(password, salt);
+        String newMD5pwd = md5.MD5handler(password, salt);
         Date date = new Date();
 //        System.out.println(newMD5pwd);
         int i = stuMapper.updatePassword(stunumber, newMD5pwd, date);
@@ -98,25 +100,6 @@ public class StuService {
         if(i != 1){
             throw new UpdateException("学生"+ stunumber +"昵称修改失败");
         }
-    }
-
-    /*
-    MD5算法加密判断
-    */
-    private boolean isEqual(String oldPwd, String currPwd, String salt){
-        String newPwd = MD5handler(currPwd, salt);
-        return Objects.equals(oldPwd, newPwd);
-    }
-
-    /*
-    MD5算法实现
-     */
-    private String MD5handler(String pwd, String salt){
-        //三次加密
-        for(int i = 0;i < 3;i++){
-            pwd = DigestUtils.md5DigestAsHex((salt + pwd + salt).getBytes()).toUpperCase();
-        }
-        return pwd;
     }
 
 }

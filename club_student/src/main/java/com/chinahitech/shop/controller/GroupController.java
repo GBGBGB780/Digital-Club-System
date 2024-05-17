@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestBody;
 import com.chinahitech.shop.utils.Result;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
@@ -78,12 +77,23 @@ public class GroupController {
     
     // 登录系统
     @PostMapping("/login")
-    public Result login(@RequestBody Group manager){
-        System.out.println(manager);
-        Group dbManager = groupService.getByName(manager.getName());
-        if (dbManager != null && dbManager.getPassword().equals(manager.getPassword())) {
+    public Result login(String groupName, String password){
+//        System.out.println(manager);
+//        Group dbManager = groupService.getByName(manager.getName());
+//        if (dbManager != null && dbManager.getPassword().equals(manager.getPassword())) {
+//            // 验证通过，生成 token 返回给前端
+//            String token = JwtUtils.generateToken(manager.getName());
+//            return Result.ok().data("token", token);
+//        } else {
+//            // 验证失败，返回错误信息
+//            return Result.error().message("用户名或密码不正确");
+//        }
+
+        Group group = groupService.login(groupName, password);
+        if (group.getPassword() != null){
             // 验证通过，生成 token 返回给前端
-            String token = JwtUtils.generateToken(manager.getName());
+            String token = JwtUtils.generateToken(group.getName());
+//        System.out.println(groupName + password);
             return Result.ok().data("token", token);
         } else {
             // 验证失败，返回错误信息
