@@ -33,7 +33,7 @@ const actions = {
     const { username, password } = userInfo
     return new Promise((resolve, reject) => {
       // 调用login方法发送网络请求
-      login({ username: username.trim(), password: password }).then(response => {
+      login(username.trim(), password ).then(response => {
         const { data } = response
         // vuex
         commit('SET_TOKEN', data.token)

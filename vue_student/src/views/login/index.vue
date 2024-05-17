@@ -68,7 +68,7 @@
 
 <script>
 import { validUsername } from '@/utils/validate'
-
+// import { login } from '@/api/user.js'
 
 export default {
   name: 'Login',
@@ -112,7 +112,7 @@ export default {
   },
   methods: {
     showRegister() {
-      console.log('showRegister() called')
+      console.info('showRegister() called')
       this.$router.push({ path: '/register' })
     },
     showPwd() {
@@ -131,11 +131,15 @@ export default {
           this.loading = true
           // vuex
           this.$store.dispatch('user/login', this.loginForm).then(() => {
-            console.error(this.redirect || '/')
+            console.info(this.redirect || '/')
             this.$router.push({ path: this.redirect || '/' })
             this.loading = false
           }).catch(() => {
             this.loading = false
+            this.$message({
+              message: '错误，请联系管理员',
+              type: 'error'
+            })
           })
         } else {
           console.log('error submit!!')
@@ -190,7 +194,6 @@ $cursor: #fff;
     input {
       background: transparent;
       border: 0px;
-      -webkit-appearance: none;
       border-radius: 0px;
       padding: 12px 5px 12px 15px;
       color: $light_gray;

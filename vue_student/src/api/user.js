@@ -1,10 +1,10 @@
 import request from '@/utils/request'
 
-export function login(data) {
+export function login(stunumber,password) {
   return request({
     url: '/user/login',
     method: 'post',
-    data: data
+    params: { stunumber, password }
   })
 }
 
