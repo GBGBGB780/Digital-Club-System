@@ -11,9 +11,12 @@ import java.util.List;
 
 @Repository
 public interface IndividualGroupMapper extends BaseMapper<IndividualGroup> {
-    @Select("select * from `Individual_group` WHERE stuId = #{stuId}")
-    List<IndividualGroup> getGroupByStuId(@Param("stuId") String stuId);
+    @Select("select * from `Individual_group` WHERE userId = #{userId}")
+    List<IndividualGroup> getGroupByStuId(@Param("userId") String userId);
 
     @Select("select * from `Individual_group` WHERE groupId = #{groupId}")
     List<IndividualGroup> getGroupByGroupId(@Param("groupId") String groupId);
+
+    @Select("select * from `Individual_group` WHERE userId = #{userId} and status >= 1")
+    List<IndividualGroup> getAllManagedGroups(@Param("userId") String userId);
 }

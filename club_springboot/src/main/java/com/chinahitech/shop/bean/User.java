@@ -10,25 +10,21 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class Activity extends Organization{
-    //    private String id;
+public class User extends Organization{
     @JsonProperty("username")
-    private String name;
-    private String organizer;
-    private String image;
+    private String userId;
+    private String userName;
+    private String email;
+    private String phone;
+    private String campus;
+    private String major;
     private String description;
-    private String attachment;
-    //    private String password;
-    private int hot;
-    private String arrange;
-    private Date time;
-    private int number;
-    private String place;
-    private int type;
-    private int groupName;
+    private int status;
+    private String nickname;
+    private String avatar;
+    private String salt;
     private String createUser;
     private Date createTime;
     private String modifyUser;
     private Date modifyTime;
 }
-

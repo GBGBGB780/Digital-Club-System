@@ -42,4 +42,16 @@ public class IndividualGroupController {
         System.out.println(studentList);
         return Result.ok().data("items", studentList);
     }
+
+    //todo 该社团所有普通成员的增删改查
+
+    //获取该管理员管理的所有社团
+    @RequestMapping("/allManagedGroups")
+    public Result getAllManagedGroups(String managerId) {
+        List<IndividualGroup> individualGroupList = individualGroupService.getAllManagedGroups(managerId);
+        System.out.println(individualGroupList);
+        return Result.ok().data("items", individualGroupList);
+    }
+
+    //超级管理员端
 }

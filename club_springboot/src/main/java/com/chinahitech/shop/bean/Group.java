@@ -20,7 +20,6 @@ public class Group extends Organization{
     private String attachment;
 //    private String password;
     private int hot;
-    private String salt;
     private String createUser;
     private Date createTime;
     private String modifyUser;

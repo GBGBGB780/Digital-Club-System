@@ -16,4 +16,5 @@ public class IndividualGroup {
     private String stuId;
     private String position;
     private String stuName;
+    private int status;
 }

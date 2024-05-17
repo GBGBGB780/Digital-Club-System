@@ -1,15 +1,12 @@
 package com.chinahitech.shop.service;
 
-import com.chinahitech.shop.bean.Students;
+import com.chinahitech.shop.bean.User;
 import com.chinahitech.shop.mapper.StuMapper;
 import com.chinahitech.shop.service.exception.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
-import org.springframework.util.DigestUtils;
 
 import java.util.Date;
-import java.util.Objects;
 import java.util.UUID;
 
 @Service
@@ -18,16 +15,16 @@ public class StuService {
     private StuMapper stuMapper;
     private md5 md5 = new md5();
 
-    public Students getByStunumber(String num) {
-        Students stu = stuMapper.getByNum(num);
+    public User getByStunumber(String num) {
+        User stu = stuMapper.getByNum(num);
         if (stu == null) {
             throw new EntityNotFoundException("学生"+ num +"不存在");
         }
         return stu;
     }
 
-    public Students login(String num,String pwd) {
-        Students stu = stuMapper.getByNum(num);
+    public User login(String num, String pwd) {
+        User stu = stuMapper.getByNum(num);
         if (stu == null){
             throw new EntityNotFoundException("学生"+ num +"不存在");
         }
@@ -55,7 +52,7 @@ public class StuService {
 //            System.out.println(salt);
         String currPwd = md5.MD5handler(lastPwd, salt);
 
-        int i = stuMapper.addStudent(stunumber, currPwd, email, salt, date, date);
+        int i = stuMapper.addStudent(stunumber, currPwd, email, salt, date, date, 0);
         if(i != 1){
             throw new InsertException("学生"+ stunumber +"添加失败");
         }
@@ -63,7 +60,7 @@ public class StuService {
 
 //  md5加密
     public void updatePassword(String stunumber, String password){
-        Students stu = stuMapper.getByNum(stunumber);
+        User stu = stuMapper.getByNum(stunumber);
 //        String oldMD5pwd = stu.getPwd();
         String salt = stu.getSalt();
 //        if (!isEqual(oldMD5pwd, oldPwd, salt)){

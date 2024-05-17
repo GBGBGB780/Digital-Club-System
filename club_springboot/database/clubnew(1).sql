@@ -80,10 +80,10 @@ INSERT INTO `group` VALUES ('5', '唱跳社', '坤坤', 'https://img2.baidu.com/
 INSERT INTO `group` VALUES ('6', '羽毛球社', 'hh', 'https://img.zcool.cn/community/01828f595df60ba8012193a35a606e.JPG@1280w_1l_2o_100sh.jpg', 'badminton', NULL, '111111', 1);
 
 -- ----------------------------
--- Table structure for students
+-- Table structure for user
 -- ----------------------------
-DROP TABLE IF EXISTS `students`;
-CREATE TABLE `students`  (
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE `user`  (
   `stunumber` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '学生学号',
   `stuname` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '学生名字',
   `email` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '学生邮箱',
@@ -93,9 +93,9 @@ CREATE TABLE `students`  (
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
--- Records of students
+-- Records of user
 -- ----------------------------
-INSERT INTO `students` VALUES ('21311272', NULL, NULL, NULL, '666666');
-INSERT INTO `students` VALUES ('21952107', NULL, NULL, NULL, '888888');
+INSERT INTO `user` VALUES ('21311272', NULL, NULL, NULL, '666666');
+INSERT INTO `user` VALUES ('21952107', NULL, NULL, NULL, '888888');
 
 SET FOREIGN_KEY_CHECKS = 1;

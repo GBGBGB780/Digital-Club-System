@@ -46,6 +46,14 @@ public class ActivityController {
         return Result.ok().data("items",activities);
     }
 
+    // 活动详情（管理端）
+    @PostMapping("/studentDetail")
+    public Result getStudentDetail(String groupName, String name){
+        System.out.println(name);
+        Activity activity = activityService.getActivityByNameAndGroupName(name, groupName);
+        return Result.ok().data("activity", activity);
+    }
+
     @RequestMapping("/getvideo")
     public Result getVideo() {
         try {
@@ -76,21 +84,6 @@ public class ActivityController {
 
     // 管理员端
 
-//    // 登录系统
-//    @PostMapping("/login")
-//    public Result login(@RequestBody Activity manager){
-//        System.out.println(manager);
-//        Activity dbManager = activityService.getByName(manager.getName());
-//        if (dbManager != null && dbManager.getPassword().equals(manager.getPassword())) {
-//            // 验证通过，生成 token 返回给前端
-//            String token = JwtUtils.generateToken(manager.getName());
-//            return Result.ok().data("token", token);
-//        } else {
-//            // 验证失败，返回错误信息
-//            return Result.error().message("用户名或密码不正确");
-//        }
-//    }
-
     @GetMapping("/info")  // "token:xxx"
     public Result info(String token){
         String username = JwtUtils.getClaimsByToken(token).getSubject();
@@ -98,45 +91,36 @@ public class ActivityController {
         return Result.ok().data("name",username).data("avatar",url);
     }
 
-//    // 退出系统
-//    @PostMapping("/logout")  // "token:xxx"
-//    public Result logout(){
-//        return Result.ok();
-//    }
-
     // 我管理的社团的活动
     @PostMapping("/myactivity")
-    public Result getMyActivities(String groupId){
-        List<Activity> activities = activityService.getActivityByGroupId(groupId);
-        System.out.println(groupId);
+    public Result getMyActivities(String groupName){
+        List<Activity> activities = activityService.getActivityByGroupName(groupName);
+        System.out.println(groupName);
         return Result.ok().data("items", activities);
     }
 
-    // 我的活动细节
-    @PostMapping("/detail")
-    public Result getActivityDetail(String groupId, String name){
+    // 活动详情（管理端）
+    @PostMapping("/managerDetail")
+    public Result getManagerDetail(String groupName, String name){
         System.out.println(name);
-        Activity activity = activityService.getActivityByNameAndGroupId(name, groupId);
+        Activity activity = activityService.getActivityByNameAndGroupName(name, groupName);
         return Result.ok().data("activity", activity);
     }
 
-    // 活动编辑详情->更新详情
+    // 活动简介修改
     @PostMapping("/modifydescription")
-    public Result  modifyDescription(String groupId, String name, String description,String attachment,String image){
+    public Result  modifyDescription(String groupName, String name, String description,String attachment,String image){
         System.out.println(name);
         System.out.println(description);
-        activityService.updateDescription(groupId, name, description, attachment,image);
+        activityService.updateDescription(groupName, name, description, attachment,image);
         return Result.ok();
     }
 
-//    // 活动编辑详情->更新密码
-//    @PostMapping("/modifypassword")
-//    public Result  modifyPassword(String name, String password){
-//        System.out.println(name);
-//        System.out.println(password);
-//        activityService.updatePassword(name, password);
-//        return Result.ok();
-//    }
+    //todo 活动其他信息修改
+
+    //todo 活动增加
+
+    //todo 活动删除
 
     @PostMapping("/uploadzip")
     public ResponseEntity<Map<String, String>> uploadFile(@RequestParam("file") MultipartFile file) {
@@ -163,9 +147,9 @@ public class ActivityController {
     }
 
     @PostMapping("/submitzip")
-    public ResponseEntity<Map<String, String>> submitZip(@RequestParam("groupId") String groupId, @RequestParam("attachment") String attachment, @RequestParam("name") String name) {
+    public ResponseEntity<Map<String, String>> submitZip(@RequestParam("groupId") String groupName, @RequestParam("attachment") String attachment, @RequestParam("name") String name) {
         try {
-            activityService.updateAttachment(groupId, name, attachment);
+            activityService.updateAttachment(groupName, name, attachment);
 
             Map<String, String> response = new HashMap<>();
             response.put("message", "Successfully updated attachment.");
@@ -201,9 +185,9 @@ public class ActivityController {
     }
 
     @PostMapping("/submitphoto")
-    public ResponseEntity<Map<String, String>> submitPhoto(@RequestParam("groupId") String groupId, @RequestParam("image") String image, @RequestParam("name") String name) {
+    public ResponseEntity<Map<String, String>> submitPhoto(@RequestParam("groupId") String groupName, @RequestParam("image") String image, @RequestParam("name") String name) {
         try {
-            activityService.updateImage(groupId, name, image);
+            activityService.updateImage(groupName, name, image);
 
             Map<String, String> response = new HashMap<>();
             response.put("message", "Successfully updated image.");

@@ -33,7 +33,6 @@ public class ActivityService {
 //    }
     @Autowired
     private ActivityMapper activityMapper;
-    private GroupMapper groupMapper;
 
     public Activity getByName(String name) {
         Activity activity = activityMapper.getByName(name);
@@ -43,10 +42,10 @@ public class ActivityService {
         return activity;
     }
 
-    public Activity getActivityByNameAndGroupId(String name, String groupId) {
-        Activity activity = activityMapper.getActivityByNameAndGroupId(name, groupId);
+    public Activity getActivityByNameAndGroupName(String name, String groupName) {
+        Activity activity = activityMapper.getActivityByNameAndGroupName(name, groupName);
         if(activity == null){
-            throw new EntityNotFoundException("社团"+ groupId +"组织的活动"+ name +"不存在");
+            throw new EntityNotFoundException("社团"+ groupName +"组织的活动"+ name +"不存在");
         }
         return activity;
     }
@@ -67,8 +66,8 @@ public class ActivityService {
         return activityMapper.findActivity(name);
     }
 
-    public List<Activity> getActivityByGroupId(String groupId){
-        return activityMapper.getActivityByGroupId(groupId);
+    public List<Activity> getActivityByGroupName(String groupName){
+        return activityMapper.getActivityByGroupName(groupName);
     }
 
 //    public void updatePassword(String groupname, String password) {
@@ -86,40 +85,40 @@ public class ActivityService {
         return activity;
     }
 
-    public void addHot(String groupId, String name) {
+    public void addHot(String groupName, String name) {
         Date date = new Date();
         System.out.println(name);
-        Activity activity = activityMapper.getHot(groupId, name);
+        Activity activity = activityMapper.getHot(groupName, name);
         if(activity == null){
             throw new EntityNotFoundException("活动"+ name +"不存在");
         }
         int hot = activity.getHot();
         hot++;
-        int i = activityMapper.updateHot(groupId, name, hot, date);
+        int i = activityMapper.updateHot(groupName, name, hot, date);
         if(i != 1){
             throw new UpdateException("活动"+ name +"热度修改失败");
         }
     }
 
-    public void updateDescription(String groupId, String name, String description,String attachment,String image) {
+    public void updateDescription(String groupName, String name, String description,String attachment,String image) {
         Date date = new Date();
-        int i = activityMapper.updateDescriptionByName(groupId, name, description, attachment, image, date);
+        int i = activityMapper.updateDescriptionByName(groupName, name, description, attachment, image, date);
         if(i != 1){
             throw new UpdateException("活动"+ name +"简介修改失败");
         }
     }
 
-    public void updateAttachment(String groupId, String name, String attachment) {
+    public void updateAttachment(String groupName, String name, String attachment) {
         Date date = new Date();
-        int rowsUpdated = activityMapper.updateAttachment(groupId, name, attachment, date);
+        int rowsUpdated = activityMapper.updateAttachment(groupName, name, attachment, date);
         if (rowsUpdated == 0) {
             throw new UpdateException("活动"+ name +"附件修改失败");
         }
     }
 
-    public void updateImage(String groupId, String name, String image) {
+    public void updateImage(String groupName, String name, String image) {
         Date date = new Date();
-        int rowsUpdated = activityMapper.updateImage(groupId, name, image, date);
+        int rowsUpdated = activityMapper.updateImage(groupName, name, image, date);
         if (rowsUpdated == 0) {
             throw new UpdateException("活动"+ name +"图片修改失败");
         }
