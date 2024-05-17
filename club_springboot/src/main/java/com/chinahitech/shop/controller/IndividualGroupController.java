@@ -27,7 +27,7 @@ public class IndividualGroupController {
 
     // 学生端
     //获取该学生参加的所有社团及其在对应社团的职位
-    @RequestMapping("/myGroups")
+    @RequestMapping("/allGroups")
     public Result getIndividualGroup(String studentId) {
         List<IndividualGroup> individualGroupList = individualGroupService.getGroupByStuId(studentId);
         System.out.println(individualGroupList);

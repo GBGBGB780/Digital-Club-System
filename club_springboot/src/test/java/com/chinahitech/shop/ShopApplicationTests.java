@@ -25,5 +25,5 @@ class ShopApplicationTests {
 
         // 输出Group对象的属性
         System.out.println(group);
-    }   
+    }
 }
