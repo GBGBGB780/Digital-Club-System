@@ -126,6 +126,32 @@ export const constantRoutes = [{
   }]
 },
 
+{
+  path: '/activity',
+  component: Layout,
+  redirect: '/activity',
+  children: [{
+    path: 'activity',
+    name: 'activity',
+    component: () =>
+      import ('@/views/activity/index'),
+    meta: { title: '活动列表', icon: 'el-icon-date' }
+  }]
+},
+
+{
+  path: '/mygroup',
+  component: Layout,
+  redirect: '/mygroup',
+  children: [{
+    path: 'mygroup',
+    name: 'mygroup',
+    component: () =>
+      import ('@/views/mygroup/index'),
+    meta: { title: '我的社团', icon: 'el-icon-basketball' }
+  }]
+},
+
 // 404 page must be placed at the end !!!
 { path: '*', redirect: '/404', hidden: true }
 ]

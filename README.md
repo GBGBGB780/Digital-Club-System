@@ -7,11 +7,16 @@
 软件架构说明
 
 
-#### 安装教程
+#### 运行教程
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+前端：
+npm install --registry=https://registry.npm.taobao.org （后面的网址可能会随时间失效）
+npm run dev
+
+
+后端：
+
+
 
 #### 使用说明
 
