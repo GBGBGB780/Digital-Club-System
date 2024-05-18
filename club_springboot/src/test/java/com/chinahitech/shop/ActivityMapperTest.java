@@ -38,7 +38,6 @@ public class ActivityMapperTest {
                 activity.getNumber(),
                 activity.getPlace(),
                 activity.getType(),
-                activity.getGroupName(),
                 date,
                 activity.getId());
         System.out.println(a);

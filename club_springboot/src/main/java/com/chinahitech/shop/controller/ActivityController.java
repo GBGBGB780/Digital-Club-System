@@ -47,7 +47,7 @@ public class ActivityController {
         return Result.ok().data("items",activities);
     }
 
-    // 活动详情（管理端）
+    // 活动详情（学生端）
     @PostMapping("/studentDetail")
     public Result getStudentDetail(String groupName, String name){
         System.out.println(name);
@@ -93,7 +93,7 @@ public class ActivityController {
     }
 
     // 我管理的社团的活动
-    @PostMapping("/myactivity")
+    @PostMapping("/myActivity")
     public Result getMyActivities(String groupName){
         List<Activity> activities = activityService.getActivityByGroupName(groupName);
         System.out.println(groupName);
@@ -125,9 +125,21 @@ public class ActivityController {
         return Result.ok();
     }
 
-    //todo 活动增加
+    //活动增加
+    @PostMapping("/addActivity")
+    public Result addActivity(Activity activity){
+        System.out.println(activity.getName());
+        activityService.addActivity(activity);
+        return Result.ok();
+    }
 
-    //todo 活动删除
+    //活动删除
+    @PostMapping("/deleteActivity")
+    public Result deleteActivity(Activity activity){
+        System.out.println(activity.getName());
+        activityService.deleteActivity(activity);
+        return Result.ok();
+    }
 
     @PostMapping("/uploadzip")
     public ResponseEntity<Map<String, String>> uploadFile(@RequestParam("file") MultipartFile file) {

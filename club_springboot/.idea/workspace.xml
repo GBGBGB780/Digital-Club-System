@@ -49,6 +49,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "JUnit.ActivityMapperTest.executor": "Run",
     "JUnit.ActivityMapperTest.modifyInfoTest.executor": "Run",
     "JUnit.ShopApplicationTests.findGroup.executor": "Run",
     "JUnit.StuMapperTest.executor": "Run",
@@ -91,7 +92,22 @@
       <recent name="com.chinahitech.shop.bean" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.ShopApplication (1)">
+  <component name="RunManager" selected="JUnit.ActivityMapperTest">
+    <configuration name="ActivityMapperTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="shop" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.chinahitech.shop.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.chinahitech.shop" />
+      <option name="MAIN_CLASS_NAME" value="com.chinahitech.shop.ActivityMapperTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ActivityMapperTest.modifyInfoTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="shop" />
       <extension name="coverage">
@@ -169,6 +185,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ActivityMapperTest" />
         <item itemvalue="JUnit.ActivityMapperTest.modifyInfoTest" />
         <item itemvalue="JUnit.StuMapperTest" />
         <item itemvalue="JUnit.ShopApplicationTests.findGroup" />
@@ -212,7 +229,7 @@
       <workItem from="1715917747536" duration="8266000" />
       <workItem from="1715941882240" duration="2315000" />
       <workItem from="1715956641028" duration="6395000" />
-      <workItem from="1716013444731" duration="7086000" />
+      <workItem from="1716013444731" duration="9072000" />
     </task>
     <task id="LOCAL-00001" summary="增加了一个查询天气的api">
       <created>1686468078163</created>

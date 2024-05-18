@@ -2,9 +2,7 @@ package com.chinahitech.shop.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.chinahitech.shop.bean.Activity;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
 import java.util.Date;
@@ -51,7 +49,7 @@ public interface ActivityMapper extends BaseMapper<Activity> {
 
     @Update("update `Activity` set name = #{name}, organizer = #{organizer}, description = #{description}, " +
             "attachment = #{attachment}, image = #{image}, arrange = #{arrange}, time = #{time}, " +
-            "number = #{number}, place = #{place}, type = #{type}, groupName = #{groupName}, modifyTime = #{modifyTime} " +
+            "number = #{number}, place = #{place}, type = #{type}, modifyTime = #{modifyTime} " +
             "where id = #{id}")
     int modifyInfo(@Param("name") String name,
                    @Param("organizer") String organizer,
@@ -63,7 +61,6 @@ public interface ActivityMapper extends BaseMapper<Activity> {
                    @Param("number") int number,
                    @Param("place") String place,
                    @Param("type") int type,
-                   @Param("groupName") String groupName,
                    @Param("modifyTime") Date modifyTime,
                    @Param("id") int id);
 
@@ -75,5 +72,28 @@ public interface ActivityMapper extends BaseMapper<Activity> {
 
     @Select("select * from `Activity` order by hot desc limit 5")
     List<Activity> findtop();
+
+    @Insert("insert into `Activity`(id, name, organizer, image, description, attachment, hot, arrange, " +
+            "time, number, place, type, groupName, createTime, modifyTime) " +
+            "values (#{id}, #{name}, #{organizer}, #{image}, #{description}, #{attachment}, #{hot}, #{arrange}, #{time}, " +
+            "#{number}, #{place}, #{type}, #{groupName}, #{createTime}, #{modifyTime} )" )
+    int addActivity(@Param("id") int id,
+                   @Param("name") String name,
+                   @Param("organizer") String organizer,
+                   @Param("description") String description,
+                   @Param("attachment") String attachment,
+                   @Param("image") String image,
+                   @Param("hot") int hot,
+                   @Param("arrange") String arrange,
+                   @Param("time") Date time,
+                   @Param("number") int number,
+                   @Param("place") String place,
+                   @Param("type") int type,
+                   @Param("groupName") String groupName,
+                   @Param("createTime") Date createTime,
+                   @Param("modifyTime") Date modifyTime);
+
+    @Delete("delete from Activity WHERE id = #{id}")
+    int deleteActivity(@Param("id") int id);
 }
 

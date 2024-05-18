@@ -1,9 +1,7 @@
 package com.chinahitech.shop.service;
 
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.chinahitech.shop.bean.Activity;
 import com.chinahitech.shop.mapper.ActivityMapper;
-import com.chinahitech.shop.mapper.GroupMapper;
 import com.chinahitech.shop.service.exception.EntityNotFoundException;
 import com.chinahitech.shop.service.exception.UpdateException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
-import java.util.function.Function;
 
 @Service
 public class ActivityService {
@@ -114,7 +111,6 @@ public class ActivityService {
                 activity.getNumber(),
                 activity.getPlace(),
                 activity.getType(),
-                activity.getGroupName(),
                 date,
                 activity.getId());
         if(i != 1){
@@ -135,6 +131,41 @@ public class ActivityService {
         int rowsUpdated = activityMapper.updateImage(groupName, name, image, date);
         if (rowsUpdated == 0) {
             throw new UpdateException("活动"+ name +"图片修改失败");
+        }
+    }
+
+    public void addActivity(Activity activity) {
+        Date date = new Date();
+        int i = activityMapper.addActivity(
+                0,
+                activity.getName(),
+                activity.getOrganizer(),
+                activity.getDescription(),
+                activity.getAttachment(),
+                activity.getImage(),
+                0,
+                activity.getArrange(),
+                activity.getTime(),
+                activity.getNumber(),
+                activity.getPlace(),
+                activity.getType(),
+                activity.getGroupName(),
+                date,
+                date);
+        if(i != 1){
+            throw new UpdateException("活动"+ activity.getName() +"添加失败");
+        }
+    }
+
+    public void deleteActivity(Activity activity) {
+        int id = activity.getId();
+        Activity target = activityMapper.getActivityById(id);
+        if(target == null){
+            throw new EntityNotFoundException("活动"+ id +"不存在");
+        }
+        int i = activityMapper.deleteActivity(id);
+        if(i != 1){
+            throw new UpdateException("活动"+ target.getName() +"删除失败");
         }
     }
 }
