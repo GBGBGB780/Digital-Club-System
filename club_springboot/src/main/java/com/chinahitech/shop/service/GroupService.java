@@ -40,26 +40,6 @@ public class GroupService {
         return group;
     }
 
-//    public Group login(String name, String pwd) {
-//        Group group = groupMapper.getByName(name);
-//        if (group == null){
-//            throw new EntityNotFoundException("社团"+ name +"不存在");
-//        }
-//        String oldPwd = group.getPassword();
-//        //获取盐值
-//        String salt = group.getSalt();
-////        System.out.println(salt);
-//        //获取用户输入的密码对应的加密
-////        String newPwd = MD5handler(pwd,salt);
-//        if (!md5.isEqual(oldPwd,pwd,salt)){
-////            System.out.println(oldPwd);
-////            System.out.println(pwd);
-//            group.setPassword(null);
-////            throw new PwdNotMatchException("密码错误");
-//        }
-//        return group;
-//    }
-
     public List<Group> query(String searchinfo) {
         if (searchinfo == null || searchinfo.trim().isEmpty()) {
             return groupMapper.findall();

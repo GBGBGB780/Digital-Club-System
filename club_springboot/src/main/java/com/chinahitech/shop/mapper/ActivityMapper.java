@@ -16,9 +16,6 @@ public interface ActivityMapper extends BaseMapper<Activity> {
     @Select("SELECT * FROM `Activity` WHERE name = #{name}")
     Activity getByName(String name);
 
-    // @Update("UPDATE group SET password = #{password} WHERE id = #{id}")
-    // void updatePassword(@Param("id") String id, @Param("password") String password);
-
     @Select("select * from `Activity`")
     List<Activity> findall();
 
@@ -30,7 +27,7 @@ public interface ActivityMapper extends BaseMapper<Activity> {
     List<Activity> findActivity(@Param("name") String name);
 
     @Select("select * from `Activity` where id = #{id}")
-    Activity getActivityById(@Param("id") String id);
+    Activity getActivityById(@Param("id") int id);
 
     @Select("select * from `Activity` where name = #{name} and groupName = #{groupName}")
     Activity getActivityByNameAndGroupName(@Param("name") String name, @Param("groupName") String groupName);
@@ -44,7 +41,6 @@ public interface ActivityMapper extends BaseMapper<Activity> {
     @Update("UPDATE `Activity` SET image = #{image}, modifyTime = #{modifyTime} WHERE name = #{name} and groupName = #{groupName}")
     int updateImage(@Param("name") String name, @Param("image") String image, @Param("groupName") String groupName, @Param("modifyTime") Date modifyTime);
 
-
     @Update("update `Activity` set description = #{description}, attachment=#{attachment}, image=#{image}, modifyTime = #{modifyTime} where name = #{name} and groupName = #{groupName}")
     int updateDescriptionByName(@Param("name") String name,
                                 @Param("description") String description,
@@ -53,8 +49,23 @@ public interface ActivityMapper extends BaseMapper<Activity> {
                                 @Param("groupName") String groupName,
                                 @Param("modifyTime") Date modifyTime);
 
-//    @Update("update `Activity` set password = #{password} where name = #{name}")
-//    int updatePasswordByName(@Param("name") String groupname, @Param("password") String password);
+    @Update("update `Activity` set name = #{name}, organizer = #{organizer}, description = #{description}, " +
+            "attachment = #{attachment}, image = #{image}, arrange = #{arrange}, time = #{time}, " +
+            "number = #{number}, place = #{place}, type = #{type}, groupName = #{groupName}, modifyTime = #{modifyTime} " +
+            "where id = #{id}")
+    int modifyInfo(@Param("name") String name,
+                   @Param("organizer") String organizer,
+                   @Param("description") String description,
+                   @Param("attachment") String attachment,
+                   @Param("image") String image,
+                   @Param("arrange") String arrange,
+                   @Param("time") Date time,
+                   @Param("number") int number,
+                   @Param("place") String place,
+                   @Param("type") int type,
+                   @Param("groupName") String groupName,
+                   @Param("modifyTime") Date modifyTime,
+                   @Param("id") int id);
 
     @Select("select * from `Activity` where groupName = #{groupName} and name = #{name}")
     Activity getHot(String groupName, String name);

@@ -70,14 +70,7 @@ public class ActivityService {
         return activityMapper.getActivityByGroupName(groupName);
     }
 
-//    public void updatePassword(String groupname, String password) {
-//        int i = activityMapper.updatePasswordByName(groupname, password);
-//        if(i != 1){
-//            throw new UpdateException("活动"+ groupname +"密码修改失败");
-//        }
-//    }
-
-    public Activity getActivityById(String id) {
+    public Activity getActivityById(int id) {
         Activity activity = activityMapper.getActivityById(id);
         if(activity == null){
             throw new EntityNotFoundException("活动"+ id +"不存在");
@@ -105,6 +98,27 @@ public class ActivityService {
         int i = activityMapper.updateDescriptionByName(groupName, name, description, attachment, image, date);
         if(i != 1){
             throw new UpdateException("活动"+ name +"简介修改失败");
+        }
+    }
+
+    public void modifyInfo(Activity activity) {
+        Date date = new Date();
+        int i = activityMapper.modifyInfo(
+                activity.getName(),
+                activity.getOrganizer(),
+                activity.getDescription(),
+                activity.getAttachment(),
+                activity.getImage(),
+                activity.getArrange(),
+                activity.getTime(),
+                activity.getNumber(),
+                activity.getPlace(),
+                activity.getType(),
+                activity.getGroupName(),
+                date,
+                activity.getId());
+        if(i != 1){
+            throw new UpdateException("活动"+ activity.getName() +"信息修改失败");
         }
     }
 

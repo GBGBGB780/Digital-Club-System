@@ -5,14 +5,15 @@ import lombok.*;
 
 import java.util.Date;
 
-@EqualsAndHashCode(callSuper = true)
+@EqualsAndHashCode(callSuper = false)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class User extends Organization{
+public class User{
     @JsonProperty("username")
     private String userId;
+    private String password;
     private String userName;
     private String email;
     private String phone;

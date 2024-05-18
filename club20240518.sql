@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `activity`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `activity` (
-  `id` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '活动编号',
+  `id` int NOT NULL AUTO_INCREMENT COMMENT '活动编号',
   `name` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '活动名字',
   `organizer` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '活动负责人',
   `image` varchar(1200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '活动照片',
@@ -40,8 +40,8 @@ CREATE TABLE `activity` (
   `createTime` datetime DEFAULT NULL COMMENT '创建时间',
   `modifyUser` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '修改者',
   `modifyTime` datetime DEFAULT NULL COMMENT '修改时间',
-  PRIMARY KEY (`id`,`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -50,6 +50,7 @@ CREATE TABLE `activity` (
 
 LOCK TABLES `activity` WRITE;
 /*!40000 ALTER TABLE `activity` DISABLE KEYS */;
+INSERT INTO `activity` VALUES (1,'a','b',NULL,NULL,NULL,0,'6667',NULL,0,NULL,0,'aaa',NULL,NULL,NULL,'2024-05-18 16:16:37');
 /*!40000 ALTER TABLE `activity` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -72,6 +73,10 @@ CREATE TABLE `application` (
   `attachment` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '附件',
   `time` datetime DEFAULT NULL COMMENT '申请时间',
   `isaccepted` tinyint DEFAULT NULL COMMENT '是否通过',
+  `createUser` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '创建者',
+  `createTime` datetime DEFAULT NULL COMMENT '创建时间',
+  `modifyUser` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '修改者',
+  `modifyTime` datetime DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`applicationid`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -82,7 +87,7 @@ CREATE TABLE `application` (
 
 LOCK TABLES `application` WRITE;
 /*!40000 ALTER TABLE `application` DISABLE KEYS */;
-INSERT INTO `application` VALUES (1,'足球社','吴舜宇','21311272','18928622313','男','软件工程','你干嘛~','附件1','2023-05-27 00:00:00',1),(3,'足球社','陈建铧','21952107','15664736059','男','软件工程','siuuuuuuu','附件3','2023-05-27 10:39:32',1),(4,'羽毛球社','龚敬','21311303','18022192013','男','软件工程','妙啊！','附件4','2023-05-27 10:39:35',1),(5,'足球社','杨沛粤','21311296','15219368970','男','软件工程','太煎熬了。','附件5','2023-05-27 10:39:38',1),(6,'篮球社','建华大神','21956666','1568978978','男','软件工程专业','我想加入','附件6','2023-05-27 23:06:21',0),(13,'足球社','陈建铧','21311245','18899998874','男','人工智能学院','收拾收拾',NULL,'2023-05-28 11:21:26',0),(14,'足球社','大神','21311272','15898765494','男','微电子技术学院','哈哈哈',NULL,'2023-05-28 11:23:59',0),(15,'飞盘社','111','21311272','11111111111','男','人工智能学院','111',NULL,'2023-05-28 12:00:09',NULL),(16,'足球社','是是是','22222222','12222222222','男','人工智能学院','2222',NULL,'2023-05-28 12:03:05',0),(18,'足球社','大师','21318888','13823465987','男','人工智能学院','想来玩',NULL,'2023-05-29 13:31:37',0),(19,'足球社','吴舜宇','21311272','18928622313','男','测绘与遥感学院','想玩',NULL,'2023-05-29 14:58:05',NULL),(20,'足球社','陈建铧','21952107','12547854789','女','微电子技术学院','1111','123','2023-05-31 18:28:57',NULL),(21,'飞盘社','陈建铧','21952107','15664736059','男','软件工程学院','test complete',NULL,'2023-06-01 11:23:20',NULL);
+INSERT INTO `application` VALUES (1,'足球社','吴舜宇','21311272','18928622313','男','软件工程','你干嘛~','附件1','2023-05-27 00:00:00',1,NULL,NULL,NULL,NULL),(3,'足球社','陈建铧','21952107','15664736059','男','软件工程','siuuuuuuu','附件3','2023-05-27 10:39:32',1,NULL,NULL,NULL,NULL),(4,'羽毛球社','龚敬','21311303','18022192013','男','软件工程','妙啊！','附件4','2023-05-27 10:39:35',1,NULL,NULL,NULL,NULL),(5,'足球社','杨沛粤','21311296','15219368970','男','软件工程','太煎熬了。','附件5','2023-05-27 10:39:38',1,NULL,NULL,NULL,NULL),(6,'篮球社','建华大神','21956666','1568978978','男','软件工程专业','我想加入','附件6','2023-05-27 23:06:21',0,NULL,NULL,NULL,NULL),(13,'足球社','陈建铧','21311245','18899998874','男','人工智能学院','收拾收拾',NULL,'2023-05-28 11:21:26',0,NULL,NULL,NULL,NULL),(14,'足球社','大神','21311272','15898765494','男','微电子技术学院','哈哈哈',NULL,'2023-05-28 11:23:59',0,NULL,NULL,NULL,NULL),(15,'飞盘社','111','21311272','11111111111','男','人工智能学院','111',NULL,'2023-05-28 12:00:09',NULL,NULL,NULL,NULL,NULL),(16,'足球社','是是是','22222222','12222222222','男','人工智能学院','2222',NULL,'2023-05-28 12:03:05',0,NULL,NULL,NULL,NULL),(18,'足球社','大师','21318888','13823465987','男','人工智能学院','想来玩',NULL,'2023-05-29 13:31:37',0,NULL,NULL,NULL,NULL),(19,'足球社','吴舜宇','21311272','18928622313','男','测绘与遥感学院','想玩',NULL,'2023-05-29 14:58:05',NULL,NULL,NULL,NULL,NULL),(20,'足球社','陈建铧','21952107','12547854789','女','微电子技术学院','1111','123','2023-05-31 18:28:57',NULL,NULL,NULL,NULL,NULL),(21,'飞盘社','陈建铧','21952107','15664736059','男','软件工程学院','test complete',NULL,'2023-06-01 11:23:20',NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `application` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -127,13 +132,17 @@ DROP TABLE IF EXISTS `individual_group`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `individual_group` (
-  `Id` int NOT NULL AUTO_INCREMENT COMMENT '编号',
+  `id` int NOT NULL AUTO_INCREMENT COMMENT '编号',
   `userId` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '用户编号',
   `groupId` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '社团编号',
   `position` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '用户职位',
   `userName` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '用户姓名',
   `status` int DEFAULT NULL COMMENT '权限级别',
-  PRIMARY KEY (`Id`)
+  `createUser` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '创建者',
+  `createTime` datetime DEFAULT NULL COMMENT '创建时间',
+  `modifyUser` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '修改者',
+  `modifyTime` datetime DEFAULT NULL COMMENT '修改时间',
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -193,4 +202,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-05-18  0:25:57
+-- Dump completed on 2024-05-18 16:23:53

@@ -46,9 +46,6 @@ public interface GroupMapper extends BaseMapper<Group> {
                                 @Param("image") String image,
                                 @Param("modifyTime") Date modifyTime);
 
-//    @Update("update `group` set password = #{password}, modifyTime = #{modifyTime} where name = #{name}")
-//    int updatePasswordByName(@Param("name") String groupname, @Param("password") String password, @Param("modifyTime") Date modifyTime);
-
     @Select("select * from `group` where name = #{name}")
     Group getHot(String name);
 

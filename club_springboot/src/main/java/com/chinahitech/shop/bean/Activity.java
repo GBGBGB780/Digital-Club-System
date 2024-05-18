@@ -5,14 +5,15 @@ import lombok.*;
 
 import java.util.Date;
 
-@EqualsAndHashCode(callSuper = true)
+@EqualsAndHashCode(callSuper = false)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class Activity extends Organization{
+public class Activity{
     //    private String id;
     @JsonProperty("username")
+    private int id;
     private String name;
     private String organizer;
     private String image;
@@ -25,7 +26,7 @@ public class Activity extends Organization{
     private int number;
     private String place;
     private int type;
-    private int groupName;
+    private String groupName;
     private String createUser;
     private Date createTime;
     private String modifyUser;

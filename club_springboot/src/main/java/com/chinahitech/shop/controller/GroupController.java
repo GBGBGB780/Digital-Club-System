@@ -82,53 +82,6 @@ public class GroupController {
 
 
     // 管理员端
-    
-//    // 登录系统
-//    @PostMapping("/login")
-//    public Result login(String groupName, String password){
-////        System.out.println(manager);
-////        Group dbManager = groupService.getByName(manager.getName());
-////        if (dbManager != null && dbManager.getPassword().equals(manager.getPassword())) {
-////            // 验证通过，生成 token 返回给前端
-////            String token = JwtUtils.generateToken(manager.getName());
-////            return Result.ok().data("token", token);
-////        } else {
-////            // 验证失败，返回错误信息
-////            return Result.error().message("用户名或密码不正确");
-////        }
-//
-//        Group group = groupService.login(groupName, password);
-//        if (group.getPassword() != null){
-//            // 验证通过，生成 token 返回给前端
-//            String token = JwtUtils.generateToken(group.getName());
-////        System.out.println(groupName + password);
-//            return Result.ok().data("token", token);
-//        } else {
-//            // 验证失败，返回错误信息
-//            return Result.error().message("用户名或密码不正确");
-//        }
-//    }
-//
-//    @GetMapping("/info")  // "token:xxx"
-//    public Result info(String token){
-//        String username = JwtUtils.getClaimsByToken(token).getSubject();
-//        String url = "https://nimg.ws.126.net/?url=http%3A%2F%2Fdingyue.ws.126.net%2F2021%2F1120%2F783a7b4ej00r2tvvx002fd200hs00hsg00hs00hs.jpg&thumbnail=660x2147483647&quality=80&type=jpg";
-//        return Result.ok().data("name",username).data("avatar",url);
-//    }
-//
-//    // 退出系统
-//    @PostMapping("/logout")  // "token:xxx"
-//    public Result logout(){
-//        return Result.ok();
-//    }
-
-    // 我的社团
-//    @PostMapping("/myclub")
-//    public Result getMyclub(String groupname){
-//        List<Group> myclubs = groupService.queryGroup(groupname);
-//        System.out.println(groupname);
-//        return Result.ok().data("items",myclubs);
-//    }
 
     // 社团详情（管理端）
     @PostMapping("/managerDetail")
@@ -146,15 +99,6 @@ public class GroupController {
         groupService.updateDescription(groupname, description, attachment,image);
         return Result.ok();
     }
-
-//    // 社团编辑详情->更新密码
-//    @PostMapping("/modifypassword")
-//    public Result  modifyPassword(String groupname, String password){
-//        System.out.println(groupname);
-//        System.out.println(password);
-//        groupService.updatePassword(groupname, password);
-//        return Result.ok();
-//    }
 
     @PostMapping("/uploadzip")
     public ResponseEntity<Map<String, String>> uploadFile(@RequestParam("file") MultipartFile file) {

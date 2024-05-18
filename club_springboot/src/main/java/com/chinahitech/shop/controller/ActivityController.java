@@ -23,6 +23,7 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import com.chinahitech.shop.utils.JwtUtils;
@@ -109,14 +110,20 @@ public class ActivityController {
 
     // 活动简介修改
     @PostMapping("/modifydescription")
-    public Result  modifyDescription(String groupName, String name, String description,String attachment,String image){
+    public Result  modifyDescription(String groupName, String name, String description, String attachment, String image){
         System.out.println(name);
         System.out.println(description);
         activityService.updateDescription(groupName, name, description, attachment,image);
         return Result.ok();
     }
 
-    //todo 活动其他信息修改
+    //活动其他信息修改
+    @PostMapping("/modifyInfo")
+    public Result modifyInfo(Activity activity){
+        System.out.println(activity.getName());
+        activityService.modifyInfo(activity);
+        return Result.ok();
+    }
 
     //todo 活动增加
 
@@ -200,7 +207,7 @@ public class ActivityController {
     }
     @PostMapping("/getattachment")//能直接下载文件，而不是在新标签页中打开的比较难搞，涉及到http报文，暂时不搞了
     // 这个是在新标签页中打开，对于zip完全没问题
-    public ResponseEntity<Map<String, Object>> getAttachment(@RequestParam("id") String id) {
+    public ResponseEntity<Map<String, Object>> getAttachment(@RequestParam("id") int id) {
         Activity activity = activityService.getActivityById(id);
         Map<String, Object> response = new HashMap<>();
         if (activity != null) {

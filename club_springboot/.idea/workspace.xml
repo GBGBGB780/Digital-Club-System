@@ -4,42 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b849962b-f7a7-45d1-bd6b-140ec1eb19ac" name="变更" comment="框架搭建">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b2e6cc34-18a0-4331-ad76-516408abcbab.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b2e6cc34-18a0-4331-ad76-516408abcbab.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/clubnew(1).sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/clubnew(1).sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/chinahitech/shop/bean/Activity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chinahitech/shop/bean/Activity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/chinahitech/shop/bean/Group.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chinahitech/shop/bean/Group.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/chinahitech/shop/bean/IndividualGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chinahitech/shop/bean/IndividualGroup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/chinahitech/shop/controller/ActivityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chinahitech/shop/controller/ActivityController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/chinahitech/shop/controller/GroupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chinahitech/shop/controller/GroupController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/chinahitech/shop/controller/IndividualGroupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chinahitech/shop/controller/IndividualGroupController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/chinahitech/shop/controller/StuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chinahitech/shop/controller/StuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/chinahitech/shop/mapper/ActivityMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chinahitech/shop/mapper/ActivityMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/chinahitech/shop/mapper/GroupMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chinahitech/shop/mapper/GroupMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/chinahitech/shop/mapper/IndividualGroupMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chinahitech/shop/mapper/IndividualGroupMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/chinahitech/shop/mapper/StuMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chinahitech/shop/mapper/StuMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/chinahitech/shop/service/ActivityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chinahitech/shop/service/ActivityService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/chinahitech/shop/service/ApplicationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chinahitech/shop/service/ApplicationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/chinahitech/shop/service/GroupService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chinahitech/shop/service/GroupService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/chinahitech/shop/service/IndividualGroupService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chinahitech/shop/service/IndividualGroupService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/chinahitech/shop/service/StuService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chinahitech/shop/service/StuService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/chinahitech/shop/StuMapperTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/chinahitech/shop/StuMapperTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/chinahitech/shop/bean/Activity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/chinahitech/shop/bean/Activity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/chinahitech/shop/bean/IndividualGroup.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/chinahitech/shop/bean/IndividualGroup.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/chinahitech/shop/controller/ActivityController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/chinahitech/shop/controller/ActivityController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/chinahitech/shop/controller/IndividualGroupController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/chinahitech/shop/controller/IndividualGroupController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/chinahitech/shop/controller/StuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/chinahitech/shop/controller/StuController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/chinahitech/shop/mapper/ActivityMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/chinahitech/shop/mapper/ActivityMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/chinahitech/shop/mapper/IndividualGroupMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/chinahitech/shop/mapper/IndividualGroupMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/chinahitech/shop/mapper/StuMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/chinahitech/shop/mapper/StuMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/chinahitech/shop/service/ActivityService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/chinahitech/shop/service/ActivityService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/chinahitech/shop/service/ApplicationService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/chinahitech/shop/service/ApplicationService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/chinahitech/shop/service/IndividualGroupService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/chinahitech/shop/service/IndividualGroupService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/chinahitech/shop/service/StuService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/chinahitech/shop/service/StuService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/chinahitech/shop/ShopApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/chinahitech/shop/ShopApplicationTests.class" afterDir="false" />
-    </list>
+    <list default="true" id="b849962b-f7a7-45d1-bd6b-140ec1eb19ac" name="变更" comment="框架搭建" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -82,41 +47,42 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;JUnit.ShopApplicationTests.findGroup.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.StuMapperTest.executor&quot;: &quot;Run&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Spring Boot.ShopApplication (1).executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.ShopApplication.executor&quot;: &quot;Run&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/java program/club_student/src/main/java/com/chinahitech/shop/service/exception&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.17&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;fb54f3c5992b96d001bb16e8e92d968d&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JUnit.ActivityMapperTest.modifyInfoTest.executor": "Run",
+    "JUnit.ShopApplicationTests.findGroup.executor": "Run",
+    "JUnit.StuMapperTest.executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.ShopApplication (1).executor": "Run",
+    "Spring Boot.ShopApplication.executor": "Run",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/java program/club_springboot",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.17",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "advanced.settings",
+    "spring.configuration.checksum": "fb54f3c5992b96d001bb16e8e92d968d",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql_aurora_aws&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql_aurora_aws"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\java program\club_student\src\main\java\com\chinahitech\shop\service\exception" />
@@ -126,6 +92,22 @@
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.ShopApplication (1)">
+    <configuration name="ActivityMapperTest.modifyInfoTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="shop" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.chinahitech.shop.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.chinahitech.shop" />
+      <option name="MAIN_CLASS_NAME" value="com.chinahitech.shop.ActivityMapperTest" />
+      <option name="METHOD_NAME" value="modifyInfoTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ShopApplicationTests.findGroup" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="shop" />
       <extension name="coverage">
@@ -187,6 +169,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ActivityMapperTest.modifyInfoTest" />
         <item itemvalue="JUnit.StuMapperTest" />
         <item itemvalue="JUnit.ShopApplicationTests.findGroup" />
         <item itemvalue="Spring Boot.ShopApplication" />
@@ -228,8 +211,8 @@
       <workItem from="1715865009345" duration="7831000" />
       <workItem from="1715917747536" duration="8266000" />
       <workItem from="1715941882240" duration="2315000" />
-      <workItem from="1715956641028" duration="6355000" />
-      <workItem from="1715963054915" duration="66000" />
+      <workItem from="1715956641028" duration="6395000" />
+      <workItem from="1716013444731" duration="7086000" />
     </task>
     <task id="LOCAL-00001" summary="增加了一个查询天气的api">
       <created>1686468078163</created>
