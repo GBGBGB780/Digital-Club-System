@@ -14,11 +14,11 @@ public class ApplicationService {
     @Autowired
     private ApplicationMapper applicationMapper;
 
-    public List query() {
+    public List<Application> query() {
         return applicationMapper.findall();
     }
 
-    public List queryMyapp(String stunumber) {
+    public List<Application> queryMyapp(String stunumber) {
         return applicationMapper.findMyapp(stunumber);
     }
 
@@ -29,11 +29,11 @@ public class ApplicationService {
         }
     }
 
-    public List queryRecvapp(String groupname){
+    public List<Application> queryRecvapp(String groupname){
         return applicationMapper.findRecvapp(groupname);
     }
 
-    public List queryDetailapp(Integer id) {
+    public List<Application> queryDetailapp(Integer id) {
         return applicationMapper.findDetailapp(id);
     }
 

@@ -3,5 +3,4 @@ target/classes/com/chinahitech/shop/controller/ApplicationController.class
 target/classes/com/chinahitech/shop/controller/GroupController.class
 target/classes/com/chinahitech/shop/mapper/GroupMapper.class
 target/classes/com/chinahitech/shop/service/GroupService.class
-src/main/resources/application.properties
 /upload/

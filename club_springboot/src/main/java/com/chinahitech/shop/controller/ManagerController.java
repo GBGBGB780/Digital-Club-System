@@ -4,7 +4,7 @@ import com.chinahitech.shop.bean.User;
 import com.chinahitech.shop.bean.notAddedToDatabase.RegisterUser;
 import com.chinahitech.shop.defineException.EmailException;
 import com.chinahitech.shop.service.EmailService;
-import com.chinahitech.shop.service.StuService;
+import com.chinahitech.shop.service.ManagerService;
 import com.chinahitech.shop.utils.JwtUtils;
 import com.chinahitech.shop.utils.RedisUtils;
 import com.chinahitech.shop.utils.Result;
@@ -14,38 +14,41 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Objects;
 
 @RestController
-@RequestMapping("/student")
+@RequestMapping("/manager")
 @CrossOrigin
-public class StuController {
+public class ManagerController {
     @Autowired
-    private StuService stuService;
+    private ManagerService managerService;
 
     @PostMapping("/login")
     // querystring: username=zhangsan&password=123   User user,String username,String password
     // json: {username:zhangsan,password:123}
     // 如果前端传递的数据是json格式，必须使用对象接收，同时需要添加@RequestBody
-    public Result login(String stunumber, String password){
-        User stu = stuService.login(stunumber, password);
-//        User dbStudent = stuService.getByStunumber(student.getStunumber());
+    public Result login(String userId, String password){
+        User user = managerService.login(userId, password);
+//        User dbStudent = managerService.getByStunumber(student.getStunumber());
 //        if (dbStudent != null && dbStudent.getPassword().equals(student.getPassword())) {
-        if (stu.getPassword() != null){
-            // 验证通过，生成 token 返回给前端
-            String token = JwtUtils.generateToken(stu.getUserId());
-//        System.out.println(stunumber + password);
-            return Result.ok().data("token", token);
-        } else {
+        if (user.getPassword() == null) {
             // 验证失败，返回错误信息
             return Result.error().message("用户名或密码不正确");
+        } else if (user.getStatus() < 1) {
+            // 权限不足，返回错误信息
+            return Result.error().message("用户权限不足");
+        } else {
+            // 验证通过，生成 token 返回给前端
+            String token = JwtUtils.generateToken(user.getUserId());
+//        System.out.println(userId + password);
+            return Result.ok().data("token", token);
         }
     }
 
     @PostMapping("/register")
-    public Result register(@RequestBody RegisterUser student) {
-//        System.out.println(student);
-        String stunumber = student.getUsername();
-        String password = student.getPassword();
-        String email = student.getEmail();
-        String valicode = student.getValicode();
+    public Result register(@RequestBody RegisterUser user) {
+//        System.out.println(user);
+        String stunumber = user.getUsername();
+        String password = user.getPassword();
+        String email = user.getEmail();
+        String valicode = user.getValicode();
 
 //        System.out.println(stunumber);
 //        System.out.println(password);
@@ -57,7 +60,7 @@ public class StuController {
 //        System.out.println("this" + correctValicode);
 
         if (Objects.equals(correctValicode, valicode)){
-            stuService.addStudent(stunumber, password, email);
+            managerService.addManager(stunumber, password, email);
             return Result.ok().message("注册成功");
         } else {
             return Result.error().message("注册出错!");
@@ -79,43 +82,43 @@ public class StuController {
     }
 
     @PostMapping("/modifypass")
-    public Result modifypassword(String stunumber, String password){
-        System.out.println(stunumber);
+    public Result modifypassword(String userId, String password){
+        System.out.println(userId);
         System.out.println(password);
-        stuService.updatePassword(stunumber, password);
+        managerService.updatePassword(userId, password);
         return Result.ok();
     }
 
     @PostMapping("/modifyphone")
-    public Result modifyphone(String stunumber, String phone){
-        System.out.println(stunumber);
+    public Result modifyphone(String userId, String phone){
+        System.out.println(userId);
         System.out.println(phone);
-        stuService.updatePhone(stunumber, phone);
+        managerService.updatePhone(userId, phone);
         return Result.ok();
     }
 
     @PostMapping("/modifydescription")
-    public Result modifydescription(String stunumber, String description){
-        System.out.println(stunumber);
+    public Result modifydescription(String userId, String description){
+        System.out.println(userId);
         System.out.println(description);
-        stuService.updateDescription(stunumber, description);
+        managerService.updateDescription(userId, description);
         return Result.ok();
     }
 
     @PostMapping("/modifynickname")
-    public Result modifynickname(String stunumber, String nickname){
-        System.out.println(stunumber);
+    public Result modifynickname(String userId, String nickname){
+        System.out.println(userId);
         System.out.println(nickname);
-        stuService.updateNickname(stunumber, nickname);
+        managerService.updateNickname(userId, nickname);
         return Result.ok();
     }
 
     @PostMapping("/profile")
-    public Result getProfile(String stunumber){
-        System.out.println(stunumber);
-        User student = stuService.getByStunumber(stunumber);
-        System.out.println(student);
-        return Result.ok().data("student", student);
+    public Result getProfile(String userId){
+        System.out.println(userId);
+        User user = managerService.getByUserId(userId);
+        System.out.println(user);
+        return Result.ok().data("user", user);
     }
 
 

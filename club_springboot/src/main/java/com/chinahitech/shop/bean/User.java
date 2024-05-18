@@ -10,15 +10,20 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class IndividualGroup {
-    //    private String id;
+public class User{
     @JsonProperty("username")
-    private int id;
-    private String groupId;
     private String userId;
-    private String position;
+    private String password;
     private String userName;
+    private String email;
+    private String phone;
+    private String campus;
+    private String major;
+    private String description;
     private int status;
+    private String nickname;
+    private String avatar;
+    private String salt;
     private String createUser;
     private Date createTime;
     private String modifyUser;
