@@ -41,6 +41,7 @@ public class GroupService {
     }
 
     public Group login(String name, String pwd) {
+        System.out.println(name);
         Group group = groupMapper.getByName(name);
         if (group == null){
             throw new EntityNotFoundException("社团"+ name +"不存在");
