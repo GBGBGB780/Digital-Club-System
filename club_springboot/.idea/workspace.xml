@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b849962b-f7a7-45d1-bd6b-140ec1eb19ac" name="变更" comment="StuMapper测试集的构建" />
+    <list default="true" id="b849962b-f7a7-45d1-bd6b-140ec1eb19ac" name="变更" comment="StuMapper测试集的构建">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/chinahitech/shop/ActivityMapperTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/chinahitech/shop/ActivityMapperTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/chinahitech/shop/ActivityMapperTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/chinahitech/shop/ActivityMapperTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/chinahitech/shop/ShopApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/chinahitech/shop/ShopApplicationTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/chinahitech/shop/StuMapperTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/chinahitech/shop/StuMapperTest.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -49,10 +57,27 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "JUnit.ActivityMapperTest.addActivityTest.executor": "Run",
+    "JUnit.ActivityMapperTest.deleteActivityTest.executor": "Run",
     "JUnit.ActivityMapperTest.executor": "Run",
+    "JUnit.ActivityMapperTest.findActivityTest.executor": "Run",
+    "JUnit.ActivityMapperTest.findBySearchTest.executor": "Run",
+    "JUnit.ActivityMapperTest.findallTest.executor": "Run",
+    "JUnit.ActivityMapperTest.findtopTest.executor": "Run",
+    "JUnit.ActivityMapperTest.getActivityByGroupNameTest.executor": "Run",
+    "JUnit.ActivityMapperTest.getActivityByIdTest.executor": "Run",
+    "JUnit.ActivityMapperTest.getActivityByNameAndGroupNameTest.executor": "Run",
+    "JUnit.ActivityMapperTest.getByNameTest.executor": "Run",
+    "JUnit.ActivityMapperTest.getHotTest.executor": "Run",
     "JUnit.ActivityMapperTest.modifyInfoTest.executor": "Run",
+    "JUnit.ActivityMapperTest.updateAttachmentTest.executor": "Run",
+    "JUnit.ActivityMapperTest.updateDescriptionByNameTest.executor": "Run",
+    "JUnit.ActivityMapperTest.updateHot.executor": "Run",
+    "JUnit.ActivityMapperTest.updateHotTest.executor": "Run",
+    "JUnit.ActivityMapperTest.updateImageTest.executor": "Run",
     "JUnit.ShopApplicationTests.findGroup.executor": "Run",
     "JUnit.StuMapperTest.executor": "Run",
+    "JUnit.StuMapperTest.updateStudentTest.executor": "Run",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
@@ -92,8 +117,8 @@
       <recent name="com.chinahitech.shop.bean" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ActivityMapperTest">
-    <configuration name="ActivityMapperTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.ActivityMapperTest.updateHotTest">
+    <configuration name="ActivityMapperTest.addActivityTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="shop" />
       <extension name="coverage">
         <pattern>
@@ -103,12 +128,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.chinahitech.shop" />
       <option name="MAIN_CLASS_NAME" value="com.chinahitech.shop.ActivityMapperTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="METHOD_NAME" value="addActivityTest" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ActivityMapperTest.modifyInfoTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ActivityMapperTest.deleteActivityTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="shop" />
       <extension name="coverage">
         <pattern>
@@ -118,13 +144,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.chinahitech.shop" />
       <option name="MAIN_CLASS_NAME" value="com.chinahitech.shop.ActivityMapperTest" />
-      <option name="METHOD_NAME" value="modifyInfoTest" />
+      <option name="METHOD_NAME" value="deleteActivityTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ShopApplicationTests.findGroup" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ActivityMapperTest.findtopTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="shop" />
       <extension name="coverage">
         <pattern>
@@ -133,14 +159,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.chinahitech.shop" />
-      <option name="MAIN_CLASS_NAME" value="com.chinahitech.shop.ShopApplicationTests" />
-      <option name="METHOD_NAME" value="findGroup" />
+      <option name="MAIN_CLASS_NAME" value="com.chinahitech.shop.ActivityMapperTest" />
+      <option name="METHOD_NAME" value="findtopTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StuMapperTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ActivityMapperTest.updateHot" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="shop" />
       <extension name="coverage">
         <pattern>
@@ -149,8 +175,25 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.chinahitech.shop" />
-      <option name="MAIN_CLASS_NAME" value="com.chinahitech.shop.StuMapperTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="com.chinahitech.shop.ActivityMapperTest" />
+      <option name="METHOD_NAME" value="updateHot" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ActivityMapperTest.updateHotTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="shop" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.chinahitech.shop.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.chinahitech.shop" />
+      <option name="MAIN_CLASS_NAME" value="com.chinahitech.shop.ActivityMapperTest" />
+      <option name="METHOD_NAME" value="updateHotTest" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -158,19 +201,6 @@
     <configuration name="ShopApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="shop" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.chinahitech.shop.ShopApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ShopApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="shop" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.chinahitech.shop.ShopApplication" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.chinahitech.shop.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -185,10 +215,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ActivityMapperTest" />
-        <item itemvalue="JUnit.ActivityMapperTest.modifyInfoTest" />
-        <item itemvalue="JUnit.StuMapperTest" />
-        <item itemvalue="JUnit.ShopApplicationTests.findGroup" />
+        <item itemvalue="JUnit.ActivityMapperTest.updateHotTest" />
+        <item itemvalue="JUnit.ActivityMapperTest.deleteActivityTest" />
+        <item itemvalue="JUnit.ActivityMapperTest.addActivityTest" />
+        <item itemvalue="JUnit.ActivityMapperTest.findtopTest" />
+        <item itemvalue="JUnit.ActivityMapperTest.updateHot" />
       </list>
     </recent_temporary>
   </component>
