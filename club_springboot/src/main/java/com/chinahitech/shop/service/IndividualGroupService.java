@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -31,8 +32,13 @@ public class IndividualGroupService {
         return individualGroupMapper.getGroupByGroupId(groupId);
     }
 
-    public List<IndividualGroup> getAllManagedGroups(String userId) {
-        return individualGroupMapper.getAllManagedGroups(userId);
+    public List<Group> getAllManagedGroups(String userId) {
+        List<IndividualGroup> individualGroupList = individualGroupMapper.getAllManagedGroups(userId);
+        List<Group> groupList = new ArrayList<Group>();
+        for (IndividualGroup individualGroup : individualGroupList) {
+            groupList.add(groupMapper.getGroupById(individualGroup.getGroupId()));
+        }
+        return groupList;
     }
 
     public IndividualGroup getUserByUserIdAndGroupId(String userId, String groupId) {
@@ -40,14 +46,8 @@ public class IndividualGroupService {
     }
 
     public void addGroupStudent(String groupId, String userId, String position) {
-        User stu = stuMapper.getByNum(userId);
-        if (stu == null) {
-            throw new EntityNotFoundException("学生"+ userId +"不存在");
-        }
-        Group group = groupMapper.getGroupById(groupId);
-        if (group == null) {
-            throw new EntityNotFoundException("社团"+ groupId +"不存在");
-        }
+        User user = validateStu(userId);
+        Group group = validateGroup(groupId);
         IndividualGroup test = individualGroupMapper.getUserByUserIdAndGroupId(userId, groupId);
         if (test != null) {
             throw new InsertException("用户"+ userId +"在社团"+ groupId +"中已存在，无法重复加入");
@@ -56,7 +56,7 @@ public class IndividualGroupService {
         //初始化学生信息
         individualGroup.setGroupId(groupId);
         individualGroup.setUserId(userId);
-        individualGroup.setUserName(stu.getUserName());
+        individualGroup.setUserName(user.getUserName());
         if (position != null) {
             individualGroup.setPosition(position);
         } else {
@@ -72,20 +72,7 @@ public class IndividualGroupService {
     }
 
     public void modifyGroupStudent(String groupId, String userId, String position) {
-        User stu = stuMapper.getByNum(userId);
-        if (stu == null) {
-            throw new EntityNotFoundException("学生"+ userId +"不存在");
-        }
-
-        Group group = groupMapper.getGroupById(groupId);
-        if (group == null) {
-            throw new EntityNotFoundException("社团"+ groupId +"不存在");
-        }
-        //查询修改的用户权限是否为管理员
-        IndividualGroup individualGroup = individualGroupMapper.getUserByUserIdAndGroupId(userId, groupId);
-        if (individualGroup.getStatus() >= 1) {
-            throw new AccessDeniedException("用户"+ userId +"在社团"+ groupId +"中拥有管理员权限，你的权限不足");
-        }
+        validateStatus(groupId, userId);
         //初始化学生信息
 //        individualGroup.setGroupId(groupId);
 //        individualGroup.setUserId(userId);
@@ -102,20 +89,7 @@ public class IndividualGroupService {
     }
 
     public void deleteGroupStudent(String groupId, String userId) {
-        User stu = stuMapper.getByNum(userId);
-        if (stu == null) {
-            throw new EntityNotFoundException("学生"+ userId +"不存在");
-        }
-
-        Group group = groupMapper.getGroupById(groupId);
-        if (group == null) {
-            throw new EntityNotFoundException("社团"+ groupId +"不存在");
-        }
-        //查询修改的用户权限是否为管理员
-        IndividualGroup individualGroup = individualGroupMapper.getUserByUserIdAndGroupId(userId, groupId);
-        if (individualGroup.getStatus() >= 1) {
-            throw new AccessDeniedException("用户"+ userId +"在社团"+ groupId +"中拥有管理员权限，你的权限不足");
-        }
+        validateStatus(groupId, userId);
         //初始化学生信息
 //        individualGroup.setGroupId(groupId);
 //        individualGroup.setUserId(userId);
@@ -124,6 +98,35 @@ public class IndividualGroupService {
         int i = individualGroupMapper.deleteGroupStudent(groupId, userId);
         if(i != 1){
             throw new InsertException("社团"+ groupId +"删除学生"+ userId +"的信息失败");
+        }
+    }
+
+    //查询该学生是否存在
+    public User validateStu(String userId) {
+        User stu = stuMapper.getByNum(userId);
+        if (stu == null) {
+            throw new EntityNotFoundException("学生"+ userId +"不存在");
+        }
+        return stu;
+    }
+
+    //查询该社团是否存在
+    public Group validateGroup(String groupId) {
+        Group group = groupMapper.getGroupById(groupId);
+        if (group == null) {
+            throw new EntityNotFoundException("社团"+ groupId +"不存在");
+        }
+        return group;
+    }
+
+    //查询权限
+    public void validateStatus(String groupId, String userId) {
+        User user = validateStu(userId);
+        Group group = validateGroup(groupId);
+        //查询修改的用户权限是否为管理员
+        IndividualGroup individualGroup = individualGroupMapper.getUserByUserIdAndGroupId(userId, groupId);
+        if (individualGroup.getStatus() >= 1) {
+            throw new AccessDeniedException("用户"+ userId +"在社团"+ groupId +"中拥有管理员权限，你的权限不足");
         }
     }
 }
