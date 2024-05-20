@@ -63,22 +63,6 @@ public class GroupService {
             throw new UpdateException("社团"+ groupname +"简介修改失败");
         }
     }
-
-//    public void updatePassword(String groupname, String password) {
-//        Group group = groupMapper.getByName(groupname);
-////        String oldMD5pwd = stu.getPwd();
-//        String salt = group.getSalt();
-////        if (!isEqual(oldMD5pwd, oldPwd, salt)){
-////            throw new PwdNotMatchException("密码错误");
-////        }
-//        String newMD5pwd = md5.MD5handler(password, salt);
-//        Date date = new Date();
-//
-//        int i = groupMapper.updatePasswordByName(groupname, newMD5pwd, date);
-//        if(i != 1){
-//            throw new UpdateException("社团"+ groupname +"密码修改失败");
-//        }
-//    }
         
     public Group getGroupById(String id) {
         Group group = groupMapper.getGroupById(id);
