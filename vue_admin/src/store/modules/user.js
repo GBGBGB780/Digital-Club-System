@@ -1,4 +1,4 @@
-import { login, managerlogin, logout, getInfo } from '@/api/user'
+import { managerlogin, logout, getInfo } from '@/api/user'
 import { getToken, setToken, removeToken } from '@/utils/auth'
 import { resetRouter } from '@/router'
 
@@ -28,22 +28,12 @@ const mutations = {
 }
 
 const actions = {
-  // user login
+  // manager login
 
-  managerlogin({ commit }, userInfo) {
-    const { username, password } = userInfo
-    return new Promise((resolve, reject) => {
-      // 调用login方法发送网络请求
-      managerlogin({ username: username.trim(), password: password }).then(response => {
-        const { data } = response
+  managerlogin(token) {
         // vuex
-        commit('SET_TOKEN', data.token)
-        setToken(data.token)
-        resolve()
-      }).catch(error => {
-        reject(error)
-      })
-    })
+        commit('SET_TOKEN', token)
+        setToken(token)
   },
 
   // get user info

@@ -5,16 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b849962b-f7a7-45d1-bd6b-140ec1eb19ac" name="变更" comment="框架搭建">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/2b954039-71e6-4548-a37b-ef3a713b5bfc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b2e6cc34-18a0-4331-ad76-516408abcbab.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/chinahitech/shop/controller/ActivityController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/chinahitech/shop/controller/ActivityController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/chinahitech/shop/mapper/ActivityMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/chinahitech/shop/mapper/ActivityMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/chinahitech/shop/service/ActivityService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/chinahitech/shop/service/ActivityService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_student/src/views/login/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../vue_student/src/views/login/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chinahitech/shop/controller/IndividualGroupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chinahitech/shop/controller/IndividualGroupController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/chinahitech/shop/StuMapperTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/chinahitech/shop/StuMapperTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/chinahitech/shop/ActivityMapperTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/chinahitech/shop/ActivityMapperTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin/src/api/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vue_admin/src/api/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vue_admin/src/store/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin/src/store/modules/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vue_admin/src/store/modules/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin/src/views/groupdetail/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../vue_admin/src/views/groupdetail/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin/src/views/login/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../vue_admin/src/views/login/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_student/src/views/register/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../vue_student/src/views/register/index.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,6 +63,7 @@
     &quot;JUnit.ActivityMapperTest.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.ActivityMapperTest.modifyInfoTest.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.ShopApplicationTests.findGroup.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.StuMapperTest.addStudentTest.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.StuMapperTest.executor&quot;: &quot;Run&quot;,
     &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
     &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
@@ -166,22 +167,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ShopApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+    <configuration name="StuMapperTest.addStudentTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="shop" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.chinahitech.shop.ShopApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ShopApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="shop" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.chinahitech.shop.ShopApplication" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.chinahitech.shop.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="com.chinahitech.shop" />
+      <option name="MAIN_CLASS_NAME" value="com.chinahitech.shop.StuMapperTest" />
+      <option name="METHOD_NAME" value="addStudentTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ShopApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="shop" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.chinahitech.shop.ShopApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -196,11 +200,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.StuMapperTest.addStudentTest" />
         <item itemvalue="JUnit.ActivityMapperTest" />
         <item itemvalue="JUnit.ActivityMapperTest.modifyInfoTest" />
         <item itemvalue="JUnit.StuMapperTest" />
         <item itemvalue="JUnit.ShopApplicationTests.findGroup" />
-        <item itemvalue="Spring Boot.ShopApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -241,6 +245,8 @@
       <workItem from="1715956641028" duration="6395000" />
       <workItem from="1716013444731" duration="9072000" />
       <workItem from="1716023716746" duration="1007000" />
+      <workItem from="1716024857111" duration="13342000" />
+      <workItem from="1716186646896" duration="2554000" />
     </task>
     <task id="LOCAL-00001" summary="增加了一个查询天气的api">
       <created>1686468078163</created>

@@ -64,11 +64,21 @@
 
       </el-form>
     </div>
+    
+    <el-dialog :visible.sync="dialogVisible" title="请选择您要管理的社团" width="30%" :append-to-body="true">
+      <div id="choose" style="text-align:center;margin-top: 30px;margin-bottom: 30px;">
+        <!-- 循环按钮 -->
+        <el-button v-for="(item,index) in choosebtn" type="primary" :key="'choosebtn'+index" style="width: 80%;height: 60px;margin:4px;" @click="chooseclub(index)" :title="item">
+          {{ item }}
+        </el-button>
+      </div>
+    </el-dialog>
+
   </div>
 </template>
 
 <script>
-// import { validUsername } from '@/utils/validate'
+import { managerlogin,managedgroup } from '@/api/user.js'
 
 export default {
   name: 'Login',
@@ -94,7 +104,11 @@ export default {
       },
       loading: false,
       passwordType: 'password',
-      redirect: undefined
+      redirect: undefined,
+      dialogVisible: false,
+      choosebtn: [],   
+      clubs: [{"id":"","name":""}],
+      token:0,
     }
   },
   watch: {
@@ -120,18 +134,45 @@ export default {
       this.$refs.loginForm.validate(valid => {
         if (valid) {
           this.loading = true
-          // vuex
-          this.$store.dispatch('user/managerlogin', this.loginForm).then(() => {
-            this.$router.push({ path: this.redirect || '/' })
+          managerlogin(this.loginForm.username.trim(), this.loginForm.password).then(response => {
             this.loading = false
-          }).catch(() => {
+            const { data } = response
+            this.token=data.token
+            // vuex
+            managedgroup(this.loginForm.username.trim()).then(res =>{
+              const{ groups } = res
+              for(var i=0; i<groups.length; i++)
+              {
+                this.clubs[i].id=groups[i].id
+                this.clubs[i].name=groups[i].name
+              }
+            })
+            this.addButton()
+            this.dialogVisible = true
+          }
+        ).catch(() => {
             this.loading = false
-          })
+        })
         } else {
           console.log('error submit!!')
           return false
         }
       })
+    },
+    chooseclub(index){
+      var clubid=this.clubs[index].id;
+      // vuex
+      this.$store.commit('chooseclub',clubid);
+      this.$store.dispatch('user/managerlogin', this.token)
+      this.$router.push({ path: this.redirect || '/' })
+    },
+    
+    addButton(){
+        for(var i=0; i<this.clubs.length; i++){
+            var display = "社团id："+this.clubs[i].id+"社团名: "+this.clubs[i].name;     
+            this.choosebtn[i]=display;
+            // console.log(this.choosebtn[i])
+            }
     }
   }
 }
@@ -175,7 +216,6 @@ $cursor: #fff;
     input {
       background: transparent;
       border: 0px;
-      -webkit-appearance: none;
       border-radius: 0px;
       padding: 12px 5px 12px 15px;
       color: $light_gray;
