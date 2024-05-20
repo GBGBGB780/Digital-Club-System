@@ -4,7 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b849962b-f7a7-45d1-bd6b-140ec1eb19ac" name="变更" comment="StuMapper测试集的构建" />
+    <list default="true" id="b849962b-f7a7-45d1-bd6b-140ec1eb19ac" name="变更" comment="StuMapper测试集的构建">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/2b954039-71e6-4548-a37b-ef3a713b5bfc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b2e6cc34-18a0-4331-ad76-516408abcbab.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chinahitech/shop/service/IndividualGroupService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chinahitech/shop/service/IndividualGroupService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/chinahitech/shop/controller/IndividualGroupController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/chinahitech/shop/controller/IndividualGroupController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/chinahitech/shop/controller/ManagerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/chinahitech/shop/controller/ManagerController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/chinahitech/shop/service/IndividualGroupService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/chinahitech/shop/service/IndividualGroupService.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -218,8 +230,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.15989.150" />
-        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-IU-241.15989.150" />
+        <option value="jdk-17.0.10-corretto-17.0.10-f644763e9732-24fca987" />
       </set>
     </attachedChunks>
   </component>
@@ -254,6 +265,7 @@
       <workItem from="1716013444731" duration="9072000" />
       <workItem from="1716184793121" duration="591000" />
       <workItem from="1716186331901" duration="541000" />
+      <workItem from="1716190026725" duration="1449000" />
     </task>
     <task id="LOCAL-00001" summary="增加了一个查询天气的api">
       <created>1686468078163</created>

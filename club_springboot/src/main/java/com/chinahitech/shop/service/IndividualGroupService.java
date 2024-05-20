@@ -38,7 +38,7 @@ public class IndividualGroupService {
 
     public List<Group> getAllManagedGroups(String managerId) {
         //检测管理者名字是否一致
-        User user = validateManagerName(managerId);
+//        User user = validateManagerName(managerId);
 
         List<IndividualGroup> individualGroupList = individualGroupMapper.getAllManagedGroups(managerId);
         List<Group> groupList = new ArrayList<>();
