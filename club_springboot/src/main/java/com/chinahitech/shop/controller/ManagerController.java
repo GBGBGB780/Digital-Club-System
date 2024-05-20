@@ -81,6 +81,7 @@ public class ManagerController {
         return Result.ok().message("邮箱发送成功!");
     }
 
+    //用户密码修改
     @PostMapping("/modifypass")
     public Result modifypassword(String userId, String password){
         System.out.println(userId);
@@ -89,6 +90,7 @@ public class ManagerController {
         return Result.ok();
     }
 
+    //用户电话修改
     @PostMapping("/modifyphone")
     public Result modifyphone(String userId, String phone){
         System.out.println(userId);
@@ -97,6 +99,7 @@ public class ManagerController {
         return Result.ok();
     }
 
+    //用户简介修改
     @PostMapping("/modifydescription")
     public Result modifydescription(String userId, String description){
         System.out.println(userId);
@@ -105,6 +108,7 @@ public class ManagerController {
         return Result.ok();
     }
 
+    //用户昵称修改
     @PostMapping("/modifynickname")
     public Result modifynickname(String userId, String nickname){
         System.out.println(userId);
@@ -113,6 +117,7 @@ public class ManagerController {
         return Result.ok();
     }
 
+    //用户资料显示
     @PostMapping("/profile")
     public Result getProfile(String userId){
         System.out.println(userId);
