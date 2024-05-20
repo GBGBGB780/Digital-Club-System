@@ -232,6 +232,7 @@ export default {
       this.$router.push(`/login?redirect=${this.$route.fullPath}`)
     },
     resetForm(formName) {
+      console.log( this.$store.state.clubid)
       this.$refs[formName].resetFields()
     }
   }

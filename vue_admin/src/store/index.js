@@ -13,7 +13,16 @@ const store = new Vuex.Store({
     settings,
     user
   },
-  getters
+  getters,
+  state:{
+		clubid:0
+	},
+  // Mutation 用户变更Store数据
+  mutations:{
+      chooseclub(state, cid){
+        state.clubid = cid
+      }
+  }
 })
 
 export default store
