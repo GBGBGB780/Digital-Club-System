@@ -107,8 +107,8 @@ export default {
       redirect: undefined,
       dialogVisible: false,
       choosebtn: [],   
+      clubs: [{"id":"","name":""}],
       token:0,
-      cid:[],
     }
   },
   watch: {
@@ -140,14 +140,15 @@ export default {
             this.token=data.token
             // vuex
             managedgroup(this.loginForm.username.trim()).then(res =>{
-              // console.log(res.data.items[0].username)
-              for(var i=0; i<res.data.items.length; i++)
+              const{ groups } = res
+              for(var i=0; i<groups.length; i++)
               {
-                this.addButton(i,res.data.items[i].username,res.data.items[i].name)
+                this.clubs[i].id=groups[i].id
+                this.clubs[i].name=groups[i].name
               }
             })
-            // this.dialogVisible = true
-            // console.log(this.choosebtn)
+            this.addButton()
+            this.dialogVisible = true
           }
         ).catch(() => {
             this.loading = false
@@ -159,20 +160,20 @@ export default {
       })
     },
     chooseclub(index){
-      var clubid=this.cid[index];
+      var clubid=this.clubs[index].id;
       // vuex
       this.$store.commit('chooseclub',clubid);
       this.$store.dispatch('user/managerlogin', this.token)
       this.$router.push({ path: this.redirect || '/' })
     },
     
-    addButton(i,cid,cname){
-      var display = "社团id："+cid+"社团名: "+cname;
-      this.cid[i]=cid; 
-      this.choosebtn[i]=display;
-      // console.log(this.choosebtn[i])
-      this.dialogVisible = true
-    },
+    addButton(){
+        for(var i=0; i<this.clubs.length; i++){
+            var display = "社团id："+this.clubs[i].id+"社团名: "+this.clubs[i].name;     
+            this.choosebtn[i]=display;
+            // console.log(this.choosebtn[i])
+            }
+    }
   }
 }
 </script>

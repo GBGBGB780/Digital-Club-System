@@ -30,7 +30,7 @@ const mutations = {
 const actions = {
   // manager login
 
-  managerlogin({commit},token) {
+  managerlogin(token) {
         // vuex
         commit('SET_TOKEN', token)
         setToken(token)
