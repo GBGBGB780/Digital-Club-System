@@ -68,7 +68,7 @@
 
 <script>
 import { validUsername } from '@/utils/validate'
-// import { login } from '@/api/user.js'
+import { login } from '@/api/user.js'
 
 export default {
   name: 'Login',
@@ -136,10 +136,6 @@ export default {
             this.loading = false
           }).catch(() => {
             this.loading = false
-            this.$message({
-              message: '错误，请联系管理员',
-              type: 'error'
-            })
           })
         } else {
           console.log('error submit!!')

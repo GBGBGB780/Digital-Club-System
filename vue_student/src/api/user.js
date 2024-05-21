@@ -2,7 +2,7 @@ import request from '@/utils/request'
 
 export function login(stunumber,password) {
   return request({
-    url: '/user/login',
+    url: '/student/login',
     method: 'post',
     params: { stunumber, password }
   })
@@ -11,7 +11,7 @@ export function login(stunumber,password) {
 export function register(data) {
   console.error(data)
   return request({
-    url: '/user/register',
+    url: '/student/register',
     method: 'post',
     data: data
   })
@@ -19,7 +19,7 @@ export function register(data) {
 
 export function modifypassword(stunumber, password) {
   return request({
-      url: '/user/modifypass',
+      url: '/student/modifypass',
       method: 'post',
       params: { stunumber, password }
   })
@@ -27,7 +27,7 @@ export function modifypassword(stunumber, password) {
 
 export function modifyphone(stunumber, phone) {
   return request({
-      url: '/user/modifyphone',
+      url: '/student/modifyphone',
       method: 'post',
       params: { stunumber, phone }
   })
@@ -35,7 +35,7 @@ export function modifyphone(stunumber, phone) {
 
 export function modifydescription(stunumber, description) {
   return request({
-      url: '/user/modifydescription',
+      url: '/student/modifydescription',
       method: 'post',
       params: { stunumber, description }
   })
@@ -43,7 +43,7 @@ export function modifydescription(stunumber, description) {
 
 export function modifynickname(stunumber, nickname) {
   return request({
-      url: '/user/modifynickname',
+      url: '/student/modifynickname',
       method: 'post',
       params: { stunumber, nickname }
   })
@@ -52,7 +52,7 @@ export function modifynickname(stunumber, nickname) {
 export function validateEmail(email) {
   console.error({ email })
   return request({
-      url: '/user/validateEmail',
+      url: '/student/validateEmail',
       method: 'post',
       params: { email }
   })
@@ -60,7 +60,7 @@ export function validateEmail(email) {
 
 export function getProfile(stunumber) {
   return request({
-    url: '/user/profile',
+    url: '/student/profile',
     method: 'post',
     params: { stunumber }
   })
@@ -69,7 +69,7 @@ export function getProfile(stunumber) {
 
 export function getInfo(token) {
   return request({
-    url: '/user/info',
+    url: '/student/info',
     method: 'get',
     params: { token } // name=xx&xxx=xxx
   })
@@ -77,7 +77,7 @@ export function getInfo(token) {
 
 export function logout() {
   return request({
-    url: '/user/logout',
+    url: '/student/logout',
     method: 'post'
   })
 }

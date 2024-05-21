@@ -4,11 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b849962b-f7a7-45d1-bd6b-140ec1eb19ac" name="变更" comment="前端管理员登陆界面选择进入的社团">
+    <list default="true" id="b849962b-f7a7-45d1-bd6b-140ec1eb19ac" name="变更" comment="前端管理员登陆界面选择进入的社团补丁">
+      <change beforePath="$PROJECT_DIR$/../.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/sqldialects.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/chinahitech/shop/service/IndividualGroupService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/chinahitech/shop/service/IndividualGroupService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin/src/store/modules/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vue_admin/src/store/modules/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../vue_admin/src/views/login/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../vue_admin/src/views/login/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_student/src/api/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vue_student/src/api/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_student/src/views/login/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../vue_student/src/views/login/index.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,6 +102,7 @@
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;application.passwordSafe&quot;,
     &quot;spring.configuration.checksum&quot;: &quot;fb54f3c5992b96d001bb16e8e92d968d&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;D:\\IntelliJ IDEA\\IntelliJ IDEA 2023.3.2\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -260,7 +265,9 @@
       <workItem from="1716186331901" duration="541000" />
       <workItem from="1716190026725" duration="2212000" />
       <workItem from="1716194781754" duration="4445000" />
-      <workItem from="1716203683275" duration="1986000" />
+      <workItem from="1716203683275" duration="2379000" />
+      <workItem from="1716278112915" duration="1991000" />
+      <workItem from="1716280521895" duration="1659000" />
     </task>
     <task id="LOCAL-00001" summary="增加了一个查询天气的api">
       <created>1686468078163</created>
@@ -301,7 +308,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716192162419</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="前端管理员登陆界面选择进入的社团补丁">
+      <option name="closed" value="true" />
+      <created>1716210341770</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1716210341770</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -324,7 +339,8 @@
     <MESSAGE value="框架搭建" />
     <MESSAGE value="StuMapper测试集的构建" />
     <MESSAGE value="前端管理员登陆界面选择进入的社团" />
-    <option name="LAST_COMMIT_MESSAGE" value="前端管理员登陆界面选择进入的社团" />
+    <MESSAGE value="前端管理员登陆界面选择进入的社团补丁" />
+    <option name="LAST_COMMIT_MESSAGE" value="前端管理员登陆界面选择进入的社团补丁" />
     <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">

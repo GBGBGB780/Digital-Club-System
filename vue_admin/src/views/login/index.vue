@@ -109,6 +109,7 @@ export default {
       choosebtn: [],   
       token:0,
       cid:[],
+      // club:[{cid,cname}],
     }
   },
   watch: {
@@ -116,7 +117,14 @@ export default {
       handler: function(route) {
         this.redirect = route.query && route.query.redirect
       },
-      immediate: true
+      immediate: true,
+      dialogVisible: function(newVal,oldVal){
+        if(newVal = false)
+        {
+          this.choosebtn=[];
+          console.log("test")
+        }
+      }
     }
   },
   methods: {
@@ -146,8 +154,7 @@ export default {
                 this.addButton(i,res.data.items[i].username,res.data.items[i].name)
               }
             })
-            // this.dialogVisible = true
-            // console.log(this.choosebtn)
+            // this.dialogVisible = true 如果放在这里的话就会导致打开时还未渲染，因为Vue是异步进行
           }
         ).catch(() => {
             this.loading = false
