@@ -136,22 +136,12 @@ public class ActivityService {
 
     public void addActivity(Activity activity) {
         Date date = new Date();
-        int i = activityMapper.addActivity(
-                0,
-                activity.getName(),
-                activity.getOrganizer(),
-                activity.getDescription(),
-                activity.getAttachment(),
-                activity.getImage(),
-                0,
-                activity.getArrange(),
-                activity.getTime(),
-                activity.getNumber(),
-                activity.getPlace(),
-                activity.getType(),
-                activity.getGroupName(),
-                date,
-                date);
+        activity.setId(0);
+        activity.setHot(0);
+        activity.setNumber(0);
+        activity.setCreateTime(date);
+        activity.setModifyTime(date);
+        int i = activityMapper.insert(activity);
         if(i != 1){
             throw new UpdateException("活动"+ activity.getName() +"添加失败");
         }

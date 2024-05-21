@@ -1,8 +1,10 @@
 package com.chinahitech.shop.service;
 
 import com.chinahitech.shop.bean.Group;
+import com.chinahitech.shop.bean.StuApp;
 import com.chinahitech.shop.mapper.GroupMapper;
 import com.chinahitech.shop.service.exception.EntityNotFoundException;
+import com.chinahitech.shop.service.exception.InsertException;
 import com.chinahitech.shop.service.exception.UpdateException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -64,7 +66,7 @@ public class GroupService {
         }
     }
         
-    public Group getGroupById(String id) {
+    public Group getGroupById(int id) {
         Group group = groupMapper.getGroupById(id);
         if (group == null) {
             throw new EntityNotFoundException("社团"+ id +"不存在");
@@ -101,6 +103,32 @@ public class GroupService {
         int rowsUpdated = groupMapper.updateImage(name, image, date);
         if (rowsUpdated == 0) {
             throw new UpdateException("社团"+ name +"图片修改失败");
+        }
+    }
+
+    public void insert(Group group) {
+        Date date = new Date();
+        group.setId(0);
+        group.setIsaccepted(false);
+        group.setCreateTime(date);
+        group.setModifyTime(date);
+        int i = groupMapper.insert(group);
+        if (i != 1) {
+            throw new InsertException("社团" + group + "无法保存到数据库");
+        }
+    }
+
+    public void confirmApplication(int groupId) {
+        int i = groupMapper.confirmApplicationByid(groupId);
+        if (i != 1) {
+            throw new UpdateException("新建社团" + groupId + "确认失败");
+        }
+    }
+
+    public void denyApplication(int groupId) {
+        int i = groupMapper.denyApplicationByid(groupId);
+        if (i != 1) {
+            throw new UpdateException("新建社团" + groupId + "拒绝失败");
         }
     }
 }

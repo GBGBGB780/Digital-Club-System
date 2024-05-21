@@ -23,11 +23,9 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
+
 import com.chinahitech.shop.utils.JwtUtils;
-import java.util.Map;
 
 @RestController
 @RequestMapping("/activity")
@@ -53,6 +51,15 @@ public class ActivityController {
         System.out.println(name);
         Activity activity = activityService.getActivityByNameAndGroupName(name, groupName);
         return Result.ok().data("activity", activity);
+    }
+
+    //todo 申请加入活动
+    @PostMapping("/joinActivity")
+    public Result joinActivity(String groupName, String name){
+        List<Activity> activities = new ArrayList<>();
+//        activities = activityService.joinActivity(groupName);
+//        System.out.println(groupName);
+        return Result.ok().data("items", activities);
     }
 
     @RequestMapping("/getvideo")

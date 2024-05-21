@@ -14,7 +14,7 @@ public class IndividualGroup {
     //    private String id;
     @JsonProperty("username")
     private int id;
-    private String groupId;
+    private int groupId;
     private String userId;
     private String position;
     private String userName;
