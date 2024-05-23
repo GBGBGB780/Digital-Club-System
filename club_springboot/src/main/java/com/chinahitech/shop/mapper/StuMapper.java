@@ -15,6 +15,9 @@ public interface StuMapper extends BaseMapper<User> {
     @Select("SELECT * FROM user WHERE userId = #{num}")
     User getByNum(String num);
 
+    @Select("SELECT * FROM user WHERE userName = #{name}")
+    User getByName(String name);
+
     @Insert("INSERT INTO user(userId, password, email, salt, createTime, modifyTime, status) " +
             "VALUES (#{stunumber}, #{password}, #{email}, #{salt}, #{createTime}, #{modifyTime}, #{status})")
     int addStudent(@Param("stunumber") String stunumber,

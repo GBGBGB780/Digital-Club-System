@@ -23,4 +23,5 @@ public class IndividualActivity {
     private Date createTime;
     private String modifyUser;
     private Date modifyTime;
+    private Boolean isaccepted;
 }

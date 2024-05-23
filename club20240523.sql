@@ -107,6 +107,7 @@ CREATE TABLE `individual_activity` (
   `modifyUser` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '修改者',
   `modifyTime` datetime DEFAULT NULL COMMENT '修改时间',
   `activityId` int DEFAULT NULL COMMENT '社团编号',
+  `isaccepted` tinyint(1) DEFAULT NULL COMMENT '是否通过',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -235,4 +236,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-05-21 22:17:45
+-- Dump completed on 2024-05-23 16:35:38

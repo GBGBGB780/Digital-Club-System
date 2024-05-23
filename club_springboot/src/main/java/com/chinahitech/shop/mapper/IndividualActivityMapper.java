@@ -14,16 +14,19 @@ import java.util.List;
 
 @Repository
 public interface IndividualActivityMapper extends BaseMapper<IndividualActivity> {
-    @Select("select * from `individual_activity` WHERE userId = #{userId}")
+    @Select("select * from `individual_activity` WHERE userId = #{userId} and isaccepted = true")
     List<IndividualActivity> getActivityByStuId(@Param("userId") String userId);
 
-    @Select("select * from `individual_activity` WHERE activityId = #{activityId}")
+    @Select("select * from `individual_activity` WHERE activityId = #{activityId} and isaccepted = true")
     List<IndividualActivity> getActivityByActivityId(@Param("activityId") int activityId);
+
+    @Select("select * from `individual_activity` WHERE activityId = #{activityId} and isaccepted = false")
+    List<IndividualActivity> getApplyByActivityId(@Param("activityId") int activityId);
 
     @Select("select * from `individual_activity` WHERE userId = #{userId} and status >= 1")
     List<IndividualActivity> getAllManagedActivities(@Param("userId") String userId);
 
-    @Select("select * from `individual_activity` WHERE userId = #{userId} and activityId = #{activityId}")
+    @Select("select * from `individual_activity` WHERE userId = #{userId} and activityId = #{activityId} and isaccepted = true")
     IndividualActivity getUserByUserIdAndActivityId(@Param("userId") String userId, @Param("activityId") int activityId);
 
 //    @Insert("INSERT INTO Individual_group(userId, groupId, position, userName, status, createTime, modifyTime) " +
@@ -36,13 +39,21 @@ public interface IndividualActivityMapper extends BaseMapper<IndividualActivity>
 //                   @Param("createTime") Date createTime,
 //                   @Param("modifyTime") Date modifyTime);
 
-    @Update("UPDATE individual_activity SET position = #{position}, modifyTime = #{modifyTime} WHERE activityId = #{activityId} and userId = #{userId}")
+    @Update("UPDATE individual_activity SET position = #{position}, modifyTime = #{modifyTime} WHERE activityId = #{activityId} and userId = #{userId} and isaccepted = true")
     int modifyActivityStudent(@Param("position") String position,
                               @Param("modifyTime") Date modifyTime,
                               @Param("activityId") int activityId,
                               @Param("userId") String userId);
 
-    @Delete("delete from individual_activity WHERE activityId = #{activityId} and userId = #{userId}")
+    @Delete("delete from individual_activity WHERE activityId = #{activityId} and userId = #{userId} and isaccepted = true")
     int deleteActivityStudent(@Param("activityId") int activityId,
                               @Param("userId") String userId);
+
+    @Update("update `individual_activity` set isaccepted = true where activityId = #{activityId} and userId = #{userId}")
+    int confirmApplicationByid(@Param("activityId") int activityId,
+                               @Param("userId") String userId);
+
+    @Update("update `individual_activity` set isaccepted = false where activityId = #{activityId} and userId = #{userId}")
+    int denyApplicationByid(@Param("activityId") int activityId,
+                            @Param("userId") String userId);
 }

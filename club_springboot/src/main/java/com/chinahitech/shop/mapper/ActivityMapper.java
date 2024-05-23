@@ -11,8 +11,6 @@ import java.util.List;
 @Repository
 public interface ActivityMapper extends BaseMapper<Activity> {
 
-    @Select("SELECT * FROM `Activity` WHERE name = #{name} and isaccepted = true")
-    Activity getByName(String name);
 
     @Select("select * from `Activity` where isaccepted = true")
     List<Activity> findall();
@@ -20,9 +18,11 @@ public interface ActivityMapper extends BaseMapper<Activity> {
     @Select("SELECT * FROM `Activity` WHERE name LIKE CONCAT('%', #{searchinfo}, '%') and isaccepted = true")
     List<Activity> findBySearch(String searchinfo);
 
-    // 对这个进行单元测试
+//    @Select("SELECT * FROM `Activity` WHERE name = #{name} and isaccepted = true")
+//    List<Activity> findActivity(@Param("name") String name);
+
     @Select("SELECT * FROM `Activity` WHERE name = #{name} and isaccepted = true")
-    List<Activity> findActivity(@Param("name") String name);
+    Activity getActivityByName(String name);
 
     @Select("select * from `Activity` where id = #{id} and isaccepted = true")
     Activity getActivityById(@Param("id") int id);
@@ -73,12 +73,9 @@ public interface ActivityMapper extends BaseMapper<Activity> {
                    @Param("modifyTime") Date modifyTime,
                    @Param("id") int id);
 
-    @Select("select * from `Activity` where groupName = #{groupName} and name = #{name} and isaccepted = true")
-    Activity getHot(String groupName, String name);
-
     @Update("update `Activity` set hot = #{hot}, modifyTime = #{modifyTime} " +
-            "where groupName = #{groupName} and name = #{name} and isaccepted = true")
-    int updateHot(String groupName, String name, int hot, Date modifyTime);
+            "where name = #{name} and isaccepted = true")
+    int updateHot(String name, int hot, Date modifyTime);
 
     @Select("select * from `Activity`  where isaccepted = true order by hot desc limit 5")
     List<Activity> findtop();

@@ -7,6 +7,7 @@ import com.chinahitech.shop.mapper.*;
 import com.chinahitech.shop.service.exception.AccessDeniedException;
 import com.chinahitech.shop.service.exception.EntityNotFoundException;
 import com.chinahitech.shop.service.exception.InsertException;
+import com.chinahitech.shop.service.exception.UpdateException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -36,6 +37,11 @@ public class IndividualActivityService {
         return individualActivityMapper.getActivityByActivityId(activityId);
     }
 
+    public List<IndividualActivity> getApplyByActivityId(int activityId) {
+        Activity activity = validateActivity(activityId);
+        return individualActivityMapper.getApplyByActivityId(activityId);
+    }
+
     public List<Activity> getAllManagedActivities(String managerId) {
         //检测管理者名字是否一致
         User user = validateManagerName(managerId);
@@ -56,7 +62,28 @@ public class IndividualActivityService {
         return individualActivityMapper.getUserByUserIdAndActivityId(userId, activityId);
     }
 
-    public void addActivityStudent(int activityId, String userId, String position) {
+    public void joinActivity(String stuId, int activityId) {
+        User user = validateStu(stuId);
+        Activity activity = validateActivity(activityId);
+
+        addHot(activity);
+
+        addActivityStudent(stuId, activityId, null, false);
+    }
+
+    public void addHot(Activity activity) {
+        Date date = new Date();
+        int hot = activity.getHot();
+        hot++;
+        String name = activity.getName();
+
+        int i = activityMapper.updateHot(name, hot, date);
+        if(i != 1){
+            throw new UpdateException("活动"+ name +"热度修改失败");
+        }
+    }
+
+    public void addActivityStudent(String userId, int activityId, String position, Boolean isaccepted) {
         User user = validateStu(userId);
         Activity activity = validateActivity(activityId);
         IndividualActivity test = individualActivityMapper.getUserByUserIdAndActivityId(userId, activityId);
@@ -72,7 +99,7 @@ public class IndividualActivityService {
         individualActivity.setStatus(0);
         individualActivity.setCreateTime(date);
         individualActivity.setModifyTime(date);
-
+        individualActivity.setIsaccepted(isaccepted);
         if (position != null) {
             individualActivity.setPosition(position);
         } else {
@@ -161,7 +188,7 @@ public class IndividualActivityService {
         return user;
     }
 
-    //查询该社团是否存在
+    //查询该活动是否存在
     public Activity validateActivity(int activityId) {
         Activity activity = activityMapper.getActivityById(activityId);
         if (activity == null) {
@@ -180,6 +207,20 @@ public class IndividualActivityService {
             throw new EntityNotFoundException("用户"+ userId +"在活动"+ activityId +"不存在");
         } else if (individualActivity.getStatus() >= 1) {
             throw new AccessDeniedException("用户"+ userId +"在活动"+ activityId +"中拥有管理员权限，你的权限不足");
+        }
+    }
+
+    public void confirmApplication(int activityId, String userId) {
+        int i = individualActivityMapper.confirmApplicationByid(activityId, userId);
+        if (i != 1) {
+            throw new UpdateException("用户"+ userId +"在活动" + activityId + "的申请确认失败");
+        }
+    }
+
+    public void denyApplication(int activityId, String userId) {
+        int i = individualActivityMapper.denyApplicationByid(activityId, userId);
+        if (i != 1) {
+            throw new UpdateException("用户"+ userId +"在活动" + activityId + "的申请确认失败");
         }
     }
 }
