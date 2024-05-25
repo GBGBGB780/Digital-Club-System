@@ -12,7 +12,7 @@ import java.util.Date;
 @ToString
 public class Group{
     @JsonProperty("username")
-    private String id;
+    private int id;
     private String name;
     private String leader;
     private String image;
@@ -23,4 +23,5 @@ public class Group{
     private Date createTime;
     private String modifyUser;
     private Date modifyTime;
+    private Boolean isaccepted;
 }

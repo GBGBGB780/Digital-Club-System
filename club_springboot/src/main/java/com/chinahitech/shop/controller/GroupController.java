@@ -1,6 +1,8 @@
 package com.chinahitech.shop.controller;
 
+import com.chinahitech.shop.bean.Activity;
 import com.chinahitech.shop.bean.Group;
+import com.chinahitech.shop.bean.StuApp;
 import com.chinahitech.shop.service.GroupService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,6 +55,13 @@ public class GroupController {
         return Result.ok().data("group",group);
     }
 
+    //申请新建社团
+    @PostMapping("/addGroup")
+    public Result addGroup(@RequestBody Group group){
+        groupService.insert(group);
+        return Result.ok();
+    }
+
     @RequestMapping("/getvideo")
     public Result getVideo() {
         try {
@@ -78,6 +87,7 @@ public class GroupController {
         return Result.ok().data("item", groups);
     }
     // end
+
 
 
 
@@ -178,7 +188,7 @@ public class GroupController {
     }
     @PostMapping("/getattachment")//能直接下载文件，而不是在新标签页中打开的比较难搞，涉及到http报文，暂时不搞了
     // 这个是在新标签页中打开，对于zip完全没问题
-    public ResponseEntity<Map<String, Object>> getAttachment(@RequestParam("id") String id) {
+    public ResponseEntity<Map<String, Object>> getAttachment(@RequestParam("id") int id) {
         Group group = groupService.getGroupById(id);
         Map<String, Object> response = new HashMap<>();
         if (group != null) {
@@ -203,5 +213,41 @@ public class GroupController {
         errorResponse.put("error", errorMessage);
         return errorResponse;
     }
-    //end
+
+    //超级管理员端
+
+//    // 申请列表
+//    @PostMapping("/recvGroups")
+//    public Result getRecvGroups(String groupname){
+//        List<Group> groups = groupService.queryRecvapp(groupname);
+//        System.out.println(groupname);
+//        return Result.ok().data("items", StuApps);
+//    }
+//
+//    // 申请列表->详情
+//    @PostMapping("/recvGroup")
+//    public Result getRecvGroup(int id) {
+//        List<StuApp> StuApps = groupService.queryDetailapp(id);
+//        String isAcceptedStr = groupService.findIsAccepted(id); // 直接获取特定id的isAccepted值
+//        System.out.println(id);
+//        return Result.ok().data("items", StuApps).data("isAccepted", isAcceptedStr);
+//    }
+
+    //接受申请
+    @PostMapping("/accept")
+    public Result accept(int groupId){
+        System.out.println(groupId);
+        // System.out.println(isaccepted);
+        groupService.confirmApplication(groupId);
+        return Result.ok();
+    }
+
+    //拒绝申请
+    @PostMapping("/reject")
+    public Result reject(int groupId){
+        System.out.println(groupId);
+        // System.out.println(isaccepted);
+        groupService.denyApplication(groupId);
+        return Result.ok();
+    }
 }

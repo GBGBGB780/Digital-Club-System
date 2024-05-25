@@ -10,27 +10,18 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class Activity{
+public class IndividualActivity {
     //    private String id;
     @JsonProperty("username")
     private int id;
-    private String name;
-    private String organizer;
-    private String image;
-    private String description;
-    private String attachment;
-    //    private String password;
-    private int hot;
-    private String arrange;
-    private Date time;
-    private int number;
-    private String place;
-    private int type;
-    private String groupName;
+    private int activityId;
+    private String userId;
+    private String position;
+    private String userName;
+    private int status;
     private String createUser;
     private Date createTime;
     private String modifyUser;
     private Date modifyTime;
     private Boolean isaccepted;
 }
-

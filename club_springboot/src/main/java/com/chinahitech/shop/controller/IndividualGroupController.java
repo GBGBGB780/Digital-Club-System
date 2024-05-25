@@ -32,7 +32,7 @@ public class IndividualGroupController {
     //管理员端
     //获取该社团的所有学生及其职位
     @RequestMapping("/getAllStudents")
-    public Result getStudentsByGroup(String groupId) {
+    public Result getStudentsByGroup(int groupId) {
         List<IndividualGroup> studentList = individualGroupService.getGroupByGroupId(groupId);
         System.out.println(studentList);
         return Result.ok().data("items", studentList);
@@ -40,21 +40,21 @@ public class IndividualGroupController {
 
     //该社团普通成员的增加
     @RequestMapping("/addGroupStudent")
-    public Result addGroupStudent(String groupId, String studentId, String position) {
+    public Result addGroupStudent(int groupId, String studentId, String position) {
         individualGroupService.addGroupStudent(groupId, studentId, position);
         return Result.ok().message("社团"+ groupId +"添加学生"+ studentId +"成功");
     }
 
     //该社团普通成员的修改
     @RequestMapping("/modifyGroupStudent")
-    public Result modifyGroupStudent(String groupId, String studentId, String position) {
+    public Result modifyGroupStudent(int groupId, String studentId, String position) {
         individualGroupService.modifyGroupStudent(groupId, studentId, position);
         return Result.ok().message("社团"+ groupId +"修改学生"+ studentId +"的信息成功");
     }
 
     //该社团普通成员的删除
     @RequestMapping("/deleteGroupStudent")
-    public Result deleteGroupStudent(String groupId, String studentId) {
+    public Result deleteGroupStudent(int groupId, String studentId) {
         individualGroupService.deleteGroupStudent(groupId, studentId);
         return Result.ok().message("社团"+ groupId +"删除学生"+ studentId +"成功");
     }

@@ -23,11 +23,9 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
+
 import com.chinahitech.shop.utils.JwtUtils;
-import java.util.Map;
 
 @RestController
 @RequestMapping("/activity")
@@ -49,9 +47,9 @@ public class ActivityController {
 
     // 活动详情（学生端）
     @PostMapping("/studentDetail")
-    public Result getStudentDetail(String groupName, String name){
-        System.out.println(name);
-        Activity activity = activityService.getActivityByNameAndGroupName(name, groupName);
+    public Result getStudentDetail(String groupName, String activityName){
+        System.out.println(activityName);
+        Activity activity = activityService.getActivityByNameAndGroupName(activityName, groupName);
         return Result.ok().data("activity", activity);
     }
 
@@ -102,18 +100,18 @@ public class ActivityController {
 
     // 活动详情（管理端）
     @PostMapping("/managerDetail")
-    public Result getManagerDetail(String groupName, String name){
-        System.out.println(name);
-        Activity activity = activityService.getActivityByNameAndGroupName(name, groupName);
+    public Result getManagerDetail(String groupName, String activityName){
+        System.out.println(activityName);
+        Activity activity = activityService.getActivityByNameAndGroupName(activityName, groupName);
         return Result.ok().data("activity", activity);
     }
 
     // 活动简介修改
     @PostMapping("/modifydescription")
-    public Result  modifyDescription(String groupName, String name, String description, String attachment, String image){
-        System.out.println(name);
+    public Result  modifyDescription(String groupName, String activityName, String description, String attachment, String image){
+        System.out.println(activityName);
         System.out.println(description);
-        activityService.updateDescription(groupName, name, description, attachment,image);
+        activityService.updateDescription(groupName, activityName, description, attachment,image);
         return Result.ok();
     }
 

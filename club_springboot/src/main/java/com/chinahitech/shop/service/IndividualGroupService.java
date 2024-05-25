@@ -34,7 +34,7 @@ public class IndividualGroupService {
         return individualGroupMapper.getGroupByStuId(userId);
     }
 
-    public List<IndividualGroup> getGroupByGroupId(String groupId) {
+    public List<IndividualGroup> getGroupByGroupId(int groupId) {
         Group group = validateGroup(groupId);
         return individualGroupMapper.getGroupByGroupId(groupId);
     }
@@ -53,13 +53,13 @@ public class IndividualGroupService {
         return groupList;
     }
 
-    public IndividualGroup getUserByUserIdAndGroupId(String userId, String groupId) {
+    public IndividualGroup getUserByUserIdAndGroupId(String userId, int groupId) {
         User user = validateStuName(userId);
         Group group = validateGroup(groupId);
         return individualGroupMapper.getUserByUserIdAndGroupId(userId, groupId);
     }
 
-    public void addGroupStudent(String groupId, String userId, String position) {
+    public void addGroupStudent(int groupId, String userId, String position) {
         User user = validateStu(userId);
         Group group = validateGroup(groupId);
         IndividualGroup test = individualGroupMapper.getUserByUserIdAndGroupId(userId, groupId);
@@ -67,25 +67,30 @@ public class IndividualGroupService {
             throw new InsertException("用户"+ userId +"在社团"+ groupId +"中已存在，无法重复加入");
         }
         IndividualGroup individualGroup  = new IndividualGroup();
-        //初始化学生信息
+        //初始化信息
         individualGroup.setGroupId(groupId);
         individualGroup.setUserId(userId);
         individualGroup.setUserName(user.getUserName());
+        Date date = new Date();
+        individualGroup.setStatus(0);
+        individualGroup.setCreateTime(date);
+        individualGroup.setModifyTime(date);
+
         if (position != null) {
             individualGroup.setPosition(position);
         } else {
             individualGroup.setPosition("普通成员");
         }
-        Date date = new Date();
 
-        int i = individualGroupMapper.addGroupStudent(individualGroup.getUserId(), individualGroup.getGroupId(),
-                individualGroup.getPosition(), individualGroup.getUserName(), 0, date, date);
+        int i = individualGroupMapper.insert(individualGroup);
+//        int i = individualGroupMapper.addGroupStudent(individualGroup.getUserId(), individualGroup.getGroupId(),
+//                individualGroup.getPosition(), individualGroup.getUserName(), 0, date, date);
         if(i != 1){
             throw new InsertException("社团"+ groupId +"添加学生"+ userId +"失败");
         }
     }
 
-    public void modifyGroupStudent(String groupId, String userId, String position) {
+    public void modifyGroupStudent(int groupId, String userId, String position) {
         validateStatus(groupId, userId);
         //初始化学生信息
 //        individualGroup.setGroupId(groupId);
@@ -102,7 +107,7 @@ public class IndividualGroupService {
         }
     }
 
-    public void deleteGroupStudent(String groupId, String userId) {
+    public void deleteGroupStudent(int groupId, String userId) {
         validateStatus(groupId, userId);
         //初始化学生信息
 //        individualGroup.setGroupId(groupId);
@@ -160,7 +165,7 @@ public class IndividualGroupService {
     }
 
     //查询该社团是否存在
-    public Group validateGroup(String groupId) {
+    public Group validateGroup(int groupId) {
         Group group = groupMapper.getGroupById(groupId);
         if (group == null) {
             throw new EntityNotFoundException("社团"+ groupId +"不存在");
@@ -169,7 +174,7 @@ public class IndividualGroupService {
     }
 
     //查询修改对象的权限
-    public void validateStatus(String groupId, String userId) {
+    public void validateStatus(int groupId, String userId) {
         User user = validateStuName(userId);
         Group group = validateGroup(groupId);
         //查询修改或删除的用户是否存在及其权限是否为管理员
