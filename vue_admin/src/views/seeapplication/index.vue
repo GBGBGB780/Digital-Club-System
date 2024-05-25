@@ -59,7 +59,7 @@ export default {
       };
     },
   created: function () {
-    getSeeApplications(this.name).then((response) => {
+    getSeeApplications(this.$store.state.clubname).then((response) => {
       this.applications = response.data.items;
     })
     .catch(error => {

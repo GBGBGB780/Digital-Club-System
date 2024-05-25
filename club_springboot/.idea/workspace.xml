@@ -4,15 +4,106 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b849962b-f7a7-45d1-bd6b-140ec1eb19ac" name="变更" comment="前端管理员登陆界面选择进入的社团补丁">
-      <change beforePath="$PROJECT_DIR$/../.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/sqldialects.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+    <list default="true" id="b849962b-f7a7-45d1-bd6b-140ec1eb19ac" name="变更" comment="前端学生登陆界面bug修复">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin/src/views/login/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../vue_admin/src/views/login/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_student/src/api/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vue_student/src/api/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_student/src/views/login/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../vue_student/src/views/login/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/.editorconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/.env.development" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/.env.production" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/.env.staging" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/.eslintignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/.eslintrc.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/.travis.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/README-zh.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/babel.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/build/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/jest.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/jsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/mock/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/mock/mock-server.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/mock/table.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/mock/user.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/mock/utils.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/postcss.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/public/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/App.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/api/table.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/api/user.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/assets/404_images/404.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/assets/404_images/404_cloud.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/components/Breadcrumb/index.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/components/Hamburger/index.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/components/SvgIcon/index.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/icons/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/icons/svg/dashboard.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/icons/svg/example.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/icons/svg/eye-open.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/icons/svg/eye.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/icons/svg/form.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/icons/svg/link.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/icons/svg/nested.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/icons/svg/password.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/icons/svg/table.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/icons/svg/tree.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/icons/svg/user.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/icons/svgo.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/layout/components/AppMain.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/layout/components/Navbar.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/layout/components/Sidebar/FixiOSBug.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/layout/components/Sidebar/Item.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/layout/components/Sidebar/Link.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/layout/components/Sidebar/Logo.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/layout/components/Sidebar/SidebarItem.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/layout/components/Sidebar/index.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/layout/components/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/layout/index.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/layout/mixin/ResizeHandler.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/permission.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/router/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/settings.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/store/getters.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/store/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/store/modules/app.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/store/modules/settings.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/store/modules/user.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/styles/element-ui.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/styles/index.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/styles/mixin.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/styles/sidebar.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/styles/transition.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/styles/variables.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/utils/auth.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/utils/get-page-title.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/utils/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/utils/request.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/utils/validate.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/views/404.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/views/dashboard/index.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/views/form/index.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/views/login/index.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/views/nested/menu1/index.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/views/nested/menu1/menu1-1/index.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/views/nested/menu1/menu1-2/index.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/views/nested/menu1/menu1-2/menu1-2-1/index.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/views/nested/menu1/menu1-2/menu1-2-2/index.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/views/nested/menu1/menu1-3/index.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/views/nested/menu2/index.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/views/table/index.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/views/tree/index.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/tests/unit/.eslintrc.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/tests/unit/components/Breadcrumb.spec.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/tests/unit/components/Hamburger.spec.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/tests/unit/components/SvgIcon.spec.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/tests/unit/utils/formatTime.spec.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/tests/unit/utils/param2Obj.spec.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/tests/unit/utils/parseTime.spec.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/tests/unit/utils/validate.spec.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin_test/vue.config.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +191,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.17&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;application.passwordSafe&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;spring.configuration.checksum&quot;: &quot;fb54f3c5992b96d001bb16e8e92d968d&quot;,
     &quot;ts.external.directory.path&quot;: &quot;D:\\IntelliJ IDEA\\IntelliJ IDEA 2023.3.2\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
@@ -267,7 +358,9 @@
       <workItem from="1716194781754" duration="4445000" />
       <workItem from="1716203683275" duration="2379000" />
       <workItem from="1716278112915" duration="1991000" />
-      <workItem from="1716280521895" duration="1659000" />
+      <workItem from="1716280521895" duration="2311000" />
+      <workItem from="1716388617622" duration="238000" />
+      <workItem from="1716388907564" duration="5385000" />
     </task>
     <task id="LOCAL-00001" summary="增加了一个查询天气的api">
       <created>1686468078163</created>
@@ -316,7 +409,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716210341770</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="前端学生登陆界面bug修复">
+      <option name="closed" value="true" />
+      <created>1716298648420</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1716298648420</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -340,7 +441,8 @@
     <MESSAGE value="StuMapper测试集的构建" />
     <MESSAGE value="前端管理员登陆界面选择进入的社团" />
     <MESSAGE value="前端管理员登陆界面选择进入的社团补丁" />
-    <option name="LAST_COMMIT_MESSAGE" value="前端管理员登陆界面选择进入的社团补丁" />
+    <MESSAGE value="前端学生登陆界面bug修复" />
+    <option name="LAST_COMMIT_MESSAGE" value="前端学生登陆界面bug修复" />
     <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">

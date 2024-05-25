@@ -233,6 +233,7 @@ export default {
     },
     resetForm(formName) {
       console.log( this.$store.state.clubid)
+      console.log( this.$store.state.clubname)
       this.$refs[formName].resetFields()
     }
   }

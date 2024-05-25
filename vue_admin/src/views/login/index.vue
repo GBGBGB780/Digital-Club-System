@@ -65,7 +65,7 @@
       </el-form>
     </div>
     
-    <el-dialog :visible.sync="dialogVisible" title="请选择您要管理的社团" width="30%" :append-to-body="true">
+    <el-dialog :visible.sync="dialogVisible" title="请选择您要管理的社团" width="30%" :append-to-body="true" @close="loginDialog=false,reset()" >
       <div id="choose" style="text-align:center;margin-top: 30px;margin-bottom: 30px;">
         <!-- 循环按钮 -->
         <el-button v-for="(item,index) in choosebtn" type="primary" :key="'choosebtn'+index" style="width: 80%;height: 60px;margin:4px;" @click="chooseclub(index)" :title="item">
@@ -109,7 +109,7 @@ export default {
       choosebtn: [],   
       token:0,
       cid:[],
-      // club:[{cid,cname}],
+      cname:[],
     }
   },
   watch: {
@@ -118,13 +118,6 @@ export default {
         this.redirect = route.query && route.query.redirect
       },
       immediate: true,
-      dialogVisible: function(newVal,oldVal){
-        if(newVal = false)
-        {
-          this.choosebtn=[];
-          console.log("test")
-        }
-      }
     }
   },
   methods: {
@@ -167,8 +160,10 @@ export default {
     },
     chooseclub(index){
       var clubid=this.cid[index];
+      var clubname=this.cname[index];
       // vuex
       this.$store.commit('chooseclub',clubid);
+      this.$store.commit('clubname',clubname);
       this.$store.dispatch('user/managerlogin', this.token)
       this.$router.push({ path: this.redirect || '/' })
     },
@@ -176,10 +171,15 @@ export default {
     addButton(i,cid,cname){
       var display = "社团id："+cid+"社团名: "+cname;
       this.cid[i]=cid; 
+      this.cname[i]=cname;
       this.choosebtn[i]=display;
       // console.log(this.choosebtn[i])
       this.dialogVisible = true
     },
+
+    reset(){
+      this.choosebtn=[];
+    }
   }
 }
 </script>
