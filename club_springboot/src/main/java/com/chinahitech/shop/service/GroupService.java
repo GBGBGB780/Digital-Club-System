@@ -54,9 +54,9 @@ public class GroupService {
         return groupMapper.findtop();
     }
 
-    public List<Group> queryGroup(String groupname){
-        return groupMapper.findGroup(groupname);
-    }
+//    public List<Group> queryGroup(String groupname){
+//        return groupMapper.findGroup(groupname);
+//    }
 
     public void updateDescription(String groupname, String description,String attachment,String image) {
         Date date = new Date();
@@ -118,17 +118,34 @@ public class GroupService {
         }
     }
 
+
+    public List<Group> getAllApp(String searchinfo) {
+        if (searchinfo == null || searchinfo.trim().isEmpty()) {
+            return groupMapper.findAllApp();
+        } else {
+            return groupMapper.findAppBySearch(searchinfo);
+        }
+    }
+
+    public Group getAppByName(String name) {
+        Group group = groupMapper.getAppByName(name);
+        if (group == null) {
+            throw new EntityNotFoundException("社团"+ name +"不存在");
+        }
+        return group;
+    }
+
     public void confirmApplication(int groupId) {
         int i = groupMapper.confirmApplicationByid(groupId);
         if (i != 1) {
-            throw new UpdateException("新建社团" + groupId + "确认失败");
+            throw new UpdateException("对社团" + groupId + "的操作确认失败");
         }
     }
 
     public void denyApplication(int groupId) {
         int i = groupMapper.denyApplicationByid(groupId);
         if (i != 1) {
-            throw new UpdateException("新建社团" + groupId + "拒绝失败");
+            throw new UpdateException("对社团" + groupId + "的操作拒绝失败");
         }
     }
 }

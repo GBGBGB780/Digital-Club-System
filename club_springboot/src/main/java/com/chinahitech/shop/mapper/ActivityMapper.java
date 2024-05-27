@@ -2,6 +2,7 @@ package com.chinahitech.shop.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.chinahitech.shop.bean.Activity;
+import com.chinahitech.shop.bean.Group;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
@@ -83,6 +84,21 @@ public interface ActivityMapper extends BaseMapper<Activity> {
     @Delete("delete from Activity WHERE id = #{id} and isaccepted = true")
     int deleteActivity(@Param("id") int id);
 
+
+    @Select("select * from `Activity` WHERE isaccepted = false")
+    List<Activity> findAllApp();
+
+    @Select("SELECT * FROM `Activity` WHERE name LIKE CONCAT('%', #{searchinfo}, '%') and isaccepted = false")
+    List<Activity> findAppBySearch(String searchinfo);
+
+    @Select("SELECT * FROM `Activity` WHERE name = #{name} and groupName = #{groupName} and isaccepted = false")
+    Activity getAppByNameAndGroupName(@Param("name") String name, @Param("groupName") String groupName);
+
+    @Update("update `Activity` set isaccepted = true where id = #{activityId}")
+    int confirmApplicationByid(@Param("activityId") int activityId);
+
+    @Update("update `Activity` set isaccepted = false where id = #{activityId}")
+    int denyApplicationByid(@Param("activityId") int activityId);
 //    @Insert("insert into `Activity`(id, name, organizer, image, description, attachment, hot, arrange, " +
 //            "time, number, place, type, groupName, createTime, modifyTime, isaccepted) " +
 //            "values (#{id}, #{name}, #{organizer}, #{image}, #{description}, #{attachment}, #{hot}, #{arrange}, #{time}, " +

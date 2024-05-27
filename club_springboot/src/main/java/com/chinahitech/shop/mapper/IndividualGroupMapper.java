@@ -43,7 +43,7 @@ public interface IndividualGroupMapper extends BaseMapper<IndividualGroup> {
                            @Param("userId") String userId);
 
     @Update("UPDATE Individual_group SET status = #{status}, modifyTime = #{modifyTime} WHERE groupId = #{groupId} and userId = #{userId}")
-    int addPermission(@Param("groupId") int groupId,
+    int updatePermission(@Param("groupId") int groupId,
                       @Param("userId") String userId,
                       @Param("status") int status,
                       @Param("modifyTime") Date modifyTime);

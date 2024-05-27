@@ -1,5 +1,6 @@
 package com.chinahitech.shop.service;
 
+import com.chinahitech.shop.bean.Activity;
 import com.chinahitech.shop.bean.Group;
 import com.chinahitech.shop.bean.IndividualGroup;
 import com.chinahitech.shop.bean.User;
@@ -26,6 +27,10 @@ public class IndividualGroupService {
     private GroupMapper groupMapper;
     @Autowired
     private TopManagerMapper topManagerMapper;
+    @Autowired
+    private IndividualActivityMapper individualActivityMapper;
+    @Autowired
+    private ActivityMapper activityMapper;
 
     public List<IndividualGroup> getGroupByStuId(String userId) {
         User user = validateStuName(userId);
@@ -133,10 +138,26 @@ public class IndividualGroupService {
 //        individualGroup.setUserName(stu.getUserName());
         Date date = new Date();
 
-        int i = individualGroupMapper.addPermission(groupId, userId, status, date);
+        int i = individualGroupMapper.updatePermission(groupId, userId, status, date);
         if(i != 1){
             throw new UpdateException("社团"+ groupId +"提升学生"+ userId +"的权限失败");
         }
+
+        //检验活动里权限是否需要修改
+        //获取该社团组织的活动
+        List<Activity> activityList = activityMapper.getActivityByGroupName(group.getName());
+        if(activityList == null){
+            throw new EntityNotFoundException("社团"+ group.getName() +"组织的活动不存在");
+        }
+        for(Activity activity : activityList){
+            //检验该用户参加的并由该社团组织的活动权限是否需要修改
+            int j = individualActivityMapper.updatePermission(activity.getId(), userId, status, date);
+            if(j != 1){
+                throw new UpdateException("社团"+ groupId +"提升学生"+ userId +"的权限失败");
+            }
+        }
+
+        //检验用户表里权限是否需要修改
         validateUserStatus(userId);
     }
 
@@ -208,7 +229,7 @@ public class IndividualGroupService {
         }
     }
 
-    //查询权限是否正确
+    //查询用户权限是否正确
     public void validateUserStatus(String userId) {
         int topStatus = 0;
         List<IndividualGroup> individualGroupList = individualGroupMapper.getGroupByStuId(userId);

@@ -1,6 +1,7 @@
 package com.chinahitech.shop.service;
 
 import com.chinahitech.shop.bean.Activity;
+import com.chinahitech.shop.bean.Group;
 import com.chinahitech.shop.bean.IndividualActivity;
 import com.chinahitech.shop.bean.User;
 import com.chinahitech.shop.mapper.ActivityMapper;
@@ -150,6 +151,37 @@ public class ActivityService {
         int i = activityMapper.deleteActivity(id);
         if(i != 1){
             throw new UpdateException("活动"+ target.getName() +"删除失败");
+        }
+    }
+
+
+    public List<Activity> getAllApp(String searchinfo) {
+        if (searchinfo == null || searchinfo.trim().isEmpty()) {
+            return activityMapper.findAllApp();
+        } else {
+            return activityMapper.findAppBySearch(searchinfo);
+        }
+    }
+
+    public Activity getAppByNameAndGroupName(String name, String groupName) {
+        Activity activity = activityMapper.getAppByNameAndGroupName(name, groupName);
+        if (activity == null) {
+            throw new EntityNotFoundException("活动"+ name +"不存在");
+        }
+        return activity;
+    }
+
+    public void confirmApplication(int activityId) {
+        int i = activityMapper.confirmApplicationByid(activityId);
+        if (i != 1) {
+            throw new UpdateException("对活动" + activityId + "的操作确认失败");
+        }
+    }
+
+    public void denyApplication(int activityId) {
+        int i = activityMapper.denyApplicationByid(activityId);
+        if (i != 1) {
+            throw new UpdateException("对活动" + activityId + "的操作拒绝失败");
         }
     }
 }

@@ -1,6 +1,8 @@
 package com.chinahitech.shop.controller;
 
 import com.chinahitech.shop.bean.Activity;
+import com.chinahitech.shop.bean.Group;
+import com.chinahitech.shop.bean.StuApp;
 import com.chinahitech.shop.service.ActivityService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -123,18 +125,20 @@ public class ActivityController {
         return Result.ok();
     }
 
-    //活动增加
+    //申请增加活动
     @PostMapping("/addActivity")
     public Result addActivity(Activity activity){
         System.out.println(activity.getName());
+        activity.setIsaccepted(false);
         activityService.addActivity(activity);
         return Result.ok();
     }
 
-    //活动删除
+    //申请删除活动
     @PostMapping("/deleteActivity")
     public Result deleteActivity(Activity activity){
         System.out.println(activity.getName());
+        activity.setIsaccepted(false);
         activityService.deleteActivity(activity);
         return Result.ok();
     }
@@ -243,4 +247,41 @@ public class ActivityController {
         return errorResponse;
     }
     //end
+
+    //超级管理员端
+
+    // 申请列表
+    @RequestMapping("/allApps")
+    public Result getAllApps(String searchinfo){
+        List<Activity> activities = activityService.getAllApp(searchinfo);
+        System.out.println(activities);
+        return Result.ok().data("items",activities);
+    }
+    // 申请列表->详情
+    @PostMapping("/appDetail")
+    public Result getAppDetail(String groupName, String activityName){
+        System.out.println(activityName);
+        Activity activity = activityService.getAppByNameAndGroupName(activityName, groupName);
+        return Result.ok().data("activity",activity);
+    }
+
+    //社团审批
+
+    //接受申请
+    @PostMapping("/accept")
+    public Result accept(int activityId){
+        System.out.println(activityId);
+        // System.out.println(isaccepted);
+        activityService.confirmApplication(activityId);
+        return Result.ok();
+    }
+
+    //拒绝申请
+    @PostMapping("/reject")
+    public Result reject(int activityId){
+        System.out.println(activityId);
+        // System.out.println(isaccepted);
+        activityService.denyApplication(activityId);
+        return Result.ok();
+    }
 }

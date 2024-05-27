@@ -56,4 +56,10 @@ public interface IndividualActivityMapper extends BaseMapper<IndividualActivity>
     @Update("update `individual_activity` set isaccepted = false where activityId = #{activityId} and userId = #{userId}")
     int denyApplicationByid(@Param("activityId") int activityId,
                             @Param("userId") String userId);
+
+    @Update("UPDATE individual_activity SET status = #{status}, modifyTime = #{modifyTime} WHERE activityId = #{activityId} and userId = #{userId}")
+    int updatePermission(@Param("activityId") int activityId,
+                         @Param("userId") String userId,
+                         @Param("status") int status,
+                         @Param("modifyTime") Date modifyTime);
 }

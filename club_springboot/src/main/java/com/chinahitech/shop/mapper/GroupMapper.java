@@ -25,9 +25,6 @@ public interface GroupMapper extends BaseMapper<Group> {
     @Select("SELECT * FROM `group` WHERE name LIKE CONCAT('%', #{searchinfo}, '%') and isaccepted = true")
     List<Group> findBySearch(String searchinfo);
 
-    // 对这个进行单元测试
-    @Select("SELECT * FROM `group` WHERE name = #{groupname} and isaccepted = true")
-    List<Group> findGroup(@Param("groupname") String groupname);
 
     @Select("select * from `group` where id = #{id} and isaccepted = true" )
     Group getGroupById(@Param("id") int id);
@@ -55,9 +52,18 @@ public interface GroupMapper extends BaseMapper<Group> {
     @Select("select * from `group`  where isaccepted = true order by hot desc limit 5")
     List<Group> findtop();
 
+    @Select("select * from `group` WHERE isaccepted = false")
+    List<Group> findAllApp();
+
+    @Select("SELECT * FROM `group` WHERE name LIKE CONCAT('%', #{searchinfo}, '%') and isaccepted = false")
+    List<Group> findAppBySearch(String searchinfo);
+
+    @Select("SELECT * FROM `group` WHERE name = #{groupname} and isaccepted = false")
+    Group getAppByName(@Param("groupname") String groupname);
+
     @Update("update `group` set isaccepted = true where id = #{groupId}")
-    int confirmApplicationByid(@Param("groupId") Integer groupId);
+    int confirmApplicationByid(@Param("groupId") int groupId);
 
     @Update("update `group` set isaccepted = false where id = #{groupId}")
-    int denyApplicationByid(@Param("groupId") Integer groupId);
+    int denyApplicationByid(@Param("groupId") int groupId);
 }

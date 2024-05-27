@@ -58,6 +58,7 @@ public class GroupController {
     //申请新建社团
     @PostMapping("/addGroup")
     public Result addGroup(@RequestBody Group group){
+        group.setIsaccepted(false);
         groupService.insert(group);
         return Result.ok();
     }
@@ -216,22 +217,23 @@ public class GroupController {
 
     //超级管理员端
 
-//    // 申请列表
-//    @PostMapping("/recvGroups")
-//    public Result getRecvGroups(String groupname){
-//        List<Group> groups = groupService.queryRecvapp(groupname);
-//        System.out.println(groupname);
-//        return Result.ok().data("items", StuApps);
-//    }
-//
-//    // 申请列表->详情
-//    @PostMapping("/recvGroup")
-//    public Result getRecvGroup(int id) {
-//        List<StuApp> StuApps = groupService.queryDetailapp(id);
-//        String isAcceptedStr = groupService.findIsAccepted(id); // 直接获取特定id的isAccepted值
-//        System.out.println(id);
-//        return Result.ok().data("items", StuApps).data("isAccepted", isAcceptedStr);
-//    }
+    // 申请列表
+    @RequestMapping("/allApps")
+    public Result getAllApps(String searchinfo){
+        List<Group> groups = groupService.getAllApp(searchinfo);
+        System.out.println(groups);
+        return Result.ok().data("items",groups);
+    }
+
+    // 申请列表->详情
+    @PostMapping("/appDetail")
+    public Result getAppDetail(String groupname){
+        System.out.println(groupname);
+        Group group = groupService.getAppByName(groupname);
+        return Result.ok().data("group",group);
+    }
+
+    //社团审批
 
     //接受申请
     @PostMapping("/accept")
