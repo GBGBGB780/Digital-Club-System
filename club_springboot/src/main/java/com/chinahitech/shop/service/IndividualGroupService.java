@@ -3,11 +3,9 @@ package com.chinahitech.shop.service;
 import com.chinahitech.shop.bean.Group;
 import com.chinahitech.shop.bean.IndividualGroup;
 import com.chinahitech.shop.bean.User;
-import com.chinahitech.shop.mapper.GroupMapper;
-import com.chinahitech.shop.mapper.IndividualGroupMapper;
-import com.chinahitech.shop.mapper.ManagerMapper;
-import com.chinahitech.shop.mapper.StuMapper;
+import com.chinahitech.shop.mapper.*;
 import com.chinahitech.shop.service.exception.*;
+import net.sf.jsqlparser.statement.select.Top;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +24,8 @@ public class IndividualGroupService {
     private ManagerMapper managerMapper;
     @Autowired
     private GroupMapper groupMapper;
+    @Autowired
+    private TopManagerMapper topManagerMapper;
 
     public List<IndividualGroup> getGroupByStuId(String userId) {
         User user = validateStuName(userId);
@@ -118,8 +118,14 @@ public class IndividualGroupService {
         }
     }
 
-    public void addPermission(int groupId, String userId, String status) {
-        User user = validateStuName(userId);
+    public void updatePermission(int groupId, String userId, int status) {
+        User user = topManagerMapper.getByNumNoStatus(userId);
+        if (user == null) {
+            throw new EntityNotFoundException("用户"+ userId +"不存在");
+        }
+        if (user.getStatus() > 10) {
+            throw new AccessDeniedException("用户"+ userId +"在社团"+ groupId +"中拥有超级管理员权限，你的权限不足");
+        }
         Group group = validateGroup(groupId);
         //初始化学生信息
 //        individualGroup.setGroupId(groupId);
@@ -129,8 +135,9 @@ public class IndividualGroupService {
 
         int i = individualGroupMapper.addPermission(groupId, userId, status, date);
         if(i != 1){
-            throw new UpdateException("社团"+ groupId +"提升学生"+ userId +"的权限成功");
+            throw new UpdateException("社团"+ groupId +"提升学生"+ userId +"的权限失败");
         }
+        validateUserStatus(userId);
     }
 
     //检测服务函数
@@ -198,6 +205,24 @@ public class IndividualGroupService {
             throw new EntityNotFoundException("用户"+ userId +"在社团"+ groupId +"不存在");
         } else if (individualGroup.getStatus() >= 1) {
             throw new AccessDeniedException("用户"+ userId +"在社团"+ groupId +"中拥有管理员权限，你的权限不足");
+        }
+    }
+
+    //查询权限是否正确
+    public void validateUserStatus(String userId) {
+        int topStatus = 0;
+        List<IndividualGroup> individualGroupList = individualGroupMapper.getGroupByStuId(userId);
+        for (IndividualGroup individualGroup : individualGroupList) {
+            int tempStatus = individualGroup.getStatus();
+            if (tempStatus >= topStatus) {
+                topStatus = tempStatus;
+            }
+        }
+        Date date = new Date();
+
+        int j = topManagerMapper.updatePermission(userId, topStatus, date);
+        if(j != 1){
+            throw new UpdateException("学生"+ userId +"修改权限失败");
         }
     }
 }

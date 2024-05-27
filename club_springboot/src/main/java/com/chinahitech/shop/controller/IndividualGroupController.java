@@ -69,10 +69,10 @@ public class IndividualGroupController {
 
     //超级管理员端
 
-    //提升权限
-    @RequestMapping("/addPermission")
-    public Result addPermission(int groupId, String studentId, String status) {
-        individualGroupService.addPermission(groupId, studentId, status);
-        return Result.ok().message("社团"+ groupId +"提升学生"+ studentId +"的权限成功");
+    //修改权限
+    @RequestMapping("/updatePermission")
+    public Result updatePermission(int groupId, String studentId, int status) {
+        individualGroupService.updatePermission(groupId, studentId, status);
+        return Result.ok().message("社团"+ groupId +"修改用户"+ studentId +"的权限成功");
     }
 }

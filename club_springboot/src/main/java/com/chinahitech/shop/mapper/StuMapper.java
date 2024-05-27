@@ -39,4 +39,5 @@ public interface StuMapper extends BaseMapper<User> {
 
     @Update("UPDATE `user` SET nickname = #{nickname}, modifyTime = #{modifyTime} WHERE userId = #{stunumber}")
     int updateNickname(@Param("stunumber") String stunumber, @Param("nickname") String nickname, @Param("modifyTime") Date modifyTime);
+
 }

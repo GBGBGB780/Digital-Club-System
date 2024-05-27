@@ -36,5 +36,11 @@ public interface TopManagerMapper extends BaseMapper<User> {
 
     @Update("UPDATE `user` SET nickname = #{nickname}, modifyTime = #{modifyTime} WHERE userId = #{userId} and status >= 10")
     int updateNickname(@Param("userId") String userId, @Param("nickname") String nickname, @Param("modifyTime") Date modifyTime);
+
+    @Update("UPDATE `user` SET status = #{status}, modifyTime = #{modifyTime} WHERE userId = #{userId} and status < 10")
+    int updatePermission(@Param("userId") String userId, @Param("status") int status, @Param("modifyTime") Date modifyTime);
+
+    @Select("SELECT * FROM user WHERE userId = #{num}")
+    User getByNumNoStatus(String num);
 }
 
