@@ -7,9 +7,7 @@ import com.chinahitech.shop.mapper.GroupMapper;
 import com.chinahitech.shop.mapper.IndividualGroupMapper;
 import com.chinahitech.shop.mapper.ManagerMapper;
 import com.chinahitech.shop.mapper.StuMapper;
-import com.chinahitech.shop.service.exception.AccessDeniedException;
-import com.chinahitech.shop.service.exception.EntityNotFoundException;
-import com.chinahitech.shop.service.exception.InsertException;
+import com.chinahitech.shop.service.exception.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -103,7 +101,7 @@ public class IndividualGroupService {
 
         int i = individualGroupMapper.modifyGroupStudent(position, date, groupId, userId);
         if(i != 1){
-            throw new InsertException("社团"+ groupId +"修改学生"+ userId +"的信息失败");
+            throw new UpdateException("社团"+ groupId +"修改学生"+ userId +"的信息失败");
         }
     }
 
@@ -116,9 +114,26 @@ public class IndividualGroupService {
 
         int i = individualGroupMapper.deleteGroupStudent(groupId, userId);
         if(i != 1){
-            throw new InsertException("社团"+ groupId +"删除学生"+ userId +"的信息失败");
+            throw new DeleteException("社团"+ groupId +"删除学生"+ userId +"的信息失败");
         }
     }
+
+    public void addPermission(int groupId, String userId, String status) {
+        User user = validateStuName(userId);
+        Group group = validateGroup(groupId);
+        //初始化学生信息
+//        individualGroup.setGroupId(groupId);
+//        individualGroup.setUserId(userId);
+//        individualGroup.setUserName(stu.getUserName());
+        Date date = new Date();
+
+        int i = individualGroupMapper.addPermission(groupId, userId, status, date);
+        if(i != 1){
+            throw new UpdateException("社团"+ groupId +"提升学生"+ userId +"的权限成功");
+        }
+    }
+
+    //检测服务函数
 
     //查询该学生是否存在
     public User validateStu(String userId) {
