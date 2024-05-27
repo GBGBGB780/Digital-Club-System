@@ -4,107 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b849962b-f7a7-45d1-bd6b-140ec1eb19ac" name="变更" comment="前端学生登陆界面bug修复">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/.editorconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/.env.development" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/.env.production" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/.env.staging" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/.eslintignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/.eslintrc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/.travis.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/README-zh.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/babel.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/build/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/jest.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/jsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/mock/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/mock/mock-server.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/mock/table.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/mock/user.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/mock/utils.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/postcss.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/public/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/public/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/App.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/api/table.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/api/user.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/assets/404_images/404.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/assets/404_images/404_cloud.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/components/Breadcrumb/index.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/components/Hamburger/index.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/components/SvgIcon/index.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/icons/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/icons/svg/dashboard.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/icons/svg/example.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/icons/svg/eye-open.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/icons/svg/eye.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/icons/svg/form.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/icons/svg/link.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/icons/svg/nested.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/icons/svg/password.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/icons/svg/table.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/icons/svg/tree.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/icons/svg/user.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/icons/svgo.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/layout/components/AppMain.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/layout/components/Navbar.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/layout/components/Sidebar/FixiOSBug.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/layout/components/Sidebar/Item.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/layout/components/Sidebar/Link.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/layout/components/Sidebar/Logo.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/layout/components/Sidebar/SidebarItem.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/layout/components/Sidebar/index.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/layout/components/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/layout/index.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/layout/mixin/ResizeHandler.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/permission.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/router/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/settings.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/store/getters.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/store/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/store/modules/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/store/modules/settings.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/store/modules/user.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/styles/element-ui.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/styles/index.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/styles/mixin.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/styles/sidebar.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/styles/transition.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/styles/variables.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/utils/auth.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/utils/get-page-title.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/utils/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/utils/request.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/utils/validate.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/views/404.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/views/dashboard/index.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/views/form/index.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/views/login/index.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/views/nested/menu1/index.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/views/nested/menu1/menu1-1/index.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/views/nested/menu1/menu1-2/index.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/views/nested/menu1/menu1-2/menu1-2-1/index.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/views/nested/menu1/menu1-2/menu1-2-2/index.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/views/nested/menu1/menu1-3/index.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/views/nested/menu2/index.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/views/table/index.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/src/views/tree/index.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/tests/unit/.eslintrc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/tests/unit/components/Breadcrumb.spec.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/tests/unit/components/Hamburger.spec.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/tests/unit/components/SvgIcon.spec.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/tests/unit/utils/formatTime.spec.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/tests/unit/utils/param2Obj.spec.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/tests/unit/utils/parseTime.spec.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/tests/unit/utils/validate.spec.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_admin_test/vue.config.js" beforeDir="false" />
-    </list>
+    <list default="true" id="b849962b-f7a7-45d1-bd6b-140ec1eb19ac" name="变更" comment="StuMapper测试集的构建" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -167,7 +67,9 @@
     &quot;JUnit.ActivityMapperTest.updateHot.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.ActivityMapperTest.updateHotTest.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.ActivityMapperTest.updateImageTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.IndividualGroupServiceTest.getAllManagedGroupsTest.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.ShopApplicationTests.findGroup.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.StuMapperTest.addStudentTest.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.StuMapperTest.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.StuMapperTest.updateStudentTest.executor&quot;: &quot;Run&quot;,
     &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
@@ -193,20 +95,28 @@
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;spring.configuration.checksum&quot;: &quot;fb54f3c5992b96d001bb16e8e92d968d&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;D:\\IntelliJ IDEA\\IntelliJ IDEA 2023.3.2\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
     &quot;DatabaseDriversLRU&quot;: [
       &quot;mysql_aurora_aws&quot;
+    ],
+    &quot;com.intellij.ide.scratch.LRUPopupBuilder$1/SQL 方言&quot;: [
+      &quot;MySQL&quot;
     ]
   }
 }</component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\java program\club_student\src\main\java\com\chinahitech\shop\service\exception" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.chinahitech.shop.service" />
+      <recent name="com.chinahitech.shop.controller" />
+      <recent name="com.chinahitech.shop.mapper" />
       <recent name="com.chinahitech.shop.bean" />
     </key>
   </component>
@@ -243,38 +153,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ActivityMapperTest.findtopTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="shop" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.chinahitech.shop.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.chinahitech.shop" />
-      <option name="MAIN_CLASS_NAME" value="com.chinahitech.shop.ActivityMapperTest" />
-      <option name="METHOD_NAME" value="findtopTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ActivityMapperTest.updateHot" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="shop" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.chinahitech.shop.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.chinahitech.shop" />
-      <option name="MAIN_CLASS_NAME" value="com.chinahitech.shop.ActivityMapperTest" />
-      <option name="METHOD_NAME" value="updateHot" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="ActivityMapperTest.updateHotTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="shop" />
       <extension name="coverage">
@@ -286,6 +164,38 @@
       <option name="PACKAGE_NAME" value="com.chinahitech.shop" />
       <option name="MAIN_CLASS_NAME" value="com.chinahitech.shop.ActivityMapperTest" />
       <option name="METHOD_NAME" value="updateHotTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="IndividualGroupServiceTest.getAllManagedGroupsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="shop" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.chinahitech.shop.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.chinahitech.shop" />
+      <option name="MAIN_CLASS_NAME" value="com.chinahitech.shop.IndividualGroupServiceTest" />
+      <option name="METHOD_NAME" value="getAllManagedGroupsTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StuMapperTest.addStudentTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="shop" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.chinahitech.shop.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.chinahitech.shop" />
+      <option name="MAIN_CLASS_NAME" value="com.chinahitech.shop.StuMapperTest" />
+      <option name="METHOD_NAME" value="addStudentTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -308,18 +218,19 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.StuMapperTest.addStudentTest" />
+        <item itemvalue="JUnit.IndividualGroupServiceTest.getAllManagedGroupsTest" />
         <item itemvalue="JUnit.ActivityMapperTest.updateHotTest" />
         <item itemvalue="JUnit.ActivityMapperTest.deleteActivityTest" />
         <item itemvalue="JUnit.ActivityMapperTest.addActivityTest" />
-        <item itemvalue="JUnit.ActivityMapperTest.findtopTest" />
-        <item itemvalue="JUnit.ActivityMapperTest.updateHot" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-17.0.10-corretto-17.0.10-f644763e9732-24fca987" />
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.17011.79" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.17011.79" />
       </set>
     </attachedChunks>
   </component>
@@ -353,14 +264,21 @@
       <workItem from="1715956641028" duration="6395000" />
       <workItem from="1716013444731" duration="9072000" />
       <workItem from="1716184793121" duration="591000" />
-      <workItem from="1716186331901" duration="541000" />
-      <workItem from="1716190026725" duration="2212000" />
-      <workItem from="1716194781754" duration="4445000" />
-      <workItem from="1716203683275" duration="2379000" />
-      <workItem from="1716278112915" duration="1991000" />
-      <workItem from="1716280521895" duration="2311000" />
-      <workItem from="1716388617622" duration="238000" />
-      <workItem from="1716388907564" duration="5385000" />
+      <workItem from="1716186331901" duration="4762000" />
+      <workItem from="1716193586757" duration="2672000" />
+      <workItem from="1716280107669" duration="2810000" />
+      <workItem from="1716295294106" duration="5955000" />
+      <workItem from="1716371945562" duration="1245000" />
+      <workItem from="1716382330773" duration="2276000" />
+      <workItem from="1716441493478" duration="23000" />
+      <workItem from="1716443356940" duration="8671000" />
+      <workItem from="1716479425264" duration="597000" />
+      <workItem from="1716535672412" duration="174000" />
+      <workItem from="1716652214562" duration="621000" />
+      <workItem from="1716734801906" duration="710000" />
+      <workItem from="1716790820412" duration="5026000" />
+      <workItem from="1716798195087" duration="1136000" />
+      <workItem from="1716800238668" duration="15000" />
     </task>
     <task id="LOCAL-00001" summary="增加了一个查询天气的api">
       <created>1686468078163</created>
@@ -393,31 +311,7 @@
       <option name="project" value="LOCAL" />
       <updated>1716105299773</updated>
     </task>
-    <task id="LOCAL-00005" summary="前端管理员登陆界面选择进入的社团">
-      <option name="closed" value="true" />
-      <created>1716192162419</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1716192162419</updated>
-    </task>
-    <task id="LOCAL-00006" summary="前端管理员登陆界面选择进入的社团补丁">
-      <option name="closed" value="true" />
-      <created>1716210341770</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1716210341770</updated>
-    </task>
-    <task id="LOCAL-00007" summary="前端学生登陆界面bug修复">
-      <option name="closed" value="true" />
-      <created>1716298648420</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1716298648420</updated>
-    </task>
-    <option name="localTasksCounter" value="8" />
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -439,10 +333,7 @@
     <MESSAGE value="增加了接口，超类，lamda表达式，抛出异常的知识点。" />
     <MESSAGE value="框架搭建" />
     <MESSAGE value="StuMapper测试集的构建" />
-    <MESSAGE value="前端管理员登陆界面选择进入的社团" />
-    <MESSAGE value="前端管理员登陆界面选择进入的社团补丁" />
-    <MESSAGE value="前端学生登陆界面bug修复" />
-    <option name="LAST_COMMIT_MESSAGE" value="前端学生登陆界面bug修复" />
+    <option name="LAST_COMMIT_MESSAGE" value="StuMapper测试集的构建" />
     <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
