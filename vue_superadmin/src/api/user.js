@@ -1,16 +1,16 @@
 import request from '@/utils/request'
 
-export function login(data) {
+export function login(userId, password) {
   return request({
-    url: '/vue-admin-template/user/login',
+    url: '/topManager/login',
     method: 'post',
-    data
+    params: { userId, password }
   })
 }
 
 export function getInfo(token) {
   return request({
-    url: '/vue-admin-template/user/info',
+    url: '/topManager/info',
     method: 'get',
     params: { token }
   })
@@ -18,7 +18,7 @@ export function getInfo(token) {
 
 export function logout() {
   return request({
-    url: '/vue-admin-template/user/logout',
+    url: '/topManager/logout',
     method: 'post'
   })
 }
