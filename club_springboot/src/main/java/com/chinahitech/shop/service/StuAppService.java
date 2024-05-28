@@ -1,12 +1,14 @@
 package com.chinahitech.shop.service;
 
 import com.chinahitech.shop.bean.StuApp;
+import com.chinahitech.shop.bean.User;
 import com.chinahitech.shop.mapper.StuAppMapper;
 import com.chinahitech.shop.service.exception.InsertException;
 import com.chinahitech.shop.service.exception.UpdateException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -33,8 +35,8 @@ public class StuAppService {
         return stuAppMapper.findRecvapp(groupname);
     }
 
-    public List<StuApp> queryDetailapp(Integer id) {
-        return stuAppMapper.findDetailapp(id);
+    public StuApp queryDetailapp(Integer id) {
+        return stuAppMapper.getById(id);
     }
 
     public String findIsAccepted(Integer id) {
@@ -42,21 +44,31 @@ public class StuAppService {
     }
 
     public void updateAttachment(int applicationid, String attachment) {
-        int i = stuAppMapper.updateAttachment(applicationid, attachment);
+        StuApp stuApp = queryDetailapp(applicationid);
+        stuApp.setAttachment(attachment);
+
+        int i = stuAppMapper.updateById(stuApp);
         if (i != 1) {
             throw new UpdateException("申请" + applicationid + "附件修改失败");
         }
     }
 
     public void confirmApplication(Integer applicationid) {
-        int i = stuAppMapper.confirmApplicationByid(applicationid);
+        StuApp stuApp = queryDetailapp(applicationid);
+        stuApp.setIsAccepted(true);
+
+        int i = stuAppMapper.updateById(stuApp);
+
         if (i != 1) {
             throw new UpdateException("申请" + applicationid + "确认失败");
         }
     }
 
     public void denyApplication(Integer applicationid) {
-        int i = stuAppMapper.denyApplicationByid(applicationid);
+        StuApp stuApp = queryDetailapp(applicationid);
+        stuApp.setIsAccepted(false);
+
+        int i = stuAppMapper.updateById(stuApp);
         if (i != 1) {
             throw new UpdateException("申请" + applicationid + "拒绝失败");
         }

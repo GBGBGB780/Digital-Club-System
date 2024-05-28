@@ -58,7 +58,7 @@ public class GroupController {
     //申请新建社团
     @PostMapping("/addGroup")
     public Result addGroup(@RequestBody Group group){
-        group.setIsaccepted(false);
+        group.setIsAccepted(false);
         groupService.insert(group);
         return Result.ok();
     }

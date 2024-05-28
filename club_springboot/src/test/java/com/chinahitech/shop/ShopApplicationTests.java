@@ -17,7 +17,7 @@ class ShopApplicationTests {
     @Test
     void findGroup() {
         String groupName = "足球社"; // Set the name of the group to search for
-        List<Group> groups = groupMapper.findGroup(groupName);
+        List<Group> groups = groupMapper.findBySearch(groupName);
         Assertions.assertNotNull(groups);
         Assertions.assertFalse(groups.isEmpty());
         Group group = groups.get(0);

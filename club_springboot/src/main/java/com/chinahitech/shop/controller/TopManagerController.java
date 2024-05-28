@@ -1,5 +1,6 @@
 package com.chinahitech.shop.controller;
 
+import com.chinahitech.shop.bean.Group;
 import com.chinahitech.shop.bean.User;
 import com.chinahitech.shop.bean.notAddedToDatabase.RegisterUser;
 import com.chinahitech.shop.defineException.EmailException;
@@ -11,6 +12,7 @@ import com.chinahitech.shop.utils.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Objects;
 
 @RestController
@@ -117,6 +119,17 @@ public class TopManagerController {
         return Result.ok();
     }
 
+    //用户校区,学院和专业信息修改
+    @PostMapping("/modifymajor")
+    public Result modifymajor(String userId, String campus, String school, String major){
+        System.out.println(userId);
+        System.out.println(campus);
+        System.out.println(school);
+        System.out.println(major);
+        topManagerService.updateMajor(userId, campus, school, major);
+        return Result.ok();
+    }
+
     //用户资料显示
     @PostMapping("/profile")
     public Result getProfile(String userId){
@@ -136,6 +149,56 @@ public class TopManagerController {
 
     @PostMapping("/logout")  // "token:xxx"
     public Result logout(){
+        return Result.ok();
+    }
+
+    //添加用户
+    @PostMapping("/addUser")
+    public Result addUser(@RequestBody RegisterUser user) {
+//        System.out.println(user);
+        String stunumber = user.getUsername();
+        String password = user.getPassword();
+        String email = user.getEmail();
+        String valicode = user.getValicode();
+
+//        System.out.println(stunumber);
+//        System.out.println(password);
+//        System.out.println(email);
+//        System.out.println(valicode);
+
+        String correctValicode = RedisUtils.get(email).toString();
+
+//        System.out.println("this" + correctValicode);
+
+        if (Objects.equals(correctValicode, valicode)){
+            topManagerService.addUser(stunumber, password, email);
+            return Result.ok().message("注册成功");
+        } else {
+            return Result.error().message("注册出错!");
+        }
+    }
+
+    //查看用户信息
+    @RequestMapping("/getAllUsers")
+    public Result getAllUsers(String searchinfo){
+        List<User> Users = topManagerService.getAllUsers(searchinfo);
+        System.out.println(Users);
+        return Result.ok().data("items",Users);
+    }
+
+    //修改用户信息
+    @PostMapping("/modifyUserInfo")
+    public Result modifyUserInfo(User user){
+        System.out.println(user);
+        topManagerService.updateUserInfo(user);
+        return Result.ok();
+    }
+
+    //删除用户
+    @RequestMapping("/deleteUser")
+    public Result deleteUser(User user){
+        System.out.println(user.getUserName());
+        topManagerService.deleteUser(user);
         return Result.ok();
     }
 }

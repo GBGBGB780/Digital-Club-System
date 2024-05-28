@@ -48,7 +48,7 @@ public class ActivityMapperTest {
     public void getByNameTest() {
         Activity activity = new Activity();
         activity.setName("a");
-        Activity a = activityMapper.getByName(activity.getName());
+        Activity a = activityMapper.getActivityByName(activity.getName());
         System.out.println(a);
         System.out.println("测试通过");
     }
@@ -69,7 +69,7 @@ public class ActivityMapperTest {
     public void findActivityTest() {
         Activity activity = new Activity();
         activity.setName("a");
-        activityMapper.findActivity(activity.getName());
+        activityMapper.getActivityByName(activity.getName());
         System.out.println("测试通过");
     }
 
@@ -181,7 +181,7 @@ public class ActivityMapperTest {
         Activity activity = new Activity();
         activity.setGroupName("aaa");
         activity.setName("a");
-        Activity a = activityMapper.getHot(activity.getGroupName(),activity.getName());
+        Activity a = activityMapper.getActivityByNameAndGroupName(activity.getGroupName(),activity.getName());
         System.out.println(a);
         System.out.println("测试通过");
     }
@@ -193,7 +193,7 @@ public class ActivityMapperTest {
         activity.setName("a");
         activity.setHot(1);
         Date date = new Date();
-        int a = activityMapper.updateHot(activity.getGroupName(),activity.getName(),activity.getHot(),date);
+        int a = activityMapper.updateHot(activity.getName(),activity.getHot(),date);
         System.out.println(a);
         System.out.println("测试通过");
     }
@@ -222,24 +222,9 @@ public class ActivityMapperTest {
         activity.setGroupName("aaaa");
         activity.setCreateTime(new Date());
         Date date = new Date();
+        activity.setModifyTime(date);
 
-        int a = activityMapper.addActivity(
-                activity.getId(),
-                activity.getName(),
-                activity.getOrganizer(),
-                activity.getDescription(),
-                activity.getAttachment(),
-                activity.getImage(),
-                activity.getHot(),
-                activity.getArrange(),
-                activity.getTime(),
-                activity.getNumber(),
-                activity.getPlace(),
-                activity.getType(),
-                activity.getGroupName(),
-                activity.getCreateTime(),
-                date
-                );
+        int a = activityMapper.insert(activity);
         System.out.println(a);
         System.out.println("测试通过");
     }

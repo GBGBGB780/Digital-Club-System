@@ -4,19 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b849962b-f7a7-45d1-bd6b-140ec1eb19ac" name="变更" comment="StuMapper测试集的构建">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/chinahitech/shop/bean/Application.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/chinahitech/shop/bean/Students.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/chinahitech/shop/controller/ApplicationController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/chinahitech/shop/mapper/ApplicationMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/chinahitech/shop/service/ApplicationService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/chinahitech/shop/bean/Application.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/chinahitech/shop/bean/Students.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/chinahitech/shop/mapper/ApplicationMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/chinahitech/shop/service/ApplicationService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/chinahitech/shop/ShopApplicationTests.class" beforeDir="false" />
-    </list>
+    <list default="true" id="b849962b-f7a7-45d1-bd6b-140ec1eb19ac" name="变更" comment="StuMapper测试集的构建" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -230,8 +218,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.StuMapperTest.addStudentTest" />
         <item itemvalue="JUnit.IndividualGroupServiceTest.getAllManagedGroupsTest" />
+        <item itemvalue="JUnit.StuMapperTest.addStudentTest" />
         <item itemvalue="JUnit.ActivityMapperTest.updateHotTest" />
         <item itemvalue="JUnit.ActivityMapperTest.deleteActivityTest" />
         <item itemvalue="JUnit.ActivityMapperTest.addActivityTest" />
@@ -293,7 +281,10 @@
       <workItem from="1716800238668" duration="15000" />
       <workItem from="1716800354882" duration="27000" />
       <workItem from="1716800890387" duration="28000" />
-      <workItem from="1716801532812" duration="14000" />
+      <workItem from="1716808877859" duration="1367000" />
+      <workItem from="1716871390634" duration="2520000" />
+      <workItem from="1716887409217" duration="938000" />
+      <workItem from="1716897185553" duration="8705000" />
     </task>
     <task id="LOCAL-00001" summary="增加了一个查询天气的api">
       <created>1686468078163</created>

@@ -69,9 +69,13 @@ public class ManagerService {
 //            throw new PwdNotMatchException("密码错误");
 //        }
         String newMD5pwd = md5.MD5handler(password, salt);
-        Date date = new Date();
 //        System.out.println(newMD5pwd);
-        int i = managerMapper.updatePassword(userId, newMD5pwd, date);
+        Date date = new Date();
+
+        stu.setPassword(newMD5pwd);
+        stu.setModifyTime(date);
+
+        int i = managerMapper.updateById(stu);
         if(i != 1){
             throw new UpdateException("管理员"+ userId +"密码修改失败");
         }
@@ -79,7 +83,12 @@ public class ManagerService {
 
     public void updatePhone(String userId, String phone){
         Date date = new Date();
-        int i = managerMapper.updatePhone(userId, phone, date);
+
+        User stu = getByUserId(userId);
+        stu.setPhone(phone);
+        stu.setModifyTime(date);
+
+        int i = managerMapper.updateById(stu);
         if(i != 1){
             throw new UpdateException("管理员"+ userId +"电话修改失败");
         }
@@ -87,7 +96,12 @@ public class ManagerService {
 
     public void updateDescription(String userId, String description){
         Date date = new Date();
-        int i = managerMapper.updateDescription(userId, description, date);
+
+        User stu = getByUserId(userId);
+        stu.setDescription(description);
+        stu.setModifyTime(date);
+
+        int i = managerMapper.updateById(stu);
         if(i != 1){
             throw new UpdateException("管理员"+ userId +"简介修改失败");
         }
@@ -95,7 +109,12 @@ public class ManagerService {
 
     public void updateNickname(String userId, String nickname){
         Date date = new Date();
-        int i = managerMapper.updateNickname(userId, nickname, date);
+
+        User stu = getByUserId(userId);
+        stu.setNickname(nickname);
+        stu.setModifyTime(date);
+
+        int i = managerMapper.updateById(stu);
         if(i != 1){
             throw new UpdateException("管理员"+ userId +"昵称修改失败");
         }

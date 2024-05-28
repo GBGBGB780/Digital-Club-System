@@ -129,7 +129,7 @@ public class ActivityController {
     @PostMapping("/addActivity")
     public Result addActivity(Activity activity){
         System.out.println(activity.getName());
-        activity.setIsaccepted(false);
+        activity.setIsAccepted(false);
         activityService.addActivity(activity);
         return Result.ok();
     }
@@ -138,7 +138,7 @@ public class ActivityController {
     @PostMapping("/deleteActivity")
     public Result deleteActivity(Activity activity){
         System.out.println(activity.getName());
-        activity.setIsaccepted(false);
+        activity.setIsAccepted(false);
         activityService.deleteActivity(activity);
         return Result.ok();
     }

@@ -1,7 +1,7 @@
 package com.chinahitech.shop;
 
-import com.chinahitech.shop.bean.Application;
-import com.chinahitech.shop.mapper.ApplicationMapper;
+import com.chinahitech.shop.bean.StuApp;
+import com.chinahitech.shop.mapper.StuAppMapper;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,74 +15,74 @@ import java.util.List;
 class ApplicationMapperTests {
 
     @Autowired
-    ApplicationMapper applicationMapper;
+    StuAppMapper stuAppMapper;
 
     @Test
     public void findallTest(){
-        applicationMapper.findall();
+        stuAppMapper.findall();
         System.out.println("测试通过");
     }
 
     @Test
     public void findMyappTest(){
-        Application application = new Application();
+        StuApp application = new StuApp();
         application.setStunumber("21311272");
-        List<Application> a = applicationMapper.findMyapp(application.getStunumber());
+        List<StuApp> a = stuAppMapper.findMyapp(application.getStunumber());
         System.out.println(a);
         System.out.println("测试通过");
     }
 
     @Test
     public void findRecvappTest(){
-        Application application = new Application();
+        StuApp application = new StuApp();
         application.setGroupname("篮球社");
-        List<Application> a = applicationMapper.findRecvapp(application.getGroupname());
+        List<StuApp> a = stuAppMapper.findRecvapp(application.getGroupname());
         System.out.println(a);
         System.out.println("测试通过");
     }
 
     @Test
     public void findDetailappTest(){
-        Application application = new Application();
+        StuApp application = new StuApp();
         application.setApplicationid(1);
-        List<Application> a = applicationMapper.findDetailapp(application.getApplicationid());
+        List<StuApp> a = stuAppMapper.findDetailapp(application.getApplicationid());
         System.out.println(a);
         System.out.println("测试通过");
     }
 
     @Test
     public void findIsAcceptedTest(){
-        Application application = new Application();
+        StuApp application = new StuApp();
         application.setApplicationid(1);
-        String a = applicationMapper.findIsAccepted(application.getApplicationid());
+        String a = stuAppMapper.findIsAccepted(application.getApplicationid());
         System.out.println(a);
         System.out.println("测试通过");
     }
 
     @Test
     public void updateAttachmentTest(){
-        Application application = new Application();
+        StuApp application = new StuApp();
         application.setApplicationid(1);
         application.setAttachment("附件5");
-        int a = applicationMapper.updateAttachment(application.getApplicationid(),application.getAttachment());
+        int a = stuAppMapper.updateAttachment(application.getApplicationid(),application.getAttachment());
         System.out.println(a);
         System.out.println("测试通过");
     }
 
     @Test
     public void confirmApplicationByidTest(){
-        Application application = new Application();
+        StuApp application = new StuApp();
         application.setApplicationid(6);
-        int a = applicationMapper.confirmApplicationByid(application.getApplicationid());
+        int a = stuAppMapper.confirmApplicationByid(application.getApplicationid());
         System.out.println(a);
         System.out.println("测试通过");
     }
 
     @Test
     public void denyApplicationByidTest(){
-        Application application = new Application();
+        StuApp application = new StuApp();
         application.setApplicationid(6);
-        int a = applicationMapper.denyApplicationByid(application.getApplicationid());
+        int a = stuAppMapper.denyApplicationByid(application.getApplicationid());
         System.out.println(a);
         System.out.println("测试通过");
     }

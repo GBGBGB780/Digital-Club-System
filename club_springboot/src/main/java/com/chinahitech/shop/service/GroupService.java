@@ -109,7 +109,7 @@ public class GroupService {
     public void insert(Group group) {
         Date date = new Date();
         group.setId(0);
-        group.setIsaccepted(false);
+        group.setIsAccepted(false);
         group.setCreateTime(date);
         group.setModifyTime(date);
         int i = groupMapper.insert(group);
