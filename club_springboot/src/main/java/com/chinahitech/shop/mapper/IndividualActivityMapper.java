@@ -20,7 +20,7 @@ public interface IndividualActivityMapper extends BaseMapper<IndividualActivity>
     @Select("select * from `individual_activity` WHERE activity_id = #{activityId} and is_accepted = true")
     List<IndividualActivity> getActivityByActivityId(@Param("activityId") int activityId);
 
-    @Select("select * from `individual_activity` WHERE activity_id = #{activityId} and is_accepted = false")
+    @Select("select * from `individual_activity` WHERE activity_id = #{activityId} ")
     List<IndividualActivity> getApplyByActivityId(@Param("activityId") int activityId);
 
     @Select("select * from `individual_activity` WHERE user_id = #{userId} and status >= 1")
@@ -59,7 +59,8 @@ public interface IndividualActivityMapper extends BaseMapper<IndividualActivity>
     int denyApplicationByid(@Param("activityId") int activityId,
                             @Param("userId") String userId);
 
-    @Update("UPDATE individual_activity SET status = #{status}, modify_time = #{modifyTime} WHERE activity_id = #{activityId} and user_id = #{userId}")
+    @Update("UPDATE individual_activity SET status = #{status}, modify_time = #{modifyTime} " +
+            "WHERE activity_id = #{activityId} and user_id = #{userId}")
     int updatePermission(@Param("activityId") int activityId,
                          @Param("userId") String userId,
                          @Param("status") int status,

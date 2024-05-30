@@ -1,9 +1,5 @@
 package com.chinahitech.shop.service;
 
-import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.chinahitech.shop.bean.Activity;
-import com.chinahitech.shop.bean.Group;
 import com.chinahitech.shop.bean.User;
 import com.chinahitech.shop.mapper.TopManagerMapper;
 import com.chinahitech.shop.service.exception.EntityNotFoundException;
@@ -11,7 +7,10 @@ import com.chinahitech.shop.service.exception.InsertException;
 import com.chinahitech.shop.service.exception.UpdateException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.nio.file.Path;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -20,7 +19,10 @@ import java.util.UUID;
 public class TopManagerService {
     @Autowired
     private TopManagerMapper topManagerMapper;
-    private md5 md5 = new md5();
+    private Md5 md5 = new Md5();
+
+    private final String XLSX = ".xlsx";
+    private final String XLS=".xls";
 
     public User getByUserId(String num) {
         User stu = topManagerMapper.getByNum(num);
@@ -143,11 +145,11 @@ public class TopManagerService {
         }
     }
 
-    public List<User> getAllUsers(String searchinfo) {
-        if (searchinfo == null || searchinfo.trim().isEmpty()) {
+    public List<User> getAllUsers(String searchInfo) {
+        if (searchInfo == null || searchInfo.trim().isEmpty()) {
             return topManagerMapper.getAllUsers();
         } else {
-            return topManagerMapper.getUser(searchinfo);
+            return topManagerMapper.getUser(searchInfo);
         }
     }
 
@@ -190,6 +192,61 @@ public class TopManagerService {
         int i = topManagerMapper.deleteById(id);
         if(i != 1){
             throw new UpdateException("用户"+ user.getUserName() +"删除失败");
+        }
+    }
+
+    public void uploadExcel(MultipartFile file, String fileUrl, Path targetLocation) {
+        try {
+//            String tempfilename = file.getOriginalFilename();
+////            System.out.println(tempfilename);
+//
+////            String path = request.getSession().getServletContext().getRealPath("/uploads/");
+//            String path = "C:/Users/minislother/Desktop/test-excel/";//所需打开文件的路径
+////            System.out.println(path);
+//            String x = path + tempfilename;
+            System.out.println(targetLocation);
+            String fileType  = file.getOriginalFilename().substring(file.getOriginalFilename().indexOf("."));
+            // 把文件的名称设置唯一值，uuid
+//            String uuid = UUID.randomUUID().toString().replace("-", "");
+//            String filename = uuid+fileType;
+//            System.out.println(fileType);
+            if(fileType.equals(XLSX) || fileType.equals(XLS)){
+                try {
+                    File f1 = new File(fileUrl);
+                    ScanExcel scanExcel = new ScanExcel();
+                    //启动
+                    List<User> users = scanExcel.readExcel(f1);
+                    System.out.println(users);
+//                    String pathname = file.getName();
+//                    JSONArray jsonArray = utils.readExcel(f1);
+//                    String s = JSON.toJSONString(jsonArray);
+//                    System.out.println(s);
+//                    utils.writeExcel(f1, fileurl,s);
+//                    file.transferTo(new File(path,filename));
+                    for (User user : users) {
+                        Date date = new Date();
+                        //密码加密(MD5算法)
+//            System.out.println(lastPwd);
+                        String salt = UUID.randomUUID().toString().toUpperCase();
+//            System.out.println(salt);
+                        String currPwd = md5.MD5handler(user.getPassword(), salt);
+                        user.setPassword(currPwd);
+                        user.setSalt(salt);
+                        user.setCreateTime(date);
+                        user.setModifyTime(date);
+                        user.setStatus(0);
+
+                        int i = topManagerMapper.insert(user);
+                        if(i != 1){
+                            throw new InsertException("用户"+ user.getUserId() +"添加失败");
+                        }
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
     }
 }

@@ -124,12 +124,17 @@ public class IndividualGroupService {
     }
 
     public void updatePermission(int groupId, String userId, int status) {
+
         User user = topManagerMapper.getByNumNoStatus(userId);
         if (user == null) {
             throw new EntityNotFoundException("用户"+ userId +"不存在");
         }
         if (user.getStatus() > 10) {
             throw new AccessDeniedException("用户"+ userId +"在社团"+ groupId +"中拥有超级管理员权限，你的权限不足");
+        }
+        IndividualGroup individualGroup = getUserByUserIdAndGroupId(userId, groupId);
+        if (individualGroup == null) {
+            throw new EntityNotFoundException("用户"+ userId +"在社团"+ groupId +"中不存在");
         }
         Group group = validateGroup(groupId);
         //初始化学生信息
@@ -140,7 +145,7 @@ public class IndividualGroupService {
 
         int i = individualGroupMapper.updatePermission(groupId, userId, status, date);
         if(i != 1){
-            throw new UpdateException("社团"+ groupId +"提升学生"+ userId +"的权限失败");
+            throw new UpdateException("社团"+ groupId +"修改学生"+ userId +"的权限失败");
         }
 
         //检验活动里权限是否需要修改
@@ -153,12 +158,19 @@ public class IndividualGroupService {
             //检验该用户参加的并由该社团组织的活动权限是否需要修改
             int j = individualActivityMapper.updatePermission(activity.getId(), userId, status, date);
             if(j != 1){
-                throw new UpdateException("社团"+ groupId +"提升学生"+ userId +"的权限失败");
+                throw new UpdateException("活动"+ activity.getId() +"修改学生"+ userId +"的权限失败");
             }
         }
 
         //检验用户表里权限是否需要修改
         validateUserStatus(userId);
+    }
+
+    public void transferStatus(int groupId, String managerId, String userId) {
+        //提升用户权限
+        updatePermission(groupId, userId, 1);
+        //降低自身权限
+        updatePermission(groupId, managerId, 0);
     }
 
     //检测服务函数

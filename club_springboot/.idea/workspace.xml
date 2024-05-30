@@ -36,6 +36,13 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
 }</component>
@@ -84,13 +91,13 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/ljh/IdeaProjects/baituanProject/club_springboot&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/java program/club_springboot/src/main/java/com/chinahitech/shop/service&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;模块&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.17&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
@@ -111,6 +118,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\java program\club_springboot\src\main\java\com\chinahitech\shop\service" />
       <recent name="D:\java program\club_student\src\main\java\com\chinahitech\shop\service\exception" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -208,6 +216,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="test_projectApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="scan" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.test_project.test_projectApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="test_projectApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="test_project" />
@@ -284,7 +300,13 @@
       <workItem from="1716808877859" duration="1367000" />
       <workItem from="1716871390634" duration="2520000" />
       <workItem from="1716887409217" duration="938000" />
-      <workItem from="1716897185553" duration="8705000" />
+      <workItem from="1716897185553" duration="9309000" />
+      <workItem from="1716963221439" duration="596000" />
+      <workItem from="1716984333984" duration="581000" />
+      <workItem from="1716984927124" duration="799000" />
+      <workItem from="1716985754054" duration="5766000" />
+      <workItem from="1717045391708" duration="3971000" />
+      <workItem from="1717070736290" duration="1471000" />
     </task>
     <task id="LOCAL-00001" summary="增加了一个查询天气的api">
       <created>1686468078163</created>

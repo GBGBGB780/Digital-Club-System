@@ -8,7 +8,7 @@ import java.util.Objects;
 MD5算法加密
 */
 
-public class md5 {
+public class Md5 {
     /*
     MD5算法加密判断
     */

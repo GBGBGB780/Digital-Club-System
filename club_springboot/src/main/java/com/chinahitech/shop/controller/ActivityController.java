@@ -1,8 +1,6 @@
 package com.chinahitech.shop.controller;
 
 import com.chinahitech.shop.bean.Activity;
-import com.chinahitech.shop.bean.Group;
-import com.chinahitech.shop.bean.StuApp;
 import com.chinahitech.shop.service.ActivityService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +8,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestBody;
 import com.chinahitech.shop.utils.Result;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
@@ -41,8 +38,8 @@ public class ActivityController {
     private String uploadDir;
 
     @RequestMapping("/all")
-    public Result getAll(String searchinfo){
-        List<Activity> activities = activityService.query(searchinfo);
+    public Result getAll(String searchInfo){
+        List<Activity> activities = activityService.query(searchInfo);
         System.out.println(activities);
         return Result.ok().data("items",activities);
     }
@@ -55,7 +52,7 @@ public class ActivityController {
         return Result.ok().data("activity", activity);
     }
 
-    @RequestMapping("/getvideo")
+    @RequestMapping("/getVideo")
     public Result getVideo() {
         try {
             // 获取视频文件的相对路径
@@ -109,7 +106,7 @@ public class ActivityController {
     }
 
     // 活动简介修改
-    @PostMapping("/modifydescription")
+    @PostMapping("/modifyDescription")
     public Result  modifyDescription(String groupName, String activityName, String description, String attachment, String image){
         System.out.println(activityName);
         System.out.println(description);
@@ -129,7 +126,7 @@ public class ActivityController {
     @PostMapping("/addActivity")
     public Result addActivity(Activity activity){
         System.out.println(activity.getName());
-        activity.setIsAccepted(false);
+        activity.setIsAccepted(null);
         activityService.addActivity(activity);
         return Result.ok();
     }
@@ -138,12 +135,12 @@ public class ActivityController {
     @PostMapping("/deleteActivity")
     public Result deleteActivity(Activity activity){
         System.out.println(activity.getName());
-        activity.setIsAccepted(false);
+        activity.setIsAccepted(null);
         activityService.deleteActivity(activity);
         return Result.ok();
     }
 
-    @PostMapping("/uploadzip")
+    @PostMapping("/uploadZip")
     public ResponseEntity<Map<String, String>> uploadFile(@RequestParam("file") MultipartFile file) {
 
         String fileName = generateUniqueFileName(file.getOriginalFilename());
@@ -167,7 +164,7 @@ public class ActivityController {
         }
     }
 
-    @PostMapping("/submitzip")
+    @PostMapping("/submitZip")
     public ResponseEntity<Map<String, String>> submitZip(@RequestParam("groupId") String groupName, @RequestParam("attachment") String attachment, @RequestParam("name") String name) {
         try {
             activityService.updateAttachment(groupName, name, attachment);
@@ -181,7 +178,7 @@ public class ActivityController {
             return ResponseEntity.badRequest().body(createErrorResponse("Failed to update the attachment."));
         }
     }
-    @PostMapping("/uploadphoto")
+        @PostMapping("/uploadPhoto")
     public ResponseEntity<Map<String, String>> uploadPhoto(@RequestParam("file") MultipartFile file) {
 
         String fileName = generateUniqueFileName(file.getOriginalFilename());
@@ -205,7 +202,7 @@ public class ActivityController {
         }
     }
 
-    @PostMapping("/submitphoto")
+    @PostMapping("/submitPhoto")
     public ResponseEntity<Map<String, String>> submitPhoto(@RequestParam("groupId") String groupName, @RequestParam("image") String image, @RequestParam("name") String name) {
         try {
             activityService.updateImage(groupName, name, image);
@@ -219,7 +216,7 @@ public class ActivityController {
             return ResponseEntity.badRequest().body(createErrorResponse("Failed to update the image."));
         }
     }
-    @PostMapping("/getattachment")//能直接下载文件，而不是在新标签页中打开的比较难搞，涉及到http报文，暂时不搞了
+    @PostMapping("/getAttachment")//能直接下载文件，而不是在新标签页中打开的比较难搞，涉及到http报文，暂时不搞了
     // 这个是在新标签页中打开，对于zip完全没问题
     public ResponseEntity<Map<String, Object>> getAttachment(@RequestParam("id") int id) {
         Activity activity = activityService.getActivityById(id);
@@ -252,8 +249,8 @@ public class ActivityController {
 
     // 申请列表
     @RequestMapping("/allApps")
-    public Result getAllApps(String searchinfo){
-        List<Activity> activities = activityService.getAllApp(searchinfo);
+    public Result getAllApps(String searchInfo){
+        List<Activity> activities = activityService.getAllApp(searchInfo);
         System.out.println(activities);
         return Result.ok().data("items",activities);
     }

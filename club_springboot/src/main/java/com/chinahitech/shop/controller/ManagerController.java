@@ -82,8 +82,8 @@ public class ManagerController {
     }
 
     //用户密码修改
-    @PostMapping("/modifypass")
-    public Result modifypassword(String userId, String password){
+    @PostMapping("/modifyPass")
+    public Result modifyPassword(String userId, String password){
         System.out.println(userId);
         System.out.println(password);
         managerService.updatePassword(userId, password);
@@ -91,8 +91,8 @@ public class ManagerController {
     }
 
     //用户电话修改
-    @PostMapping("/modifyphone")
-    public Result modifyphone(String userId, String phone){
+    @PostMapping("/modifyPhone")
+    public Result modifyPhone(String userId, String phone){
         System.out.println(userId);
         System.out.println(phone);
         managerService.updatePhone(userId, phone);
@@ -100,8 +100,8 @@ public class ManagerController {
     }
 
     //用户简介修改
-    @PostMapping("/modifydescription")
-    public Result modifydescription(String userId, String description){
+    @PostMapping("/modifyDescription")
+    public Result modifyDescription(String userId, String description){
         System.out.println(userId);
         System.out.println(description);
         managerService.updateDescription(userId, description);
@@ -109,8 +109,8 @@ public class ManagerController {
     }
 
     //用户昵称修改
-    @PostMapping("/modifynickname")
-    public Result modifynickname(String userId, String nickname){
+    @PostMapping("/modifyNickname")
+    public Result modifyNickname(String userId, String nickname){
         System.out.println(userId);
         System.out.println(nickname);
         managerService.updateNickname(userId, nickname);

@@ -83,7 +83,7 @@ public class IndividualActivityService {
         }
     }
 
-    public void addActivityStudent(String userId, int activityId, String position, Boolean isaccepted) {
+    public void addActivityStudent(String userId, int activityId, String position, Boolean isAccepted) {
         User user = validateStu(userId);
         Activity activity = validateActivity(activityId);
         IndividualActivity test = individualActivityMapper.getUserByUserIdAndActivityId(userId, activityId);
@@ -99,7 +99,7 @@ public class IndividualActivityService {
         individualActivity.setStatus(0);
         individualActivity.setCreateTime(date);
         individualActivity.setModifyTime(date);
-        individualActivity.setIsAccepted(isaccepted);
+        individualActivity.setIsAccepted(isAccepted);
         if (position != null) {
             individualActivity.setPosition(position);
         } else {

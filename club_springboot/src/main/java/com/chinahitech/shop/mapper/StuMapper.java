@@ -29,15 +29,23 @@ public interface StuMapper extends BaseMapper<User> {
                    @Param("status") int status);
 
     @Update("UPDATE user SET password = #{password}, modify_time = #{modifyTime} WHERE user_id = #{stunumber}")
-    int updatePassword(@Param("stunumber") String stunumber, @Param("password") String password, @Param("modifyTime") Date modifyTime);
+    int updatePassword(@Param("stunumber") String stunumber,
+                       @Param("password") String password,
+                       @Param("modifyTime") Date modifyTime);
 
     @Update("UPDATE `user` SET phone = #{phone}, modify_time = #{modifyTime} WHERE user_id = #{stunumber}")
-    int updatePhone(@Param("stunumber") String stunumber, @Param("phone") String phone, @Param("modifyTime") Date modifyTime);
+    int updatePhone(@Param("stunumber") String stunumber,
+                    @Param("phone") String phone,
+                    @Param("modifyTime") Date modifyTime);
 
     @Update("UPDATE `user` SET description = #{description}, modify_time = #{modifyTime} WHERE user_id = #{stunumber}")
-    int updateDescription(@Param("stunumber") String stunumber, @Param("description") String description, @Param("modifyTime") Date modifyTime);
+    int updateDescription(@Param("stunumber") String stunumber,
+                          @Param("description") String description,
+                          @Param("modifyTime") Date modifyTime);
 
     @Update("UPDATE `user` SET nickname = #{nickname}, modify_time = #{modifyTime} WHERE user_id = #{stunumber}")
-    int updateNickname(@Param("stunumber") String stunumber, @Param("nickname") String nickname, @Param("modifyTime") Date modifyTime);
+    int updateNickname(@Param("stunumber") String stunumber,
+                       @Param("nickname") String nickname,
+                       @Param("modifyTime") Date modifyTime);
 
 }

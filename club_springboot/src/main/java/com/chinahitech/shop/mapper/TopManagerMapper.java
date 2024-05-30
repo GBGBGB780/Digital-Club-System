@@ -34,16 +34,23 @@ public interface TopManagerMapper extends BaseMapper<User> {
                    @Param("status") int status);
 
     @Update("UPDATE user SET password = #{password}, modify_time = #{modifyTime} WHERE user_id = #{userId} and status >= 10")
-    int updatePassword(@Param("userId") String userId, @Param("password") String password, @Param("modifyTime") Date modifyTime);
+    int updatePassword(@Param("userId") String userId,
+                       @Param("password") String password,
+                       @Param("modifyTime") Date modifyTime);
 
     @Update("UPDATE `user` SET phone = #{phone}, modify_time = #{modifyTime} WHERE user_id = #{userId} and status >= 10")
     int updatePhone(@Param("userId") String userId, @Param("phone") String phone, @Param("modifyTime") Date modifyTime);
 
-    @Update("UPDATE `user` SET description = #{description}, modify_time = #{modifyTime} WHERE user_id = #{userId} and status >= 10")
-    int updateDescription(@Param("userId") String userId, @Param("description") String description, @Param("modifyTime") Date modifyTime);
+    @Update("UPDATE `user` SET description = #{description}, modify_time = #{modifyTime} " +
+            "WHERE user_id = #{userId} and status >= 10")
+    int updateDescription(@Param("userId") String userId,
+                          @Param("description") String description,
+                          @Param("modifyTime") Date modifyTime);
 
     @Update("UPDATE `user` SET nickname = #{nickname}, modify_time = #{modifyTime} WHERE user_id = #{userId} and status >= 10")
-    int updateNickname(@Param("userId") String userId, @Param("nickname") String nickname, @Param("modifyTime") Date modifyTime);
+    int updateNickname(@Param("userId") String userId,
+                       @Param("nickname") String nickname,
+                       @Param("modifyTime") Date modifyTime);
 
     @Update("UPDATE `user` SET campus = #{campus}, school = #{school}, major = #{major}, modify_time = #{modifyTime} " +
             "WHERE user_id = #{userId} and status >= 10")

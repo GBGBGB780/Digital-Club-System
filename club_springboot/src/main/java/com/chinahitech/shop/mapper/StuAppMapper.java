@@ -25,7 +25,10 @@ public interface StuAppMapper extends BaseMapper<StuApp> {
     @Select("SELECT * FROM `stu_app` WHERE application_id = #{id}")
     StuApp getById(Integer id);
 
-    @Select("SELECT CASE WHEN is_accepted IS NULL THEN 'null' WHEN is_accepted = true THEN 'true' ELSE 'false' END as isaccepted FROM `stu_app` WHERE application_id = #{id}")
+    @Select("SELECT CASE WHEN is_accepted IS NULL THEN 'null' " +
+            "WHEN is_accepted = true THEN 'true' " +
+            "ELSE 'false' END as isaccepted " +
+            "FROM `stu_app` WHERE application_id = #{id}")
     String findIsAccepted(Integer id);
 
     @Update("UPDATE stu_app SET attachment = #{attachment} WHERE application_id = #{applicationid}")

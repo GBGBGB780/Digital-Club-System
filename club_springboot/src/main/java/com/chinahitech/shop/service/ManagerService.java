@@ -13,7 +13,7 @@ import java.util.UUID;
 public class ManagerService {
     @Autowired
     private ManagerMapper managerMapper;
-    private md5 md5 = new md5();
+    private Md5 md5 = new Md5();
 
     public User getByUserId(String num) {
         User stu = managerMapper.getByNum(num);

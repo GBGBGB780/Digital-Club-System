@@ -85,13 +85,13 @@ public interface ActivityMapper extends BaseMapper<Activity> {
     int deleteActivity(@Param("id") int id);
 
 
-    @Select("select * from `Activity` WHERE is_accepted = false")
+    @Select("select * from `Activity` ")
     List<Activity> findAllApp();
 
-    @Select("SELECT * FROM `Activity` WHERE name LIKE CONCAT('%', #{searchinfo}, '%') and is_accepted = false")
+    @Select("SELECT * FROM `Activity` WHERE name LIKE CONCAT('%', #{searchinfo}, '%') ")
     List<Activity> findAppBySearch(String searchinfo);
 
-    @Select("SELECT * FROM `Activity` WHERE name = #{name} and group_name = #{groupName} and is_accepted = false")
+    @Select("SELECT * FROM `Activity` WHERE name = #{name} and group_name = #{groupName} ")
     Activity getAppByNameAndGroupName(@Param("name") String name, @Param("groupName") String groupName);
 
     @Update("update `Activity` set is_accepted = true where id = #{activityId}")

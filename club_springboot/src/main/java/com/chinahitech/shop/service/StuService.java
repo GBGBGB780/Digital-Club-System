@@ -13,7 +13,7 @@ import java.util.UUID;
 public class StuService {
     @Autowired
     private StuMapper stuMapper;
-    private md5 md5 = new md5();
+    private Md5 md5 = new Md5();
 
     public User getByStunumber(String num) {
         User stu = stuMapper.getByNum(num);

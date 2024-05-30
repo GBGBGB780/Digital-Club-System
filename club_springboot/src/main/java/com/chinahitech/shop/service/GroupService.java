@@ -1,7 +1,6 @@
 package com.chinahitech.shop.service;
 
 import com.chinahitech.shop.bean.Group;
-import com.chinahitech.shop.bean.StuApp;
 import com.chinahitech.shop.mapper.GroupMapper;
 import com.chinahitech.shop.service.exception.EntityNotFoundException;
 import com.chinahitech.shop.service.exception.InsertException;
@@ -32,7 +31,7 @@ public class GroupService {
 //    }
     @Autowired
     private GroupMapper groupMapper;
-    private md5 md5 = new md5();
+    private Md5 md5 = new Md5();
 
     public Group getByName(String name) {
         Group group = groupMapper.getByName(name);
@@ -109,7 +108,6 @@ public class GroupService {
     public void insert(Group group) {
         Date date = new Date();
         group.setId(0);
-        group.setIsAccepted(false);
         group.setCreateTime(date);
         group.setModifyTime(date);
         int i = groupMapper.insert(group);

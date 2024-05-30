@@ -32,7 +32,8 @@ public interface IndividualGroupMapper extends BaseMapper<IndividualGroup> {
 //                   @Param("createTime") Date createTime,
 //                   @Param("modifyTime") Date modifyTime);
 
-    @Update("UPDATE Individual_group SET position = #{position}, modify_time = #{modifyTime} WHERE group_id = #{groupId} and user_id = #{userId}")
+    @Update("UPDATE Individual_group SET position = #{position}, modify_time = #{modifyTime} " +
+            "WHERE group_id = #{groupId} and user_id = #{userId}")
     int modifyGroupStudent(@Param("position") String position,
                            @Param("modifyTime") Date modifyTime,
                            @Param("groupId") int groupId,
@@ -42,7 +43,8 @@ public interface IndividualGroupMapper extends BaseMapper<IndividualGroup> {
     int deleteGroupStudent(@Param("groupId") int groupId,
                            @Param("userId") String userId);
 
-    @Update("UPDATE Individual_group SET status = #{status}, modify_time = #{modifyTime} WHERE group_id = #{groupId} and user_id = #{userId}")
+    @Update("UPDATE Individual_group SET status = #{status}, modify_time = #{modifyTime} " +
+            "WHERE group_id = #{groupId} and user_id = #{userId}")
     int updatePermission(@Param("groupId") int groupId,
                       @Param("userId") String userId,
                       @Param("status") int status,
