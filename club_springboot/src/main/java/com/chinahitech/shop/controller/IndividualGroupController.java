@@ -69,7 +69,7 @@ public class IndividualGroupController {
 
     //超级管理员端
 
-    //修改权限
+    //修改权限（需要事先获取所需修改的用户id，所在社团id以及在该社团的权限）
     @RequestMapping("/updatePermission")
     public Result updatePermission(int groupId, String studentId, int status) {
         individualGroupService.updatePermission(groupId, studentId, status);

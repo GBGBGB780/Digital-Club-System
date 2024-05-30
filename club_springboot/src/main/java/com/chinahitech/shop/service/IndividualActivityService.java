@@ -99,7 +99,7 @@ public class IndividualActivityService {
         individualActivity.setStatus(0);
         individualActivity.setCreateTime(date);
         individualActivity.setModifyTime(date);
-        individualActivity.setIsaccepted(isaccepted);
+        individualActivity.setIsAccepted(isaccepted);
         if (position != null) {
             individualActivity.setPosition(position);
         } else {

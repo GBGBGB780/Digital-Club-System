@@ -1,5 +1,6 @@
 package com.chinahitech.shop.bean;
 
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
@@ -12,12 +13,14 @@ import java.util.Date;
 @ToString
 public class User{
     @JsonProperty("username")
+    @TableId
     private String userId;
     private String password;
     private String userName;
     private String email;
     private String phone;
     private String campus;
+    private String school;
     private String major;
     private String description;
     private int status;

@@ -55,7 +55,7 @@ public class StuAppController {
         stuApp.setCreateTime(new Date());
         System.out.println(stuApp);
         stuAppService.insert(stuApp);
-        groupService.addHot(stuApp.getGroupname());
+        groupService.addHot(stuApp.getGroupName());
         return Result.ok();
     }
     //
@@ -75,10 +75,10 @@ public class StuAppController {
     // 申请列表->详情
     @PostMapping("/recvapp")
     public Result getRecvapp(Integer id) {
-        List<StuApp> StuApps = stuAppService.queryDetailapp(id);
+        StuApp StuApp = stuAppService.queryDetailapp(id);
         String isAcceptedStr = stuAppService.findIsAccepted(id); // 直接获取特定id的isAccepted值
         System.out.println(id);
-        return Result.ok().data("items", StuApps).data("isAccepted", isAcceptedStr);
+        return Result.ok().data("items", StuApp).data("isAccepted", isAcceptedStr);
     }
 
     //更新附件

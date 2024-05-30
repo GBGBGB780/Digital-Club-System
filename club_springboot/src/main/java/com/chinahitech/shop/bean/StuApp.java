@@ -13,16 +13,16 @@ import java.util.Date;
 @ToString
 public class StuApp {
     @TableId(type = IdType.AUTO)
-    private Integer applicationid;
-    private String groupname;
-    private String stuname;
-    private String stunumber;
+    private Integer applicationId;
+    private String groupName;
+    private String stuName;
+    private String stuNumber;
     private String phone;
     private String gender;
     private String major;
-    private String selfintro;
+    private String selfIntro;
     private String attachment;
-    private Boolean isaccepted;
+    private Boolean isAccepted;
     private String createUser;
     private Date createTime;
     private String modifyUser;
