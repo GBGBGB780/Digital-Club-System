@@ -132,7 +132,7 @@ export default {
     this.staticForm.name = this.name
     getDetails(this.name)
       .then((response) => {
-        this.staticForm.name = response.data.group.username
+        this.staticForm.name = response.data.group.userName
         this.staticForm.leader = response.data.group.leader
         this.newForm.description = response.data.group.description
         this.newForm.image = response.data.group.image
