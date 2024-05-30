@@ -141,6 +141,7 @@ export default {
             this.token=data.token
             // vuex
             managedgroup(this.loginForm.username.trim()).then(res =>{
+              console.log(res)
               // console.log(res.data.items[0].username)
               for(var i=0; i<res.data.items.length; i++)
               {
