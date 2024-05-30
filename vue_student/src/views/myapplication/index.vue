@@ -15,21 +15,21 @@
         </template>
       </el-table-column>
       <el-table-column
-        prop="groupname"
+        prop="groupName"
         label="申请社团"
         width="300"
       >
         <template slot-scope="scope">
-          <span class="text">{{ scope.row.groupname }}</span>
+          <span class="text">{{ scope.row.groupName }}</span>
         </template>
       </el-table-column>
       <el-table-column
-        prop="isaccepted"
+        prop="isAccepted"
         label="申请状态"
       >
         <template slot-scope="scope">
-          <span v-if="scope.row.isaccepted === true" class="text success-text">已通过</span>
-          <span v-else-if="scope.row.isaccepted === false" class="text fail-text">未通过</span>
+          <span v-if="scope.row.isAccepted === true" class="text success-text">已通过</span>
+          <span v-else-if="scope.row.isAccepted === false" class="text fail-text">未通过</span>
           <span v-else class="text pending-text">待审核</span>
         </template>
       </el-table-column>
@@ -116,9 +116,9 @@ export default {
   },
   methods: {
     tableRowClassName({ row }) {
-      if (row.isaccepted === true) {
+      if (row.isAccepted === true) {
         return 'success-row'
-      } else if (row.isaccepted === false) {
+      } else if (row.isAccepted === false) {
         return 'fail-row'
       }
       return ''

@@ -23,7 +23,7 @@ export default {
     }
   },
   mounted() {
-    this.group.id = this.$route.params.groupid
+    this.group.id = this.$route.params.groupId
     this.group.description = this.$route.params.description
   },
   methods: {

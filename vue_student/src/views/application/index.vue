@@ -1,10 +1,10 @@
 <template>
   <el-form ref="ruleForm" :model="ruleForm" :rules="rules" label-width="100px" class="demo-ruleForm">
-    <el-form-item label="姓名" prop="stuname">
-      <el-input v-model="stuname" :disabled="true"/>
+    <el-form-item label="姓名" prop="stuName">
+      <el-input v-model="stuName" :disabled="true"/>
     </el-form-item>
-    <el-form-item label="学号" prop="stunumber">
-      <el-input v-model="stunumber" :disabled="true"/>
+    <el-form-item label="学号" prop="stuNumber">
+      <el-input v-model="stuNumber" :disabled="true"/>
     </el-form-item>
     <el-form-item label="电话" prop="phone">
       <el-input v-model="ruleForm.phone" />
@@ -24,8 +24,8 @@
       @select="handleSelect"
     ></el-autocomplete>
     </el-form-item>
-    <el-form-item label="自我陈述" prop="selfintro">
-      <el-input v-model="ruleForm.selfintro" type="textarea" :rows="8" />
+    <el-form-item label="自我陈述" prop="selfIntro">
+      <el-input v-model="ruleForm.selfIntro" type="textarea" :rows="8" />
     </el-form-item>
     <el-upload
       class="upload-demo"
@@ -67,26 +67,26 @@ export default {
     return {
       fileList: [],
       ruleForm: {
-        groupname: '',
+        groupName: '',
         phone: '',
         gender: '',
         major: '',
-        stuname: '',
-        stunumber: '',
-        selfintro: '',
+        stuName: '',
+        stuNumber: '',
+        selfIntro: '',
         attachment: ''
       },
-      stuname: '',
-      stunumber: '',
+      stuName: '',
+      stuNumber: '',
       majors: [],
       // dialogVisible2: false,
       // applicationSubmitted: false,
       // uploadAction: 'your_upload_endpoint', // 替换为你的后端文件上传接口
       rules: {
-        // stuname: [
+        // stuName: [
         //   { required: true, message: '请输入你的名字', trigger: 'blur' }
         // ],
-        // stunumber: [
+        // stuNumber: [
         //   { required: true, message: '请输入你的学号', trigger: 'change' },
         //   { min: 8, max: 8, message: '学号长度必须为8位', trigger: 'blur' }
         // ],
@@ -100,21 +100,21 @@ export default {
         major: [
           { required: true, message: '请选择你的专业', trigger: 'change' }
         ],
-        selfintro: [
+        selfIntro: [
           { required: true, message: '请填写自我陈述', trigger: 'blur' }
         ]
       }
     }
   },
   mounted() {
-    this.ruleForm.groupname = this.$route.params.groupname;
+    this.ruleForm.groupName = this.$route.params.groupName;
     this.majors = this.loadAll();
   },
   created: function() {
-    this.stunumber = this.name
+    this.stuNumber = this.name
     getProfile(this.name)
       .then((response) => {
-        this.stuname = response.data.student.stuname
+        this.stuName = response.data.student.stuName
       })
       .catch((error) => {
         console.error(error)
@@ -125,8 +125,8 @@ export default {
       this.$refs[formName].validate((valid) => {
         if (valid) {
           this.showSuccessMessage();
-          this.ruleForm.stuname = this.stuname;
-          this.ruleForm.stunumber = this.stunumber;
+          this.ruleForm.stuName = this.stuName;
+          this.ruleForm.stuNumber = this.stuNumber;
           postform(this.ruleForm).then(response => {
             console.log(response.data)
             this.$router.push({ name: 'Dashboard' })
