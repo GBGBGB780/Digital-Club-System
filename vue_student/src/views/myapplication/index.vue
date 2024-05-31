@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-table
-      :data="myapps"
+      :data="myApps"
       style="width: 100%"
       :row-class-name="tableRowClassName"
     >
@@ -103,8 +103,8 @@ export default {
   created: function() {
     getApplications(this.name)
       .then((response) => {
-        this.myapps = response.data.items
-        this.myapps.sort((a, b) => {
+        this.myApps = response.data.items
+        this.myApps.sort((a, b) => {
           const timeA = new Date(a.time)
           const timeB = new Date(b.time)
           return timeB - timeA
@@ -144,7 +144,7 @@ export default {
   },
   data() {
     return {
-      myapps: [],
+      myApps: [],
       hours: 0,
       minutes: 0,
       seconds: 0,

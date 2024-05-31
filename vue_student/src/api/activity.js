@@ -1,10 +1,10 @@
 import request from '@/utils/request'
 
-export function getActivites(searchinfo) {
+export function getActivites(searchInfo) {
     return request({
       url: '/activity/all',
       method: 'get',
-      params: { searchinfo }
+      params: { searchInfo }
     })
   }
 

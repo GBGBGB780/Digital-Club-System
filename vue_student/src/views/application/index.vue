@@ -30,7 +30,7 @@
     <el-upload
       class="upload-demo"
       style="margin-left: 100px;"
-      action="http://localhost:8081/application/uploadzip"
+      action="http://localhost:8081/application/uploadZip"
       :on-remove="handleRemove"
       :before-remove="beforeRemove"
       :on-success="handleUploadSuccess"

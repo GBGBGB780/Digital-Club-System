@@ -51,7 +51,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import { modifypassword, getProfile, modifyphone,modifynickname,modifydescription } from '@/api/user.js'
+import { modifyPassword, getProfile, modifyPhone,modifyNickname,modifyDescription } from '@/api/user.js'
 import router from '@/router'
 export default {
   name: 'Profile',
@@ -128,7 +128,7 @@ export default {
       this.$refs[formName].validate((valid) => {
         if (valid) {
           this.showSuccessUpdatePassword()
-          modifypassword(this.name, this.ruleForm.pass).then(response => {
+          modifyPassword(this.name, this.ruleForm.pass).then(response => {
             console.log(response.data)
             this.logout()
           })
@@ -162,9 +162,9 @@ export default {
             type: 'success'
           })
           setTimeout(() => {
-            modifydescription(this.name, this.newForm.description)
-            modifynickname(this.name, this.newForm.nickname)
-            modifyphone(this.name, this.newForm.phone)
+            modifyDescription(this.name, this.newForm.description)
+            modifyNickname(this.name, this.newForm.nickname)
+            modifyPhone(this.name, this.newForm.phone)
               .then((response) => {
                 console.log(response.data)
                 router.go() // 刷新当前页面

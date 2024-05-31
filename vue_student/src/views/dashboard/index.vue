@@ -7,7 +7,7 @@
         </vue-typed-js>
       </div>
       <div class="search-container" style="margin-left: 50px;">
-        <el-input @keyup.enter.native="handleSearch" v-model="searchinfo" placeholder="搜索社团" clearable />
+        <el-input @keyup.enter.native="handleSearch" v-model="searchInfo" placeholder="搜索社团" clearable />
         <el-button icon="el-icon-search" @click="handleSearch" />
         <el-button style="margin-left: 50px;" @click="showVideoDialog">播放社团宣传视频</el-button>
         <div class="audio-container" style="margin-left: 50px; display: flex; align-items: center;">
@@ -113,7 +113,7 @@ export default {
       currentGroup: {
         description: ''
       },
-      searchinfo: '',
+      searchInfo: '',
       videoDialogVisible: false,
       videoUrl: '',
       imagebox: [
@@ -132,7 +132,7 @@ export default {
     }
   },
   created: function() {
-    this.searchinfo = this.$route.query.searchinfo
+    this.searchInfo = this.$route.query.searchInfo
     this.handleSearch()
     this.getWeather()
   },
@@ -219,7 +219,7 @@ export default {
     //   })
     // },
     handleSearch() {
-      getGroups(this.searchinfo)
+      getGroups(this.searchInfo)
         .then((response) => {
           this.totalItems = response.data.items.length
           this.groups = response.data.items.slice((this.currentPage - 1) * this.pageSize, this.currentPage * this.pageSize)

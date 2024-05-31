@@ -3,8 +3,8 @@
       <el-form-item label="姓名" prop="stuname">
         <el-input v-model="stuname" :disabled="true"/>
       </el-form-item>
-      <el-form-item label="学号" prop="stunumber">
-        <el-input v-model="stunumber" :disabled="true"/>
+      <el-form-item label="学号" prop="stuNumber">
+        <el-input v-model="stuNumber" :disabled="true"/>
       </el-form-item>
       <el-form-item label="电话" prop="phone">
         <el-input v-model="ruleForm.phone" />
@@ -30,7 +30,7 @@
       <el-upload
         class="upload-demo"
         style="margin-left: 100px;"
-        action="http://localhost:8081/activityapplication/uploadzip"
+        action="http://localhost:8081/activityapplication/uploadZip"
         :on-remove="handleRemove"
         :before-remove="beforeRemove"
         :on-success="handleUploadSuccess"
@@ -67,18 +67,18 @@
       return {
         fileList: [],
         ruleForm: {
-          groupname: '',
+          groupName: '',
           phone: '',
           gender: '',
           major: '',
           stuname: '',
-          stunumber: '',
+          stuNumber: '',
           selfintro: '',
           attachment: '',
           activityid: ''
         },
         stuname: '',
-        stunumber: '',
+        stuNumber: '',
         majors: [],
         // dialogVisible2: false,
         // applicationSubmitted: false,
@@ -87,7 +87,7 @@
           // stuname: [
           //   { required: true, message: '请输入你的名字', trigger: 'blur' }
           // ],
-          // stunumber: [
+          // stuNumber: [
           //   { required: true, message: '请输入你的学号', trigger: 'change' },
           //   { min: 8, max: 8, message: '学号长度必须为8位', trigger: 'blur' }
           // ],
@@ -108,11 +108,11 @@
       }
     },
     mounted() {
-      this.ruleForm.groupname = this.$route.params.groupname;
+      this.ruleForm.groupName = this.$route.params.groupName;
       this.majors = this.loadAll();
     },
     created: function() {
-      this.stunumber = this.name
+      this.stuNumber = this.name
       getProfile(this.name)
         .then((response) => {
           this.stuname = response.data.student.stuname
@@ -127,7 +127,7 @@
           if (valid) {
             this.showSuccessMessage();
             this.ruleForm.stuname = this.stuname;
-            this.ruleForm.stunumber = this.stunumber;
+            this.ruleForm.stuNumber = this.stuNumber;
             postform(this.ruleForm).then(response => {
               console.log(response.data)
               this.$router.push({ name: 'Dashboard' })

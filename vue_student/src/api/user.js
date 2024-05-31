@@ -17,33 +17,33 @@ export function register(data) {
   })
 }
 
-export function modifypassword(stuNumber, password) {
+export function modifyPassword(stuNumber, password) {
   return request({
-      url: '/student/modifypass',
+      url: '/student/modifyPass',
       method: 'post',
       params: { stuNumber, password }
   })
 }
 
-export function modifyphone(stuNumber, phone) {
+export function modifyPhone(stuNumber, phone) {
   return request({
-      url: '/student/modifyphone',
+      url: '/student/modifyPhone',
       method: 'post',
       params: { stuNumber, phone }
   })
 }
 
-export function modifydescription(stuNumber, description) {
+export function modifyDescription(stuNumber, description) {
   return request({
-      url: '/student/modifydescription',
+      url: '/student/modifyDescription',
       method: 'post',
       params: { stuNumber, description }
   })
 }
 
-export function modifynickname(stuNumber, nickname) {
+export function modifyNickname(stuNumber, nickname) {
   return request({
-      url: '/student/modifynickname',
+      url: '/student/modifyNickname',
       method: 'post',
       params: { stuNumber, nickname }
   })

@@ -2,7 +2,7 @@ import request from '@/utils/request'
 
 export function getSeeApplications(groupName) {
     return request({
-        url: '/application/recvapps',
+        url: '/application/recApps',
         method: 'post',
         params: { groupName }
     })
@@ -10,7 +10,7 @@ export function getSeeApplications(groupName) {
 
 export function getAppDetails(id) {
     return request({
-        url: '/application/recvapp',
+        url: '/application/recApp',
         method: 'post',
         params: { id }
     });

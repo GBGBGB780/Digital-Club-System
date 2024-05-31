@@ -1,7 +1,7 @@
 <template>
     <div class="top-container">
       <div class="top-text">活动列表</div>
-      <el-input @keyup.enter.native="handleSearch" v-model="searchinfo" placeholder="搜索活动" clearable style="width: 10%;"/>
+      <el-input @keyup.enter.native="handleSearch" v-model="searchInfo" placeholder="搜索活动" clearable style="width: 10%;"/>
         <el-button icon="el-icon-search" @click="handleSearch" />
       <el-row :gutter="30">
         <el-col v-for="(activity, index) in activites" :key="activity.id" :span="6" :offset="0">
@@ -53,7 +53,7 @@
         totalItems: 0,
         pageSize: 32,
         currentPage: 1,
-        searchinfo: ''
+        searchInfo: ''
       }
     },
     created: function() {
@@ -80,7 +80,7 @@
       })
     },
     handleSearch() {
-      getActivites(this.searchinfo)
+      getActivites(this.searchInfo)
         .then((response) => {
           this.totalItems = response.data.items.length
           this.activites = response.data.items.slice((this.currentPage - 1) * this.pageSize, this.currentPage * this.pageSize)

@@ -26,7 +26,7 @@ export function redirectToGroupDetail(groupName) {
 
 export function updateForm(groupName, description, attachment, image) {
   return request({
-    url: '/group/modifydescription',
+    url: '/group/modifyDescription',
     method: 'post',
     params: { groupName, description, attachment, image }
   })
@@ -34,7 +34,7 @@ export function updateForm(groupName, description, attachment, image) {
 
 export function updatePassword(groupName, password) {
   return request({
-    url: '/group/modifypassword',
+    url: '/group/modifyPassword',
     method: 'post',
     params: { groupName, password }
   })

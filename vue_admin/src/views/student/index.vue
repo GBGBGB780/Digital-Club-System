@@ -60,7 +60,7 @@
     },
     methods: {
       handleRowClick(row) {
-      const id = row.applicationid; // 获取当前行的id
+      const id = row.applicationId; // 获取当前行的id
       this.$router.push({
         name: 'Studentdetail',
         params: { 'id': id }
