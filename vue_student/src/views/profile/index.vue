@@ -110,7 +110,7 @@ export default {
     this.profile.stuNumber = this.name
     getProfile(this.name)
       .then((response) => {
-        this.profile.stuName = response.data.student.stuName
+        this.profile.stuName = response.data.student.userName
         this.profile.email = response.data.student.email
         this.newForm.phone = response.data.student.phone
         this.profile.campus = response.data.student.campus
