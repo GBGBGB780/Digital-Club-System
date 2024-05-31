@@ -178,7 +178,8 @@ public class ActivityController {
             return ResponseEntity.badRequest().body(createErrorResponse("Failed to update the attachment."));
         }
     }
-        @PostMapping("/uploadPhoto")
+
+    @PostMapping("/uploadPhoto")
     public ResponseEntity<Map<String, String>> uploadPhoto(@RequestParam("file") MultipartFile file) {
 
         String fileName = generateUniqueFileName(file.getOriginalFilename());
@@ -203,7 +204,7 @@ public class ActivityController {
     }
 
     @PostMapping("/submitPhoto")
-    public ResponseEntity<Map<String, String>> submitPhoto(@RequestParam("groupId") String groupName, @RequestParam("image") String image, @RequestParam("name") String name) {
+    public ResponseEntity<Map<String, String>> submitPhoto(@RequestParam("groupName") String groupName, @RequestParam("image") String image, @RequestParam("name") String name) {
         try {
             activityService.updateImage(groupName, name, image);
 
@@ -216,6 +217,7 @@ public class ActivityController {
             return ResponseEntity.badRequest().body(createErrorResponse("Failed to update the image."));
         }
     }
+
     @PostMapping("/getAttachment")//能直接下载文件，而不是在新标签页中打开的比较难搞，涉及到http报文，暂时不搞了
     // 这个是在新标签页中打开，对于zip完全没问题
     public ResponseEntity<Map<String, Object>> getAttachment(@RequestParam("id") int id) {

@@ -6,7 +6,6 @@ import com.chinahitech.shop.bean.IndividualGroup;
 import com.chinahitech.shop.bean.User;
 import com.chinahitech.shop.mapper.*;
 import com.chinahitech.shop.service.exception.*;
-import net.sf.jsqlparser.statement.select.Top;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

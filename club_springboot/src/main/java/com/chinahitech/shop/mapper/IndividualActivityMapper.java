@@ -2,7 +2,6 @@ package com.chinahitech.shop.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.chinahitech.shop.bean.IndividualActivity;
-import com.chinahitech.shop.bean.IndividualGroup;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
