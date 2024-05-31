@@ -88,6 +88,18 @@ export const constantRoutes = [{
 },
 
 {
+  path: '/',
+  component: Layout,
+  redirect: '/activityapplication',
+  children: [{
+    path: 'activityapplication/:activityname',
+    name: 'ActivityApplication',
+    component: () =>
+      import ('@/views/activityapplication/index')
+  }]
+},
+
+{
   path: '/myapplication',
   component: Layout,
   redirect: '/myapplication',

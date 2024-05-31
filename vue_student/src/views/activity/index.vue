@@ -1,7 +1,7 @@
 <template>
     <div class="top-container">
       <div class="top-text">活动列表</div>
-      <el-input v-model="searchinfo" placeholder="搜索活动" clearable style="width: 10%;"/>
+      <el-input @keyup.enter.native="handleSearch" v-model="searchinfo" placeholder="搜索活动" clearable style="width: 10%;"/>
         <el-button icon="el-icon-search" @click="handleSearch" />
       <el-row :gutter="30">
         <el-col v-for="(activity, index) in activites" :key="activity.id" :span="6" :offset="0">
@@ -15,7 +15,7 @@
                 <div class="activity-rank">{{ activity.organizer }}</div>
                 <div class="activity-name">{{ activity.name }}</div>
                 <div class="activity-buttons">
-                  
+                  <el-button type="primary" class="activity-button" size="mini" @click="redirectToApplication(activity.id)">申请加入</el-button>
                   <el-button type="primary" class="activity-button" size="mini" @click="showDescription(activity)">查看详情</el-button>
                 </div>
               </div>
@@ -35,7 +35,7 @@
   
   <script>
   import { mapGetters } from 'vuex'
-  import { getTopActivites,getActivites } from '@/api/activity.js'
+  import { getActivites } from '@/api/activity.js'
   
   export default {
     name: 'activity',
@@ -71,11 +71,11 @@
         this.currentActivity.organizer = activity.organizer
         this.dialogVisible = true
       },
-      redirectToApplication(activityname) {
+      redirectToApplication(activityid) {
       this.$router.push({
-        name: 'Application',
+        name: 'ActivityApplication',
         params: {
-          activityname: activityname
+          activityid: activityid
         }
       })
     },

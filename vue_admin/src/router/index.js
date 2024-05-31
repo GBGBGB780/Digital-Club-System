@@ -86,6 +86,19 @@ export const constantRoutes = [{
     {
         path: '/',
         component: Layout,
+        redirect: '/student',
+        children: [{
+          path: 'student',
+          name: 'Student',
+          component: () =>
+            import('@/views/student/index'),
+           meta: { title: '社团成员', icon: 'table' }
+        }]
+    },
+
+    {
+        path: '/',
+        component: Layout,
         redirect: '/groupdetail',
         children: [{
             path: 'groupdetail',
