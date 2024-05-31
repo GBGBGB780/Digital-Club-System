@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b849962b-f7a7-45d1-bd6b-140ec1eb19ac" name="变更" comment="StuMapper测试集的构建">
-      <change beforePath="$PROJECT_DIR$/target/classes/com/chinahitech/shop/controller/ActivityController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/chinahitech/shop/controller/ActivityController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/chinahitech/shop/mapper/ActivityMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/chinahitech/shop/mapper/ActivityMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/chinahitech/shop/mapper/IndividualActivityMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/chinahitech/shop/mapper/IndividualActivityMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/chinahitech/shop/service/IndividualActivityService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/chinahitech/shop/service/IndividualActivityService.class" afterDir="false" />
-    </list>
+    <list default="true" id="b849962b-f7a7-45d1-bd6b-140ec1eb19ac" name="变更" comment="StuMapper测试集的构建" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -312,8 +307,9 @@
       <workItem from="1716985754054" duration="5766000" />
       <workItem from="1717045391708" duration="3971000" />
       <workItem from="1717070736290" duration="1471000" />
-      <workItem from="1717141963436" duration="18000" />
-      <workItem from="1717142575486" duration="33000" />
+      <workItem from="1717136678103" duration="722000" />
+      <workItem from="1717141993178" duration="569000" />
+      <workItem from="1717142795399" duration="2312000" />
     </task>
     <task id="LOCAL-00001" summary="增加了一个查询天气的api">
       <created>1686468078163</created>

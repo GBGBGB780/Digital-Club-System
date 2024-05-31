@@ -13,7 +13,7 @@ import java.util.Date;
 @ToString
 public class Activity{
     //    private String id;
-    @JsonProperty("username")
+    @JsonProperty("userName")
     @TableId
     private int id;
     private String name;

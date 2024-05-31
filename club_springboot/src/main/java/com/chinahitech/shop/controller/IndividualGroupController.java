@@ -62,6 +62,7 @@ public class IndividualGroupController {
     //获取该管理员管理的所有社团
     @RequestMapping("/allManagedGroups")
     public Result getAllManagedGroups(String managerId) {
+        System.out.println(managerId);
         List<Group> groupList = individualGroupService.getAllManagedGroups(managerId);
         System.out.println(groupList);
         return Result.ok().data("items", groupList);

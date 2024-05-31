@@ -21,8 +21,8 @@ public class StuController {
     private StuService stuService;
 
     @PostMapping("/login")
-    // querystring: username=zhangsan&password=123   User user,String username,String password
-    // json: {username:zhangsan,password:123}
+    // querystring: userName=zhangsan&password=123   User user,String userName,String password
+    // json: {userName:zhangsan,password:123}
     // 如果前端传递的数据是json格式，必须使用对象接收，同时需要添加@RequestBody
     public Result login(String stuNumber, String password){
         User stu = stuService.login(stuNumber, password);
@@ -42,7 +42,7 @@ public class StuController {
     @PostMapping("/register")
     public Result register(@RequestBody RegisterUser student) {
 //        System.out.println(student);
-        String stunumber = student.getUsername();
+        String stunumber = student.getUserName();
         String password = student.getPassword();
         String email = student.getEmail();
         String valicode = student.getValicode();
