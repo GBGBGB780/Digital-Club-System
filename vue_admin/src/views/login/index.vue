@@ -25,15 +25,15 @@
           <h3 class="title">社团管理员登录</h3>
         </div>
 
-        <el-form-item prop="username">
+        <el-form-item prop="userName">
           <span class="svg-container">
             <svg-icon icon-class="user" />
           </span>
           <el-input
-            ref="username"
-            v-model="loginForm.username"
+            ref="userName"
+            v-model="loginForm.userName"
             placeholder="请输入你的社团名"
-            name="username"
+            name="userName"
             type="text"
             tabindex="1"
             auto-complete="off"
@@ -83,7 +83,7 @@ import { managerlogin,managedgroup } from '@/api/user.js'
 export default {
   name: 'Login',
   data() {
-    const validateUsername = (rule, value, callback) => {
+    const validateuserName = (rule, value, callback) => {
       callback()
     }
     const validatePassword = (rule, value, callback) => {
@@ -95,11 +95,11 @@ export default {
     }
     return {
       loginForm: {
-        username: '',
+        userName: '',
         password: ''
       },
       loginRules: {
-        username: [{ required: true, trigger: 'blur', validator: validateUsername }],
+        userName: [{ required: true, trigger: 'blur', validator: validateuserName }],
         password: [{ required: true, trigger: 'blur', validator: validatePassword }]
       },
       loading: false,
@@ -135,16 +135,17 @@ export default {
       this.$refs.loginForm.validate(valid => {
         if (valid) {
           this.loading = true
-          managerlogin(this.loginForm.username.trim(), this.loginForm.password).then(response => {
+          managerlogin(this.loginForm.userName.trim(), this.loginForm.password).then(response => {
             this.loading = false
             const { data } = response
             this.token=data.token
             // vuex
-            managedgroup(this.loginForm.username.trim()).then(res =>{
-              // console.log(res.data.items[0].username)
+            managedgroup(this.loginForm.userName.trim()).then(res =>{
+              console.log(res)
+              // console.log(res.data.items[0].userName)
               for(var i=0; i<res.data.items.length; i++)
               {
-                this.addButton(i,res.data.items[i].username,res.data.items[i].name)
+                this.addButton(i,res.data.items[i].userName,res.data.items[i].name)
               }
             })
             // this.dialogVisible = true 如果放在这里的话就会导致打开时还未渲染，因为Vue是异步进行

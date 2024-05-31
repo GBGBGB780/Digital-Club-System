@@ -10,16 +10,16 @@ import java.util.List;
 
 @Repository
 public interface IndividualGroupMapper extends BaseMapper<IndividualGroup> {
-    @Select("select * from `Individual_group` WHERE userId = #{userId}")
+    @Select("select * from `Individual_group` WHERE user_id = #{userId}")
     List<IndividualGroup> getGroupByStuId(@Param("userId") String userId);
 
-    @Select("select * from `Individual_group` WHERE groupId = #{groupId}")
+    @Select("select * from `Individual_group` WHERE group_id = #{groupId}")
     List<IndividualGroup> getGroupByGroupId(@Param("groupId") int groupId);
 
-    @Select("select * from `Individual_group` WHERE userId = #{userId} and status >= 1")
+    @Select("select * from `Individual_group` WHERE user_id = #{userId} and status >= 1")
     List<IndividualGroup> getAllManagedGroups(@Param("userId") String userId);
 
-    @Select("select * from `Individual_group` WHERE userId = #{userId} and groupId = #{groupId}")
+    @Select("select * from `Individual_group` WHERE user_id = #{userId} and group_id = #{groupId}")
     IndividualGroup getUserByUserIdAndGroupId(@Param("userId") String userId, @Param("groupId") int groupId);
 
 //    @Insert("INSERT INTO Individual_group(userId, groupId, position, userName, status, createTime, modifyTime) " +
@@ -32,17 +32,19 @@ public interface IndividualGroupMapper extends BaseMapper<IndividualGroup> {
 //                   @Param("createTime") Date createTime,
 //                   @Param("modifyTime") Date modifyTime);
 
-    @Update("UPDATE Individual_group SET position = #{position}, modifyTime = #{modifyTime} WHERE groupId = #{groupId} and userId = #{userId}")
+    @Update("UPDATE Individual_group SET position = #{position}, modify_time = #{modifyTime} " +
+            "WHERE group_id = #{groupId} and user_id = #{userId}")
     int modifyGroupStudent(@Param("position") String position,
                            @Param("modifyTime") Date modifyTime,
                            @Param("groupId") int groupId,
                            @Param("userId") String userId);
 
-    @Delete("delete from Individual_group WHERE groupId = #{groupId} and userId = #{userId}")
+    @Delete("delete from Individual_group WHERE group_id = #{groupId} and user_id = #{userId}")
     int deleteGroupStudent(@Param("groupId") int groupId,
                            @Param("userId") String userId);
 
-    @Update("UPDATE Individual_group SET status = #{status}, modifyTime = #{modifyTime} WHERE groupId = #{groupId} and userId = #{userId}")
+    @Update("UPDATE Individual_group SET status = #{status}, modify_time = #{modifyTime} " +
+            "WHERE group_id = #{groupId} and user_id = #{userId}")
     int updatePermission(@Param("groupId") int groupId,
                       @Param("userId") String userId,
                       @Param("status") int status,

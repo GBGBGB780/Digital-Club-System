@@ -38,11 +38,11 @@ export default {
     })
   },
   methods: {
-    redirectToGroupDetail(groupname) {
+    redirectToGroupDetail(groupName) {
       this.$router.push({
       name: 'Groupdetail',
       params: {
-          groupname: groupname
+          groupName: groupName
         }
       });
       console.log(this.$route.params)

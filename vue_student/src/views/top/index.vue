@@ -11,9 +11,9 @@
             <div class="group-details">
               <!-- <div>index</div> -->
               <div class="group-rank">第{{ index + 1 }}名</div>
-              <div class="group-name">{{ group.username }}</div>
+              <div class="group-name">{{ group.userName }}</div>
               <div class="group-buttons">
-                <el-button type="primary" class="group-button" size="mini" @click="redirectToApplication(group.username)">申请加入</el-button>
+                <el-button type="primary" class="group-button" size="mini" @click="redirectToApplication(group.userName)">申请加入</el-button>
                 <el-button type="primary" class="group-button" size="mini" @click="showDescription(group)">查看详情</el-button>
               </div>
             </div>
@@ -43,7 +43,7 @@ export default {
   name: 'Dashboard',
   computed: {
     ...mapGetters([
-      'username'
+      'userName'
     ]) },
   data() {
     return {
@@ -69,19 +69,19 @@ export default {
       this.currentGroup.description = group.description
       this.dialogVisible = true
     },
-    redirectToApplication(groupname) {
+    redirectToApplication(groupName) {
       this.$router.push({
         name: 'Application',
         params: {
-          groupname: groupname
+          groupName: groupName
         }
       })
     },
-    redirectToShowgroupdetails(groupid) {
+    redirectToShowgroupdetails(groupId) {
       this.$router.push({
         name: 'Showgroupdetails',
         params: {
-          groupid: groupid
+          groupId: groupId
         }
       })
     }

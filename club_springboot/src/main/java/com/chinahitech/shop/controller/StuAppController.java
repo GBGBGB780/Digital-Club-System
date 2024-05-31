@@ -43,10 +43,10 @@ public class StuAppController {
         return Result.ok().data("items", StuApps);
     }
 
-    @PostMapping("/myapps")
-    public Result getMyapps(String stunumber) {
-        List<StuApp> StuApps = stuAppService.queryMyapp(stunumber);
-        System.out.println(stunumber);
+    @PostMapping("/myApps")
+    public Result getMyApps(String stuNumber) {
+        List<StuApp> StuApps = stuAppService.queryMyapp(stuNumber);
+        System.out.println(stuNumber);
         return Result.ok().data("items", StuApps);
     }
 
@@ -55,7 +55,7 @@ public class StuAppController {
         stuApp.setCreateTime(new Date());
         System.out.println(stuApp);
         stuAppService.insert(stuApp);
-        groupService.addHot(stuApp.getGroupname());
+        groupService.addHot(stuApp.getGroupName());
         return Result.ok();
     }
     //
@@ -65,31 +65,31 @@ public class StuAppController {
     // 管理员端
 
     // 申请列表
-    @PostMapping("/recvapps")
-    public Result getRecvapps(String groupname){
-        List<StuApp> StuApps = stuAppService.queryRecvapp(groupname);
-        System.out.println(groupname);
+    @PostMapping("/recApps")
+    public Result getRecApps(String groupName){
+        List<StuApp> StuApps = stuAppService.queryRecvapp(groupName);
+        System.out.println(groupName);
         return Result.ok().data("items", StuApps);
     }
 
     // 申请列表->详情
-    @PostMapping("/recvapp")
-    public Result getRecvapp(Integer id) {
-        List<StuApp> StuApps = stuAppService.queryDetailapp(id);
+    @PostMapping("/recApp")
+    public Result getRecApp(Integer id) {
+        StuApp StuApp = stuAppService.queryDetailapp(id);
         String isAcceptedStr = stuAppService.findIsAccepted(id); // 直接获取特定id的isAccepted值
         System.out.println(id);
-        return Result.ok().data("items", StuApps).data("isAccepted", isAcceptedStr);
+        return Result.ok().data("items", StuApp).data("isAccepted", isAcceptedStr);
     }
 
     //更新附件
     @PostMapping("/updateAttachment")
-    public Result updateAttachment(@RequestParam("applicationid") int applicationid,
+    public Result updateAttachment(@RequestParam("applicationId") int applicationId,
                                    @RequestParam("attachment") String attachmentUrl) {
-        stuAppService.updateAttachment(applicationid, attachmentUrl);
-        return Result.ok().data("applicationid", applicationid).data("attachment", attachmentUrl);
+        stuAppService.updateAttachment(applicationId, attachmentUrl);
+        return Result.ok().data("applicationId", applicationId).data("attachment", attachmentUrl);
     }
 
-    @PostMapping("/uploadzip")
+    @PostMapping("/uploadZip")
     public ResponseEntity<Map<String, String>> uploadFile(@RequestParam("file") MultipartFile file) {
         String contentType = file.getContentType();
         if (!(contentType.equals("application/zip") || contentType.equals("application/x-zip-compressed"))) {
@@ -130,19 +130,19 @@ public class StuAppController {
 
     //接受申请
     @PostMapping("/accept")
-    public Result acceptApplication(Integer applicationid){
-        System.out.println(applicationid);
+    public Result acceptApplication(Integer applicationId){
+        System.out.println(applicationId);
         // System.out.println(isaccepted);
-        stuAppService.confirmApplication(applicationid);
+        stuAppService.confirmApplication(applicationId);
         return Result.ok();
     }
 
     //拒绝申请
     @PostMapping("/reject")
-    public Result rejectApplication(Integer applicationid){
-        System.out.println(applicationid);
+    public Result rejectApplication(Integer applicationId){
+        System.out.println(applicationId);
         // System.out.println(isaccepted);
-        stuAppService.denyApplication(applicationid);
+        stuAppService.denyApplication(applicationId);
         return Result.ok();
     }
 }

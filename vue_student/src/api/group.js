@@ -33,11 +33,11 @@ export function getTopGroups() {
   })
 }
 
-export function getApplications(stunumber) {
+export function getApplications(stuNumber) {
   return request({
     url: '/application/myapps',
     method: 'post',
-    params: { stunumber }
+    params: { stuNumber }
   })
 }
 

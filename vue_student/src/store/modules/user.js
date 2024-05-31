@@ -30,10 +30,10 @@ const mutations = {
 const actions = {
   // user login
   login({ commit }, userInfo) {
-    const { username, password } = userInfo
+    const { userName, password } = userInfo
     return new Promise((resolve, reject) => {
       // 调用login方法发送网络请求
-      login(username.trim(), password ).then(response => {
+      login(userName.trim(), password ).then(response => {
         const { data } = response
         // vuex
         commit('SET_TOKEN', data.token)
@@ -46,9 +46,9 @@ const actions = {
   },
 
   // user register
-  register(context, { stunumber, password, email, valicode }) {
+  register(context, { stuNumber, password, email, valicode }) {
     return new Promise((resolve, reject) => {
-      register({ stunumber, password, email, valicode }).then((res) => {
+      register({ stuNumber, password, email, valicode }).then((res) => {
         resolve(res)
       }).catch((err) => {
         reject(err)

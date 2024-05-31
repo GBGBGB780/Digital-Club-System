@@ -4,10 +4,10 @@
       <div style="margin: 20px;" />
       <el-form :label-position="right" label-width="80px" :model="profile">
         <el-form-item label="学号">
-          <el-input v-model="profile.stunumber" :disabled="true" class="custom-data" />
+          <el-input v-model="profile.stuNumber" :disabled="true" class="custom-data" />
         </el-form-item>
         <el-form-item label="姓名">
-          <el-input v-model="profile.stuname" :disabled="true" class="custom-data" />
+          <el-input v-model="profile.stuName" :disabled="true" class="custom-data" />
         </el-form-item>
         <el-form-item label="昵称">
           <el-input v-model="newForm.nickname" class="custom-data" />
@@ -92,8 +92,8 @@ export default {
         ]
       },
       profile: {
-        stunumber: '',
-        stuname: '',
+        stuNumber: '',
+        stuName: '',
         email: '',
         campus: '',
         major: '',
@@ -107,10 +107,10 @@ export default {
     }
   },
   created: function() {
-    this.profile.stunumber = this.name
+    this.profile.stuNumber = this.name
     getProfile(this.name)
       .then((response) => {
-        this.profile.stuname = response.data.student.stuname
+        this.profile.stuName = response.data.student.stuName
         this.profile.email = response.data.student.email
         this.newForm.phone = response.data.student.phone
         this.profile.campus = response.data.student.campus

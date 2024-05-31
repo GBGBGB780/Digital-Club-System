@@ -1,8 +1,6 @@
 package com.chinahitech.shop.controller;
 
-import com.chinahitech.shop.bean.Activity;
 import com.chinahitech.shop.bean.Group;
-import com.chinahitech.shop.bean.StuApp;
 import com.chinahitech.shop.service.GroupService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +24,6 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.List;
-import com.chinahitech.shop.utils.JwtUtils;
 import java.util.Map;
 
 @RestController
@@ -41,34 +38,36 @@ public class GroupController {
     private String uploadDir;
 
     @RequestMapping("/all")
-    public Result getAll(String searchinfo){
-        List<Group> groups = groupService.query(searchinfo);
-        System.out.println(groups);
+    public Result getAll(String searchInfo){
+        List<Group> groups = groupService.query(searchInfo);
+//        System.out.println(groups);
         return Result.ok().data("items",groups);
     }
 
     // 社团详情（学生端）
     @PostMapping("/studentDetail")
-    public Result getStudentDetail(String groupname){
-        System.out.println(groupname);
-        Group group = groupService.getByName(groupname);
+        public Result getStudentDetail(String groupName){
+        System.out.println(groupName);
+        Group group = groupService.getByName(groupName);
         return Result.ok().data("group",group);
     }
 
     //申请新建社团
     @PostMapping("/addGroup")
     public Result addGroup(@RequestBody Group group){
-        group.setIsaccepted(false);
+        group.setIsAccepted(null);
         groupService.insert(group);
         return Result.ok();
     }
 
-    @RequestMapping("/getvideo")
+    @RequestMapping("/getVideo")
     public Result getVideo() {
         try {
             // 获取视频文件的相对路径
             String relativePath = "videotest.mp4";
 
+            Path targetLocation = Paths.get(uploadDir, "videotest.mp4");
+            System.out.println(targetLocation);
             // 构造视频URL
             String videoUrl = ServletUriComponentsBuilder.fromCurrentContextPath()
                     .path("/")
@@ -149,6 +148,7 @@ public class GroupController {
             return ResponseEntity.badRequest().body(createErrorResponse("Failed to update the attachment."));
         }
     }
+
     @PostMapping("/uploadphoto")
     public ResponseEntity<Map<String, String>> uploadPhoto(@RequestParam("file") MultipartFile file) {
 

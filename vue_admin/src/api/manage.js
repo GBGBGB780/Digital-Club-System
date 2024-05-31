@@ -1,41 +1,41 @@
 import request from '@/utils/request'
 
-export function getManages(groupname) {
+export function getManages(groupName) {
   return request({
     url: '/group/myclub',
     method: 'post',
-    params: { groupname }
+    params: { groupName }
   })
 }
 
-export function getDetails(groupname) {
+export function getDetails(groupName) {
   return request({
     url: '/group/detail',
     method: 'post',
-    params: { groupname }
+    params: { groupName }
   })
 }
 
-export function redirectToGroupDetail(groupname) {
+export function redirectToGroupDetail(groupName) {
   return request({
     url: '/group/myclub',
     method: 'post',
-    params: { groupname }
+    params: { groupName }
   })
 }
 
-export function updateForm(groupname, description, attachment, image) {
+export function updateForm(groupName, description, attachment, image) {
   return request({
     url: '/group/modifydescription',
     method: 'post',
-    params: { groupname, description, attachment, image }
+    params: { groupName, description, attachment, image }
   })
 }
 
-export function updatePassword(groupname, password) {
+export function updatePassword(groupName, password) {
   return request({
     url: '/group/modifypassword',
     method: 'post',
-    params: { groupname, password }
+    params: { groupName, password }
   })
 }

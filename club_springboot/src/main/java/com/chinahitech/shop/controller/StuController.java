@@ -24,8 +24,8 @@ public class StuController {
     // querystring: username=zhangsan&password=123   User user,String username,String password
     // json: {username:zhangsan,password:123}
     // 如果前端传递的数据是json格式，必须使用对象接收，同时需要添加@RequestBody
-    public Result login(String stunumber, String password){
-        User stu = stuService.login(stunumber, password);
+    public Result login(String stuNumber, String password){
+        User stu = stuService.login(stuNumber, password);
 //        User dbStudent = stuService.getByStunumber(student.getStunumber());
 //        if (dbStudent != null && dbStudent.getPassword().equals(student.getPassword())) {
         if (stu.getPassword() != null){
@@ -78,42 +78,42 @@ public class StuController {
         return Result.ok().message("邮箱发送成功!");
     }
 
-    @PostMapping("/modifypass")
-    public Result modifypassword(String stunumber, String password){
-        System.out.println(stunumber);
+    @PostMapping("/modifyPass")
+    public Result modifyPassword(String stuNumber, String password){
+        System.out.println(stuNumber);
         System.out.println(password);
-        stuService.updatePassword(stunumber, password);
+        stuService.updatePassword(stuNumber, password);
         return Result.ok();
     }
 
-    @PostMapping("/modifyphone")
-    public Result modifyphone(String stunumber, String phone){
-        System.out.println(stunumber);
+    @PostMapping("/modifyPhone")
+    public Result modifyPhone(String stuNumber, String phone){
+        System.out.println(stuNumber);
         System.out.println(phone);
-        stuService.updatePhone(stunumber, phone);
+        stuService.updatePhone(stuNumber, phone);
         return Result.ok();
     }
 
-    @PostMapping("/modifydescription")
-    public Result modifydescription(String stunumber, String description){
-        System.out.println(stunumber);
+    @PostMapping("/modifyDescription")
+    public Result modifyDescription(String stuNumber, String description){
+        System.out.println(stuNumber);
         System.out.println(description);
-        stuService.updateDescription(stunumber, description);
+        stuService.updateDescription(stuNumber, description);
         return Result.ok();
     }
 
-    @PostMapping("/modifynickname")
-    public Result modifynickname(String stunumber, String nickname){
-        System.out.println(stunumber);
+    @PostMapping("/modifyNickname")
+    public Result modifyNickname(String stuNumber, String nickname){
+        System.out.println(stuNumber);
         System.out.println(nickname);
-        stuService.updateNickname(stunumber, nickname);
+        stuService.updateNickname(stuNumber, nickname);
         return Result.ok();
     }
 
     @PostMapping("/profile")
-    public Result getProfile(String stunumber){
-        System.out.println(stunumber);
-        User student = stuService.getByStunumber(stunumber);
+    public Result getProfile(String stuNumber){
+        System.out.println(stuNumber);
+        User student = stuService.getByStunumber(stuNumber);
         System.out.println(student);
         return Result.ok().data("student", student);
     }

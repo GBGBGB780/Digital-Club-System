@@ -41,7 +41,7 @@
     name: 'activity',
     computed: {
       ...mapGetters([
-        'username'
+        'userName'
       ]) },
     data() {
       return {
@@ -89,11 +89,11 @@
           console.error(error)
         })
     },
-      redirectToShowactivitydetails(activityid) {
+      redirectToShowactivitydetails(activityId) {
         this.$router.push({
           name: 'Showactivitydetails',
           params: {
-            activityid: activityid
+            activityId: activityId
           }
         })
       }

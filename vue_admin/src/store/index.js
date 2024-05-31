@@ -14,7 +14,7 @@ const store = new Vuex.Store({
     user
   },
   getters,
-  state:{
+  state:sessionStorage.getItem('state') ? JSON.parse(sessionStorage.getItem('state')): {
 		clubid:0,
     clubname:"",
 	},

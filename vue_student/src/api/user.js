@@ -1,10 +1,10 @@
 import request from '@/utils/request'
 
-export function login(stunumber,password) {
+export function login(stuNumber,password) {
   return request({
     url: '/student/login',
     method: 'post',
-    params: { stunumber, password }
+    params: { stuNumber, password }
   })
 }
 
@@ -17,35 +17,35 @@ export function register(data) {
   })
 }
 
-export function modifypassword(stunumber, password) {
+export function modifypassword(stuNumber, password) {
   return request({
       url: '/student/modifypass',
       method: 'post',
-      params: { stunumber, password }
+      params: { stuNumber, password }
   })
 }
 
-export function modifyphone(stunumber, phone) {
+export function modifyphone(stuNumber, phone) {
   return request({
       url: '/student/modifyphone',
       method: 'post',
-      params: { stunumber, phone }
+      params: { stuNumber, phone }
   })
 }
 
-export function modifydescription(stunumber, description) {
+export function modifydescription(stuNumber, description) {
   return request({
       url: '/student/modifydescription',
       method: 'post',
-      params: { stunumber, description }
+      params: { stuNumber, description }
   })
 }
 
-export function modifynickname(stunumber, nickname) {
+export function modifynickname(stuNumber, nickname) {
   return request({
       url: '/student/modifynickname',
       method: 'post',
-      params: { stunumber, nickname }
+      params: { stuNumber, nickname }
   })
 }
 
@@ -58,11 +58,11 @@ export function validateEmail(email) {
   })
 }
 
-export function getProfile(stunumber) {
+export function getProfile(stuNumber) {
   return request({
     url: '/student/profile',
     method: 'post',
-    params: { stunumber }
+    params: { stuNumber }
   })
 }
 

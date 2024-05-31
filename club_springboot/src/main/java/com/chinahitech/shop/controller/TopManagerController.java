@@ -9,8 +9,22 @@ import com.chinahitech.shop.utils.JwtUtils;
 import com.chinahitech.shop.utils.RedisUtils;
 import com.chinahitech.shop.utils.Result;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 @RestController
@@ -19,6 +33,9 @@ import java.util.Objects;
 public class TopManagerController {
     @Autowired
     private TopManagerService topManagerService;
+
+    @Value("${upload-dir}")
+    private String uploadDir;
 
     @PostMapping("/login")
     // querystring: username=zhangsan&password=123   User user,String username,String password
@@ -82,8 +99,8 @@ public class TopManagerController {
     }
 
     //用户密码修改
-    @PostMapping("/modifypass")
-    public Result modifypassword(String userId, String password){
+    @PostMapping("/modifyPass")
+    public Result modifyPassword(String userId, String password){
         System.out.println(userId);
         System.out.println(password);
         topManagerService.updatePassword(userId, password);
@@ -91,8 +108,8 @@ public class TopManagerController {
     }
 
     //用户电话修改
-    @PostMapping("/modifyphone")
-    public Result modifyphone(String userId, String phone){
+    @PostMapping("/modifyPhone")
+    public Result modifyPhone(String userId, String phone){
         System.out.println(userId);
         System.out.println(phone);
         topManagerService.updatePhone(userId, phone);
@@ -100,8 +117,8 @@ public class TopManagerController {
     }
 
     //用户简介修改
-    @PostMapping("/modifydescription")
-    public Result modifydescription(String userId, String description){
+    @PostMapping("/modifyDescription")
+    public Result modifyDescription(String userId, String description){
         System.out.println(userId);
         System.out.println(description);
         topManagerService.updateDescription(userId, description);
@@ -109,11 +126,22 @@ public class TopManagerController {
     }
 
     //用户昵称修改
-    @PostMapping("/modifynickname")
-    public Result modifynickname(String userId, String nickname){
+    @PostMapping("/modifyNickname")
+    public Result modifyNickname(String userId, String nickname){
         System.out.println(userId);
         System.out.println(nickname);
         topManagerService.updateNickname(userId, nickname);
+        return Result.ok();
+    }
+
+    //用户校区,学院和专业信息修改
+    @PostMapping("/modifyMajor")
+    public Result modifyMajor(String userId, String campus, String school, String major){
+        System.out.println(userId);
+        System.out.println(campus);
+        System.out.println(school);
+        System.out.println(major);
+        topManagerService.updateMajor(userId, campus, school, major);
         return Result.ok();
     }
 
@@ -137,5 +165,111 @@ public class TopManagerController {
     @PostMapping("/logout")  // "token:xxx"
     public Result logout(){
         return Result.ok();
+    }
+
+    //添加用户
+    @PostMapping("/addUser")
+    public Result addUser(@RequestBody RegisterUser user) {
+//        System.out.println(user);
+        String stunumber = user.getUsername();
+        String password = user.getPassword();
+        String email = user.getEmail();
+        String valicode = user.getValicode();
+
+//        System.out.println(stunumber);
+//        System.out.println(password);
+//        System.out.println(email);
+//        System.out.println(valicode);
+
+        String correctValicode = RedisUtils.get(email).toString();
+
+//        System.out.println("this" + correctValicode);
+
+        if (Objects.equals(correctValicode, valicode)){
+            topManagerService.addUser(stunumber, password, email);
+            return Result.ok().message("注册成功");
+        } else {
+            return Result.error().message("注册出错!");
+        }
+    }
+
+    //查看用户信息
+    @RequestMapping("/getAllUsers")
+    public Result getAllUsers(String searchInfo){
+        List<User> Users = topManagerService.getAllUsers(searchInfo);
+        System.out.println(Users);
+        return Result.ok().data("items",Users);
+    }
+
+    //修改用户信息
+    @PostMapping("/modifyUserInfo")
+    public Result modifyUserInfo(User user){
+        System.out.println(user);
+        topManagerService.updateUserInfo(user);
+        return Result.ok();
+    }
+
+    //删除用户
+    @RequestMapping("/deleteUser")
+    public Result deleteUser(User user){
+        System.out.println(user.getUserName());
+        topManagerService.deleteUser(user);
+        return Result.ok();
+    }
+
+    //todo 批量导入
+
+    @PostMapping("/uploadExcel")
+    public ResponseEntity<Map<String, String>> uploadExcel(@RequestParam("file") MultipartFile file) {
+
+        String fileName = generateUniqueFileName(file.getOriginalFilename());
+
+        try {
+            Path targetLocation = Paths.get(uploadDir, fileName);
+            Files.copy(file.getInputStream(), targetLocation, StandardCopyOption.REPLACE_EXISTING);
+
+
+            String fileUrl = ServletUriComponentsBuilder.fromCurrentContextPath()
+                    .pathSegment("upload")
+                    .pathSegment(fileName)
+                    .toUriString();
+
+            topManagerService.uploadExcel(file, fileUrl, targetLocation);
+            Map<String, String> response = new HashMap<>();
+            response.put("fileUrl", fileUrl);
+
+            return ResponseEntity.ok(response);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return ResponseEntity.badRequest().body(createErrorResponse("Failed to upload the file."));
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+//    @PostMapping("/submitExcel")
+//    public ResponseEntity<Map<String, String>> submitExcel(@RequestParam("attachment") String attachment, @RequestParam("name") String name) {
+//        try {
+////            TopManagerService.submitExcel(name, attachment);
+//
+//            Map<String, String> response = new HashMap<>();
+//            response.put("message", "Successfully updated attachment.");
+//
+//            return ResponseEntity.ok(response);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            return ResponseEntity.badRequest().body(createErrorResponse("Failed to update the attachment."));
+//        }
+//    }
+
+    private String generateUniqueFileName(String originalFilename) {
+        String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMddHHmmssSSS"));
+        return timestamp + "_" + originalFilename;
+    }
+
+    private Map<String, String> createErrorResponse(String errorMessage) {
+        Map<String, String> errorResponse = new HashMap<>();
+        errorResponse.put("error", errorMessage);
+        return errorResponse;
     }
 }

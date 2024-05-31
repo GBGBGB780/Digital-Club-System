@@ -14,7 +14,7 @@ import java.util.*;
 @RestController
 @CrossOrigin
 public class WeatherController {
-    @RequestMapping("/getweather")
+    @RequestMapping("/getWeather")
     public Result getWeather() {
         String url = "https://restapi.amap.com/v3/weather/weatherInfo?city=440402&key=76bb5f7e39f7b4b1c497bbad05bc44aa";
         String s = HttpsUtil.get(url);

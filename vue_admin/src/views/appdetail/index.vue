@@ -1,24 +1,24 @@
 <template>
   <div class="card-container">
-    <div v-for="detail in applications" :key="detail.applicationid" class="card">
+    <div v-for="detail in applications" :key="detail.applicationId" class="card">
       <h2 class="card-title">申请详情信息</h2>
       <div class="table-wrapper">
         <table class="table-content">
           <tr>
             <td>申请编号:</td>
-            <td>{{ detail.applicationid }}</td>
+            <td>{{ detail.applicationId }}</td>
           </tr>
           <tr>
             <td>社团名称:</td>
-            <td>{{ detail.groupname }}</td>
+            <td>{{ detail.groupName }}</td>
           </tr>
           <tr>
             <td>姓名:</td>
-            <td>{{ detail.stuname }}</td>
+            <td>{{ detail.stuName }}</td>
           </tr>
           <tr>
             <td>学号:</td>
-            <td>{{ detail.stunumber }}</td>
+            <td>{{ detail.stuNumber }}</td>
           </tr>
           <tr>
             <td>手机号:</td>
@@ -34,7 +34,7 @@
           </tr>
           <tr>
             <td>自我介绍:</td>
-            <td>{{ detail.selfintro }}</td>
+            <td>{{ detail.selfIntro }}</td>
           </tr>
           <tr>
             <td>申请时间:</td>
@@ -42,8 +42,8 @@
           </tr>
           <tr>
             <td>申请状态:</td>
-            <td v-if="detail.isaccepted === true">已批准</td>
-            <td v-else-if="detail.isaccepted === false">已拒绝</td>
+            <td v-if="detail.isAccepted === true">已批准</td>
+            <td v-else-if="detail.isAccepted === false">已拒绝</td>
             <td v-else>待审核</td>
           </tr>
         </table>
@@ -58,7 +58,7 @@
           >查看附件</el-button>
 
           <el-button
-            v-if="detail.isaccepted === null"
+            v-if="detail.isAccepted === null"
             type="success"
             class="edit-button"
             @click="submitAccept(detail)"
@@ -72,7 +72,7 @@
             同意申请
           </el-button>
           <el-button
-            v-if="detail.isaccepted === null"
+            v-if="detail.isAccepted === null"
             type="danger"
             class="edit-button"
             @click="submitReject(detail)"
@@ -118,14 +118,14 @@ export default {
   data() {
     return {
       applications: []
-      // IsAccepted: '',
+      // isAccepted: '',
     }
   },
   created: function() {
     const id = this.$route.params.id // 获取路由参数id
     getAppDetails(id).then((response) => {
       this.applications = response.data.items
-      // this.IsAccepted = response.data.isAccepted;
+      // this.isAccepted = response.data.isAccepted;
     })
       .catch(error => {
         console.error(error)
@@ -141,10 +141,10 @@ export default {
         type: 'success'
       })
       setTimeout(() => {
-        acceptApplication(detail.applicationid)
+        acceptApplication(detail.applicationId)
           .then((response) => {
             console.log(response.data)
-            // detail.isaccepted = true;
+            // detail.isAccepted = true;
             router.go() // 刷新当前页面
           })
           .catch((error) => {
@@ -158,10 +158,10 @@ export default {
         type: 'success'
       })
       setTimeout(() => {
-        rejectApplication(detail.applicationid)
+        rejectApplication(detail.applicationId)
           .then((response) => {
             console.log(response.data)
-            // detail.isaccepted = false;
+            // detail.isAccepted = false;
             router.go() // 刷新当前页面
           })
           .catch((error) => {

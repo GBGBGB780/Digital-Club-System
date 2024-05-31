@@ -144,13 +144,9 @@ public class ActivityService {
 
     public void deleteActivity(Activity activity) {
         int id = activity.getId();
-        Activity target = activityMapper.getActivityById(id);
-        if(target == null){
-            throw new EntityNotFoundException("活动"+ id +"不存在");
-        }
-        int i = activityMapper.deleteActivity(id);
+        int i = activityMapper.deleteById(id);
         if(i != 1){
-            throw new UpdateException("活动"+ target.getName() +"删除失败");
+            throw new UpdateException("活动"+ activity.getName() +"删除失败");
         }
     }
 
