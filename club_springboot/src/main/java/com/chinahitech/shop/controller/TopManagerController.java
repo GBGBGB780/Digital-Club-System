@@ -84,6 +84,8 @@ public class TopManagerController {
         }
     }
 
+    //todo 找回密码
+
     @PostMapping("/validateEmail")
     public Result validateEmail(String email) throws Exception {
 //        String email = emailInfo.getEmail();

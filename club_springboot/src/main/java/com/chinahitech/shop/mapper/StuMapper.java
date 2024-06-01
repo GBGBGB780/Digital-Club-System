@@ -19,8 +19,8 @@ public interface StuMapper extends BaseMapper<User> {
     User getByName(String name);
 
     @Insert("INSERT INTO user(user_id, password, email, salt, create_time, modify_time, status) " +
-            "VALUES (#{stunumber}, #{password}, #{email}, #{salt}, #{createTime}, #{modifyTime}, #{status})")
-    int addStudent(@Param("stunumber") String stunumber,
+            "VALUES (#{stuNumber}, #{password}, #{email}, #{salt}, #{createTime}, #{modifyTime}, #{status})")
+    int addStudent(@Param("stuNumber") String stuNumber,
                    @Param("password") String password,
                    @Param("email") String email,
                    @Param("salt") String salt,
@@ -28,23 +28,23 @@ public interface StuMapper extends BaseMapper<User> {
                    @Param("modifyTime") Date modifyTime,
                    @Param("status") int status);
 
-    @Update("UPDATE user SET password = #{password}, modify_time = #{modifyTime} WHERE user_id = #{stunumber}")
-    int updatePassword(@Param("stunumber") String stunumber,
+    @Update("UPDATE user SET password = #{password}, modify_time = #{modifyTime} WHERE user_id = #{stuNumber}")
+    int updatePassword(@Param("stuNumber") String stuNumber,
                        @Param("password") String password,
                        @Param("modifyTime") Date modifyTime);
 
-    @Update("UPDATE `user` SET phone = #{phone}, modify_time = #{modifyTime} WHERE user_id = #{stunumber}")
-    int updatePhone(@Param("stunumber") String stunumber,
+    @Update("UPDATE `user` SET phone = #{phone}, modify_time = #{modifyTime} WHERE user_id = #{stuNumber}")
+    int updatePhone(@Param("stuNumber") String stuNumber,
                     @Param("phone") String phone,
                     @Param("modifyTime") Date modifyTime);
 
-    @Update("UPDATE `user` SET description = #{description}, modify_time = #{modifyTime} WHERE user_id = #{stunumber}")
-    int updateDescription(@Param("stunumber") String stunumber,
+    @Update("UPDATE `user` SET description = #{description}, modify_time = #{modifyTime} WHERE user_id = #{stuNumber}")
+    int updateDescription(@Param("stuNumber") String stuNumber,
                           @Param("description") String description,
                           @Param("modifyTime") Date modifyTime);
 
-    @Update("UPDATE `user` SET nickname = #{nickname}, modify_time = #{modifyTime} WHERE user_id = #{stunumber}")
-    int updateNickname(@Param("stunumber") String stunumber,
+    @Update("UPDATE `user` SET nickname = #{nickname}, modify_time = #{modifyTime} WHERE user_id = #{stuNumber}")
+    int updateNickname(@Param("stuNumber") String stuNumber,
                        @Param("nickname") String nickname,
                        @Param("modifyTime") Date modifyTime);
 
