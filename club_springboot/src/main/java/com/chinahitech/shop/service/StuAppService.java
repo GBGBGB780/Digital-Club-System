@@ -1,14 +1,12 @@
 package com.chinahitech.shop.service;
 
 import com.chinahitech.shop.bean.StuApp;
-import com.chinahitech.shop.bean.User;
 import com.chinahitech.shop.mapper.StuAppMapper;
 import com.chinahitech.shop.service.exception.InsertException;
 import com.chinahitech.shop.service.exception.UpdateException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
 import java.util.List;
 
 @Service

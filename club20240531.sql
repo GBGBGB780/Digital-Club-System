@@ -51,45 +51,8 @@ CREATE TABLE `activity` (
 
 LOCK TABLES `activity` WRITE;
 /*!40000 ALTER TABLE `activity` DISABLE KEYS */;
-INSERT INTO `activity` VALUES (1,'a','b',NULL,NULL,NULL,0,'6667',NULL,0,NULL,0,'aaa',NULL,NULL,NULL,'2024-05-18 16:16:37',NULL);
+INSERT INTO `activity` VALUES (1,'对唱跳和篮球关系的研究','吕杰',NULL,NULL,NULL,0,'6667',NULL,0,NULL,0,'aaa',NULL,NULL,NULL,'2024-05-18 16:16:37',1);
 /*!40000 ALTER TABLE `activity` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `application`
---
-
-DROP TABLE IF EXISTS `application`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `application` (
-  `applicationid` int NOT NULL AUTO_INCREMENT COMMENT '招聘信息ID',
-  `groupname` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '社团ID',
-  `stuname` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '学生姓名',
-  `stunumber` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '学生学号',
-  `phone` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `gender` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '性别',
-  `major` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '专业',
-  `selfintro` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '自我陈述',
-  `attachment` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '附件',
-  `time` datetime DEFAULT NULL COMMENT '申请时间',
-  `isaccepted` tinyint DEFAULT NULL COMMENT '是否通过',
-  `createUser` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '创建者',
-  `createTime` datetime DEFAULT NULL COMMENT '创建时间',
-  `modifyUser` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '修改者',
-  `modifyTime` datetime DEFAULT NULL COMMENT '修改时间',
-  PRIMARY KEY (`applicationid`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `application`
---
-
-LOCK TABLES `application` WRITE;
-/*!40000 ALTER TABLE `application` DISABLE KEYS */;
-INSERT INTO `application` VALUES (1,'足球社','吴舜宇','21311272','18928622313','男','软件工程','你干嘛~','附件1','2023-05-27 00:00:00',0,NULL,'2023-05-27 00:00:00',NULL,NULL),(3,'足球社','陈建铧','21952107','15664736059','男','软件工程','siuuuuuuu','附件3','2023-05-27 10:39:32',0,NULL,'2023-05-27 10:39:32',NULL,NULL),(4,'羽毛球社','龚敬','21311303','18022192013','男','软件工程','妙啊！','附件4','2023-05-27 10:39:35',0,NULL,'2023-05-27 10:39:35',NULL,NULL),(5,'足球社','杨沛粤','21311296','15219368970','男','软件工程','太煎熬了。','附件5','2023-05-27 10:39:38',0,NULL,'2023-05-27 10:39:38',NULL,NULL),(6,'篮球社','建华大神','21956666','1568978978','男','软件工程专业','我想加入','附件6','2023-05-27 23:06:21',0,NULL,'2023-05-27 23:06:21',NULL,NULL),(13,'足球社','陈建铧','21311245','18899998874','男','人工智能学院','收拾收拾',NULL,'2023-05-28 11:21:26',0,NULL,'2023-05-28 11:21:26',NULL,NULL),(14,'足球社','大神','21311272','15898765494','男','微电子技术学院','哈哈哈',NULL,'2023-05-28 11:23:59',0,NULL,'2023-05-28 11:23:59',NULL,NULL),(15,'飞盘社','111','21311272','11111111111','男','人工智能学院','111',NULL,'2023-05-28 12:00:09',NULL,NULL,'2023-05-28 12:00:09',NULL,NULL),(16,'足球社','是是是','22222222','12222222222','男','人工智能学院','2222',NULL,'2023-05-28 12:03:05',0,NULL,'2023-05-28 12:03:05',NULL,NULL),(18,'足球社','大师','21318888','13823465987','男','人工智能学院','想来玩',NULL,'2023-05-29 13:31:37',1,NULL,'2023-05-29 13:31:37',NULL,NULL),(19,'足球社','吴舜宇','21311272','18928622313','男','测绘与遥感学院','想玩',NULL,'2023-05-29 14:58:05',0,NULL,'2023-05-29 14:58:05',NULL,NULL),(20,'足球社','陈建铧','21952107','12547854789','女','微电子技术学院','1111','123','2023-05-31 18:28:57',1,NULL,'2023-05-31 18:28:57',NULL,NULL),(21,'飞盘社','陈建铧','21952107','15664736059','男','软件工程学院','test complete',NULL,'2023-06-01 11:23:20',NULL,NULL,'2023-06-01 11:23:20',NULL,NULL);
-/*!40000 ALTER TABLE `application` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -122,7 +85,7 @@ CREATE TABLE `group` (
 
 LOCK TABLES `group` WRITE;
 /*!40000 ALTER TABLE `group` DISABLE KEYS */;
-INSERT INTO `group` VALUES (1,'足球社','B费','https://img1.baidu.com/it/u=2830895879,1858512659&fm=253&fmt=auto&app=138&f=JPEG?w=499&h=367','C罗siuuuuuu!',NULL,9,NULL,NULL,NULL,NULL,1),(2,'飞盘社','陈建铧','https://pic3.zhimg.com/v2-d44ffaccc42c2639b20bae7f980994aa_r.jpg','大神飞盘教学',NULL,2,NULL,NULL,NULL,NULL,1),(3,'文学社','贾宝玉','https://img1.baidu.com/it/u=4003599851,1156152734&fm=253&app=138&size=w931&n=0&f=JPEG&fmt=auto?sec=1685293200&t=982158c0ce50753b778bd348cd23c72f','红楼梦',NULL,0,NULL,NULL,NULL,NULL,1),(4,'说唱社','丁真','https://img1.baidu.com/it/u=3079149788,2510641134&fm=253&app=120&size=w931&n=0&f=JPEG&fmt=auto?sec=1685293200&t=b4fdd67eb0eb877a23df58dfe2dffca6','理塘丁真',NULL,0,NULL,NULL,NULL,NULL,1),(5,'唱跳社','坤坤','https://img2.baidu.com/it/u=4022135548,2767225744&fm=253&app=120&size=w931&n=0&f=JPEG&fmt=auto?sec=1685293200&t=c7fb5fb46e1d0af0a5cda28717085867','基尼太美',NULL,0,NULL,NULL,NULL,NULL,1),(6,'羽毛球社','hh','https://img.zcool.cn/community/01828f595df60ba8012193a35a606e.JPG@1280w_1l_2o_100sh.jpg','badminton',NULL,1,NULL,NULL,NULL,NULL,1);
+INSERT INTO `group` VALUES (1,'足球社','B费','https://img1.baidu.com/it/u=2830895879,1858512659&fm=253&fmt=auto&app=138&f=JPEG?w=499&h=367','C罗siuuuuuu!',NULL,9,NULL,'2024-05-18 16:16:37',NULL,'2024-05-18 16:16:37',1),(2,'飞盘社','陈建铧','https://pic3.zhimg.com/v2-d44ffaccc42c2639b20bae7f980994aa_r.jpg','大神飞盘教学',NULL,2,NULL,NULL,NULL,NULL,1),(3,'文学社','贾宝玉','https://img1.baidu.com/it/u=4003599851,1156152734&fm=253&app=138&size=w931&n=0&f=JPEG&fmt=auto?sec=1685293200&t=982158c0ce50753b778bd348cd23c72f','红楼梦',NULL,0,NULL,NULL,NULL,NULL,1),(4,'说唱社','丁真','https://img1.baidu.com/it/u=3079149788,2510641134&fm=253&app=120&size=w931&n=0&f=JPEG&fmt=auto?sec=1685293200&t=b4fdd67eb0eb877a23df58dfe2dffca6','理塘丁真',NULL,0,NULL,NULL,NULL,NULL,1),(5,'唱跳社','坤坤','https://img2.baidu.com/it/u=4022135548,2767225744&fm=253&app=120&size=w931&n=0&f=JPEG&fmt=auto?sec=1685293200&t=c7fb5fb46e1d0af0a5cda28717085867','基尼太美',NULL,0,NULL,NULL,NULL,NULL,1),(6,'羽毛球社','hh','https://img.zcool.cn/community/01828f595df60ba8012193a35a606e.JPG@1280w_1l_2o_100sh.jpg','badminton',NULL,1,NULL,NULL,NULL,NULL,1);
 /*!40000 ALTER TABLE `group` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -191,6 +154,38 @@ INSERT INTO `individual_group` VALUES (1,'21311366',NULL,'吕杰',1,NULL,NULL,NU
 UNLOCK TABLES;
 
 --
+-- Table structure for table `inspection`
+--
+
+DROP TABLE IF EXISTS `inspection`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `inspection` (
+  `id` int NOT NULL AUTO_INCREMENT COMMENT '年检记录编号',
+  `attachment` varchar(100) DEFAULT NULL COMMENT '年检附件',
+  `group_name` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '年检负责社团名字',
+  `is_accepted` tinyint DEFAULT NULL COMMENT '是否通过',
+  `create_user` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '创建者',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `modify_user` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '修改者',
+  `modify_time` datetime DEFAULT NULL COMMENT '修改时间',
+  `year` year DEFAULT NULL COMMENT '年份',
+  `submitter_id` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '提交者编号',
+  `feedback` varchar(700) DEFAULT NULL COMMENT '年检反馈',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `inspection`
+--
+
+LOCK TABLES `inspection` WRITE;
+/*!40000 ALTER TABLE `inspection` DISABLE KEYS */;
+/*!40000 ALTER TABLE `inspection` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `stu_app`
 --
 
@@ -222,46 +217,8 @@ CREATE TABLE `stu_app` (
 
 LOCK TABLES `stu_app` WRITE;
 /*!40000 ALTER TABLE `stu_app` DISABLE KEYS */;
-INSERT INTO `stu_app` VALUES (1,'足球社','吴舜宇','21311272','18928622313','男','软件工程','你干嘛~','附件1',1,NULL,'2023-06-01 11:23:20',NULL,NULL),(3,'足球社','陈建铧','21952107','15664736059','男','软件工程','siuuuuuuu','附件3',1,NULL,NULL,NULL,NULL),(4,'羽毛球社','龚敬','21311303','18022192013','男','软件工程','妙啊！','附件4',1,NULL,NULL,NULL,NULL),(5,'足球社','杨沛粤','21311296','15219368970','男','软件工程','太煎熬了。','附件5',1,NULL,NULL,NULL,NULL),(6,'篮球社','建华大神','21956666','1568978978','男','软件工程专业','我想加入','附件6',0,NULL,NULL,NULL,NULL),(13,'足球社','陈建铧','21311245','18899998874','男','人工智能学院','收拾收拾',NULL,0,NULL,NULL,NULL,NULL),(14,'足球社','大神','21311272','15898765494','男','微电子技术学院','哈哈哈',NULL,0,NULL,NULL,NULL,NULL),(15,'飞盘社','111','21311272','11111111111','男','人工智能学院','111',NULL,NULL,NULL,NULL,NULL,NULL),(16,'足球社','是是是','22222222','12222222222','男','人工智能学院','2222',NULL,0,NULL,NULL,NULL,NULL),(18,'足球社','大师','21318888','13823465987','男','人工智能学院','想来玩',NULL,0,NULL,NULL,NULL,NULL),(19,'足球社','吴舜宇','21311272','18928622313','男','测绘与遥感学院','想玩',NULL,NULL,NULL,NULL,NULL,NULL),(20,'足球社','陈建铧','21952107','12547854789','女','微电子技术学院','1111','123',NULL,NULL,NULL,NULL,NULL),(21,'飞盘社','陈建铧','21952107','15664736059','男','软件工程学院','test complete',NULL,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `stu_app` VALUES (1,'足球社','吴舜宇','21311272','18928622313','男','软件工程','你干嘛~','附件1',1,NULL,'2024-05-18 16:16:37',NULL,'2024-05-18 16:16:37'),(3,'足球社','陈建铧','21952107','15664736059','男','软件工程','siuuuuuuu','附件3',1,NULL,NULL,NULL,NULL),(4,'羽毛球社','龚敬','21311303','18022192013','男','软件工程','妙啊！','附件4',1,NULL,NULL,NULL,NULL),(5,'足球社','杨沛粤','21311296','15219368970','男','软件工程','太煎熬了。','附件5',1,NULL,NULL,NULL,NULL),(6,'篮球社','建华大神','21956666','1568978978','男','软件工程专业','我想加入','附件6',0,NULL,NULL,NULL,NULL),(13,'足球社','陈建铧','21311245','18899998874','男','人工智能学院','收拾收拾',NULL,0,NULL,NULL,NULL,NULL),(14,'足球社','大神','21311272','15898765494','男','微电子技术学院','哈哈哈',NULL,0,NULL,NULL,NULL,NULL),(15,'飞盘社','111','21311272','11111111111','男','人工智能学院','111',NULL,NULL,NULL,NULL,NULL,NULL),(16,'足球社','是是是','22222222','12222222222','男','人工智能学院','2222',NULL,0,NULL,NULL,NULL,NULL),(18,'足球社','大师','21318888','13823465987','男','人工智能学院','想来玩',NULL,0,NULL,NULL,NULL,NULL),(19,'足球社','吴舜宇','21311272','18928622313','男','测绘与遥感学院','想玩',NULL,NULL,NULL,NULL,NULL,NULL),(20,'足球社','陈建铧','21952107','12547854789','女','微电子技术学院','1111','123',NULL,NULL,NULL,NULL,NULL),(21,'飞盘社','陈建铧','21952107','15664736059','男','软件工程学院','test complete',NULL,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `stu_app` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `students`
---
-
-DROP TABLE IF EXISTS `students`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `students` (
-  `stunumber` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '学生学号',
-  `stuname` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '学生名字',
-  `email` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '学生邮箱',
-  `phone` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '学生手机号',
-  `password` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '学生密码',
-  `campus` varchar(20) DEFAULT NULL COMMENT '学生校区',
-  `major` varchar(45) DEFAULT NULL COMMENT '学生专业',
-  `description` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '学生简介',
-  `status` varchar(20) DEFAULT NULL COMMENT '学生身份',
-  `nickname` varchar(100) DEFAULT NULL COMMENT '学生昵称',
-  `avatar` varchar(100) DEFAULT NULL COMMENT '学生头像',
-  `salt` varchar(100) DEFAULT NULL COMMENT '盐值',
-  `createUser` varchar(100) DEFAULT NULL COMMENT '创建者',
-  `createTime` datetime DEFAULT NULL COMMENT '创建时间',
-  `modifyUser` varchar(100) DEFAULT NULL COMMENT '修改者',
-  `modifyTime` datetime DEFAULT NULL COMMENT '修改时间',
-  PRIMARY KEY (`stunumber`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `students`
---
-
-LOCK TABLES `students` WRITE;
-/*!40000 ALTER TABLE `students` DISABLE KEYS */;
-INSERT INTO `students` VALUES ('21311272',NULL,NULL,NULL,'666666',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),('21311366',NULL,'luik@mail2.sysu.edu.cn','13888888888','D7C9F17B47F39B3994233F517323CF43',NULL,NULL,'真ikun',NULL,'minislother',NULL,'CF32C1BE-0710-44EF-B539-54B2927B5444',NULL,'2024-05-16 23:02:56',NULL,'2024-05-17 19:55:31'),('21952107',NULL,NULL,NULL,'888888',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
-/*!40000 ALTER TABLE `students` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -312,4 +269,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-05-30 11:22:33
+-- Dump completed on 2024-05-31 21:30:29
