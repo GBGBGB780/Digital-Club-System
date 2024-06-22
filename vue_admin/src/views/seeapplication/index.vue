@@ -60,9 +60,9 @@ export default {
     },
   created: function () {
     getSeeApplications(this.$store.state.clubname).then((response) => {
-      console.log(this.$store.state.clubname)
+      // console.log(this.$store.state.clubname)
       this.applications = response.data.items;
-      // console.log(this.applications)
+      console.log(this.applications)
     })
     .catch(error => {
       console.error(error);
