@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b849962b-f7a7-45d1-bd6b-140ec1eb19ac" name="变更" comment="StuMapper测试集的构建" />
+    <list default="true" id="b849962b-f7a7-45d1-bd6b-140ec1eb19ac" name="变更" comment="GroupMapperTest,IndividualGroupMapperTest,ManagerMapper测试集的构建" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -369,7 +369,8 @@
     <MESSAGE value="增加了接口，超类，lamda表达式，抛出异常的知识点。" />
     <MESSAGE value="框架搭建" />
     <MESSAGE value="StuMapper测试集的构建" />
-    <option name="LAST_COMMIT_MESSAGE" value="StuMapper测试集的构建" />
+    <MESSAGE value="GroupMapperTest,IndividualGroupMapperTest,ManagerMapper测试集的构建" />
+    <option name="LAST_COMMIT_MESSAGE" value="GroupMapperTest,IndividualGroupMapperTest,ManagerMapper测试集的构建" />
     <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">

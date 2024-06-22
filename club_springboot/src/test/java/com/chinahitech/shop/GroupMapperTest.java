@@ -54,7 +54,7 @@ public class GroupMapperTest {
     @Test
     public void getGroupByIdTest(){
         Group group = new Group();
-        group.setId("1");
+        group.setId(1);
         Group re = groupMapper.getGroupById(group.getId());
         System.out.println(re);
         System.out.println("测试通过");
