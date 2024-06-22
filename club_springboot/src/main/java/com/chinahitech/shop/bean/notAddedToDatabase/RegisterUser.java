@@ -8,7 +8,7 @@ import lombok.*;
 @AllArgsConstructor
 @ToString
 public class RegisterUser {
-    public String userName;
+    public String userId;
     public String password;
     public String email;
     public String valicode;

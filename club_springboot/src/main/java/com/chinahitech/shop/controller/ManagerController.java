@@ -45,7 +45,7 @@ public class ManagerController {
     @PostMapping("/register")
     public Result register(@RequestBody RegisterUser user) {
 //        System.out.println(user);
-        String stunumber = user.getUserName();
+        String stunumber = user.getUserId();
         String password = user.getPassword();
         String email = user.getEmail();
         String valicode = user.getValicode();

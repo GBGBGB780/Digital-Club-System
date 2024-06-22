@@ -42,7 +42,7 @@ public class StuController {
     @PostMapping("/register")
     public Result register(@RequestBody RegisterUser student) {
 //        System.out.println(student);
-        String stuNumber = student.getUserName();
+        String stuNumber = student.getUserId();
         String password = student.getPassword();
         String email = student.getEmail();
         String validateCode = student.getValicode();
