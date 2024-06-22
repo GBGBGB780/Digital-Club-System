@@ -49,30 +49,49 @@ export const constantRoutes = [
     redirect: '/dashboard',
     children: [{
       path: 'dashboard',
-      name: '主页',
+      name: 'Dashboard',
       component: () => import('@/views/dashboard/index'),
-      meta: { title: 'Dashboard', icon: 'dashboard' }
+      meta: { title: '主页', icon: 'dashboard' }
     }]
   },
 
   {
     path: '/',
     component: Layout,
-    redirect: '/example/table',
-    name: 'Example',
-    meta: { title: 'Example', icon: 'el-icon-s-help' },
+    redirect: '/stuAndClub/table',
+    name: 'StuAndClub',
+    meta: { title: '学生与社团管理', icon: 'el-icon-s-help' },
     children: [
       {
-        path: 'table',
-        name: 'Table',
-        component: () => import('@/views/table/index'),
-        meta: { title: 'Table', icon: 'table' }
+        path: 'clubtable',
+        name: 'Clubtable',
+        component: () => import('@/views/clubtable/index'),
+        meta: { title: '社团列表', icon: 'el-icon-folder-checked' }
       },
       {
-        path: 'tree',
-        name: 'Tree',
-        component: () => import('@/views/tree/index'),
-        meta: { title: 'Tree', icon: 'tree' }
+        path: 'clubapp',
+        name: 'Clubapp',
+        component: () => import('@/views/clubapp/index'),
+        meta: { title: '社团申请列表', icon: 'el-icon-folder-add' }
+      },
+      {
+        path: 'stutree',
+        name: 'Stutree',
+        component: () => import('@/views/stutree/index'),
+        meta: { title: '学生列表', icon: 'tree' }
+      }
+    ]
+  },
+
+  {
+    path: '/activity',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        name: 'activity',
+        component: () => import('@/views/activity/index'),
+        meta: { title: '活动管理', icon: 'form' }
       }
     ]
   },
@@ -154,8 +173,8 @@ export const constantRoutes = [
     component: Layout,
     children: [
       {
-        path: 'https://panjiachen.github.io/vue-element-admin-site/#/',
-        meta: { title: 'External Link', icon: 'link' }
+        path: 'https://sse.sysu.edu.cn/',
+        meta: { title: '中山大学软件工程学院主页', icon: 'link' }
       }
     ]
   },
@@ -172,7 +191,6 @@ const createRouter = () => new Router({
 
 const router = createRouter()
 
-// Detail see: https://github.com/vuejs/vue-router/issues/1234#issuecomment-357941465
 export function resetRouter() {
   const newRouter = createRouter()
   router.matcher = newRouter.matcher // reset router
