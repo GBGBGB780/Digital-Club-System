@@ -109,7 +109,7 @@
       <recent name="com.chinahitech.shop.bean" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.ShopApplication (1)">
+  <component name="RunManager" selected="JUnit.ActivityMapperTest.addActivityTest">
     <configuration name="ActivityMapperTest.addActivityTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="shop" />
       <extension name="coverage">
