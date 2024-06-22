@@ -67,6 +67,45 @@ public class ManagerController {
         }
     }
 
+    //找回密码
+
+    //首先获取该账号对应邮箱,发送验证码
+    @PostMapping("/getEmail")
+    public Result getEmail(String userNumber){
+        System.out.println(userNumber);
+        User user = managerService.getByUserId(userNumber);
+        System.out.println(user);
+        String email = user.getEmail();
+        EmailService sEmail;
+        try{
+            sEmail = new EmailService(email);
+        } catch(EmailException err){
+            return Result.error().message(err.expMessage());
+        }
+        try {
+            sEmail.sendEmail();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        return Result.ok().data("email", email);
+    }
+
+    //然后检查用户输入的验证码是否正确
+    @PostMapping("/getValidate")
+    public Result getValidate(String email, String validateCode){
+        String correctValidateCode = RedisUtils.get(email).toString();
+
+//        System.out.println("this" + correctValidateCode);
+
+        if (Objects.equals(correctValidateCode, validateCode)){
+            return Result.ok().message("验证成功");
+        } else {
+            return Result.error().message("验证出错!");
+        }
+    }
+
+    //若验证通过，需要重新设置密码，使用modifyPass修改密码
+
     @PostMapping("/validateEmail")
     public Result validateEmail(String email) throws Exception {
 //        String email = emailInfo.getEmail();

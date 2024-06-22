@@ -1,6 +1,6 @@
 <template>
   <div class="card-container">
-    <div  :key="applications.applicationId" class="card">
+    <div :key="applications.applicationId" class="card">
       <h2 class="card-title">申请详情信息</h2>
       <div class="table-wrapper">
         <table class="table-content">
@@ -54,14 +54,14 @@
             v-if="applications.attachment !== null"
             type="primary"
             class="edit-button left-button"
-            @click="openAttachment(applications)"
+            @click="openAttachment()"
           >查看附件</el-button>
 
           <el-button
             v-if="applications.isAccepted === null"
             type="success"
             class="edit-button"
-            @click="submitAccept(applications)"
+            @click="submitAccept()"
           >
             同意申请
           </el-button>
@@ -75,7 +75,7 @@
             v-if="applications.isAccepted === null"
             type="danger"
             class="edit-button"
-            @click="submitReject(applications)"
+            @click="submitReject()"
           >
             拒绝申请
           </el-button>
@@ -117,7 +117,7 @@ export default {
   },
   data() {
     return {
-      applications: '',
+      applications: []
       // isAccepted: '',
     }
   },
@@ -125,6 +125,7 @@ export default {
     const id = this.$route.params.id // 获取路由参数id
     getAppDetails(id).then((response) => {
       this.applications = response.data.items
+      console.log(this.applications)
       // this.isAccepted = response.data.isAccepted;
     })
       .catch(error => {
@@ -132,16 +133,16 @@ export default {
       })
   },
   methods: {
-    openAttachment(detail) {
-      window.open(detail.attachment)
+    openAttachment() {
+      window.open(applications.attachment)
     },
-    submitAccept(detail) {
+    submitAccept() {
       this.$message({
         message: '批准申请',
         type: 'success'
       })
       setTimeout(() => {
-        acceptApplication(detail.applicationId)
+        acceptApplication(applications.applicationId)
           .then((response) => {
             console.log(response.data)
             // detail.isAccepted = true;
@@ -152,13 +153,13 @@ export default {
           })
       }, 100) // 延迟
     },
-    submitReject(detail) {
+    submitReject() {
       this.$message({
         message: '拒绝申请',
         type: 'success'
       })
       setTimeout(() => {
-        rejectApplication(detail.applicationId)
+        rejectApplication(applications.applicationId)
           .then((response) => {
             console.log(response.data)
             // detail.isAccepted = false;

@@ -1,7 +1,6 @@
 package com.chinahitech.shop.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.chinahitech.shop.bean.Group;
 import com.chinahitech.shop.bean.User;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;

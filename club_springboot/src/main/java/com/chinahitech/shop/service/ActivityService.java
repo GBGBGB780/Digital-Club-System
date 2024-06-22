@@ -1,9 +1,7 @@
 package com.chinahitech.shop.service;
 
 import com.chinahitech.shop.bean.Activity;
-import com.chinahitech.shop.bean.Group;
-import com.chinahitech.shop.bean.IndividualActivity;
-import com.chinahitech.shop.bean.User;
+
 import com.chinahitech.shop.mapper.ActivityMapper;
 import com.chinahitech.shop.mapper.IndividualActivityMapper;
 import com.chinahitech.shop.mapper.StuMapper;

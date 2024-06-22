@@ -42,27 +42,67 @@ public class StuController {
     @PostMapping("/register")
     public Result register(@RequestBody RegisterUser student) {
 //        System.out.println(student);
-        String stunumber = student.getUserName();
+        String stuNumber = student.getUserName();
         String password = student.getPassword();
         String email = student.getEmail();
-        String valicode = student.getValicode();
+        String validateCode = student.getValicode();
 
-//        System.out.println(stunumber);
+//        System.out.println(stuNumber);
 //        System.out.println(password);
 //        System.out.println(email);
-//        System.out.println(valicode);
+//        System.out.println(validateCode);
 
-        String correctValicode = RedisUtils.get(email).toString();
+        String correctValidateCode = RedisUtils.get(email).toString();
 
-//        System.out.println("this" + correctValicode);
+//        System.out.println("this" + correctValidateCode);
 
-        if (Objects.equals(correctValicode, valicode)){
-            stuService.addStudent(stunumber, password, email);
+        if (Objects.equals(correctValidateCode, validateCode)){
+            stuService.addStudent(stuNumber, password, email);
             return Result.ok().message("注册成功");
         } else {
             return Result.error().message("注册出错!");
         }
     }
+
+    //找回密码
+
+    //首先获取该账号对应邮箱,发送验证码
+    @PostMapping("/getEmail")
+    public Result getEmail(String stuNumber){
+        System.out.println(stuNumber);
+        User student = stuService.getByStuNumber(stuNumber);
+        System.out.println(student);
+        String email = student.getEmail();
+        EmailService sEmail;
+        try{
+            sEmail = new EmailService(email);
+        } catch(EmailException err){
+            return Result.error().message(err.expMessage());
+        }
+        try {
+            sEmail.sendEmail();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        return Result.ok().data("email", email);
+    }
+
+    //然后检查用户输入的验证码是否正确
+    @PostMapping("/getValidate")
+    public Result getValidate(String email, String validateCode){
+        String correctValidateCode = RedisUtils.get(email).toString();
+
+//        System.out.println("this" + correctValidateCode);
+
+        if (Objects.equals(correctValidateCode, validateCode)){
+            return Result.ok().message("验证成功");
+        } else {
+            return Result.error().message("验证出错!");
+        }
+    }
+
+    //若验证通过，需要重新设置密码，使用modifyPass修改密码
+
 
     @PostMapping("/validateEmail")
     public Result validateEmail(String email) throws Exception {
@@ -113,7 +153,7 @@ public class StuController {
     @PostMapping("/profile")
     public Result getProfile(String stuNumber){
         System.out.println(stuNumber);
-        User student = stuService.getByStunumber(stuNumber);
+        User student = stuService.getByStuNumber(stuNumber);
         System.out.println(student);
         return Result.ok().data("student", student);
     }

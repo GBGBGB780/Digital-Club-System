@@ -2,7 +2,6 @@ package com.chinahitech.shop.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.chinahitech.shop.bean.Activity;
-import com.chinahitech.shop.bean.Group;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
