@@ -4,10 +4,10 @@
       <div style="margin: 20px;" />
       <el-form :label-position="right" label-width="80px" :model="profile">
         <el-form-item label="学号">
-          <el-input v-model="profile.stunumber" :disabled="true" class="custom-data" />
+          <el-input v-model="profile.stuNumber" :disabled="true" class="custom-data" />
         </el-form-item>
         <el-form-item label="姓名">
-          <el-input v-model="profile.stuname" :disabled="true" class="custom-data" />
+          <el-input v-model="profile.stuName" :disabled="true" class="custom-data" />
         </el-form-item>
         <el-form-item label="昵称">
           <el-input v-model="newForm.nickname" class="custom-data" />
@@ -51,7 +51,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import { modifypassword, getProfile, modifyphone,modifynickname,modifydescription } from '@/api/user.js'
+import { modifyPassword, getProfile, modifyPhone,modifyNickname,modifyDescription } from '@/api/user.js'
 import router from '@/router'
 export default {
   name: 'Profile',
@@ -92,8 +92,8 @@ export default {
         ]
       },
       profile: {
-        stunumber: '',
-        stuname: '',
+        stuNumber: '',
+        stuName: '',
         email: '',
         campus: '',
         major: '',
@@ -107,10 +107,10 @@ export default {
     }
   },
   created: function() {
-    this.profile.stunumber = this.name
+    this.profile.stuNumber = this.name
     getProfile(this.name)
       .then((response) => {
-        this.profile.stuname = response.data.student.stuname
+        this.profile.stuName = response.data.student.userName
         this.profile.email = response.data.student.email
         this.newForm.phone = response.data.student.phone
         this.profile.campus = response.data.student.campus
@@ -128,7 +128,7 @@ export default {
       this.$refs[formName].validate((valid) => {
         if (valid) {
           this.showSuccessUpdatePassword()
-          modifypassword(this.name, this.ruleForm.pass).then(response => {
+          modifyPassword(this.name, this.ruleForm.pass).then(response => {
             console.log(response.data)
             this.logout()
           })
@@ -162,9 +162,9 @@ export default {
             type: 'success'
           })
           setTimeout(() => {
-            modifydescription(this.name, this.newForm.description)
-            modifynickname(this.name, this.newForm.nickname)
-            modifyphone(this.name, this.newForm.phone)
+            modifyDescription(this.name, this.newForm.description)
+            modifyNickname(this.name, this.newForm.nickname)
+            modifyPhone(this.name, this.newForm.phone)
               .then((response) => {
                 console.log(response.data)
                 router.go() // 刷新当前页面

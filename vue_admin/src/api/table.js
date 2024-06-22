@@ -7,3 +7,11 @@ export function getList(params) {
     params
   })
 }
+
+export function getStudentList(groupId) {
+  return request({
+    url: '/individualGroup/getAllStudents',
+    method: 'post',
+    params: { groupId }
+  })
+}

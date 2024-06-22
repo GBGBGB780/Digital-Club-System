@@ -1,5 +1,6 @@
 package com.chinahitech.shop.bean;
 
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
@@ -11,8 +12,9 @@ import java.util.Date;
 @AllArgsConstructor
 @ToString
 public class Group{
-    @JsonProperty("username")
-    private String id;
+    @JsonProperty("userName")
+    @TableId
+    private int id;
     private String name;
     private String leader;
     private String image;
@@ -23,4 +25,5 @@ public class Group{
     private Date createTime;
     private String modifyUser;
     private Date modifyTime;
+    private Boolean isAccepted;
 }

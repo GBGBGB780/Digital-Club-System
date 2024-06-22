@@ -18,10 +18,10 @@ SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
--- Table structure for application
+-- Table structure for StuApp
 -- ----------------------------
-DROP TABLE IF EXISTS `application`;
-CREATE TABLE `application`  (
+DROP TABLE IF EXISTS `stuApp`;
+CREATE TABLE `stuApp`  (
   `applicationid` int NOT NULL AUTO_INCREMENT COMMENT '招聘信息ID',
   `groupname` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '社团ID',
   `stuname` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '学生姓名',
@@ -37,21 +37,21 @@ CREATE TABLE `application`  (
 ) ENGINE = InnoDB AUTO_INCREMENT = 21 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
--- Records of application
+-- Records of StuApp
 -- ----------------------------
-INSERT INTO `application` VALUES (1, '足球社', '吴舜宇', '21311272', '18928622313', '男', '软件工程', '你干嘛~', '附件1', '2023-05-27 00:00:00', 1);
-INSERT INTO `application` VALUES (3, '足球社', '陈建铧', '21952107', '15664736059', '男', '软件工程', 'siuuuuuuu', '附件3', '2023-05-27 10:39:32', 1);
-INSERT INTO `application` VALUES (4, '羽毛球社', '龚敬', '21311303', '18022192013', '男', '软件工程', '妙啊！', '附件4', '2023-05-27 10:39:35', 1);
-INSERT INTO `application` VALUES (5, '足球社', '杨沛粤', '21311296', '15219368970', '男', '软件工程', '太煎熬了。', '附件5', '2023-05-27 10:39:38', 1);
-INSERT INTO `application` VALUES (6, '篮球社', '建华大神', '21956666', '1568978978', '男', '软件工程专业', '我想加入', '附件6', '2023-05-27 23:06:21', 0);
-INSERT INTO `application` VALUES (13, '足球社', '陈建铧', '21311245', '18899998874', '男', '人工智能学院', '收拾收拾', NULL, '2023-05-28 11:21:26', 0);
-INSERT INTO `application` VALUES (14, '足球社', '大神', '21311272', '15898765494', '男', '微电子技术学院', '哈哈哈', NULL, '2023-05-28 11:23:59', 0);
-INSERT INTO `application` VALUES (15, '飞盘社', '111', '21311272', '11111111111', '男', '人工智能学院', '111', NULL, '2023-05-28 12:00:09', NULL);
-INSERT INTO `application` VALUES (16, '足球社', '是是是', '22222222', '12222222222', '男', '人工智能学院', '2222', NULL, '2023-05-28 12:03:05', 0);
-INSERT INTO `application` VALUES (18, '足球社', '大师', '21318888', '13823465987', '男', '人工智能学院', '想来玩', NULL, '2023-05-29 13:31:37', 0);
-INSERT INTO `application` VALUES (19, '足球社', '吴舜宇', '21311272', '18928622313', '男', '测绘与遥感学院', '想玩', NULL, '2023-05-29 14:58:05', NULL);
-INSERT INTO `application` VALUES (20, '足球社', '陈建铧', '21952107', '12547854789', '女', '微电子技术学院', '1111', '123', '2023-05-31 18:28:57', NULL);
-INSERT INTO `application` VALUES (21, '飞盘社', '陈建铧', '21952107', '15664736059', '男', '软件工程学院', 'test complete', NULL, '2023-06-01 11:23:20', NULL);
+INSERT INTO `stuApp` VALUES (1, '足球社', '吴舜宇', '21311272', '18928622313', '男', '软件工程', '你干嘛~', '附件1', '2023-05-27 00:00:00', 1);
+INSERT INTO `stuApp` VALUES (3, '足球社', '陈建铧', '21952107', '15664736059', '男', '软件工程', 'siuuuuuuu', '附件3', '2023-05-27 10:39:32', 1);
+INSERT INTO `stuApp` VALUES (4, '羽毛球社', '龚敬', '21311303', '18022192013', '男', '软件工程', '妙啊！', '附件4', '2023-05-27 10:39:35', 1);
+INSERT INTO `stuApp` VALUES (5, '足球社', '杨沛粤', '21311296', '15219368970', '男', '软件工程', '太煎熬了。', '附件5', '2023-05-27 10:39:38', 1);
+INSERT INTO `stuApp` VALUES (6, '篮球社', '建华大神', '21956666', '1568978978', '男', '软件工程专业', '我想加入', '附件6', '2023-05-27 23:06:21', 0);
+INSERT INTO `stuApp` VALUES (13, '足球社', '陈建铧', '21311245', '18899998874', '男', '人工智能学院', '收拾收拾', NULL, '2023-05-28 11:21:26', 0);
+INSERT INTO `stuApp` VALUES (14, '足球社', '大神', '21311272', '15898765494', '男', '微电子技术学院', '哈哈哈', NULL, '2023-05-28 11:23:59', 0);
+INSERT INTO `stuApp` VALUES (15, '飞盘社', '111', '21311272', '11111111111', '男', '人工智能学院', '111', NULL, '2023-05-28 12:00:09', NULL);
+INSERT INTO `stuApp` VALUES (16, '足球社', '是是是', '22222222', '12222222222', '男', '人工智能学院', '2222', NULL, '2023-05-28 12:03:05', 0);
+INSERT INTO `stuApp` VALUES (18, '足球社', '大师', '21318888', '13823465987', '男', '人工智能学院', '想来玩', NULL, '2023-05-29 13:31:37', 0);
+INSERT INTO `stuApp` VALUES (19, '足球社', '吴舜宇', '21311272', '18928622313', '男', '测绘与遥感学院', '想玩', NULL, '2023-05-29 14:58:05', NULL);
+INSERT INTO `stuApp` VALUES (20, '足球社', '陈建铧', '21952107', '12547854789', '女', '微电子技术学院', '1111', '123', '2023-05-31 18:28:57', NULL);
+INSERT INTO `stuApp` VALUES (21, '飞盘社', '陈建铧', '21952107', '15664736059', '男', '软件工程学院', 'test complete', NULL, '2023-06-01 11:23:20', NULL);
 
 -- ----------------------------
 -- Table structure for group

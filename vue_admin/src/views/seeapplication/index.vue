@@ -6,19 +6,19 @@
         style="width: 100%"
         @row-click="handleRowClick">
         <el-table-column
-          prop=stuname
+          prop=stuName
           label="姓名"
           width="200">
           <template slot-scope="scope">
-            <span class="text">{{ scope.row.stuname }}</span>
+            <span class="text">{{ scope.row.stuName }}</span>
           </template>
         </el-table-column>
         <el-table-column
-          prop=stunumber
+          prop=stuNumber
           label="学号"
           width="230">
           <template slot-scope="scope">
-            <span class="text">{{ scope.row.stunumber }}</span>
+            <span class="text">{{ scope.row.stuNumber }}</span>
           </template>
         </el-table-column>
         <el-table-column
@@ -26,15 +26,15 @@
           label="申请时间"
           width="300">
           <template slot-scope="scope">
-            <span class="text">{{ formatDate(scope.row.time) }}</span>
+            <span class="text">{{ formatDate(scope.row.createTime) }}</span>
           </template>
         </el-table-column>
         <el-table-column
-        prop="isaccepted"
+        prop="isAccepted"
         label="申请状态">
         <template slot-scope="scope">
-          <span v-if="scope.row.isaccepted === true" class="text success-text">已批准</span>
-          <span v-else-if="scope.row.isaccepted === false" class="text fail-text">已拒绝</span>
+          <span v-if="scope.row.isAccepted === true" class="text success-text">已批准</span>
+          <span v-else-if="scope.row.isAccepted === false" class="text fail-text">已拒绝</span>
           <span v-else class="text pending-text">待审核</span>
         </template>
       </el-table-column>
@@ -59,8 +59,10 @@ export default {
       };
     },
   created: function () {
-    getSeeApplications(this.name).then((response) => {
+    getSeeApplications(this.$store.state.clubname).then((response) => {
+      console.log(this.$store.state.clubname)
       this.applications = response.data.items;
+      // console.log(this.applications)
     })
     .catch(error => {
       console.error(error);
@@ -68,7 +70,7 @@ export default {
   },
   methods: {
     handleRowClick(row) {
-    const id = row.applicationid; // 获取当前行的id
+    const id = row.applicationId; // 获取当前行的id
     this.$router.push({
       name: 'Appdetail',
       params: { 'id': id }

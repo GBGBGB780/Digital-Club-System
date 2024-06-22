@@ -21,8 +21,8 @@ public class ManagerController {
     private ManagerService managerService;
 
     @PostMapping("/login")
-    // querystring: username=zhangsan&password=123   User user,String username,String password
-    // json: {username:zhangsan,password:123}
+    // querystring: userName=zhangsan&password=123   User user,String userName,String password
+    // json: {userName:zhangsan,password:123}
     // 如果前端传递的数据是json格式，必须使用对象接收，同时需要添加@RequestBody
     public Result login(String userId, String password){
         User user = managerService.login(userId, password);
@@ -45,7 +45,7 @@ public class ManagerController {
     @PostMapping("/register")
     public Result register(@RequestBody RegisterUser user) {
 //        System.out.println(user);
-        String stunumber = user.getUsername();
+        String stunumber = user.getUserName();
         String password = user.getPassword();
         String email = user.getEmail();
         String valicode = user.getValicode();
@@ -67,6 +67,45 @@ public class ManagerController {
         }
     }
 
+    //找回密码
+
+    //首先获取该账号对应邮箱,发送验证码
+    @PostMapping("/getEmail")
+    public Result getEmail(String userNumber){
+        System.out.println(userNumber);
+        User user = managerService.getByUserId(userNumber);
+        System.out.println(user);
+        String email = user.getEmail();
+        EmailService sEmail;
+        try{
+            sEmail = new EmailService(email);
+        } catch(EmailException err){
+            return Result.error().message(err.expMessage());
+        }
+        try {
+            sEmail.sendEmail();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        return Result.ok().data("email", email);
+    }
+
+    //然后检查用户输入的验证码是否正确
+    @PostMapping("/getValidate")
+    public Result getValidate(String email, String validateCode){
+        String correctValidateCode = RedisUtils.get(email).toString();
+
+//        System.out.println("this" + correctValidateCode);
+
+        if (Objects.equals(correctValidateCode, validateCode)){
+            return Result.ok().message("验证成功");
+        } else {
+            return Result.error().message("验证出错!");
+        }
+    }
+
+    //若验证通过，需要重新设置密码，使用modifyPass修改密码
+
     @PostMapping("/validateEmail")
     public Result validateEmail(String email) throws Exception {
 //        String email = emailInfo.getEmail();
@@ -81,38 +120,43 @@ public class ManagerController {
         return Result.ok().message("邮箱发送成功!");
     }
 
-    @PostMapping("/modifypass")
-    public Result modifypassword(String userId, String password){
+    //用户密码修改
+    @PostMapping("/modifyPass")
+    public Result modifyPassword(String userId, String password){
         System.out.println(userId);
         System.out.println(password);
         managerService.updatePassword(userId, password);
         return Result.ok();
     }
 
-    @PostMapping("/modifyphone")
-    public Result modifyphone(String userId, String phone){
+    //用户电话修改
+    @PostMapping("/modifyPhone")
+    public Result modifyPhone(String userId, String phone){
         System.out.println(userId);
         System.out.println(phone);
         managerService.updatePhone(userId, phone);
         return Result.ok();
     }
 
-    @PostMapping("/modifydescription")
-    public Result modifydescription(String userId, String description){
+    //用户简介修改
+    @PostMapping("/modifyDescription")
+    public Result modifyDescription(String userId, String description){
         System.out.println(userId);
         System.out.println(description);
         managerService.updateDescription(userId, description);
         return Result.ok();
     }
 
-    @PostMapping("/modifynickname")
-    public Result modifynickname(String userId, String nickname){
+    //用户昵称修改
+    @PostMapping("/modifyNickname")
+    public Result modifyNickname(String userId, String nickname){
         System.out.println(userId);
         System.out.println(nickname);
         managerService.updateNickname(userId, nickname);
         return Result.ok();
     }
 
+    //用户资料显示
     @PostMapping("/profile")
     public Result getProfile(String userId){
         System.out.println(userId);

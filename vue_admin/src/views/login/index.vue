@@ -25,15 +25,15 @@
           <h3 class="title">社团管理员登录</h3>
         </div>
 
-        <el-form-item prop="username">
+        <el-form-item prop="userName">
           <span class="svg-container">
             <svg-icon icon-class="user" />
           </span>
           <el-input
-            ref="username"
-            v-model="loginForm.username"
+            ref="userName"
+            v-model="loginForm.userName"
             placeholder="请输入你的社团名"
-            name="username"
+            name="userName"
             type="text"
             tabindex="1"
             auto-complete="off"
@@ -64,16 +64,26 @@
 
       </el-form>
     </div>
+    
+    <el-dialog :visible.sync="dialogVisible" title="请选择您要管理的社团" width="30%" :append-to-body="true" @close="loginDialog=false,reset()" >
+      <div id="choose" style="text-align:center;margin-top: 30px;margin-bottom: 30px;">
+        <!-- 循环按钮 -->
+        <el-button v-for="(item,index) in choosebtn" type="primary" :key="'choosebtn'+index" style="width: 80%;height: 60px;margin:4px;" @click="chooseclub(index)" :title="item">
+          {{ item }}
+        </el-button>
+      </div>
+    </el-dialog>
+
   </div>
 </template>
 
 <script>
-// import { validUsername } from '@/utils/validate'
+import { managerlogin,managedgroup } from '@/api/user.js'
 
 export default {
   name: 'Login',
   data() {
-    const validateUsername = (rule, value, callback) => {
+    const validateuserName = (rule, value, callback) => {
       callback()
     }
     const validatePassword = (rule, value, callback) => {
@@ -85,16 +95,21 @@ export default {
     }
     return {
       loginForm: {
-        username: '',
+        userName: '',
         password: ''
       },
       loginRules: {
-        username: [{ required: true, trigger: 'blur', validator: validateUsername }],
+        userName: [{ required: true, trigger: 'blur', validator: validateuserName }],
         password: [{ required: true, trigger: 'blur', validator: validatePassword }]
       },
       loading: false,
       passwordType: 'password',
-      redirect: undefined
+      redirect: undefined,
+      dialogVisible: false,
+      choosebtn: [],   
+      token:0,
+      cid:[],
+      cname:[],
     }
   },
   watch: {
@@ -102,7 +117,7 @@ export default {
       handler: function(route) {
         this.redirect = route.query && route.query.redirect
       },
-      immediate: true
+      immediate: true,
     }
   },
   methods: {
@@ -120,18 +135,51 @@ export default {
       this.$refs.loginForm.validate(valid => {
         if (valid) {
           this.loading = true
-          // vuex
-          this.$store.dispatch('user/managerlogin', this.loginForm).then(() => {
-            this.$router.push({ path: this.redirect || '/' })
+          managerlogin(this.loginForm.userName.trim(), this.loginForm.password).then(response => {
             this.loading = false
-          }).catch(() => {
+            const { data } = response
+            this.token=data.token
+            // vuex
+            managedgroup(this.loginForm.userName.trim()).then(res =>{
+              console.log(res)
+              // console.log(res.data.items[0].userName)
+              for(var i=0; i<res.data.items.length; i++)
+              {
+                this.addButton(i,res.data.items[i].userName,res.data.items[i].name)
+              }
+            })
+            // this.dialogVisible = true 如果放在这里的话就会导致打开时还未渲染，因为Vue是异步进行
+          }
+        ).catch(() => {
             this.loading = false
-          })
+        })
         } else {
           console.log('error submit!!')
           return false
         }
       })
+    },
+    chooseclub(index){
+      var clubid=this.cid[index];
+      var clubname=this.cname[index];
+      // vuex
+      this.$store.commit('chooseclub',clubid);
+      this.$store.commit('clubname',clubname);
+      this.$store.dispatch('user/managerlogin', this.token)
+      this.$router.push({ path: this.redirect || '/' })
+    },
+    
+    addButton(i,cid,cname){
+      var display = "社团id："+cid+"社团名: "+cname;
+      this.cid[i]=cid; 
+      this.cname[i]=cname;
+      this.choosebtn[i]=display;
+      // console.log(this.choosebtn[i])
+      this.dialogVisible = true
+    },
+
+    reset(){
+      this.choosebtn=[];
     }
   }
 }
@@ -175,7 +223,6 @@ $cursor: #fff;
     input {
       background: transparent;
       border: 0px;
-      -webkit-appearance: none;
       border-radius: 0px;
       padding: 12px 5px 12px 15px;
       color: $light_gray;

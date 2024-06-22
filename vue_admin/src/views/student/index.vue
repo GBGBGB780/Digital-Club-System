@@ -1,0 +1,111 @@
+<template>
+    <div class="student-container">
+      <div>
+        <el-table 
+          :data="studentlist"
+          style="width: 100%"
+          @row-click="handleRowClick">
+          <el-table-column
+            prop=userName
+            label="姓名"
+            width="200">
+            <template slot-scope="scope">
+              <span class="text">{{ scope.row.userName }}</span>
+            </template>
+          </el-table-column>
+          <el-table-column
+            prop=userId
+            label="学号"
+            width="230">
+            <template slot-scope="scope">
+              <span class="text">{{ scope.row.userId }}</span>
+            </template>
+          </el-table-column>
+          <el-table-column
+            prop=cteateTime
+            label="申请时间"
+            width="300">
+            <template slot-scope="scope">
+              <span class="text">{{ formatDate(scope.row.cteateTime) }}</span>
+            </template>
+          </el-table-column>
+          
+        </el-table>
+      </div>
+    </div>
+  </template>
+  
+  <script>
+  import { mapGetters } from 'vuex'
+  import { getStudentList } from "@/api/table.js";
+  
+  export default {
+    name: 'StudentList',
+    computed: {
+      ...mapGetters([
+        'name'
+      ])},
+    data() {
+        return {
+          studentlist: [],
+        };
+      },
+    created: function () {
+        getStudentList(this.$store.state.clubid).then((response) => {
+        this.studentlist = response.data.items;
+      })
+      .catch(error => {
+        console.error(error);
+      });
+    },
+    methods: {
+      handleRowClick(row) {
+      const id = row.applicationId; // 获取当前行的id
+      this.$router.push({
+        name: 'Studentdetail',
+        params: { 'id': id }
+        });
+      },
+      formatDate(date) {
+        // 格式化日期时间
+        const d = new Date(date);
+        return `${d.getFullYear()}年${
+          d.getMonth() + 1
+        }月${d.getDate()}日 ${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}:${String(d.getSeconds()).padStart(2, '0')}`;
+      },
+    },
+  }
+  </script>
+  
+  <style>
+    .el-table th {
+      font-weight: bold;
+      font-size: 18px;
+    }
+  
+    .text {
+      font-size: 14px;
+      font-weight: bold;
+    }
+  
+    .el-table .fail-row {
+      background: rgb(250, 231, 231);
+    }
+  
+    .el-table .success-row {
+      background: #e1fce8;
+    }
+  
+    .success-text {
+      color: #4caf50;
+    }
+  
+    .fail-text {
+      color: #f44336;
+    }
+  
+    .pending-text {
+      color: #ff9800;
+    }
+  </style>
+  

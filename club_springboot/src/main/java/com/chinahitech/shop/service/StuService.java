@@ -3,6 +3,7 @@ package com.chinahitech.shop.service;
 import com.chinahitech.shop.bean.User;
 import com.chinahitech.shop.mapper.StuMapper;
 import com.chinahitech.shop.service.exception.*;
+import com.chinahitech.shop.utils.RedisUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,9 +14,9 @@ import java.util.UUID;
 public class StuService {
     @Autowired
     private StuMapper stuMapper;
-    private md5 md5 = new md5();
+    private Md5 md5 = new Md5();
 
-    public User getByStunumber(String num) {
+    public User getByStuNumber(String num) {
         User stu = stuMapper.getByNum(num);
         if (stu == null) {
             throw new EntityNotFoundException("学生"+ num +"不存在");
@@ -44,7 +45,7 @@ public class StuService {
     }
 
 //  md5加密
-    public void addStudent(String stunumber, String lastPwd, String email) {
+    public void addStudent(String stuNumber, String lastPwd, String email) {
         Date date = new Date();
         //密码加密(MD5算法)
 //            System.out.println(lastPwd);
@@ -52,11 +53,12 @@ public class StuService {
 //            System.out.println(salt);
         String currPwd = md5.MD5handler(lastPwd, salt);
 
-        int i = stuMapper.addStudent(stunumber, currPwd, email, salt, date, date, 0);
+        int i = stuMapper.addStudent(stuNumber, currPwd, email, salt, date, date, 0);
         if(i != 1){
-            throw new InsertException("学生"+ stunumber +"添加失败");
+            throw new InsertException("学生"+ stuNumber +"添加失败");
         }
     }
+
 
 //  md5加密
     public void updatePassword(String stunumber, String password){
@@ -67,35 +69,54 @@ public class StuService {
 //            throw new PwdNotMatchException("密码错误");
 //        }
         String newMD5pwd = md5.MD5handler(password, salt);
-        Date date = new Date();
 //        System.out.println(newMD5pwd);
-        int i = stuMapper.updatePassword(stunumber, newMD5pwd, date);
+        Date date = new Date();
+
+        stu.setPassword(newMD5pwd);
+        stu.setModifyTime(date);
+
+        int i = stuMapper.updateById(stu);
         if(i != 1){
             throw new UpdateException("学生"+ stunumber +"密码修改失败");
         }
     }
 
-    public void updatePhone(String stunumber, String phone){
+    public void updatePhone(String stuNumber, String phone){
         Date date = new Date();
-        int i = stuMapper.updatePhone(stunumber, phone, date);
+
+        User stu = getByStuNumber(stuNumber);
+        stu.setPhone(phone);
+        stu.setModifyTime(date);
+
+        int i = stuMapper.updateById(stu);
         if(i != 1){
-            throw new UpdateException("学生"+ stunumber +"电话修改失败");
+            throw new UpdateException("学生"+ stuNumber +"电话修改失败");
         }
     }
 
-    public void updateDescription(String stunumber, String description){
+    public void updateDescription(String stuNumber, String description){
         Date date = new Date();
-        int i = stuMapper.updateDescription(stunumber, description, date);
+
+        User stu = getByStuNumber(stuNumber);
+        stu.setDescription(description);
+        stu.setModifyTime(date);
+
+        int i = stuMapper.updateById(stu);
         if(i != 1){
-            throw new UpdateException("学生"+ stunumber +"简介修改失败");
+            throw new UpdateException("学生"+ stuNumber +"简介修改失败");
         }
     }
 
-    public void updateNickname(String stunumber, String nickname){
+    public void updateNickname(String stuNumber, String nickname){
         Date date = new Date();
-        int i = stuMapper.updateNickname(stunumber, nickname, date);
+
+        User stu = getByStuNumber(stuNumber);
+        stu.setNickname(nickname);
+        stu.setModifyTime(date);
+
+        int i = stuMapper.updateById(stu);
         if(i != 1){
-            throw new UpdateException("学生"+ stunumber +"昵称修改失败");
+            throw new UpdateException("学生"+ stuNumber +"昵称修改失败");
         }
     }
 

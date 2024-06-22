@@ -1,5 +1,6 @@
 package com.chinahitech.shop.bean;
 
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
@@ -12,7 +13,8 @@ import java.util.Date;
 @ToString
 public class Activity{
     //    private String id;
-    @JsonProperty("username")
+    @JsonProperty("userName")
+    @TableId
     private int id;
     private String name;
     private String organizer;
@@ -31,5 +33,6 @@ public class Activity{
     private Date createTime;
     private String modifyUser;
     private Date modifyTime;
+    private Boolean isAccepted;
 }
 

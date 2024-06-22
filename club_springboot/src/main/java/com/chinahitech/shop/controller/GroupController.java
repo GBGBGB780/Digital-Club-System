@@ -24,7 +24,6 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.List;
-import com.chinahitech.shop.utils.JwtUtils;
 import java.util.Map;
 
 @RestController
@@ -39,26 +38,36 @@ public class GroupController {
     private String uploadDir;
 
     @RequestMapping("/all")
-    public Result getAll(String searchinfo){
-        List<Group> groups = groupService.query(searchinfo);
-        System.out.println(groups);
+    public Result getAll(String searchInfo){
+        List<Group> groups = groupService.query(searchInfo);
+//        System.out.println(groups);
         return Result.ok().data("items",groups);
     }
 
     // 社团详情（学生端）
     @PostMapping("/studentDetail")
-    public Result getStudentDetail(String groupname){
-        System.out.println(groupname);
-        Group group = groupService.getByName(groupname);
+        public Result getStudentDetail(String groupName){
+        System.out.println(groupName);
+        Group group = groupService.getByName(groupName);
         return Result.ok().data("group",group);
     }
 
-    @RequestMapping("/getvideo")
+    //申请新建社团
+    @PostMapping("/addGroup")
+    public Result addGroup(@RequestBody Group group){
+        group.setIsAccepted(null);
+        groupService.insert(group);
+        return Result.ok();
+    }
+
+    @RequestMapping("/getVideo")
     public Result getVideo() {
         try {
             // 获取视频文件的相对路径
             String relativePath = "videotest.mp4";
 
+            Path targetLocation = Paths.get(uploadDir, "videotest.mp4");
+            System.out.println(targetLocation);
             // 构造视频URL
             String videoUrl = ServletUriComponentsBuilder.fromCurrentContextPath()
                     .path("/")
@@ -78,6 +87,7 @@ public class GroupController {
         return Result.ok().data("item", groups);
     }
     // end
+
 
 
 
@@ -138,6 +148,7 @@ public class GroupController {
             return ResponseEntity.badRequest().body(createErrorResponse("Failed to update the attachment."));
         }
     }
+
     @PostMapping("/uploadphoto")
     public ResponseEntity<Map<String, String>> uploadPhoto(@RequestParam("file") MultipartFile file) {
 
@@ -178,7 +189,7 @@ public class GroupController {
     }
     @PostMapping("/getattachment")//能直接下载文件，而不是在新标签页中打开的比较难搞，涉及到http报文，暂时不搞了
     // 这个是在新标签页中打开，对于zip完全没问题
-    public ResponseEntity<Map<String, Object>> getAttachment(@RequestParam("id") String id) {
+    public ResponseEntity<Map<String, Object>> getAttachment(@RequestParam("id") int id) {
         Group group = groupService.getGroupById(id);
         Map<String, Object> response = new HashMap<>();
         if (group != null) {
@@ -203,5 +214,42 @@ public class GroupController {
         errorResponse.put("error", errorMessage);
         return errorResponse;
     }
-    //end
+
+    //超级管理员端
+
+    // 申请列表
+    @RequestMapping("/allApps")
+    public Result getAllApps(String searchinfo){
+        List<Group> groups = groupService.getAllApp(searchinfo);
+        System.out.println(groups);
+        return Result.ok().data("items",groups);
+    }
+
+    // 申请列表->详情
+    @PostMapping("/appDetail")
+    public Result getAppDetail(String groupname){
+        System.out.println(groupname);
+        Group group = groupService.getAppByName(groupname);
+        return Result.ok().data("group",group);
+    }
+
+    //社团审批
+
+    //接受申请
+    @PostMapping("/accept")
+    public Result accept(int groupId){
+        System.out.println(groupId);
+        // System.out.println(isaccepted);
+        groupService.confirmApplication(groupId);
+        return Result.ok();
+    }
+
+    //拒绝申请
+    @PostMapping("/reject")
+    public Result reject(int groupId){
+        System.out.println(groupId);
+        // System.out.println(isaccepted);
+        groupService.denyApplication(groupId);
+        return Result.ok();
+    }
 }

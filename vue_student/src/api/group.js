@@ -1,16 +1,16 @@
 import request from '@/utils/request'
 
-export function getGroups(searchinfo) {
+export function getGroups(searchInfo) {
   return request({
     url: '/group/all',
     method: 'get',
-    params: { searchinfo }
+    params: { searchInfo }
   })
 }
 
 export function getVideo() {
   return request({
-    url: '/group/getvideo',
+    url: '/group/getVideo',
     method: 'get',
     params: { }
   })
@@ -18,7 +18,7 @@ export function getVideo() {
 
 export function getWeather() {
   return request({
-    url: '/getweather',
+    url: '/getWeather',
     method: 'get',
     params: { }
   })
@@ -33,11 +33,11 @@ export function getTopGroups() {
   })
 }
 
-export function getApplications(stunumber) {
+export function getApplications(stuNumber) {
   return request({
-    url: '/application/myapps',
+    url: '/application/myApps',
     method: 'post',
-    params: { stunumber }
+    params: { stuNumber }
   })
 }
 
@@ -51,7 +51,7 @@ export function postform(form) {
 
 export function getAttachmentUrl(groupId) {
   return request({
-    url: '/group/getattachment',
+    url: '/group/getAttachment',
     method: 'post',
     params: { id: groupId }
   })

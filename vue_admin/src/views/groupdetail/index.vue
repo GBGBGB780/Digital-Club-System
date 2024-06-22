@@ -23,7 +23,7 @@
           :before-upload="beforeUpload"
           class="upload-demo"
           style="margin-top: 10px;"
-          action="http://localhost:8081/group/uploadzip"
+          action="http://localhost:8081/group/uploadZip"
           :on-remove="handleRemove"
           :before-remove="beforeRemove"
           :on-success="handleUploadSuccess"
@@ -45,7 +45,7 @@
           :on-remove="handleRemovePhoto"
           accept=".jpg,.png"
           :limit="1"
-          action="http://localhost:8081/group/uploadphoto"
+          action="http://localhost:8081/group/uploadPhoto"
           multiple
           :on-exceed="handlePhotoExceed"
         >
@@ -132,7 +132,7 @@ export default {
     this.staticForm.name = this.name
     getDetails(this.name)
       .then((response) => {
-        this.staticForm.name = response.data.group.username
+        this.staticForm.name = response.data.group.userName
         this.staticForm.leader = response.data.group.leader
         this.newForm.description = response.data.group.description
         this.newForm.image = response.data.group.image
@@ -232,6 +232,8 @@ export default {
       this.$router.push(`/login?redirect=${this.$route.fullPath}`)
     },
     resetForm(formName) {
+      console.log( this.$store.state.clubid)
+      console.log( this.$store.state.clubname)
       this.$refs[formName].resetFields()
     }
   }

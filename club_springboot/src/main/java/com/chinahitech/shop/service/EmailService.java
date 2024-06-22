@@ -2,16 +2,11 @@ package com.chinahitech.shop.service;
 
 import com.chinahitech.shop.defineException.*;
 import com.chinahitech.shop.utils.RedisUtils;
-import com.sun.mail.util.MailSSLSocketFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.scheduling.annotation.Async;
 
-import java.io.UnsupportedEncodingException;
 import java.util.*;
 import javax.mail.*;
 import javax.mail.internet.*;
-import javax.activation.*;
 
 @Async
 public class EmailService{

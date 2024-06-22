@@ -25,9 +25,30 @@
           <el-dropdown-item divided @click.native="logout">
             <span style="display:block;">Log Out</span>
           </el-dropdown-item>
+          <el-dropdown-item divided @click.native="showDescription">
+            <span style="display:block;">Change password</span>
+          </el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
     </div>
+    <el-dialog :visible.sync="dialogVisible" title="修改密码" width="30%">
+      <el-form ref="ruleForm" :model="ruleForm" status-icon :rules="rules" label-width="100px" class="demo-ruleForm">
+      <el-form-item label="新密码" prop="pass">
+        <el-input v-model="ruleForm.pass" type="password" autocomplete="off" class="custom-data" />
+      </el-form-item>
+      <el-form-item label="确认密码" prop="checkPass">
+        <el-input v-model="ruleForm.checkPass" type="password" autocomplete="off" class="custom-data" />
+      </el-form-item>
+      <el-form-item>
+        <el-button type="primary" @click="submitPassword('ruleForm')">提交</el-button>
+        <el-button @click="resetForm('ruleForm')">重置</el-button>
+      </el-form-item>
+    </el-form>
+
+        <span slot="footer" class="dialog-footer">
+          <el-button type="primary" @click="dialogVisible = false">关闭</el-button>
+        </span>
+    </el-dialog>
   </div>
 </template>
 
@@ -47,6 +68,41 @@ export default {
       'avatar'
     ])
   },
+  data(){
+    const validatePass = (rule, value, callback) => {
+      if (value.length < 6) {
+        callback(new Error('密码长度不能少于6位'))
+      } else {
+        callback()
+      }
+    }
+    const validatePass2 = (rule, value, callback) => {
+      if (value !== this.ruleForm.pass) {
+        callback(new Error('两次输入密码不一致!'))
+      } else {
+        callback()
+      }
+    }
+    return{
+      dialogVisible: false,
+      ruleForm: {
+        pass: '',
+        checkPass: ''
+      },
+      rules: {
+        description: [
+          { required: true, message: '内容不能为空', trigger: 'change' }
+        ],
+        pass: [
+          { required: true, validator: validatePass, trigger: 'blur' }
+        ],
+        checkPass: [
+          { required: true, validator: validatePass2, trigger: 'blur' }
+        ]
+      },
+      
+    }
+  },
   methods: {
     toggleSideBar() {
       this.$store.dispatch('app/toggleSideBar')
@@ -54,7 +110,10 @@ export default {
     async logout() {
       await this.$store.dispatch('user/logout')
       this.$router.push(`/login?redirect=${this.$route.fullPath}`)
-    }
+    },
+    showDescription() {
+        this.dialogVisible = true
+      }
   }
 }
 </script>

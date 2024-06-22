@@ -1,33 +1,33 @@
 import request from '@/utils/request'
 
-export function getSeeApplications(groupname) {
+export function getSeeApplications(groupName) {
     return request({
-        url: '/application/recvapps',
+        url: '/application/recApps',
         method: 'post',
-        params: { groupname }
+        params: { groupName }
     })
 }
 
 export function getAppDetails(id) {
     return request({
-        url: '/application',
+        url: '/application/recApp',
         method: 'post',
         params: { id }
     });
 }
 
-export function acceptApplication(applicationid) {
+export function acceptApplication(applicationId) {
     return request({
         url: '/application/accept',
         method: 'post',
-        params: { applicationid }
+        params: { applicationId }
     })
 }
 
-export function rejectApplication(applicationid) {
+export function rejectApplication(applicationId) {
     return request({
         url: '/application/reject',
         method: 'post',
-        params: { applicationid }
+        params: { applicationId }
     })
 }

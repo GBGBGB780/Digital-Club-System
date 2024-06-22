@@ -1,75 +1,75 @@
 import request from '@/utils/request'
 
-export function login(stunumber,password) {
+export function login(stuNumber,password) {
   return request({
-    url: '/user/login',
+    url: '/student/login',
     method: 'post',
-    params: { stunumber, password }
+    params: { stuNumber, password }
   })
 }
 
 export function register(data) {
   console.error(data)
   return request({
-    url: '/user/register',
+    url: '/student/register',
     method: 'post',
     data: data
   })
 }
 
-export function modifypassword(stunumber, password) {
+export function modifyPassword(stuNumber, password) {
   return request({
-      url: '/user/modifypass',
+      url: '/student/modifyPass',
       method: 'post',
-      params: { stunumber, password }
+      params: { stuNumber, password }
   })
 }
 
-export function modifyphone(stunumber, phone) {
+export function modifyPhone(stuNumber, phone) {
   return request({
-      url: '/user/modifyphone',
+      url: '/student/modifyPhone',
       method: 'post',
-      params: { stunumber, phone }
+      params: { stuNumber, phone }
   })
 }
 
-export function modifydescription(stunumber, description) {
+export function modifyDescription(stuNumber, description) {
   return request({
-      url: '/user/modifydescription',
+      url: '/student/modifyDescription',
       method: 'post',
-      params: { stunumber, description }
+      params: { stuNumber, description }
   })
 }
 
-export function modifynickname(stunumber, nickname) {
+export function modifyNickname(stuNumber, nickname) {
   return request({
-      url: '/user/modifynickname',
+      url: '/student/modifyNickname',
       method: 'post',
-      params: { stunumber, nickname }
+      params: { stuNumber, nickname }
   })
 }
 
 export function validateEmail(email) {
   console.error({ email })
   return request({
-      url: '/user/validateEmail',
+      url: '/student/validateEmail',
       method: 'post',
       params: { email }
   })
 }
 
-export function getProfile(stunumber) {
+export function getProfile(stuNumber) {
   return request({
-    url: '/user/profile',
+    url: '/student/profile',
     method: 'post',
-    params: { stunumber }
+    params: { stuNumber }
   })
 }
 
 
 export function getInfo(token) {
   return request({
-    url: '/user/info',
+    url: '/student/info',
     method: 'get',
     params: { token } // name=xx&xxx=xxx
   })
@@ -77,7 +77,7 @@ export function getInfo(token) {
 
 export function logout() {
   return request({
-    url: '/user/logout',
+    url: '/student/logout',
     method: 'post'
   })
 }

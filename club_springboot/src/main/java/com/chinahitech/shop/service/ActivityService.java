@@ -1,7 +1,10 @@
 package com.chinahitech.shop.service;
 
 import com.chinahitech.shop.bean.Activity;
+
 import com.chinahitech.shop.mapper.ActivityMapper;
+import com.chinahitech.shop.mapper.IndividualActivityMapper;
+import com.chinahitech.shop.mapper.StuMapper;
 import com.chinahitech.shop.service.exception.EntityNotFoundException;
 import com.chinahitech.shop.service.exception.UpdateException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,14 +33,19 @@ public class ActivityService {
 //    }
     @Autowired
     private ActivityMapper activityMapper;
-
-    public Activity getByName(String name) {
-        Activity activity = activityMapper.getByName(name);
-        if(activity == null){
-            throw new EntityNotFoundException("活动"+ name +"不存在");
-        }
-        return activity;
-    }
+    @Autowired
+    private IndividualActivityMapper individualActivityMapper;
+    @Autowired
+    private StuMapper stuMapper;
+    @Autowired
+    private IndividualActivityService individualActivityService;
+//    public Activity getByName(String name) {
+//        Activity activity = activityMapper.getActivityByName(name);
+//        if(activity == null){
+//            throw new EntityNotFoundException("活动"+ name +"不存在");
+//        }
+//        return activity;
+//    }
 
     public Activity getActivityByNameAndGroupName(String name, String groupName) {
         Activity activity = activityMapper.getActivityByNameAndGroupName(name, groupName);
@@ -59,9 +67,9 @@ public class ActivityService {
         return activityMapper.findtop();
     }
 
-    public List<Activity> queryActivity(String name){
-        return activityMapper.findActivity(name);
-    }
+//    public List<Activity> queryActivity(String name){
+//        return activityMapper.findActivity(name);
+//    }
 
     public List<Activity> getActivityByGroupName(String groupName){
         return activityMapper.getActivityByGroupName(groupName);
@@ -73,21 +81,6 @@ public class ActivityService {
             throw new EntityNotFoundException("活动"+ id +"不存在");
         }
         return activity;
-    }
-
-    public void addHot(String groupName, String name) {
-        Date date = new Date();
-        System.out.println(name);
-        Activity activity = activityMapper.getHot(groupName, name);
-        if(activity == null){
-            throw new EntityNotFoundException("活动"+ name +"不存在");
-        }
-        int hot = activity.getHot();
-        hot++;
-        int i = activityMapper.updateHot(groupName, name, hot, date);
-        if(i != 1){
-            throw new UpdateException("活动"+ name +"热度修改失败");
-        }
     }
 
     public void updateDescription(String groupName, String name, String description,String attachment,String image) {
@@ -136,22 +129,12 @@ public class ActivityService {
 
     public void addActivity(Activity activity) {
         Date date = new Date();
-        int i = activityMapper.addActivity(
-                0,
-                activity.getName(),
-                activity.getOrganizer(),
-                activity.getDescription(),
-                activity.getAttachment(),
-                activity.getImage(),
-                0,
-                activity.getArrange(),
-                activity.getTime(),
-                activity.getNumber(),
-                activity.getPlace(),
-                activity.getType(),
-                activity.getGroupName(),
-                date,
-                date);
+        activity.setId(0);
+        activity.setHot(0);
+        activity.setNumber(0);
+        activity.setCreateTime(date);
+        activity.setModifyTime(date);
+        int i = activityMapper.insert(activity);
         if(i != 1){
             throw new UpdateException("活动"+ activity.getName() +"添加失败");
         }
@@ -159,13 +142,40 @@ public class ActivityService {
 
     public void deleteActivity(Activity activity) {
         int id = activity.getId();
-        Activity target = activityMapper.getActivityById(id);
-        if(target == null){
-            throw new EntityNotFoundException("活动"+ id +"不存在");
-        }
-        int i = activityMapper.deleteActivity(id);
+        int i = activityMapper.deleteById(id);
         if(i != 1){
-            throw new UpdateException("活动"+ target.getName() +"删除失败");
+            throw new UpdateException("活动"+ activity.getName() +"删除失败");
+        }
+    }
+
+
+    public List<Activity> getAllApp(String searchinfo) {
+        if (searchinfo == null || searchinfo.trim().isEmpty()) {
+            return activityMapper.findAllApp();
+        } else {
+            return activityMapper.findAppBySearch(searchinfo);
+        }
+    }
+
+    public Activity getAppByNameAndGroupName(String name, String groupName) {
+        Activity activity = activityMapper.getAppByNameAndGroupName(name, groupName);
+        if (activity == null) {
+            throw new EntityNotFoundException("活动"+ name +"不存在");
+        }
+        return activity;
+    }
+
+    public void confirmApplication(int activityId) {
+        int i = activityMapper.confirmApplicationByid(activityId);
+        if (i != 1) {
+            throw new UpdateException("对活动" + activityId + "的操作确认失败");
+        }
+    }
+
+    public void denyApplication(int activityId) {
+        int i = activityMapper.denyApplicationByid(activityId);
+        if (i != 1) {
+            throw new UpdateException("对活动" + activityId + "的操作拒绝失败");
         }
     }
 }

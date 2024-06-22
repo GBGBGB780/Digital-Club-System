@@ -6,15 +6,15 @@
         <h3 class="title">Register Form</h3>
       </div>
 
-      <el-form-item prop="username">
+      <el-form-item prop="userName">
         <span class="svg-container">
           <svg-icon icon-class="user" />
         </span>
         <el-input
-          ref="username"
-          v-model="registerForm.username"
+          ref="userName"
+          v-model="registerForm.userName"
           placeholder="请输入你的学号"
-          name="username"
+          name="userName"
           type="text"
           tabindex="1"
           auto-complete="off"
@@ -96,14 +96,14 @@
 </template>
 
 <script>
-import { validUsername } from '@/utils/validate'
+import { validuserName } from '@/utils/validate'
 import { validateEmail, register } from '@/api/user.js'
 
 export default {
   name: 'Login',
   data() {
-    const validateUsername = (rule, value, callback) => {
-      if (!validUsername(value)) {
+    const validateuserName = (rule, value, callback) => {
+      if (!validuserName(value)) {
         callback(new Error('你的学号必须为8位数字'))
       } else {
         callback()
@@ -118,13 +118,13 @@ export default {
     }
     return {
       registerForm: {
-        username: '',
+        userName: '',
         password: '',
         email: '',
         valicode: ''
       },
       registerRules: {
-        username: [{ required: true, trigger: 'blur', validator: validateUsername }],
+        userName: [{ required: true, trigger: 'blur', validator: validateuserName }],
         password: [{ required: true, trigger: 'blur', validator: validatePassword }],
         email: [{ required: true, trigger: 'blur' }]
       },
@@ -226,7 +226,6 @@ $cursor: #fff;
     input {
       background: transparent;
       border: 0px;
-      -webkit-appearance: none;
       border-radius: 0px;
       padding: 12px 5px 12px 15px;
       color: $light_gray;

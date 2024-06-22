@@ -8,13 +8,13 @@ import lombok.*;
 @AllArgsConstructor
 @ToString
 public class RegisterUser {
-    public String username;
+    public String userName;
     public String password;
     public String email;
     public String valicode;
 
-//    public void setUsername(String stunumber) {
-//        this.username = stunumber;
+//    public void setUserName(String stunumber) {
+//        this.userName = stunumber;
 //    }
 //
 //    public void setPassword(String password) {
@@ -37,8 +37,8 @@ public class RegisterUser {
 //        this.valicode = valicode;
 //    }
 //
-//    public String getUsername() {
-//        return username;
+//    public String getUserName() {
+//        return userName;
 //    }
 //
 //    public String getPassword() {

@@ -2,10 +2,13 @@
 <project version="4">
   <component name="SqlDialectMappings">
     <file url="file://$PROJECT_DIR$/src/main/java/com/chinahitech/shop/mapper/ActivityMapper.java" dialect="MySQL" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/chinahitech/shop/mapper/ApplicationMapper.java" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/chinahitech/shop/mapper/GroupMapper.java" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/chinahitech/shop/mapper/IndividualActivityMapper.java" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/chinahitech/shop/mapper/IndividualGroupMapper.java" dialect="MySQL" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/chinahitech/shop/mapper/ManagerMapper.java" dialect="GenericSQL" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/chinahitech/shop/mapper/StuMapper.java" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/chinahitech/shop/mapper/InspectionMapper.java" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/chinahitech/shop/mapper/ManagerMapper.java" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/chinahitech/shop/mapper/StuAppMapper.java" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/chinahitech/shop/mapper/StuMapper.java" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/chinahitech/shop/mapper/TopManagerMapper.java" dialect="MySQL" />
   </component>
 </project>

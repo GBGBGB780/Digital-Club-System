@@ -1,17 +1,17 @@
 import request from '@/utils/request'
 
 
-export function managerlogin(data) {
+export function managerlogin(userId,password) {
   return request({
-    url: '/group/login',
+    url: '/manager/login',
     method: 'post',
-    data // {name=xx,xx=xx}
+    params: { userId,password }
   })
 }
 
 export function getInfo(token) {
   return request({
-    url: '/user/info',
+    url: '/manager/info',
     method: 'get',
     params: { token } // name=xx&xxx=xxx
   })
@@ -19,7 +19,15 @@ export function getInfo(token) {
 
 export function logout() {
   return request({
-    url: '/group/logout',
+    url: '/manager/logout',
     method: 'post'
   })
+}
+
+  export function managedgroup(managerId) {
+    return request({
+      url: '/individualGroup/allManagedGroups',
+      method: 'get',
+      params: { managerId }
+    })
 }

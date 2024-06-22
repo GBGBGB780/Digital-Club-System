@@ -36,6 +36,13 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
 }</component>
@@ -67,7 +74,9 @@
     &quot;JUnit.ActivityMapperTest.updateHot.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.ActivityMapperTest.updateHotTest.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.ActivityMapperTest.updateImageTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.IndividualGroupServiceTest.getAllManagedGroupsTest.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.ShopApplicationTests.findGroup.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.StuMapperTest.addStudentTest.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.StuMapperTest.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.StuMapperTest.updateStudentTest.executor&quot;: &quot;Run&quot;,
     &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
@@ -82,30 +91,40 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/ljh/IdeaProjects/baituanProject/club_springboot&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/java program/club_springboot/src/main/java/com/chinahitech/shop/service&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;模块&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.17&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;application.passwordSafe&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;spring.configuration.checksum&quot;: &quot;fb54f3c5992b96d001bb16e8e92d968d&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
     &quot;DatabaseDriversLRU&quot;: [
       &quot;mysql_aurora_aws&quot;
+    ],
+    &quot;com.intellij.ide.scratch.LRUPopupBuilder$1/SQL 方言&quot;: [
+      &quot;MySQL&quot;
     ]
   }
 }</component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\java program\club_springboot\src\main\java\com\chinahitech\shop\service" />
       <recent name="D:\java program\club_student\src\main\java\com\chinahitech\shop\service\exception" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.chinahitech.shop.service" />
+      <recent name="com.chinahitech.shop.controller" />
+      <recent name="com.chinahitech.shop.mapper" />
       <recent name="com.chinahitech.shop.bean" />
     </key>
   </component>
@@ -142,38 +161,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ActivityMapperTest.findtopTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="shop" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.chinahitech.shop.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.chinahitech.shop" />
-      <option name="MAIN_CLASS_NAME" value="com.chinahitech.shop.ActivityMapperTest" />
-      <option name="METHOD_NAME" value="findtopTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ActivityMapperTest.updateHot" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="shop" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.chinahitech.shop.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.chinahitech.shop" />
-      <option name="MAIN_CLASS_NAME" value="com.chinahitech.shop.ActivityMapperTest" />
-      <option name="METHOD_NAME" value="updateHot" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="ActivityMapperTest.updateHotTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="shop" />
       <extension name="coverage">
@@ -190,9 +177,49 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="IndividualGroupServiceTest.getAllManagedGroupsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="shop" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.chinahitech.shop.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.chinahitech.shop" />
+      <option name="MAIN_CLASS_NAME" value="com.chinahitech.shop.IndividualGroupServiceTest" />
+      <option name="METHOD_NAME" value="getAllManagedGroupsTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StuMapperTest.addStudentTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="shop" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.chinahitech.shop.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.chinahitech.shop" />
+      <option name="MAIN_CLASS_NAME" value="com.chinahitech.shop.StuMapperTest" />
+      <option name="METHOD_NAME" value="addStudentTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ShopApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="shop" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.chinahitech.shop.ShopApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test_projectApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="scan" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.test_project.test_projectApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -207,19 +234,19 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.IndividualGroupServiceTest.getAllManagedGroupsTest" />
+        <item itemvalue="JUnit.StuMapperTest.addStudentTest" />
         <item itemvalue="JUnit.ActivityMapperTest.updateHotTest" />
         <item itemvalue="JUnit.ActivityMapperTest.deleteActivityTest" />
         <item itemvalue="JUnit.ActivityMapperTest.addActivityTest" />
-        <item itemvalue="JUnit.ActivityMapperTest.findtopTest" />
-        <item itemvalue="JUnit.ActivityMapperTest.updateHot" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.15989.150" />
-        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-IU-241.15989.150" />
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.17011.79" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.17011.79" />
       </set>
     </attachedChunks>
   </component>
@@ -253,7 +280,41 @@
       <workItem from="1715956641028" duration="6395000" />
       <workItem from="1716013444731" duration="9072000" />
       <workItem from="1716184793121" duration="591000" />
-      <workItem from="1716186331901" duration="541000" />
+      <workItem from="1716186331901" duration="4762000" />
+      <workItem from="1716193586757" duration="2672000" />
+      <workItem from="1716280107669" duration="2810000" />
+      <workItem from="1716295294106" duration="5955000" />
+      <workItem from="1716371945562" duration="1245000" />
+      <workItem from="1716382330773" duration="2276000" />
+      <workItem from="1716441493478" duration="23000" />
+      <workItem from="1716443356940" duration="8671000" />
+      <workItem from="1716479425264" duration="597000" />
+      <workItem from="1716535672412" duration="174000" />
+      <workItem from="1716652214562" duration="621000" />
+      <workItem from="1716734801906" duration="710000" />
+      <workItem from="1716790820412" duration="5026000" />
+      <workItem from="1716798195087" duration="1136000" />
+      <workItem from="1716800238668" duration="15000" />
+      <workItem from="1716800354882" duration="27000" />
+      <workItem from="1716800890387" duration="28000" />
+      <workItem from="1716808877859" duration="1367000" />
+      <workItem from="1716871390634" duration="2520000" />
+      <workItem from="1716887409217" duration="938000" />
+      <workItem from="1716897185553" duration="9309000" />
+      <workItem from="1716963221439" duration="596000" />
+      <workItem from="1716984333984" duration="581000" />
+      <workItem from="1716984927124" duration="799000" />
+      <workItem from="1716985754054" duration="5766000" />
+      <workItem from="1717045391708" duration="3971000" />
+      <workItem from="1717070736290" duration="1471000" />
+      <workItem from="1717136678103" duration="722000" />
+      <workItem from="1717141993178" duration="569000" />
+      <workItem from="1717142795399" duration="2312000" />
+      <workItem from="1717145932045" duration="1945000" />
+      <workItem from="1717156770595" duration="5785000" />
+      <workItem from="1717213258203" duration="2228000" />
+      <workItem from="1717215863906" duration="350000" />
+      <workItem from="1717245277076" duration="951000" />
     </task>
     <task id="LOCAL-00001" summary="增加了一个查询天气的api">
       <created>1686468078163</created>

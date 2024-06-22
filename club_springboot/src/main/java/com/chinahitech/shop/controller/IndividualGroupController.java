@@ -32,7 +32,7 @@ public class IndividualGroupController {
     //管理员端
     //获取该社团的所有学生及其职位
     @RequestMapping("/getAllStudents")
-    public Result getStudentsByGroup(String groupId) {
+    public Result getStudentsByGroup(int groupId) {
         List<IndividualGroup> studentList = individualGroupService.getGroupByGroupId(groupId);
         System.out.println(studentList);
         return Result.ok().data("items", studentList);
@@ -40,21 +40,21 @@ public class IndividualGroupController {
 
     //该社团普通成员的增加
     @RequestMapping("/addGroupStudent")
-    public Result addGroupStudent(String groupId, String studentId, String position) {
+    public Result addGroupStudent(int groupId, String studentId, String position) {
         individualGroupService.addGroupStudent(groupId, studentId, position);
         return Result.ok().message("社团"+ groupId +"添加学生"+ studentId +"成功");
     }
 
     //该社团普通成员的修改
     @RequestMapping("/modifyGroupStudent")
-    public Result modifyGroupStudent(String groupId, String studentId, String position) {
+    public Result modifyGroupStudent(int groupId, String studentId, String position) {
         individualGroupService.modifyGroupStudent(groupId, studentId, position);
         return Result.ok().message("社团"+ groupId +"修改学生"+ studentId +"的信息成功");
     }
 
     //该社团普通成员的删除
     @RequestMapping("/deleteGroupStudent")
-    public Result deleteGroupStudent(String groupId, String studentId) {
+    public Result deleteGroupStudent(int groupId, String studentId) {
         individualGroupService.deleteGroupStudent(groupId, studentId);
         return Result.ok().message("社团"+ groupId +"删除学生"+ studentId +"成功");
     }
@@ -62,10 +62,25 @@ public class IndividualGroupController {
     //获取该管理员管理的所有社团
     @RequestMapping("/allManagedGroups")
     public Result getAllManagedGroups(String managerId) {
+        System.out.println(managerId);
         List<Group> groupList = individualGroupService.getAllManagedGroups(managerId);
         System.out.println(groupList);
         return Result.ok().data("items", groupList);
     }
 
+    //该社团的管理权限转让
+    @RequestMapping("/transferStatus")
+    public Result transferStatus(int groupId, String managerId, String userId) {
+        individualGroupService.transferStatus(groupId, managerId, userId);
+        return Result.ok().message("社团"+ groupId +"管理权限转让给学生"+ userId +"成功");
+    }
+
     //超级管理员端
+
+    //修改权限（需要事先获取所需修改的用户id，所在社团id以及在该社团的权限）
+    @RequestMapping("/updatePermission")
+    public Result updatePermission(int groupId, String studentId, int status) {
+        individualGroupService.updatePermission(groupId, studentId, status);
+        return Result.ok().message("社团"+ groupId +"修改用户"+ studentId +"的权限成功");
+    }
 }

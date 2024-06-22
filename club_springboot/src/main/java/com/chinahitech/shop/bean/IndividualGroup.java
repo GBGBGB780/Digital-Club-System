@@ -1,5 +1,6 @@
 package com.chinahitech.shop.bean;
 
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
@@ -12,9 +13,10 @@ import java.util.Date;
 @ToString
 public class IndividualGroup {
     //    private String id;
-    @JsonProperty("username")
+    @JsonProperty("userName")
+    @TableId
     private int id;
-    private String groupId;
+    private int groupId;
     private String userId;
     private String position;
     private String userName;
