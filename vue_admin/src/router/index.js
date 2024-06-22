@@ -99,6 +99,19 @@ export const constantRoutes = [{
     {
         path: '/',
         component: Layout,
+        redirect: '/studentdetail/:id',
+        children: [{
+          path: 'studentdetail/:id',
+          name: 'Studentdetail',
+          component: () =>
+            import('@/views/studentdetail/index'),
+        //   meta: { title: 'studentdetail', icon: 'table' }
+        }]
+    },
+
+    {
+        path: '/',
+        component: Layout,
         redirect: '/groupdetail',
         children: [{
             path: 'groupdetail',

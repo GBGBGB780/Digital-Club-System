@@ -1,49 +1,49 @@
 <template>
   <div class="card-container">
-    <div v-for="detail in applications" :key="detail.applicationId" class="card">
+    <div  :key="applications.applicationId" class="card">
       <h2 class="card-title">申请详情信息</h2>
       <div class="table-wrapper">
         <table class="table-content">
           <tr>
             <td>申请编号:</td>
-            <td>{{ detail.applicationId }}</td>
+            <td>{{ applications.applicationId }}</td>
           </tr>
           <tr>
             <td>社团名称:</td>
-            <td>{{ detail.groupName }}</td>
+            <td>{{ applications.groupName }}</td>
           </tr>
           <tr>
             <td>姓名:</td>
-            <td>{{ detail.stuName }}</td>
+            <td>{{ applications.stuName }}</td>
           </tr>
           <tr>
             <td>学号:</td>
-            <td>{{ detail.stuNumber }}</td>
+            <td>{{ applications.stuNumber }}</td>
           </tr>
           <tr>
             <td>手机号:</td>
-            <td>{{ detail.phone }}</td>
+            <td>{{ applications.phone }}</td>
           </tr>
           <tr>
             <td>性别:</td>
-            <td>{{ detail.gender }}</td>
+            <td>{{ applications.gender }}</td>
           </tr>
           <tr>
             <td>专业:</td>
-            <td>{{ detail.major }}</td>
+            <td>{{ applications.major }}</td>
           </tr>
           <tr>
             <td>自我介绍:</td>
-            <td>{{ detail.selfIntro }}</td>
+            <td>{{ applications.selfIntro }}</td>
           </tr>
           <tr>
             <td>申请时间:</td>
-            <td>{{ detail.time | formatDate }}</td>
+            <td>{{ applications.time | formatDate }}</td>
           </tr>
           <tr>
             <td>申请状态:</td>
-            <td v-if="detail.isAccepted === true">已批准</td>
-            <td v-else-if="detail.isAccepted === false">已拒绝</td>
+            <td v-if="applications.isAccepted === true">已批准</td>
+            <td v-else-if="applications.isAccepted === false">已拒绝</td>
             <td v-else>待审核</td>
           </tr>
         </table>
@@ -51,17 +51,17 @@
       <div class="button-container">
         <el-form>
           <el-button
-            v-if="detail.attachment !== null"
+            v-if="applications.attachment !== null"
             type="primary"
             class="edit-button left-button"
-            @click="openAttachment(detail)"
+            @click="openAttachment(applications)"
           >查看附件</el-button>
 
           <el-button
-            v-if="detail.isAccepted === null"
+            v-if="applications.isAccepted === null"
             type="success"
             class="edit-button"
-            @click="submitAccept(detail)"
+            @click="submitAccept(applications)"
           >
             同意申请
           </el-button>
@@ -72,10 +72,10 @@
             同意申请
           </el-button>
           <el-button
-            v-if="detail.isAccepted === null"
+            v-if="applications.isAccepted === null"
             type="danger"
             class="edit-button"
-            @click="submitReject(detail)"
+            @click="submitReject(applications)"
           >
             拒绝申请
           </el-button>
@@ -117,7 +117,7 @@ export default {
   },
   data() {
     return {
-      applications: []
+      applications: '',
       // isAccepted: '',
     }
   },

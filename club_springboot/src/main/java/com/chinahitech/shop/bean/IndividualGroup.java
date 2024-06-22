@@ -13,12 +13,13 @@ import java.util.Date;
 @ToString
 public class IndividualGroup {
     //    private String id;
-    @JsonProperty("userName")
+
     @TableId
     private int id;
     private int groupId;
     private String userId;
     private String position;
+    @JsonProperty("userName")
     private String userName;
     private int status;
     private String createUser;

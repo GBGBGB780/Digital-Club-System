@@ -4,7 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b849962b-f7a7-45d1-bd6b-140ec1eb19ac" name="变更" comment="StuMapper测试集的构建" />
+    <list default="true" id="b849962b-f7a7-45d1-bd6b-140ec1eb19ac" name="变更" comment="StuMapper测试集的构建">
+      <change afterPath="$PROJECT_DIR$/../vue_admin/src/views/studentdetail/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/2b954039-71e6-4548-a37b-ef3a713b5bfc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/2b954039-71e6-4548-a37b-ef3a713b5bfc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b2e6cc34-18a0-4331-ad76-516408abcbab.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b2e6cc34-18a0-4331-ad76-516408abcbab.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chinahitech/shop/bean/IndividualGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chinahitech/shop/bean/IndividualGroup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chinahitech/shop/bean/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chinahitech/shop/bean/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chinahitech/shop/controller/StuAppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chinahitech/shop/controller/StuAppController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/chinahitech/shop/bean/IndividualGroup.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/chinahitech/shop/bean/IndividualGroup.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/chinahitech/shop/bean/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/chinahitech/shop/bean/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/chinahitech/shop/controller/StuAppController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/chinahitech/shop/controller/StuAppController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin/src/api/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vue_admin/src/api/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vue_admin/src/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin/src/views/appdetail/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../vue_admin/src/views/appdetail/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_admin/src/views/student/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../vue_admin/src/views/student/index.vue" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -91,7 +109,7 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/java program/club_springboot/src/main/java/com/chinahitech/shop/service&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/学习/程序分析实验github代码/Tai-e-assignments/A6/tai-e&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -245,8 +263,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.17011.79" />
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.17011.79" />
+        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
       </set>
     </attachedChunks>
   </component>
@@ -310,6 +328,8 @@
       <workItem from="1717136678103" duration="722000" />
       <workItem from="1717141993178" duration="569000" />
       <workItem from="1717142795399" duration="2312000" />
+      <workItem from="1718188084283" duration="73000" />
+      <workItem from="1719039767945" duration="5779000" />
     </task>
     <task id="LOCAL-00001" summary="增加了一个查询天气的api">
       <created>1686468078163</created>

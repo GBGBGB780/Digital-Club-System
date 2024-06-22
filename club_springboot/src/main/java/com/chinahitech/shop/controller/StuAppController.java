@@ -77,7 +77,7 @@ public class StuAppController {
     public Result getRecApp(Integer id) {
         StuApp StuApp = stuAppService.queryDetailapp(id);
         String isAcceptedStr = stuAppService.findIsAccepted(id); // 直接获取特定id的isAccepted值
-        System.out.println(id);
+        System.out.println(StuApp);
         return Result.ok().data("items", StuApp).data("isAccepted", isAcceptedStr);
     }
 
