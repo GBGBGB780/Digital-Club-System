@@ -14,7 +14,16 @@ public interface IndividualGroupMapper extends BaseMapper<IndividualGroup> {
     List<IndividualGroup> getGroupByStuId(@Param("userId") String userId);
 
     @Select("select * from `Individual_group` WHERE group_id = #{groupId}")
-    List<IndividualGroup> getGroupByGroupId(@Param("groupId") int groupId);
+    List<IndividualGroup> getAllStudentsByGroup(@Param("groupId") int groupId);
+
+    @Select("select * from `Individual_group` WHERE user_name = #{userName} and group_id = #{groupId}")
+    List<IndividualGroup> getStudentsByGroupAndStuName(@Param("userName") String userName, @Param("groupId") int groupId);
+
+    @Select("select * from `Individual_group` order by group_id")
+    List<IndividualGroup> getAllStudents();
+
+    @Select("select * from `Individual_group` WHERE user_name = #{userName} order by group_id")
+    List<IndividualGroup> getStudentsByStuName(@Param("userName") String userName);
 
     @Select("select * from `Individual_group` WHERE user_id = #{userId} and status >= 1")
     List<IndividualGroup> getAllManagedGroups(@Param("userId") String userId);

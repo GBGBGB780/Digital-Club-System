@@ -37,6 +37,7 @@ public class GroupController {
     @Value("${upload-dir}")
     private String uploadDir;
 
+    //所有社团
     @RequestMapping("/all")
     public Result getAll(String searchInfo){
         List<Group> groups = groupService.query(searchInfo);

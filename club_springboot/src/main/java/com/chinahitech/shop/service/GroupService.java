@@ -41,11 +41,11 @@ public class GroupService {
         return group;
     }
 
-    public List<Group> query(String searchinfo) {
-        if (searchinfo == null || searchinfo.trim().isEmpty()) {
-            return groupMapper.findall();
+    public List<Group> query(String searchInfo) {
+        if (searchInfo == null || searchInfo.trim().isEmpty()) {
+            return groupMapper.findAll();
         } else {
-            return groupMapper.findBySearch(searchinfo);
+            return groupMapper.findBySearch(searchInfo);
         }
     }
 
