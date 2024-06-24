@@ -213,7 +213,7 @@ export default {
           {
             this.retrievepwdloading=false
             this.mail=response.data.email
-            this.resetdialogVisible=false
+            this.senddialogVisible=false
             this.tips='请前往您的企业邮箱并在此输入您的验证码'
             this.retrievepwdloading=true
             this.verifydialogVisible=true
