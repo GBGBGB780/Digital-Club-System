@@ -81,3 +81,19 @@ export function logout() {
     method: 'post'
   })
 }
+
+export function verifyemail(stuNumber) {
+  return request({
+    url: '/student/getEmail',
+    method: 'post',
+    params: { stuNumber }
+  })
+}
+
+export function verifycode(email, validateCode) {
+  return request({
+    url: '/student/getValidate',
+    method: 'post',
+    params: { email, validateCode }
+  })
+}
