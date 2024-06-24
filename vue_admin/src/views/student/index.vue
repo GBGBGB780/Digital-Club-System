@@ -1,12 +1,14 @@
 <template>
     <div class="student-container">
       <div>
+        <el-input @keyup.enter.native="handleSearch" v-model="searchInfo" placeholder="搜索成员" clearable style="width: 10%;"/>
+         <el-button icon="el-icon-search" @click="handleSearch" />
         <el-table 
           :data="studentlist"
           style="width: 100%"
           @row-click="handleRowClick">
           <el-table-column
-            prop=userName
+            prop=user_name
             label="姓名"
             width="200">
             <template slot-scope="scope">
@@ -14,7 +16,7 @@
             </template>
           </el-table-column>
           <el-table-column
-            prop=userId
+            prop=user_id
             label="学号"
             width="230">
             <template slot-scope="scope">
@@ -22,14 +24,13 @@
             </template>
           </el-table-column>
           <el-table-column
-            prop=cteateTime
+            prop=cteate_time
             label="申请时间"
             width="300">
             <template slot-scope="scope">
               <span class="text">{{ formatDate(scope.row.cteateTime) }}</span>
             </template>
           </el-table-column>
-          
         </el-table>
       </div>
     </div>
@@ -37,6 +38,7 @@
   
   <script>
   import { mapGetters } from 'vuex'
+  import{ searchStudent } from "@/api/user.js"
   import { getStudentList } from "@/api/table.js";
   
   export default {
@@ -48,6 +50,8 @@
     data() {
         return {
           studentlist: [],
+          totalItems: 0,
+          searchInfo: '',
         };
       },
     created: function () {
@@ -60,7 +64,7 @@
     },
     methods: {
       handleRowClick(row) {
-      const id = row.applicationId; // 获取当前行的id
+      const id = row.userId; // 获取当前行的id
       this.$router.push({
         name: 'Studentdetail',
         params: { 'id': id }
@@ -73,7 +77,19 @@
           d.getMonth() + 1
         }月${d.getDate()}日 ${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}:${String(d.getSeconds()).padStart(2, '0')}`;
       },
+      handleSearch() {
+        console.log(this.searchInfo);
+        searchStudent(this.searchInfo)
+        .then((response) => {
+          this.studentlist = response.data.items;
+          
+        })
+        .catch((error) => {
+          console.error(error)
+        })
+      }
     },
+    
   }
   </script>
   

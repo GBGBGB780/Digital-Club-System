@@ -31,3 +31,20 @@ export function logout() {
       params: { managerId }
     })
 }
+
+
+export function getStudentDetail(userId) {
+  return request({
+    url: '/manager/profile',
+    method: 'post',
+    params: { userId }
+  })
+}
+
+export function searchStudent(studentId) {
+  return request({
+    url: '/individualGroup/allGroups',
+    method: 'post',
+    params: { studentId }
+  })
+}

@@ -22,3 +22,19 @@ export function logout() {
     method: 'post'
   })
 }
+
+export function showGroups(searchInfo) {
+  return request({
+    url: '/group/all',
+    method: 'post',
+    params: { searchInfo }
+  })
+}
+
+export function getGroups(searchInfo) {
+  return request({
+    url: '/group/all',
+    method: 'get',
+    params: { searchInfo }
+  })
+}

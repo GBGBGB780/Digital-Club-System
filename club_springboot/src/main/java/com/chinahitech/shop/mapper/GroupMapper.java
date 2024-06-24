@@ -20,10 +20,10 @@ public interface GroupMapper extends BaseMapper<Group> {
     // void updatePassword(@Param("id") String id, @Param("password") String password);
     
     @Select("select * from `group` WHERE is_accepted = true")
-    List<Group> findall();
+    List<Group> findAll();
 
-    @Select("SELECT * FROM `group` WHERE name LIKE CONCAT('%', #{searchinfo}, '%') and is_accepted = true")
-    List<Group> findBySearch(String searchinfo);
+    @Select("SELECT * FROM `group` WHERE name LIKE CONCAT('%', #{searchInfo}, '%') and is_accepted = true")
+    List<Group> findBySearch(String searchInfo);
 
 
     @Select("select * from `group` where id = #{id} and is_accepted = true" )

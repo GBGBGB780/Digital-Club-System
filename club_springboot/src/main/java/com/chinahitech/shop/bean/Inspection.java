@@ -14,7 +14,6 @@ import java.util.Date;
 @AllArgsConstructor
 @ToString
 public class Inspection{
-    @JsonProperty("userName")
     @TableId
     private int id;
     private String attachment;

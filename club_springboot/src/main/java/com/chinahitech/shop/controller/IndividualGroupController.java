@@ -31,9 +31,9 @@ public class IndividualGroupController {
 
     //管理员端
     //获取该社团的所有学生及其职位
-    @RequestMapping("/getAllStudents")
-    public Result getStudentsByGroup(int groupId) {
-        List<IndividualGroup> studentList = individualGroupService.getGroupByGroupId(groupId);
+    @RequestMapping("/getStudentsByGroup")
+    public Result getStudentsByGroup(int groupId, String searchInfo) {
+        List<IndividualGroup> studentList = individualGroupService.getStudentsByGroup(groupId, searchInfo);
         System.out.println(studentList);
         return Result.ok().data("items", studentList);
     }
@@ -82,5 +82,13 @@ public class IndividualGroupController {
     public Result updatePermission(int groupId, String studentId, int status) {
         individualGroupService.updatePermission(groupId, studentId, status);
         return Result.ok().message("社团"+ groupId +"修改用户"+ studentId +"的权限成功");
+    }
+
+    //获取所有学生信息（根据社团来排序）
+    @RequestMapping("/getAllStudents")
+    public Result getAllStudents(String searchInfo) {
+        List<IndividualGroup> studentList = individualGroupService.getAllStudents(searchInfo);
+        System.out.println(studentList);
+        return Result.ok().data("items", studentList);
     }
 }
