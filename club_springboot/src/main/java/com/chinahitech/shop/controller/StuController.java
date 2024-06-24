@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Objects;
 
 @RestController
-@RequestMapping("/student")
+    @RequestMapping("/student")
 @CrossOrigin
 public class StuController {
     @Autowired
