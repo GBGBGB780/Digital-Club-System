@@ -26,9 +26,9 @@ public class TopManagerService {
 
     public User getByUserId(String num) {
         User stu = topManagerMapper.getByNum(num);
-        if (stu == null) {
-            throw new EntityNotFoundException("超级管理员"+ num +"不存在");
-        }
+//        if (stu == null) {
+//            throw new EntityNotFoundException("超级管理员"+ num +"不存在");
+//        }
         return stu;
     }
 

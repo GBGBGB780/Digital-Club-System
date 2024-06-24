@@ -72,6 +72,9 @@ public class StuController {
         System.out.println(stuNumber);
         User student = stuService.getByStuNumber(stuNumber);
         System.out.println(student);
+        if (student == null){
+            return Result.error().message("用户不存在!");
+        }
         String email = student.getEmail();
         EmailService sEmail;
         try{

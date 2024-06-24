@@ -18,9 +18,9 @@ public class StuService {
 
     public User getByStuNumber(String num) {
         User stu = stuMapper.getByNum(num);
-        if (stu == null) {
-            throw new EntityNotFoundException("学生"+ num +"不存在");
-        }
+//        if (stu == null) {
+//            throw new EntityNotFoundException("学生"+ num +"不存在");
+//        }
         return stu;
     }
 

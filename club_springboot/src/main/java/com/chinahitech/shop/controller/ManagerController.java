@@ -75,6 +75,9 @@ public class ManagerController {
         System.out.println(userNumber);
         User user = managerService.getByUserId(userNumber);
         System.out.println(user);
+        if (user == null){
+            return Result.error().message("用户不存在!");
+        }
         String email = user.getEmail();
         EmailService sEmail;
         try{

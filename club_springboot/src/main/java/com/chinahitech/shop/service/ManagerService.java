@@ -17,9 +17,9 @@ public class ManagerService {
 
     public User getByUserId(String num) {
         User stu = managerMapper.getByNum(num);
-        if (stu == null) {
-            throw new EntityNotFoundException("管理员"+ num +"不存在");
-        }
+//        if (stu == null) {
+//            throw new EntityNotFoundException("管理员"+ num +"不存在");
+//        }
         return stu;
     }
 
