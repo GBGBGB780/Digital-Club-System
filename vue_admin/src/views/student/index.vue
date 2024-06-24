@@ -78,7 +78,7 @@
         }月${d.getDate()}日 ${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}:${String(d.getSeconds()).padStart(2, '0')}`;
       },
       handleSearch() {
-        console.log(this.searchInfo);
+        
         searchStudent(this.searchInfo)
         .then((response) => {
           this.studentlist = response.data.items;
