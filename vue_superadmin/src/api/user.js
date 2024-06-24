@@ -22,7 +22,13 @@ export function logout() {
     method: 'post'
   })
 }
-
+export function getAllStudent(searchInfo) {
+  return request({
+    url: '/topManager/getAllUsers',
+    method: 'post',
+    params: { searchInfo }
+  })
+}
 export function showGroups(searchInfo) {
   return request({
     url: '/group/all',
