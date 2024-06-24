@@ -91,4 +91,6 @@ public class IndividualGroupController {
         System.out.println(studentList);
         return Result.ok().data("items", studentList);
     }
+
+
 }
