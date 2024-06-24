@@ -12,7 +12,6 @@ import java.util.Date;
 @AllArgsConstructor
 @ToString
 public class Group{
-    @JsonProperty("userName")
     @TableId
     private int id;
     private String name;

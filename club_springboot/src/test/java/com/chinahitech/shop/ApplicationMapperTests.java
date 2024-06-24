@@ -26,8 +26,8 @@ class ApplicationMapperTests {
     @Test
     public void findMyappTest(){
         StuApp application = new StuApp();
-        application.setStuNumber("21311272");
-        List<StuApp> a = stuAppMapper.findMyapp(application.getStuNumber());
+        application.setStunumber("21311272");
+        List<StuApp> a = stuAppMapper.findMyapp(application.getStunumber());
         System.out.println(a);
         System.out.println("测试通过");
     }
@@ -35,26 +35,26 @@ class ApplicationMapperTests {
     @Test
     public void findRecvappTest(){
         StuApp application = new StuApp();
-        application.setGroupName("篮球社");
-        List<StuApp> a = stuAppMapper.findRecvapp(application.getGroupName());
+        application.setGroupname("篮球社");
+        List<StuApp> a = stuAppMapper.findRecvapp(application.getGroupname());
         System.out.println(a);
         System.out.println("测试通过");
     }
 
-//    @Test
-//    public void findDetailappTest(){
-//        StuApp application = new StuApp();
-//        application.setApplicationId(1);
-//        List<StuApp> a = stuAppMapper.findDetailapp(application.getApplicationId());
-//        System.out.println(a);
-//        System.out.println("测试通过");
-//    }
+    @Test
+    public void findDetailappTest(){
+        StuApp application = new StuApp();
+        application.setApplicationid(1);
+        List<StuApp> a = stuAppMapper.findDetailapp(application.getApplicationid());
+        System.out.println(a);
+        System.out.println("测试通过");
+    }
 
     @Test
     public void findIsAcceptedTest(){
         StuApp application = new StuApp();
-        application.setApplicationId(1);
-        String a = stuAppMapper.findIsAccepted(application.getApplicationId());
+        application.setApplicationid(1);
+        String a = stuAppMapper.findIsAccepted(application.getApplicationid());
         System.out.println(a);
         System.out.println("测试通过");
     }
@@ -62,9 +62,9 @@ class ApplicationMapperTests {
     @Test
     public void updateAttachmentTest(){
         StuApp application = new StuApp();
-        application.setApplicationId(1);
+        application.setApplicationid(1);
         application.setAttachment("附件5");
-        int a = stuAppMapper.updateAttachment(application.getApplicationId(),application.getAttachment());
+        int a = stuAppMapper.updateAttachment(application.getApplicationid(),application.getAttachment());
         System.out.println(a);
         System.out.println("测试通过");
     }
@@ -72,8 +72,8 @@ class ApplicationMapperTests {
     @Test
     public void confirmApplicationByidTest(){
         StuApp application = new StuApp();
-        application.setApplicationId(6);
-        int a = stuAppMapper.confirmApplicationByid(application.getApplicationId());
+        application.setApplicationid(6);
+        int a = stuAppMapper.confirmApplicationByid(application.getApplicationid());
         System.out.println(a);
         System.out.println("测试通过");
     }
@@ -81,8 +81,8 @@ class ApplicationMapperTests {
     @Test
     public void denyApplicationByidTest(){
         StuApp application = new StuApp();
-        application.setApplicationId(6);
-        int a = stuAppMapper.denyApplicationByid(application.getApplicationId());
+        application.setApplicationid(6);
+        int a = stuAppMapper.denyApplicationByid(application.getApplicationid());
         System.out.println(a);
         System.out.println("测试通过");
     }

@@ -12,10 +12,10 @@ import java.util.Date;
 @AllArgsConstructor
 @ToString
 public class User{
+    @JsonProperty("userId")
     @TableId
     private String userId;
     private String password;
-    @JsonProperty("userName")
     private String userName;
     private String email;
     private String phone;

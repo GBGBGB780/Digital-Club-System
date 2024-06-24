@@ -36,9 +36,21 @@ public class IndividualGroupService {
         return individualGroupMapper.getGroupByStuId(userId);
     }
 
-    public List<IndividualGroup> getGroupByGroupId(int groupId) {
+    public List<IndividualGroup> getStudentsByGroup(int groupId, String searchInfo) {
         Group group = validateGroup(groupId);
-        return individualGroupMapper.getGroupByGroupId(groupId);
+        if (searchInfo == null || searchInfo.trim().isEmpty()) {
+            return individualGroupMapper.getAllStudentsByGroup(groupId);
+        } else {
+            return individualGroupMapper.getStudentsByGroupAndStuName(searchInfo, groupId);
+        }
+    }
+
+    public List<IndividualGroup> getAllStudents(String searchInfo) {
+        if (searchInfo == null || searchInfo.trim().isEmpty()) {
+            return individualGroupMapper.getAllStudents();
+        } else {
+            return individualGroupMapper.getStudentsByStuName(searchInfo);
+        }
     }
 
     public List<Group> getAllManagedGroups(String managerId) {
