@@ -60,15 +60,25 @@
         </el-form-item>
         <div class="button-container">
         <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleLogin">Login</el-button>
-        <el-button type="primary" style="width:100%;margin-bottom:30px;" @click="showRegister">Register</el-button></div>
+        <!-- <el-button type="primary" style="width:100%;margin-bottom:30px;" @click="showRegister">Register</el-button>-->
+        <div class="tips" style="float:right;"><el-link type="white" @click="retrievePWD">忘记密码</el-link></div>
+        </div> 
       </el-form>
     </div>
+    <el-dialog :visible.sync="dialogVisible" title="找回密码" width="30%" :append-to-body="true" @close="retrievePWDDialog=false,reset()" >
+      <div style="font-size: 20px;">{{ this.tips }}</div>
+      <div style="display: flex;">
+        <el-input style="width: 300px;" v-model="stunum"></el-input>
+        <el-button @click="verify" :loading="retrievepwdloading">{{ this.msg }}</el-button>
+      </div>
+    </el-dialog>
   </div>
 </template>
 
 <script>
 import { validuserName } from '@/utils/validate'
-import { login } from '@/api/user.js'
+import { verifyemail } from '@/api/user.js'
+import { MessageBox } from 'element-ui'
 
 export default {
   name: 'Login',
@@ -98,7 +108,12 @@ export default {
       },
       loading: false,
       passwordType: 'password',
-      redirect: undefined
+      redirect: undefined,
+      tips: '请输入您的学号',
+      dialogVisible: false,
+      msg:'验证',
+      retrievepwdloading:false,
+      stunum:''
     }
   },
   
@@ -142,6 +157,32 @@ export default {
           return false
         }
       })
+    },
+    retrievePWD() {
+      this.dialogVisible=true;
+    },
+    verify() {
+      this.retrievepwdloading=true;
+      if(this.stunum!='')
+      {
+          verifyemail(this.stunum).then((response) => {
+          email = response.data.email
+          console.log(email)
+          verifycode(email,this.stunum).then((response) => {
+            console.log(response)
+
+          }).catch(error => {console.error(error)})
+        })
+        .catch(error => {
+          console.error(error)
+          this.retrievepwdloading=false;
+        })
+      }
+      else
+      {
+        this.$message({type: 'info',message: '请输入您的学号'});
+        this.retrievepwdloading=false;
+      }
     }
   }
 }
