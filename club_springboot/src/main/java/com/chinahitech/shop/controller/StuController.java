@@ -2,7 +2,7 @@ package com.chinahitech.shop.controller;
 
 import com.chinahitech.shop.bean.User;
 import com.chinahitech.shop.bean.notAddedToDatabase.RegisterUser;
-import com.chinahitech.shop.defineException.EmailException;
+import com.chinahitech.shop.exception.EmailException;
 import com.chinahitech.shop.service.EmailService;
 import com.chinahitech.shop.service.StuService;
 import com.chinahitech.shop.utils.JwtUtils;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Objects;
 
 @RestController
-    @RequestMapping("/student")
+@RequestMapping("/student")
 @CrossOrigin
 public class StuController {
     @Autowired
@@ -35,7 +35,7 @@ public class StuController {
             return Result.ok().data("token", token);
         } else {
             // 验证失败，返回错误信息
-            return Result.error().message("用户名或密码不正确");
+            return Result.error().message("密码不正确");
         }
     }
 
@@ -68,25 +68,14 @@ public class StuController {
 
     //首先获取该账号对应邮箱,发送验证码
     @PostMapping("/getEmail")
-    public Result getEmail(String stuNumber){
+    public Result getEmail(String stuNumber) throws Exception{
         System.out.println(stuNumber);
         User student = stuService.getByStuNumber(stuNumber);
         System.out.println(student);
-        if (student == null){
-            return Result.error().message("用户不存在!");
-        }
         String email = student.getEmail();
         EmailService sEmail;
-        try{
-            sEmail = new EmailService(email);
-        } catch(EmailException err){
-            return Result.error().message(err.expMessage());
-        }
-        try {
-            sEmail.sendEmail();
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+        sEmail = new EmailService(email);
+        sEmail.sendEmail();
         return Result.ok().data("email", email);
     }
 
@@ -112,11 +101,7 @@ public class StuController {
 //        String email = emailInfo.getEmail();
         System.out.println(email);
         EmailService sEmail;
-        try{
-            sEmail = new EmailService(email);
-        } catch(EmailException err){
-            return Result.error().message(err.expMessage());
-        }
+        sEmail = new EmailService(email);
         sEmail.sendEmail();
         return Result.ok().message("邮箱发送成功!");
     }

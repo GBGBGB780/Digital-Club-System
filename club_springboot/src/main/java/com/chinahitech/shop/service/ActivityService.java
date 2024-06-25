@@ -5,8 +5,8 @@ import com.chinahitech.shop.bean.Activity;
 import com.chinahitech.shop.mapper.ActivityMapper;
 import com.chinahitech.shop.mapper.IndividualActivityMapper;
 import com.chinahitech.shop.mapper.StuMapper;
-import com.chinahitech.shop.service.exception.EntityNotFoundException;
-import com.chinahitech.shop.service.exception.UpdateException;
+import com.chinahitech.shop.exception.EntityNotFoundException;
+import com.chinahitech.shop.exception.UpdateException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

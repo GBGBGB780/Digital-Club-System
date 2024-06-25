@@ -4,10 +4,10 @@ import com.chinahitech.shop.bean.Activity;
 import com.chinahitech.shop.bean.IndividualActivity;
 import com.chinahitech.shop.bean.User;
 import com.chinahitech.shop.mapper.*;
-import com.chinahitech.shop.service.exception.AccessDeniedException;
-import com.chinahitech.shop.service.exception.EntityNotFoundException;
-import com.chinahitech.shop.service.exception.InsertException;
-import com.chinahitech.shop.service.exception.UpdateException;
+import com.chinahitech.shop.exception.AccessDeniedException;
+import com.chinahitech.shop.exception.EntityNotFoundException;
+import com.chinahitech.shop.exception.InsertException;
+import com.chinahitech.shop.exception.UpdateException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

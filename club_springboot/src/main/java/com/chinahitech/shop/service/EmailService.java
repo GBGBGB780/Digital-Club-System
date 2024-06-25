@@ -1,6 +1,7 @@
 package com.chinahitech.shop.service;
 
-import com.chinahitech.shop.defineException.*;
+import com.chinahitech.shop.exception.EmailException;
+import com.chinahitech.shop.exception.RedisAddException;
 import com.chinahitech.shop.utils.RedisUtils;
 import org.springframework.scheduling.annotation.Async;
 
@@ -23,10 +24,10 @@ public class EmailService{
     public static RedisUtils ru;
 
 
-    public EmailService(String email_) throws EmailException{
+    public EmailService(String email_) throws EmailException {
         toEmail = email_;
         if(!checkEmail())
-            throw new EmailException(toEmail);
+            throw new EmailException(toEmail + "不属于校园邮箱，请使用中大邮箱注册");
     }
 
     private boolean checkEmail(){
@@ -64,6 +65,7 @@ public class EmailService{
 
         // 通过session得到transport对象
         Transport ts = session.getTransport();
+
         // 连接邮件服务器：邮箱类型，帐号，授权码代替密码（更安全）
         ts.connect("smtp.qq.com", "3416825450@qq.com", "sgcbbqgrhhiicjjj");
         // 后面的字符是授权码，用qq密码失败了
@@ -75,7 +77,7 @@ public class EmailService{
 
         boolean check = RedisUtils.set(toEmail, valicode, 300);
         if (!check) {
-            throw new RedisAddException();
+            throw new RedisAddException("Redis added error!");
         }
 
         ts.close();

@@ -4,8 +4,9 @@ import com.chinahitech.shop.bean.Activity;
 import com.chinahitech.shop.bean.Group;
 import com.chinahitech.shop.bean.IndividualGroup;
 import com.chinahitech.shop.bean.User;
+import com.chinahitech.shop.exception.*;
 import com.chinahitech.shop.mapper.*;
-import com.chinahitech.shop.service.exception.*;
+import com.chinahitech.shop.exception.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

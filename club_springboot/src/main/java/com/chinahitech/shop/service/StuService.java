@@ -1,9 +1,11 @@
 package com.chinahitech.shop.service;
 
 import com.chinahitech.shop.bean.User;
+import com.chinahitech.shop.exception.EntityNotFoundException;
+import com.chinahitech.shop.exception.InsertException;
+import com.chinahitech.shop.exception.UpdateException;
 import com.chinahitech.shop.mapper.StuMapper;
-import com.chinahitech.shop.service.exception.*;
-import com.chinahitech.shop.utils.RedisUtils;
+import com.chinahitech.shop.exception.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,9 +20,9 @@ public class StuService {
 
     public User getByStuNumber(String num) {
         User stu = stuMapper.getByNum(num);
-//        if (stu == null) {
-//            throw new EntityNotFoundException("学生"+ num +"不存在");
-//        }
+        if (stu == null) {
+            throw new EntityNotFoundException("学生"+ num +"不存在");
+        }
         return stu;
     }
 
@@ -53,9 +55,14 @@ public class StuService {
 //            System.out.println(salt);
         String currPwd = md5.MD5handler(lastPwd, salt);
 
-        int i = stuMapper.addStudent(stuNumber, currPwd, email, salt, date, date, 0);
-        if(i != 1){
-            throw new InsertException("学生"+ stuNumber +"添加失败");
+        User stu = stuMapper.getByNum(stuNumber);
+        if (stu != null) {
+            throw new UseridDuplicateException("学生"+ stuNumber +"已存在");
+        } else {
+            int i = stuMapper.addStudent(stuNumber, currPwd, email, salt, date, date, 0);
+            if(i != 1){
+                throw new InsertException("学生"+ stuNumber +"添加失败");
+            }
         }
     }
 

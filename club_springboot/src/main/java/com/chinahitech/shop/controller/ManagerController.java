@@ -2,7 +2,7 @@ package com.chinahitech.shop.controller;
 
 import com.chinahitech.shop.bean.User;
 import com.chinahitech.shop.bean.notAddedToDatabase.RegisterUser;
-import com.chinahitech.shop.defineException.EmailException;
+import com.chinahitech.shop.exception.EmailException;
 import com.chinahitech.shop.service.EmailService;
 import com.chinahitech.shop.service.ManagerService;
 import com.chinahitech.shop.utils.JwtUtils;
@@ -71,25 +71,14 @@ public class ManagerController {
 
     //首先获取该账号对应邮箱,发送验证码
     @PostMapping("/getEmail")
-    public Result getEmail(String userNumber){
+    public Result getEmail(String userNumber) throws Exception {
         System.out.println(userNumber);
         User user = managerService.getByUserId(userNumber);
         System.out.println(user);
-        if (user == null){
-            return Result.error().message("用户不存在!");
-        }
         String email = user.getEmail();
         EmailService sEmail;
-        try{
-            sEmail = new EmailService(email);
-        } catch(EmailException err){
-            return Result.error().message(err.expMessage());
-        }
-        try {
-            sEmail.sendEmail();
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+        sEmail = new EmailService(email);
+        sEmail.sendEmail();
         return Result.ok().data("email", email);
     }
 
@@ -114,11 +103,7 @@ public class ManagerController {
 //        String email = emailInfo.getEmail();
         System.out.println(email);
         EmailService sEmail;
-        try{
-            sEmail = new EmailService(email);
-        } catch(EmailException err){
-            return Result.error().message(err.expMessage());
-        }
+        sEmail = new EmailService(email);
         sEmail.sendEmail();
         return Result.ok().message("邮箱发送成功!");
     }

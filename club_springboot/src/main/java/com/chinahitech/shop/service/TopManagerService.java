@@ -1,10 +1,11 @@
 package com.chinahitech.shop.service;
 
 import com.chinahitech.shop.bean.User;
+import com.chinahitech.shop.exception.UseridDuplicateException;
 import com.chinahitech.shop.mapper.TopManagerMapper;
-import com.chinahitech.shop.service.exception.EntityNotFoundException;
-import com.chinahitech.shop.service.exception.InsertException;
-import com.chinahitech.shop.service.exception.UpdateException;
+import com.chinahitech.shop.exception.EntityNotFoundException;
+import com.chinahitech.shop.exception.InsertException;
+import com.chinahitech.shop.exception.UpdateException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -26,9 +27,9 @@ public class TopManagerService {
 
     public User getByUserId(String num) {
         User stu = topManagerMapper.getByNum(num);
-//        if (stu == null) {
-//            throw new EntityNotFoundException("超级管理员"+ num +"不存在");
-//        }
+        if (stu == null) {
+            throw new EntityNotFoundException("超级管理员"+ num +"不存在");
+        }
         return stu;
     }
 
@@ -63,9 +64,14 @@ public class TopManagerService {
 //            System.out.println(salt);
         String currPwd = md5.MD5handler(lastPwd, salt);
 
-        int i = topManagerMapper.addManager(userId, currPwd, email, salt, date, date, 10);
-        if(i != 1){
-            throw new InsertException("超级管理员"+ userId +"添加失败");
+        User user = topManagerMapper.getByNum(userId);
+        if (user != null) {
+            throw new UseridDuplicateException("超级管理员"+ userId +"已存在");
+        } else {
+            int i = topManagerMapper.addManager(userId, currPwd, email, salt, date, date, 10);
+            if(i != 1){
+                throw new InsertException("超级管理员"+ userId +"添加失败");
+            }
         }
     }
 

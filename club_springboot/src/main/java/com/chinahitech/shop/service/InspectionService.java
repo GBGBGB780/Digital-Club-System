@@ -1,10 +1,9 @@
 package com.chinahitech.shop.service;
 
-import com.chinahitech.shop.bean.Activity;
 import com.chinahitech.shop.bean.Inspection;
 import com.chinahitech.shop.mapper.*;
-import com.chinahitech.shop.service.exception.EntityNotFoundException;
-import com.chinahitech.shop.service.exception.UpdateException;
+import com.chinahitech.shop.exception.EntityNotFoundException;
+import com.chinahitech.shop.exception.UpdateException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
