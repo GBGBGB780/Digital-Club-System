@@ -4,6 +4,7 @@ package com.chinahitech.shop.controller;
 import com.chinahitech.shop.aop.RepeatLimit;
 import com.chinahitech.shop.bean.Group;
 import com.chinahitech.shop.bean.IndividualGroup;
+import com.chinahitech.shop.bean.notAddedToDatabase.GroupNum;
 import com.chinahitech.shop.service.IndividualGroupService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -102,5 +103,12 @@ public class IndividualGroupController {
         return Result.ok().data("items", studentList);
     }
 
-
+    //获取人数前五多的社团查询
+    @RepeatLimit
+    @RequestMapping("/getGroupMembers")
+    public Result getGroupMembers() {
+        List<GroupNum> groupList = individualGroupService.getGroupMembers();
+        System.out.println(groupList);
+        return Result.ok().data("items", groupList);
+    }
 }

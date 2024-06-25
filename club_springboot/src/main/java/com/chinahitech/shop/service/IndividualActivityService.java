@@ -3,6 +3,7 @@ package com.chinahitech.shop.service;
 import com.chinahitech.shop.bean.Activity;
 import com.chinahitech.shop.bean.IndividualActivity;
 import com.chinahitech.shop.bean.User;
+import com.chinahitech.shop.bean.notAddedToDatabase.ActivityNum;
 import com.chinahitech.shop.mapper.*;
 import com.chinahitech.shop.exception.AccessDeniedException;
 import com.chinahitech.shop.exception.EntityNotFoundException;
@@ -143,6 +144,17 @@ public class IndividualActivityService {
             throw new InsertException("活动"+ activityId +"删除学生"+ userId +"的信息失败");
         }
     }
+
+    public List<ActivityNum> getActivityMembers() {
+        List<ActivityNum> activityList = individualActivityMapper.getActivityMembers();
+//        System.out.println(groupList);
+        for (ActivityNum activity : activityList) {
+            activity.setActivityName(activityMapper.getActivityById(activity.getActivityId()).getName());
+        }
+        return activityList;
+    }
+
+
 
     //查询该学生是否存在
     public User validateStu(String userId) {

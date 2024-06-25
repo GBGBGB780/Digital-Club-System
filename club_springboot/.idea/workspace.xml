@@ -54,64 +54,64 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "JUnit.ActivityMapperTest.addActivityTest.executor": "Run",
-    "JUnit.ActivityMapperTest.deleteActivityTest.executor": "Run",
-    "JUnit.ActivityMapperTest.executor": "Run",
-    "JUnit.ActivityMapperTest.findActivityTest.executor": "Run",
-    "JUnit.ActivityMapperTest.findBySearchTest.executor": "Run",
-    "JUnit.ActivityMapperTest.findallTest.executor": "Run",
-    "JUnit.ActivityMapperTest.findtopTest.executor": "Run",
-    "JUnit.ActivityMapperTest.getActivityByGroupNameTest.executor": "Run",
-    "JUnit.ActivityMapperTest.getActivityByIdTest.executor": "Run",
-    "JUnit.ActivityMapperTest.getActivityByNameAndGroupNameTest.executor": "Run",
-    "JUnit.ActivityMapperTest.getByNameTest.executor": "Run",
-    "JUnit.ActivityMapperTest.getHotTest.executor": "Run",
-    "JUnit.ActivityMapperTest.modifyInfoTest.executor": "Run",
-    "JUnit.ActivityMapperTest.updateAttachmentTest.executor": "Run",
-    "JUnit.ActivityMapperTest.updateDescriptionByNameTest.executor": "Run",
-    "JUnit.ActivityMapperTest.updateHot.executor": "Run",
-    "JUnit.ActivityMapperTest.updateHotTest.executor": "Run",
-    "JUnit.ActivityMapperTest.updateImageTest.executor": "Run",
-    "JUnit.IndividualGroupServiceTest.getAllManagedGroupsTest.executor": "Run",
-    "JUnit.ShopApplicationTests.findGroup.executor": "Run",
-    "JUnit.StuMapperTest.addStudentTest.executor": "Run",
-    "JUnit.StuMapperTest.executor": "Run",
-    "JUnit.StuMapperTest.updateStudentTest.executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Spring Boot.ShopApplication (1).executor": "Run",
-    "Spring Boot.ShopApplication.executor": "Run",
-    "WebServerToolWindowFactoryState": "false",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/java program/club_springboot/src/main/resources/application.properties",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "模块",
-    "project.structure.proportion": "0.17",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "File.Encoding",
-    "spring.configuration.checksum": "fb54f3c5992b96d001bb16e8e92d968d",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;JUnit.ActivityMapperTest.addActivityTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ActivityMapperTest.deleteActivityTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ActivityMapperTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ActivityMapperTest.findActivityTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ActivityMapperTest.findBySearchTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ActivityMapperTest.findallTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ActivityMapperTest.findtopTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ActivityMapperTest.getActivityByGroupNameTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ActivityMapperTest.getActivityByIdTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ActivityMapperTest.getActivityByNameAndGroupNameTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ActivityMapperTest.getByNameTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ActivityMapperTest.getHotTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ActivityMapperTest.modifyInfoTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ActivityMapperTest.updateAttachmentTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ActivityMapperTest.updateDescriptionByNameTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ActivityMapperTest.updateHot.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ActivityMapperTest.updateHotTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ActivityMapperTest.updateImageTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.IndividualGroupServiceTest.getAllManagedGroupsTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ShopApplicationTests.findGroup.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.StuMapperTest.addStudentTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.StuMapperTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.StuMapperTest.updateStudentTest.executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.ShopApplication (1).executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.ShopApplication.executor&quot;: &quot;Run&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/java program/club_springboot&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;模块&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.17&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;File.Encoding&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;fb54f3c5992b96d001bb16e8e92d968d&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql_aurora_aws"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql_aurora_aws&quot;
     ],
-    "com.intellij.ide.scratch.LRUPopupBuilder$1/SQL 方言": [
-      "MySQL"
+    &quot;com.intellij.ide.scratch.LRUPopupBuilder$1/SQL 方言&quot;: [
+      &quot;MySQL&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -327,7 +327,10 @@
       <workItem from="1719239872008" duration="5086000" />
       <workItem from="1719273550260" duration="1348000" />
       <workItem from="1719280676367" duration="3637000" />
-      <workItem from="1719288528226" duration="4716000" />
+      <workItem from="1719288528226" duration="9321000" />
+      <workItem from="1719319777741" duration="9000" />
+      <workItem from="1719319800012" duration="693000" />
+      <workItem from="1719323216278" duration="3035000" />
     </task>
     <task id="LOCAL-00001" summary="增加了一个查询天气的api">
       <created>1686468078163</created>

@@ -2,6 +2,8 @@ package com.chinahitech.shop.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.chinahitech.shop.bean.IndividualActivity;
+import com.chinahitech.shop.bean.notAddedToDatabase.ActivityNum;
+import com.chinahitech.shop.bean.notAddedToDatabase.GroupNum;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -28,6 +30,10 @@ public interface IndividualActivityMapper extends BaseMapper<IndividualActivity>
     @Select("select * from `individual_activity` " +
             "WHERE user_id = #{userId} and activity_id = #{activityId} and is_accepted = true")
     IndividualActivity getUserByUserIdAndActivityId(@Param("userId") String userId, @Param("activityId") int activityId);
+
+    @Select("select activity_id as activityId, count(*) as count from `individual_activity` WHERE is_accepted = true" +
+            " group by activity_id order by count desc limit 5")
+    List<ActivityNum> getActivityMembers();
 
 //    @Insert("INSERT INTO Individual_group(userId, groupId, position, userName, status, createTime, modifyTime) " +
 //            "VALUES (#{userId}, #{groupId}, #{position}, #{userName}, #{status}, #{createTime}, #{modifyTime})")

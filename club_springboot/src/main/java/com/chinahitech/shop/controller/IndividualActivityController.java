@@ -4,6 +4,7 @@ package com.chinahitech.shop.controller;
 import com.chinahitech.shop.aop.RepeatLimit;
 import com.chinahitech.shop.bean.Activity;
 import com.chinahitech.shop.bean.IndividualActivity;
+import com.chinahitech.shop.bean.notAddedToDatabase.ActivityNum;
 import com.chinahitech.shop.service.IndividualActivityService;
 import com.chinahitech.shop.utils.Result;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -113,4 +113,13 @@ public class IndividualActivityController {
     }
 
     //超级管理员端
+
+    //获取人数前五多的活动查询
+    @RepeatLimit
+    @RequestMapping("/getActivityMembers")
+    public Result getActivityMembers() {
+        List<ActivityNum> activityList = individualActivityService.getActivityMembers();
+        System.out.println(activityList);
+        return Result.ok().data("items", activityList);
+    }
 }

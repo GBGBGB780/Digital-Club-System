@@ -96,4 +96,10 @@ public class GlobalExceptionHandler {
     public Result handle(RuntimeException e) {
         return Result.error().message(e.getMessage());
     }
+
+    @ExceptionHandler(Exception.class)
+    @ResponseBody
+    public Result handle(Exception e) {
+        return Result.error().message(e.getMessage());
+    }
 }

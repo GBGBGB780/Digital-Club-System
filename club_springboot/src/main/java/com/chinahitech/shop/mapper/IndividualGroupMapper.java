@@ -2,11 +2,13 @@ package com.chinahitech.shop.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.chinahitech.shop.bean.IndividualGroup;
+import com.chinahitech.shop.bean.notAddedToDatabase.GroupNum;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 @Repository
 public interface IndividualGroupMapper extends BaseMapper<IndividualGroup> {
@@ -30,6 +32,9 @@ public interface IndividualGroupMapper extends BaseMapper<IndividualGroup> {
 
     @Select("select * from `Individual_group` WHERE user_id = #{userId} and group_id = #{groupId}")
     IndividualGroup getUserByUserIdAndGroupId(@Param("userId") String userId, @Param("groupId") int groupId);
+
+    @Select("select group_id as groupId, count(*) as count from `Individual_group` group by group_id order by count desc limit 5")
+    List<GroupNum> getGroupMembers();
 
 //    @Insert("INSERT INTO Individual_group(userId, groupId, position, userName, status, createTime, modifyTime) " +
 //            "VALUES (#{userId}, #{groupId}, #{position}, #{userName}, #{status}, #{createTime}, #{modifyTime})")
