@@ -66,7 +66,7 @@
       </el-form>
     </div>
 
-    <el-dialog :visible.sync="senddialogVisible" title="找回密码" width="30%" :append-to-body="true" @close="retrievePWDDialog=false,reset()" >
+    <el-dialog :visible.sync="senddialogVisible" title="找回密码" width="30%" :append-to-body="true" :close-on-click-modal="false" @close="retrievePWDDialog=false,reset()" >
       <div style="font-size: 20px;">{{ this.tips }}</div>
       <div style="display: flex;margin-top: 10px;">
         <el-input style="width: 300px;margin-right: 10px;" v-model="stunum"></el-input>
@@ -242,9 +242,10 @@ export default {
       else if(this.pas1!=this.pas2)
       this.$message({type: 'info',message: '两次密码不一致'});
       else
-      modifypas(this.stunum,pas1).then((res) => {
+      modifypas(this.stunum,this.pas1).then((res) => {
               // console.log(res)
               this.$message({type: 'success',message: '新密码修改成功'});
+              this.resetdialogVisible=false
       }).catch(err => {console.error(err)})
     }
   }
