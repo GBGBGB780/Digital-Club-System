@@ -74,7 +74,7 @@
       </div>
     </el-dialog>
 
-    <el-dialog :visible.sync="verifydialogVisible" title="找回密码" width="30%" :append-to-body="true" @close="retrievePWDDialog=false,reset()" >
+    <el-dialog :visible.sync="verifydialogVisible" title="找回密码" width="30%" :append-to-body="true" :close-on-click-modal="false" @close="retrievePWDDialog=false,reset()" >
       <div style="font-size: 20px;">{{ this.tips }}</div>
       <div style="display: flex;margin-top: 10px;">
         <el-input style="width: 300px;margin-right: 10px;" v-model="vcode"></el-input>
@@ -83,7 +83,7 @@
       </div>
     </el-dialog>
 
-    <el-dialog :visible.sync="resetdialogVisible" title="找回密码" width="30%" :append-to-body="true" @close="resetPWDDialog=false,reset()" >
+    <el-dialog :visible.sync="resetdialogVisible" title="找回密码" width="30%" :append-to-body="true" :close-on-click-modal="false" @close="resetPWDDialog=false,reset()" >
       <div style="font-size: 20px;">{{ this.tips }}</div>
       <div>请输入新密码
         <el-input style="width: 300px;margin-top: 10px;" v-model="pas1"></el-input>
