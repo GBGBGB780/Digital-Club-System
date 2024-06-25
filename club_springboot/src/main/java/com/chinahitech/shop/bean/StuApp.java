@@ -13,7 +13,7 @@ import java.util.Date;
 @ToString
 public class StuApp {
     @TableId(type = IdType.AUTO)
-    private Integer applicationId;
+    private int applicationId;
     private String groupName;
     private String stuName;
     private String stuNumber;

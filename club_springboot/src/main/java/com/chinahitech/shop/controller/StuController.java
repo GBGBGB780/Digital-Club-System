@@ -1,5 +1,6 @@
 package com.chinahitech.shop.controller;
 
+import com.chinahitech.shop.aop.RepeatLimit;
 import com.chinahitech.shop.bean.User;
 import com.chinahitech.shop.bean.notAddedToDatabase.RegisterUser;
 import com.chinahitech.shop.exception.EmailException;
@@ -20,6 +21,8 @@ public class StuController {
     @Autowired
     private StuService stuService;
 
+    //登录
+    @RepeatLimit
     @PostMapping("/login")
     // querystring: userName=zhangsan&password=123   User user,String userName,String password
     // json: {userName:zhangsan,password:123}
@@ -39,6 +42,8 @@ public class StuController {
         }
     }
 
+    //注册
+    @RepeatLimit
     @PostMapping("/register")
     public Result register(@RequestBody RegisterUser student) {
 //        System.out.println(student);
@@ -66,7 +71,8 @@ public class StuController {
 
     //找回密码
 
-    //首先获取该账号对应邮箱,发送验证码
+    //1.首先获取该账号对应邮箱,发送验证码
+    @RepeatLimit
     @PostMapping("/getEmail")
     public Result getEmail(String stuNumber) throws Exception{
         System.out.println(stuNumber);
@@ -79,7 +85,8 @@ public class StuController {
         return Result.ok().data("email", email);
     }
 
-    //然后检查用户输入的验证码是否正确
+    //2.然后检查用户输入的验证码是否正确
+    @RepeatLimit
     @PostMapping("/getValidate")
     public Result getValidate(String email, String validateCode){
         String correctValidateCode = RedisUtils.get(email).toString();
@@ -93,9 +100,9 @@ public class StuController {
         }
     }
 
-    //若验证通过，需要重新设置密码，使用modifyPass修改密码
+    //3.若验证通过，需要重新设置密码，使用modifyPass修改密码
 
-
+    @RepeatLimit
     @PostMapping("/validateEmail")
     public Result validateEmail(String email) throws Exception {
 //        String email = emailInfo.getEmail();
@@ -106,6 +113,7 @@ public class StuController {
         return Result.ok().message("邮箱发送成功!");
     }
 
+    @RepeatLimit
     @PostMapping("/modifyPass")
     public Result modifyPassword(String stuNumber, String password){
         System.out.println(stuNumber);
@@ -114,6 +122,7 @@ public class StuController {
         return Result.ok();
     }
 
+    @RepeatLimit
     @PostMapping("/modifyPhone")
     public Result modifyPhone(String stuNumber, String phone){
         System.out.println(stuNumber);
@@ -122,6 +131,7 @@ public class StuController {
         return Result.ok();
     }
 
+    @RepeatLimit
     @PostMapping("/modifyDescription")
     public Result modifyDescription(String stuNumber, String description){
         System.out.println(stuNumber);
@@ -130,6 +140,7 @@ public class StuController {
         return Result.ok();
     }
 
+    @RepeatLimit
     @PostMapping("/modifyNickname")
     public Result modifyNickname(String stuNumber, String nickname){
         System.out.println(stuNumber);
@@ -138,6 +149,7 @@ public class StuController {
         return Result.ok();
     }
 
+    @RepeatLimit
     @PostMapping("/profile")
     public Result getProfile(String stuNumber){
         System.out.println(stuNumber);
@@ -146,7 +158,7 @@ public class StuController {
         return Result.ok().data("student", student);
     }
 
-
+    @RepeatLimit
     @GetMapping("/info")  // "token:xxx"
     public Result info(String token){
         String username = JwtUtils.getClaimsByToken(token).getSubject();
@@ -154,6 +166,7 @@ public class StuController {
         return Result.ok().data("name",username).data("avatar",url);
     }
 
+    @RepeatLimit
     @PostMapping("/logout")  // "token:xxx"
     public Result logout(){
         return Result.ok();

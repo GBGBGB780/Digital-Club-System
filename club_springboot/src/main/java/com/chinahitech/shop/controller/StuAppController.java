@@ -1,5 +1,6 @@
 package com.chinahitech.shop.controller;
 
+import com.chinahitech.shop.aop.RepeatLimit;
 import com.chinahitech.shop.bean.StuApp;
 import com.chinahitech.shop.service.StuAppService;
 import com.chinahitech.shop.utils.Result;
@@ -36,6 +37,8 @@ public class StuAppController {
     @Value("${upload-dir}")
     private String uploadDir;
 
+    //获取所有学生的申请
+    @RepeatLimit
     @RequestMapping("/all")
     public Result getAll() {
         List<StuApp> StuApps = stuAppService.query();
@@ -43,6 +46,8 @@ public class StuAppController {
         return Result.ok().data("items", StuApps);
     }
 
+    //该学生的申请
+    @RepeatLimit
     @PostMapping("/myApps")
     public Result getMyApps(String stuNumber) {
         List<StuApp> StuApps = stuAppService.queryMyapp(stuNumber);
@@ -50,6 +55,8 @@ public class StuAppController {
         return Result.ok().data("items", StuApps);
     }
 
+    //提交申请
+    @RepeatLimit
     @PostMapping("/submit")
     public Result submit(@RequestBody StuApp stuApp) {
         stuApp.setCreateTime(new Date());
@@ -62,9 +69,10 @@ public class StuAppController {
 
 
 
-    // 管理员端
+    // 管理员端（只管理对应社团）
 
     // 申请列表
+    @RepeatLimit
     @PostMapping("/recApps")
     public Result getRecApps(String groupName){
         List<StuApp> StuApps = stuAppService.queryRecvapp(groupName);
@@ -73,6 +81,7 @@ public class StuAppController {
     }
 
     // 申请列表->详情
+    @RepeatLimit
     @PostMapping("/recApp")
     public Result getRecApp(Integer id) {
         StuApp StuApp = stuAppService.queryDetailapp(id);
@@ -82,6 +91,7 @@ public class StuAppController {
     }
 
     //更新附件
+    @RepeatLimit
     @PostMapping("/updateAttachment")
     public Result updateAttachment(@RequestParam("applicationId") int applicationId,
                                    @RequestParam("attachment") String attachmentUrl) {
@@ -89,6 +99,7 @@ public class StuAppController {
         return Result.ok().data("applicationId", applicationId).data("attachment", attachmentUrl);
     }
 
+    @RepeatLimit
     @PostMapping("/uploadZip")
     public ResponseEntity<Map<String, String>> uploadFile(@RequestParam("file") MultipartFile file) {
         String contentType = file.getContentType();
@@ -129,6 +140,7 @@ public class StuAppController {
     }
 
     //接受申请
+    @RepeatLimit
     @PostMapping("/accept")
     public Result acceptApplication(Integer applicationId){
         System.out.println(applicationId);
@@ -138,6 +150,7 @@ public class StuAppController {
     }
 
     //拒绝申请
+    @RepeatLimit
     @PostMapping("/reject")
     public Result rejectApplication(Integer applicationId){
         System.out.println(applicationId);

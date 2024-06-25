@@ -1,6 +1,7 @@
 package com.chinahitech.shop.controller;
 
 
+import com.chinahitech.shop.aop.RepeatLimit;
 import com.chinahitech.shop.bean.Group;
 import com.chinahitech.shop.bean.IndividualGroup;
 import com.chinahitech.shop.service.IndividualGroupService;
@@ -22,6 +23,7 @@ public class IndividualGroupController {
 
     // 学生端
     //获取该学生参加的所有社团及其在对应社团的职位
+    @RepeatLimit
     @RequestMapping("/allGroups")
     public Result getIndividualGroup(String studentId) {
         List<IndividualGroup> individualGroupList = individualGroupService.getGroupByStuId(studentId);
@@ -31,6 +33,7 @@ public class IndividualGroupController {
 
     //管理员端
     //获取该社团的所有学生及其职位
+    @RepeatLimit
     @RequestMapping("/getStudentsByGroup")
     public Result getStudentsByGroup(int groupId, String searchInfo) {
         List<IndividualGroup> studentList = individualGroupService.getStudentsByGroup(groupId, searchInfo);
@@ -39,6 +42,7 @@ public class IndividualGroupController {
     }
 
     //该社团普通成员的增加
+    @RepeatLimit
     @RequestMapping("/addGroupStudent")
     public Result addGroupStudent(int groupId, String studentId, String position) {
         individualGroupService.addGroupStudent(groupId, studentId, position);
@@ -46,6 +50,7 @@ public class IndividualGroupController {
     }
 
     //该社团普通成员的修改
+    @RepeatLimit
     @RequestMapping("/modifyGroupStudent")
     public Result modifyGroupStudent(int groupId, String studentId, String position) {
         individualGroupService.modifyGroupStudent(groupId, studentId, position);
@@ -53,6 +58,7 @@ public class IndividualGroupController {
     }
 
     //该社团普通成员的删除
+    @RepeatLimit
     @RequestMapping("/deleteGroupStudent")
     public Result deleteGroupStudent(int groupId, String studentId) {
         individualGroupService.deleteGroupStudent(groupId, studentId);
@@ -60,6 +66,7 @@ public class IndividualGroupController {
     }
 
     //获取该管理员管理的所有社团
+    @RepeatLimit
     @RequestMapping("/allManagedGroups")
     public Result getAllManagedGroups(String managerId) {
         System.out.println(managerId);
@@ -69,6 +76,7 @@ public class IndividualGroupController {
     }
 
     //该社团的管理权限转让
+    @RepeatLimit
     @RequestMapping("/transferStatus")
     public Result transferStatus(int groupId, String managerId, String userId) {
         individualGroupService.transferStatus(groupId, managerId, userId);
@@ -78,6 +86,7 @@ public class IndividualGroupController {
     //超级管理员端
 
     //修改权限（需要事先获取所需修改的用户id，所在社团id以及在该社团的权限）
+    @RepeatLimit
     @RequestMapping("/updatePermission")
     public Result updatePermission(int groupId, String studentId, int status) {
         individualGroupService.updatePermission(groupId, studentId, status);
@@ -85,6 +94,7 @@ public class IndividualGroupController {
     }
 
     //获取所有学生信息（根据社团来排序）
+    @RepeatLimit
     @RequestMapping("/getAllStudents")
     public Result getAllStudents(String searchInfo) {
         List<IndividualGroup> studentList = individualGroupService.getAllStudents(searchInfo);

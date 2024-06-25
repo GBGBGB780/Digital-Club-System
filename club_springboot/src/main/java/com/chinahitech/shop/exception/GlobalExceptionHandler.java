@@ -90,4 +90,10 @@ public class GlobalExceptionHandler {
     public Result handle(EmailException e) {
         return Result.error().message(e.getMessage());
     }
+
+    @ExceptionHandler(RuntimeException.class)
+    @ResponseBody
+    public Result handle(RuntimeException e) {
+        return Result.error().message(e.getMessage());
+    }
 }
