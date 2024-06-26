@@ -1,5 +1,6 @@
 package com.chinahitech.shop.controller;
 
+import com.chinahitech.shop.aop.RepeatLimit;
 import com.chinahitech.shop.bean.Activity;
 import com.chinahitech.shop.service.ActivityService;
 
@@ -37,6 +38,7 @@ public class ActivityController {
     @Value("${upload-dir}")
     private String uploadDir;
 
+    @RepeatLimit
     @RequestMapping("/all")
     public Result getAll(String searchInfo){
         List<Activity> activities = activityService.query(searchInfo);
@@ -45,6 +47,7 @@ public class ActivityController {
     }
 
     // 活动详情（学生端）
+    @RepeatLimit
     @PostMapping("/studentDetail")
     public Result getStudentDetail(String groupName, String activityName){
         System.out.println(activityName);
@@ -52,6 +55,7 @@ public class ActivityController {
         return Result.ok().data("activity", activity);
     }
 
+    @RepeatLimit
     @RequestMapping("/getVideo")
     public Result getVideo() {
         try {
@@ -70,6 +74,7 @@ public class ActivityController {
         }
     }
 
+    @RepeatLimit
     @RequestMapping("/top")
     public Result getTop() {
         List<Activity> activities = activityService.queryTop();
@@ -81,7 +86,7 @@ public class ActivityController {
 
 
     // 管理员端
-
+    @RepeatLimit
     @GetMapping("/info")  // "token:xxx"
     public Result info(String token){
         String username = JwtUtils.getClaimsByToken(token).getSubject();
@@ -90,6 +95,7 @@ public class ActivityController {
     }
 
     // 我管理的社团的活动
+    @RepeatLimit
     @PostMapping("/myActivity")
     public Result getMyActivities(String groupName){
         List<Activity> activities = activityService.getActivityByGroupName(groupName);
@@ -98,6 +104,7 @@ public class ActivityController {
     }
 
     // 活动详情（管理端）
+    @RepeatLimit
     @PostMapping("/managerDetail")
     public Result getManagerDetail(String groupName, String activityName){
         System.out.println(activityName);
@@ -106,6 +113,7 @@ public class ActivityController {
     }
 
     // 活动简介修改
+    @RepeatLimit
     @PostMapping("/modifyDescription")
     public Result  modifyDescription(String groupName, String activityName, String description, String attachment, String image){
         System.out.println(activityName);
@@ -115,6 +123,7 @@ public class ActivityController {
     }
 
     //活动其他信息修改
+    @RepeatLimit
     @PostMapping("/modifyInfo")
     public Result modifyInfo(Activity activity){
         System.out.println(activity.getName());
@@ -123,6 +132,7 @@ public class ActivityController {
     }
 
     //申请增加活动
+    @RepeatLimit
     @PostMapping("/addActivity")
     public Result addActivity(Activity activity){
         System.out.println(activity.getName());
@@ -132,6 +142,7 @@ public class ActivityController {
     }
 
     //申请删除活动
+    @RepeatLimit
     @PostMapping("/deleteActivity")
     public Result deleteActivity(Activity activity){
         System.out.println(activity.getName());
@@ -140,6 +151,7 @@ public class ActivityController {
         return Result.ok();
     }
 
+    @RepeatLimit
     @PostMapping("/uploadZip")
     public ResponseEntity<Map<String, String>> uploadFile(@RequestParam("file") MultipartFile file) {
 
@@ -164,6 +176,7 @@ public class ActivityController {
         }
     }
 
+    @RepeatLimit
     @PostMapping("/submitZip")
     public ResponseEntity<Map<String, String>> submitZip(@RequestParam("groupId") String groupName, @RequestParam("attachment") String attachment, @RequestParam("name") String name) {
         try {
@@ -179,6 +192,7 @@ public class ActivityController {
         }
     }
 
+    @RepeatLimit
     @PostMapping("/uploadPhoto")
     public ResponseEntity<Map<String, String>> uploadPhoto(@RequestParam("file") MultipartFile file) {
 
@@ -203,6 +217,7 @@ public class ActivityController {
         }
     }
 
+    @RepeatLimit
     @PostMapping("/submitPhoto")
     public ResponseEntity<Map<String, String>> submitPhoto(@RequestParam("groupName") String groupName, @RequestParam("image") String image, @RequestParam("name") String name) {
         try {
@@ -218,6 +233,7 @@ public class ActivityController {
         }
     }
 
+    @RepeatLimit
     @PostMapping("/getAttachment")//能直接下载文件，而不是在新标签页中打开的比较难搞，涉及到http报文，暂时不搞了
     // 这个是在新标签页中打开，对于zip完全没问题
     public ResponseEntity<Map<String, Object>> getAttachment(@RequestParam("id") int id) {
@@ -250,6 +266,7 @@ public class ActivityController {
     //超级管理员端
 
     // 申请列表
+    @RepeatLimit
     @RequestMapping("/allApps")
     public Result getAllApps(String searchInfo){
         List<Activity> activities = activityService.getAllApp(searchInfo);
@@ -257,6 +274,7 @@ public class ActivityController {
         return Result.ok().data("items",activities);
     }
     // 申请列表->详情
+    @RepeatLimit
     @PostMapping("/appDetail")
     public Result getAppDetail(String groupName, String activityName){
         System.out.println(activityName);
@@ -267,6 +285,7 @@ public class ActivityController {
     //社团审批
 
     //接受申请
+    @RepeatLimit
     @PostMapping("/accept")
     public Result accept(int activityId){
         System.out.println(activityId);
@@ -276,6 +295,7 @@ public class ActivityController {
     }
 
     //拒绝申请
+    @RepeatLimit
     @PostMapping("/reject")
     public Result reject(int activityId){
         System.out.println(activityId);

@@ -97,3 +97,11 @@ export function verifycode(email, validateCode) {
     params: { email, validateCode }
   })
 }
+
+export function modifypas(stuNumber,password) {
+  return request({
+    url: '/student/modifyPass',
+    method: 'post',
+    params: { stuNumber,password }
+  })
+}

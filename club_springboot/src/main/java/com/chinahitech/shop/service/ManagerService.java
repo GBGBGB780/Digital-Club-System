@@ -1,8 +1,11 @@
 package com.chinahitech.shop.service;
 
 import com.chinahitech.shop.bean.User;
+import com.chinahitech.shop.exception.EntityNotFoundException;
+import com.chinahitech.shop.exception.InsertException;
+import com.chinahitech.shop.exception.UpdateException;
 import com.chinahitech.shop.mapper.ManagerMapper;
-import com.chinahitech.shop.service.exception.*;
+import com.chinahitech.shop.exception.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -54,9 +57,14 @@ public class ManagerService {
 //            System.out.println(salt);
         String currPwd = md5.MD5handler(lastPwd, salt);
 
-        int i = managerMapper.addManager(userId, currPwd, email, salt, date, date, 1);
-        if(i != 1){
-            throw new InsertException("管理员"+ userId +"添加失败");
+        User user = managerMapper.getByNum(userId);
+        if (user != null) {
+            throw new UseridDuplicateException("管理员"+ userId +"已存在");
+        } else {
+            int i = managerMapper.addManager(userId, currPwd, email, salt, date, date, 1);
+            if(i != 1){
+                throw new InsertException("管理员"+ userId +"添加失败");
+            }
         }
     }
 

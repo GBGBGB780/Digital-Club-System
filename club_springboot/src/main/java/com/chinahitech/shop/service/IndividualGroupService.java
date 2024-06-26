@@ -4,15 +4,13 @@ import com.chinahitech.shop.bean.Activity;
 import com.chinahitech.shop.bean.Group;
 import com.chinahitech.shop.bean.IndividualGroup;
 import com.chinahitech.shop.bean.User;
+import com.chinahitech.shop.bean.notAddedToDatabase.GroupNum;
+import com.chinahitech.shop.exception.*;
 import com.chinahitech.shop.mapper.*;
-import com.chinahitech.shop.service.exception.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 @Service
 public class IndividualGroupService {
@@ -71,6 +69,15 @@ public class IndividualGroupService {
         User user = validateStuName(userId);
         Group group = validateGroup(groupId);
         return individualGroupMapper.getUserByUserIdAndGroupId(userId, groupId);
+    }
+
+    public List<GroupNum> getGroupMembers() {
+        List<GroupNum> groupList = individualGroupMapper.getGroupMembers();
+//        System.out.println(groupList);
+        for (GroupNum group : groupList) {
+            group.setGroupName(groupMapper.getGroupById(group.getGroupId()).getName());
+        }
+        return groupList;
     }
 
     public void addGroupStudent(int groupId, String userId, String position) {

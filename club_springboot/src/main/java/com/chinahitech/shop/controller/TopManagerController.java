@@ -1,8 +1,9 @@
 package com.chinahitech.shop.controller;
 
+import com.chinahitech.shop.aop.RepeatLimit;
 import com.chinahitech.shop.bean.User;
 import com.chinahitech.shop.bean.notAddedToDatabase.RegisterUser;
-import com.chinahitech.shop.defineException.EmailException;
+import com.chinahitech.shop.exception.EmailException;
 import com.chinahitech.shop.service.EmailService;
 import com.chinahitech.shop.service.TopManagerService;
 import com.chinahitech.shop.utils.JwtUtils;
@@ -37,6 +38,8 @@ public class TopManagerController {
     @Value("${upload-dir}")
     private String uploadDir;
 
+    //登录
+    @RepeatLimit
     @PostMapping("/login")
     // querystring: userName=zhangsan&password=123   User user,String userName,String password
     // json: {userName:zhangsan,password:123}
@@ -59,6 +62,8 @@ public class TopManagerController {
         }
     }
 
+    //注册
+    @RepeatLimit
     @PostMapping("/register")
     public Result register(@RequestBody RegisterUser user) {
 //        System.out.println(user);
@@ -86,28 +91,22 @@ public class TopManagerController {
 
     //找回密码
 
-    //首先获取该账号对应邮箱,发送验证码
+    //1.首先获取该账号对应邮箱,发送验证码
+    @RepeatLimit
     @PostMapping("/getEmail")
-    public Result getEmail(String userNumber){
+    public Result getEmail(String userNumber) throws Exception {
         System.out.println(userNumber);
         User user = topManagerService.getByUserId(userNumber);
         System.out.println(user);
         String email = user.getEmail();
         EmailService sEmail;
-        try{
-            sEmail = new EmailService(email);
-        } catch(EmailException err){
-            return Result.error().message(err.expMessage());
-        }
-        try {
-            sEmail.sendEmail();
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+        sEmail = new EmailService(email);
+        sEmail.sendEmail();
         return Result.ok().data("email", email);
     }
 
-    //然后检查用户输入的验证码是否正确
+    //2.然后检查用户输入的验证码是否正确
+    @RepeatLimit
     @PostMapping("/getValidate")
     public Result getValidate(String email, String validateCode){
         String correctValidateCode = RedisUtils.get(email).toString();
@@ -121,23 +120,21 @@ public class TopManagerController {
         }
     }
 
-    //若验证通过，需要重新设置密码，使用modifyPass修改密码
+    //3.若验证通过，需要重新设置密码，使用modifyPass修改密码
 
+    @RepeatLimit
     @PostMapping("/validateEmail")
     public Result validateEmail(String email) throws Exception {
 //        String email = emailInfo.getEmail();
         System.out.println(email);
         EmailService sEmail;
-        try{
-            sEmail = new EmailService(email);
-        } catch(EmailException err){
-            return Result.error().message(err.expMessage());
-        }
+        sEmail = new EmailService(email);
         sEmail.sendEmail();
         return Result.ok().message("邮箱发送成功!");
     }
 
     //用户密码修改
+    @RepeatLimit
     @PostMapping("/modifyPass")
     public Result modifyPassword(String userId, String password){
         System.out.println(userId);
@@ -147,6 +144,7 @@ public class TopManagerController {
     }
 
     //用户电话修改
+    @RepeatLimit
     @PostMapping("/modifyPhone")
     public Result modifyPhone(String userId, String phone){
         System.out.println(userId);
@@ -156,6 +154,7 @@ public class TopManagerController {
     }
 
     //用户简介修改
+    @RepeatLimit
     @PostMapping("/modifyDescription")
     public Result modifyDescription(String userId, String description){
         System.out.println(userId);
@@ -165,6 +164,7 @@ public class TopManagerController {
     }
 
     //用户昵称修改
+    @RepeatLimit
     @PostMapping("/modifyNickname")
     public Result modifyNickname(String userId, String nickname){
         System.out.println(userId);
@@ -174,6 +174,7 @@ public class TopManagerController {
     }
 
     //用户校区,学院和专业信息修改
+    @RepeatLimit
     @PostMapping("/modifyMajor")
     public Result modifyMajor(String userId, String campus, String school, String major){
         System.out.println(userId);
@@ -185,6 +186,7 @@ public class TopManagerController {
     }
 
     //用户资料显示
+    @RepeatLimit
     @PostMapping("/profile")
     public Result getProfile(String userId){
         System.out.println(userId);
@@ -193,7 +195,7 @@ public class TopManagerController {
         return Result.ok().data("user", user);
     }
 
-
+    @RepeatLimit
     @GetMapping("/info")  // "token:xxx"
     public Result info(String token){
         String username = JwtUtils.getClaimsByToken(token).getSubject();
@@ -201,12 +203,15 @@ public class TopManagerController {
         return Result.ok().data("name",username).data("avatar",url);
     }
 
+    //登出
+    @RepeatLimit
     @PostMapping("/logout")  // "token:xxx"
     public Result logout(){
         return Result.ok();
     }
 
     //添加用户
+    @RepeatLimit
     @PostMapping("/addUser")
     public Result addUser(@RequestBody RegisterUser user) {
 //        System.out.println(user);
@@ -233,6 +238,7 @@ public class TopManagerController {
     }
 
     //查看用户信息
+    @RepeatLimit
     @RequestMapping("/getAllUsers")
     public Result getAllUsers(String searchInfo){
         List<User> Users = topManagerService.getAllUsers(searchInfo);
@@ -241,6 +247,7 @@ public class TopManagerController {
     }
 
     //修改用户信息
+    @RepeatLimit
     @PostMapping("/modifyUserInfo")
     public Result modifyUserInfo(User user){
         System.out.println(user);
@@ -249,6 +256,7 @@ public class TopManagerController {
     }
 
     //删除用户
+    @RepeatLimit
     @RequestMapping("/deleteUser")
     public Result deleteUser(User user){
         System.out.println(user.getUserName());
@@ -257,7 +265,7 @@ public class TopManagerController {
     }
 
     //todo 批量导入
-
+    @RepeatLimit
     @PostMapping("/uploadExcel")
     public ResponseEntity<Map<String, String>> uploadExcel(@RequestParam("file") MultipartFile file) {
 

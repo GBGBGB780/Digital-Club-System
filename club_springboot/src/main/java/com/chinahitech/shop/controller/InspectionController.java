@@ -1,5 +1,6 @@
 package com.chinahitech.shop.controller;
 
+import com.chinahitech.shop.aop.RepeatLimit;
 import com.chinahitech.shop.bean.Activity;
 import com.chinahitech.shop.bean.Inspection;
 
@@ -36,6 +37,7 @@ public class InspectionController {
     // 管理员端
 
     //显示自己管理的社团的年检申请
+    @RepeatLimit
     @RequestMapping("/findAllByGroup")
     public Result findAllByGroup(String groupName) {
         List<Inspection> inspections = inspectionService.findAllByGroup(groupName);
@@ -44,6 +46,7 @@ public class InspectionController {
     }
 
     //通过年份查找自己管理的社团的年检申请
+    @RepeatLimit
     @RequestMapping("/findAllByGroupAndYear")
     public Result findAllByGroupAndYear(String groupName, Year year) {
         List<Inspection> inspections = inspectionService.findAllByGroupAndYear(groupName, year);
@@ -52,6 +55,7 @@ public class InspectionController {
     }
 
     //提交年检申请
+    @RepeatLimit
     @PostMapping("/addInspection")
     public Result addInspection(Inspection inspection){
         System.out.println(inspection.getGroupName());
@@ -61,6 +65,7 @@ public class InspectionController {
     }
 
     //编辑年检申请
+    @RepeatLimit
     @PostMapping("/modifyInfo")
     public Result modifyInfo(Inspection inspection){
         System.out.println(inspection.getGroupName());
@@ -69,6 +74,7 @@ public class InspectionController {
         return Result.ok();
     }
 
+    @RepeatLimit
     @PostMapping("/uploadZip")
     public ResponseEntity<Map<String, String>> uploadFile(@RequestParam("file") MultipartFile file) {
 
@@ -93,6 +99,7 @@ public class InspectionController {
         }
     }
 
+    @RepeatLimit
     @PostMapping("/submitZip")
     public ResponseEntity<Map<String, String>> submitZip(@RequestParam("inspectionId") int inspectionId, @RequestParam("attachment") String attachment, @RequestParam("groupName") String groupName) {
         try {
@@ -108,6 +115,7 @@ public class InspectionController {
         }
     }
 
+    @RepeatLimit
     @PostMapping("/getAttachment")//能直接下载文件，而不是在新标签页中打开的比较难搞，涉及到http报文，暂时不搞了
     // 这个是在新标签页中打开，对于zip完全没问题
     public ResponseEntity<Map<String, Object>> getAttachment(@RequestParam("id") int id) {
@@ -139,6 +147,7 @@ public class InspectionController {
     // 超级管理员端
 
     // 显示全部年检申请（可通过输入社团名搜索）
+    @RepeatLimit
     @RequestMapping("/all")
     public Result findAll(String searchInfo) {
         List<Inspection> inspections = inspectionService.findAll(searchInfo);
@@ -147,6 +156,7 @@ public class InspectionController {
     }
 
     //通过年份查找
+    @RepeatLimit
     @RequestMapping("/findAllByYear")
     public Result findAllByYear(Year year) {
         List<Inspection> inspections = inspectionService.findAllByYear(year);
@@ -155,6 +165,7 @@ public class InspectionController {
     }
 
     //编辑反馈
+    @RepeatLimit
     @PostMapping("/addFeedback")
     public Result addFeedback(Inspection inspection){
         System.out.println(inspection.getGroupName());
@@ -164,6 +175,7 @@ public class InspectionController {
     }
 
     //接受申请
+    @RepeatLimit
     @PostMapping("/accept")
     public Result accept(int inspectionId){
         System.out.println(inspectionId);
@@ -173,6 +185,7 @@ public class InspectionController {
     }
 
     //拒绝申请
+    @RepeatLimit
     @PostMapping("/reject")
     public Result reject(int inspectionId){
         System.out.println(inspectionId);

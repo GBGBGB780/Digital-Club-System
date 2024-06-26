@@ -60,16 +60,39 @@
         </el-form-item>
         <div class="button-container">
         <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleLogin">Login</el-button>
-        <!-- <el-button type="primary" style="width:100%;margin-bottom:30px;" @click="showRegister">Register</el-button>-->
+        <el-button type="primary" style="width:100%;margin-bottom:30px;" @click="showRegister">Register</el-button>
         <div class="tips" style="float:right;"><el-link type="white" @click="retrievePWD">忘记密码</el-link></div>
         </div> 
       </el-form>
     </div>
-    <el-dialog :visible.sync="dialogVisible" title="找回密码" width="30%" :append-to-body="true" @close="retrievePWDDialog=false,reset()" >
+
+    <el-dialog :visible.sync="senddialogVisible" title="找回密码" width="30%" :append-to-body="true" :close-on-click-modal="false" @close="retrievePWDDialog=false,reset()" >
       <div style="font-size: 20px;">{{ this.tips }}</div>
-      <div style="display: flex;">
-        <el-input style="width: 300px;" v-model="stunum"></el-input>
-        <el-button @click="verify" :loading="retrievepwdloading">{{ this.msg }}</el-button>
+      <div style="display: flex;margin-top: 10px;">
+        <el-input style="width: 300px;margin-right: 10px;" v-model="stunum"></el-input>
+        <el-button @click="verify" :loading="retrievepwdloading">{{ this.sendbtn }}</el-button>
+      </div>
+    </el-dialog>
+
+    <el-dialog :visible.sync="verifydialogVisible" title="找回密码" width="30%" :append-to-body="true" :close-on-click-modal="false" @close="retrievePWDDialog=false,reset()" >
+      <div style="font-size: 20px;">{{ this.tips }}</div>
+      <div style="display: flex;margin-top: 10px;">
+        <el-input style="width: 300px;margin-right: 10px;" v-model="vcode"></el-input>
+        <el-button @click="verify" :loading="retrievepwdloading">{{ this.sendbtn }}</el-button>
+        <el-button @click="vercode">验证</el-button>
+      </div>
+    </el-dialog>
+
+    <el-dialog :visible.sync="resetdialogVisible" title="找回密码" width="30%" :append-to-body="true" :close-on-click-modal="false" @close="resetPWDDialog=false,reset()" >
+      <div style="font-size: 20px;">{{ this.tips }}</div>
+      <div>请输入新密码
+        <el-input style="width: 300px;margin-top: 10px;" v-model="pas1"></el-input>
+      </div>
+      <div>请重复新密码
+        <el-input style="width: 300px;margin-top: 10px;margin-bottom: 10px;" v-model="pas2"></el-input>
+      </div>
+      <div>
+        <el-button @click="modifyPassword">修改密码</el-button>
       </div>
     </el-dialog>
   </div>
@@ -77,7 +100,7 @@
 
 <script>
 import { validuserName } from '@/utils/validate'
-import { verifyemail } from '@/api/user.js'
+import { modifyPassword, verifycode, verifyemail,modifypas } from '@/api/user.js'
 import { MessageBox } from 'element-ui'
 
 export default {
@@ -110,10 +133,16 @@ export default {
       passwordType: 'password',
       redirect: undefined,
       tips: '请输入您的学号',
-      dialogVisible: false,
-      msg:'验证',
+      senddialogVisible: false,
+      resetdialogVisible:false,
+      verifydialogVisible:false,
+      sendbtn:'发送验证码',
       retrievepwdloading:false,
-      stunum:''
+      stunum:'',
+      vcode:'',
+      pas1:'',
+      pas2:'',
+      mail:''
     }
   },
   
@@ -159,30 +188,65 @@ export default {
       })
     },
     retrievePWD() {
-      this.dialogVisible=true;
+      this.senddialogVisible=true;
     },
-    verify() {
-      this.retrievepwdloading=true;
+    verify() {      
       if(this.stunum!='')
       {
           verifyemail(this.stunum).then((response) => {
-          email = response.data.email
-          console.log(email)
-          verifycode(email,this.stunum).then((response) => {
-            console.log(response)
-
-          }).catch(error => {console.error(error)})
+          // console.log(response.data.email)
+          const _this =this;//setInterval中的this指向问题
+          this.retrievepwdloading=true; //按钮不可重复点击
+          var time = 60;//定义时间变量 60s
+          var timer = null;//定义定时器
+          timer = setInterval(function(){
+            if(time==0){
+              _this.sendbtn="重新获取验证码";                          
+              _this.retrievepwdloading=false;            
+              clearInterval(timer);//清除定时器
+            }else{
+              _this.sendbtn=time+"秒后重新获取";                     
+              time--;
+            }     
+          },1000)
+          if(response.code=200)
+          {
+            this.retrievepwdloading=false
+            this.mail=response.data.email
+            this.senddialogVisible=false
+            this.tips='请前往您的企业邮箱并在此输入您的验证码'
+            this.retrievepwdloading=true
+            this.verifydialogVisible=true
+          }
         })
         .catch(error => {
           console.error(error)
-          this.retrievepwdloading=false;
         })
       }
       else
       {
         this.$message({type: 'info',message: '请输入您的学号'});
-        this.retrievepwdloading=false;
       }
+    },
+    vercode() {
+      verifycode(this.mail,this.vcode).then((res) => {
+              // console.log(res)
+              this.verifydialogVisible=false
+              this.tips='请修改您的密码'
+              this.resetdialogVisible=true
+      }).catch(err => {console.error(err)})
+    },
+    modifyPassword() {
+      if(this.pas1==''||this.pas2=='')
+      this.$message({type: 'info',message: '请输入新密码'});
+      else if(this.pas1!=this.pas2)
+      this.$message({type: 'info',message: '两次密码不一致'});
+      else
+      modifypas(this.stunum,this.pas1).then((res) => {
+              // console.log(res)
+              this.$message({type: 'success',message: '新密码修改成功'});
+              this.resetdialogVisible=false
+      }).catch(err => {console.error(err)})
     }
   }
 }

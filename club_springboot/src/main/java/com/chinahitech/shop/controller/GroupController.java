@@ -1,5 +1,6 @@
 package com.chinahitech.shop.controller;
 
+import com.chinahitech.shop.aop.RepeatLimit;
 import com.chinahitech.shop.bean.Group;
 import com.chinahitech.shop.service.GroupService;
 
@@ -38,6 +39,7 @@ public class GroupController {
     private String uploadDir;
 
     //所有社团
+    @RepeatLimit
     @RequestMapping("/all")
     public Result getAll(String searchInfo){
         List<Group> groups = groupService.query(searchInfo);
@@ -46,6 +48,7 @@ public class GroupController {
     }
 
     // 社团详情（学生端）
+    @RepeatLimit
     @PostMapping("/studentDetail")
         public Result getStudentDetail(String groupName){
         System.out.println(groupName);
@@ -54,6 +57,7 @@ public class GroupController {
     }
 
     //申请新建社团
+    @RepeatLimit
     @PostMapping("/addGroup")
     public Result addGroup(@RequestBody Group group){
         group.setIsAccepted(null);
@@ -61,6 +65,8 @@ public class GroupController {
         return Result.ok();
     }
 
+    //页面音频加载
+    @RepeatLimit
     @RequestMapping("/getVideo")
     public Result getVideo() {
         try {
@@ -81,6 +87,8 @@ public class GroupController {
         }
     }
 
+    //获取热度最高的5个社团
+    @RepeatLimit
     @RequestMapping("/top")
     public Result getTop() {
         List<Group> groups = groupService.queryTop();
@@ -95,6 +103,7 @@ public class GroupController {
     // 管理员端
 
     // 社团详情（管理端）
+    @RepeatLimit
     @PostMapping("/managerDetail")
     public Result getManagerDetail(String groupname){
         System.out.println(groupname);
@@ -103,6 +112,7 @@ public class GroupController {
     }
 
     // 社团简介更改
+    @RepeatLimit
     @PostMapping("/modifydescription")
     public Result  modifyDescription(String groupname, String description,String attachment,String image){
         System.out.println(groupname);
@@ -111,6 +121,7 @@ public class GroupController {
         return Result.ok();
     }
 
+    @RepeatLimit
     @PostMapping("/uploadzip")
     public ResponseEntity<Map<String, String>> uploadFile(@RequestParam("file") MultipartFile file) {
 
@@ -135,6 +146,7 @@ public class GroupController {
         }
     }
 
+    @RepeatLimit
     @PostMapping("/submitzip")
     public ResponseEntity<Map<String, String>> submitZip(@RequestParam("attachment") String attachment, @RequestParam("name") String name) {
         try {
@@ -150,6 +162,7 @@ public class GroupController {
         }
     }
 
+    @RepeatLimit
     @PostMapping("/uploadphoto")
     public ResponseEntity<Map<String, String>> uploadPhoto(@RequestParam("file") MultipartFile file) {
 
@@ -174,6 +187,7 @@ public class GroupController {
         }
     }
 
+    @RepeatLimit
     @PostMapping("/submitphoto")
     public ResponseEntity<Map<String, String>> submitPhoto(@RequestParam("image") String image, @RequestParam("name") String name) {
         try {
@@ -188,6 +202,8 @@ public class GroupController {
             return ResponseEntity.badRequest().body(createErrorResponse("Failed to update the image."));
         }
     }
+
+    @RepeatLimit
     @PostMapping("/getattachment")//能直接下载文件，而不是在新标签页中打开的比较难搞，涉及到http报文，暂时不搞了
     // 这个是在新标签页中打开，对于zip完全没问题
     public ResponseEntity<Map<String, Object>> getAttachment(@RequestParam("id") int id) {
@@ -219,6 +235,7 @@ public class GroupController {
     //超级管理员端
 
     // 申请列表
+    @RepeatLimit
     @RequestMapping("/allApps")
     public Result getAllApps(String searchinfo){
         List<Group> groups = groupService.getAllApp(searchinfo);
@@ -227,6 +244,7 @@ public class GroupController {
     }
 
     // 申请列表->详情
+    @RepeatLimit
     @PostMapping("/appDetail")
     public Result getAppDetail(String groupname){
         System.out.println(groupname);
@@ -237,6 +255,7 @@ public class GroupController {
     //社团审批
 
     //接受申请
+    @RepeatLimit
     @PostMapping("/accept")
     public Result accept(int groupId){
         System.out.println(groupId);
@@ -246,6 +265,7 @@ public class GroupController {
     }
 
     //拒绝申请
+    @RepeatLimit
     @PostMapping("/reject")
     public Result reject(int groupId){
         System.out.println(groupId);

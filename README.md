@@ -14,7 +14,7 @@ npm install --registry=https://registry.npm.taobao.org （后面的网址可能�
 npm run dev
 
 
-后端：
+后端：点击运行src/main/java/com/chinahitech/shop/ShopApplication.java
 
 
 
