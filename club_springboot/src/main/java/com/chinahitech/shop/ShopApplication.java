@@ -13,6 +13,7 @@ import org.springframework.core.env.Environment;
 @MapperScan("com.chinahitech.shop.mapper")
 public class ShopApplication {
     private static final Logger LOG = LoggerFactory.getLogger(ShopApplication.class);
+
     public static void main(String[] args) {
         SpringApplication app = new SpringApplication(ShopApplication.class);
 //        SpringApplication.run(ShopApplication.class, args);
