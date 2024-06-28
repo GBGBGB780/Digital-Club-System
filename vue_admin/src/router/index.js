@@ -132,9 +132,23 @@ export const constantRoutes = [{
             name: 'groupactivity',
             component: () =>
                 import ('@/views/groupactivity/index'),
-            meta: { title: '社团活动详情', icon: 'table' }
+            meta: { title: '社团活动', icon: 'table' }
         }]
     },
+
+    {
+        path: '/',
+        component: Layout,
+        redirect: '/activitydetail/:aid',
+        children: [{
+          path: 'activitydetail/:aid',
+          name: 'Activitydetail',
+          component: () =>
+            import('@/views/groupactivity/activitydetail/index'),
+        //   meta: { title: 'appdetail', icon: 'table' }
+        }]
+    },
+
     // 404 page must be placed at the end !!!
     { path: '*', redirect: '/404', hidden: true }
 ]
