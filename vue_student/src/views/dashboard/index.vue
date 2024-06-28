@@ -24,7 +24,7 @@
         >
           <el-button slot="reference" style="margin-left: 50px;">查看天气</el-button>
         </el-popover>
-        <i class="el-icon-arrow-down" style="margin-left: 50px; cursor: pointer;" @click="carouselVisible = !carouselVisible"></i>
+        <i class="icon" :class="{'el-icon-arrow-down': carouselVisible, 'el-icon-arrow-up':!carouselVisible}" style="margin-left: 50px; cursor: pointer;" @click="carouselVisible = !carouselVisible"></i>
       </div>
     </div>
     <div class="block" v-if="carouselVisible">
