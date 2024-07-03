@@ -132,20 +132,32 @@ export const constantRoutes = [{
             name: 'groupactivity',
             component: () =>
                 import ('@/views/groupactivity/index'),
-            meta: { title: '社团活动', icon: 'table' }
+            meta: { title: '社团活动', icon: 'el-icon-s-flag' }
         }]
     },
 
     {
         path: '/',
         component: Layout,
-        redirect: '/activitydetail/:aid',
+        redirect: '/groupactivity/activitydetail/:aid',
         children: [{
-          path: 'activitydetail/:aid',
+          path: 'groupactivity/activitydetail/:aid',
           name: 'Activitydetail',
           component: () =>
             import('@/views/groupactivity/activitydetail/index'),
-        //   meta: { title: 'appdetail', icon: 'table' }
+        }]
+    },
+
+    {
+        path: '/',
+        component: Layout,
+        redirect: '/groupactivity/addactivity',
+        children: [{
+          path: 'groupactivity/addactivity',
+          name: 'Addactivity',
+          component: () =>
+            import('@/views/groupactivity/addactivity/index'),
+            meta: { title: '申请活动', icon: 'el-icon-plus' }
         }]
     },
 

@@ -67,67 +67,10 @@
       </el-form>
     </div>
   </div>
-  <!-- <div class="card-container">
-    <div :key="activity.id" class="card">
-      <h2 class="card-title">活动详情信息</h2>
-      <div class="table-wrapper">
-        <table class="table-content">
-          <tr>
-            <td>活动编号:</td>
-            <td>{{ activity.id }}</td>
-          </tr>
-          <tr>
-            <td>活动名:</td>
-            <td>{{ activity.name }}</td>
-          </tr>
-          <tr>
-            <td>组织者:</td>
-            <td>{{ activity.organizer }}</td>
-          </tr>
-          <tr>
-            <td>描述:</td>
-            <td>{{ activity.description }}</td>
-          </tr>
-          <tr>
-            <td>安排:</td>
-            <td>{{ activity.arrange }}</td>
-          </tr>
-          <tr>
-            <td>次数:</td>
-            <td>{{ activity.number }}</td>
-          </tr>
-          <tr>
-            <td>地点:</td>
-            <td>{{ activity.place }}</td>
-          </tr>
-          <tr>
-            <td>类型:</td>
-            <td>{{ activity.type }}</td>
-          </tr>
-          <tr>
-            <td>社团名称:</td>
-            <td>{{ activity.groupName }}</td>
-          </tr>
-          <tr>
-            <td>申请时间:</td>
-            <td>{{ activity.time | formatDate }}</td>
-          </tr>
-          <tr>
-            <td>活动状态:</td>
-            <td v-if="activity.isAccepted === true">已批准</td>
-            <td v-else-if="activity.isAccepted === false">已拒绝</td>
-            <td v-else>待审核</td>
-          </tr>
-        </table>
-      </div>
-    </div>
-  </div> -->
 </template>
   
 <script>
 import { mapGetters } from 'vuex'
-import '@/api/activities.js'
-import router from '@/router'
 
 export default {
   name: 'ActivityList',
@@ -163,38 +106,38 @@ export default {
     openImage() {
       window.open(activity.image)
     },
-    submitAccept() {
-      this.$message({
-        message: '批准申请',
-        type: 'success'
-      })
-      setTimeout(() => {
-        acceptActivity(activity.id)
-          .then((response) => {
-            console.log(response.data)
-            router.go() // 刷新当前页面
-          })
-          .catch((error) => {
-            console.error(error)
-          })
-      }, 100) // 延迟
-    },
-    submitReject() {
-      this.$message({
-        message: '拒绝申请',
-        type: 'success'
-      })
-      setTimeout(() => {
-        rejectActivity(activity.id)
-          .then((response) => {
-            console.log(response.data)
-            router.go()
-          })
-          .catch((error) => {
-            console.error(error)
-          })
-      }, 100)
-    }
+    // submitAccept() {
+    //   this.$message({
+    //     message: '批准申请',
+    //     type: 'success'
+    //   })
+    //   setTimeout(() => {
+    //     acceptActivity(activity.id)
+    //       .then((response) => {
+    //         console.log(response.data)
+    //         router.go() // 刷新当前页面
+    //       })
+    //       .catch((error) => {
+    //         console.error(error)
+    //       })
+    //   }, 100) // 延迟
+    // },
+    // submitReject() {
+    //   this.$message({
+    //     message: '拒绝申请',
+    //     type: 'success'
+    //   })
+    //   setTimeout(() => {
+    //     rejectActivity(activity.id)
+    //       .then((response) => {
+    //         console.log(response.data)
+    //         router.go()
+    //       })
+    //       .catch((error) => {
+    //         console.error(error)
+    //       })
+    //   }, 100)
+    // }
   }
 }
 </script>
