@@ -78,6 +78,7 @@ public class IndividualGroupService {
             group.setGroupName(groupMapper.getGroupById(group.getGroupId()).getName());
             group.setHot(groupMapper.getGroupById(group.getGroupId()).getHot());
         }
+        groupList.sort(Comparator.comparingInt(GroupNum::getHot).reversed());
         return groupList;
     }
 
