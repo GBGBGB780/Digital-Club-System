@@ -7,7 +7,7 @@
       <el-input v-model="stuNumber" :disabled="true"/>
     </el-form-item>
     <el-form-item label="电话" prop="phone">
-      <el-input v-model="ruleForm.phone" />
+      <el-input v-model="ruleForm.phone" :disabled="true"/>
     </el-form-item>
     <el-form-item label="专业" prop="major">
       <el-input v-model="ruleForm.major" :disabled="true"/>
@@ -102,6 +102,7 @@ export default {
       .then((response) => {
         this.stuName = response.data.student.userName
         this.ruleForm.major = response.data.student.major
+        this.ruleForm.phone = response.data.student.phone
         console.log(response.data.student)
       })
       .catch((error) => {
