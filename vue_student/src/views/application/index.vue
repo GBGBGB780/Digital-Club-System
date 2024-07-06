@@ -9,20 +9,8 @@
     <el-form-item label="电话" prop="phone">
       <el-input v-model="ruleForm.phone" />
     </el-form-item>
-    <el-form-item label="性别" prop="gender">
-      <el-radio-group v-model="ruleForm.gender">
-        <el-radio label="男" />
-        <el-radio label="女" />
-      </el-radio-group>
-    </el-form-item>
     <el-form-item label="专业" prop="major">
-    <el-autocomplete
-      class="inline-input"
-      v-model="ruleForm.major"
-      :fetch-suggestions="querySearch"
-      placeholder="请输入专业"
-      @select="handleSelect"
-    ></el-autocomplete>
+      <el-input v-model="ruleForm.major" :disabled="true"/>
     </el-form-item>
     <el-form-item label="自我陈述" prop="selfIntro">
       <el-input v-model="ruleForm.selfIntro" type="textarea" :rows="8" />
@@ -97,9 +85,6 @@ export default {
         gender: [
           { required: true, message: '请选择性别', trigger: 'change' }
         ],
-        major: [
-          { required: true, message: '请选择你的专业', trigger: 'change' }
-        ],
         selfIntro: [
           { required: true, message: '请填写自我陈述', trigger: 'blur' }
         ]
@@ -108,13 +93,16 @@ export default {
   },
   mounted() {
     this.ruleForm.groupName = this.$route.params.groupName;
+    console.log(this.ruleForm.groupName)
     this.majors = this.loadAll();
   },
   created: function() {
     this.stuNumber = this.name
     getProfile(this.name)
       .then((response) => {
-        this.stuName = response.data.student.stuName
+        this.stuName = response.data.student.userName
+        this.ruleForm.major = response.data.student.major
+        console.log(response.data.student)
       })
       .catch((error) => {
         console.error(error)
@@ -128,7 +116,7 @@ export default {
           this.ruleForm.stuName = this.stuName;
           this.ruleForm.stuNumber = this.stuNumber;
           postform(this.ruleForm).then(response => {
-            console.log(response.data)
+            console.log(response.data.student)
             this.$router.push({ name: 'Dashboard' })
           })
             .catch(error => {

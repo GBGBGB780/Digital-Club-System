@@ -6,12 +6,14 @@
       :row-class-name="tableRowClassName"
     >
       <el-table-column
-        prop="time"
+        prop="createTime
+"
         label="申请时间"
         width="300"
       >
         <template slot-scope="scope">
-          <span class="text">{{ formatDate(scope.row.time) }}</span>
+          <span class="text">{{ formatDate(scope.row.createTime
+) }}</span>
         </template>
       </el-table-column>
       <el-table-column
@@ -104,6 +106,7 @@ export default {
     getApplications(this.name)
       .then((response) => {
         this.myApps = response.data.items
+        console.log(this.myApps)
         this.myApps.sort((a, b) => {
           const timeA = new Date(a.time)
           const timeB = new Date(b.time)
