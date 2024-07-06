@@ -1,16 +1,21 @@
 <template>
   <div class="app-container">
     <el-input v-model="filterText" placeholder="Filter keyword" style="margin-bottom:30px;" />
-    <el-input @keyup.enter.native="createtree" v-model="searchInfo" placeholder="检测" clearable style="width: 10%;"/>
-         <el-button icon="el-icon-search" @click="createtree" />
-    <el-input @keyup.enter.native="createtree2" v-model="searchInfo" placeholder="检测" clearable style="width: 10%;"/>
-         <el-button icon="el-icon-search" @click="createtree2" />
+
+    <el-dialog :visible.sync="dialogVisible" title="学生详情" width="30%">
+        <div style="font-weight: bold; font-size: 20px;">学号：{{ data1.userId }}</div>
+        <div style="font-weight: bold; font-size: 20px;">姓名：{{ data1.userName }}</div>
+        <span slot="footer" class="dialog-footer">
+          <el-button type="primary" @click="dialogVisible = false">关闭</el-button>
+        </span>
+      </el-dialog>
 
     <el-tree
       ref="tree2"
       :data="data2"
-      :props="treeprops"
+      :render-content="renderNode"
       :filter-node-method="filterNode"
+      @node-click="handleNodeClick"
       class="filter-tree"
       default-expand-all
     />
@@ -32,31 +37,20 @@ export default {
       majorlist: [],
       searchInfo: '',
       index: 1,
+      data1:[],
       data2: [],
-      data1:[], 
-      treeprops: 
-        { 
-          label: 'name', 
-          children: 'children'
-        },
-      array1: [
-        { index: 1, name: 'Node 1', parentId: null },
-        { index: 2, name: 'Node 2', parentId: null },
-        { index: 3, name: 'Node 3', parentId: 1 },
-        { index: 4, name: 'Node 4', parentId: 1 },
-        { index: 5, name: 'Node 5', parentId: 2 }
-      ],
-      array2: [
-        { index: 6, name: 'Node 6', parentId: null },
-        { index: 7, name: 'Node 7', parentId: 6 },
-        { index: 8, name: 'Node 8', parentId: 6 }
-      ],
+      dialogVisible: false,
+      
     }
   },
   watch: {
     filterText(val) {
       this.$refs.tree2.filter(val)
     }
+  },
+
+  mounted() {
+    
   },
 
   created: function () {
@@ -69,13 +63,15 @@ export default {
 
       getList(this.searchInfo).then((response) => {
         this.grouplist = response.data.items;
+        this.createtree();
       })
       .catch(error => {
         console.error(error);
       });
+      
 
       
-      
+
 
     },
 
@@ -85,30 +81,51 @@ export default {
       return data.label.indexOf(value) !== -1;
     },
     createtree() {
-    this.index = 1;
-    this.grouplist.forEach(item => {
-      item.index = this.index++;
-    });
-    this.studentlist.forEach(item => {
-      item.index = this.index++;
-    });
-    console.log(this.grouplist);
-    console.log(this.studentlist);
-    this.data2 = arrayToTree([...this.grouplist,...this.studentlist], {
-    parentProperty: 'groupId',
-    customID: 'index'
-    });
-    console.log(this.data2);
-    },
-    createtree2() {
-      const combinedArray = [...this.array1,...this.array2];
-      this.data2 = arrayToTree(combinedArray, {
-        parentProperty: 'parentId',
-        customID: 'index'
+      this.index = 1;
+      this.grouplist.forEach((item, index) => {
+        item.index = this.grouplist[index].id;
+        this.index = this.grouplist[index].id;
       });
-      console.log(this.array1);
-      console.log(this.array1);
-      console.log(this.data2);
+      console.log(this.grouplist)
+      this.studentlist.forEach(item => {
+        item.index = this.index++;
+      });
+      this.data2 = arrayToTree([...this.grouplist,...this.studentlist], {
+      parentProperty: 'groupId',
+      customID: 'index'
+      });
+      const node = {
+        index:0,
+        name:'社团',
+        children: this.data2
+      }
+      this.data2 = [node];
+
+    },
+
+    handleNodeClick(data){
+      if('userName' in data){
+        this.data1 = data
+        this.dialogVisible = true
+      }
+      
+    },
+
+
+    renderNode(h, { node, data }) {
+      if ('userName' in data) {
+        return (
+          <span>
+            <span>{data.userId}{data.userName}</span> 
+          </span>
+        );
+      } else {
+        return (
+          <span>
+            <span>{data.name}</span> 
+          </span>
+        );
+      }
     }
   }
 }
