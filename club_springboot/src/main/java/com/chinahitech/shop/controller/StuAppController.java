@@ -42,7 +42,7 @@ public class StuAppController {
     @RequestMapping("/all")
     public Result getAll() {
         List<StuApp> StuApps = stuAppService.query();
-        System.out.println(StuApps);
+//        System.out.println(StuApps);
         return Result.ok().data("items", StuApps);
     }
 
@@ -51,7 +51,7 @@ public class StuAppController {
     @PostMapping("/myApps")
     public Result getMyApps(String stuNumber) {
         List<StuApp> StuApps = stuAppService.queryMyapp(stuNumber);
-        System.out.println(stuNumber);
+//        System.out.println(stuNumber);
         return Result.ok().data("items", StuApps);
     }
 
@@ -60,7 +60,7 @@ public class StuAppController {
     @PostMapping("/submit")
     public Result submit(@RequestBody StuApp stuApp) {
         stuApp.setCreateTime(new Date());
-        System.out.println(stuApp);
+//        System.out.println(stuApp);
         stuAppService.insert(stuApp);
         groupService.addHot(stuApp.getGroupName());
         return Result.ok();
@@ -76,7 +76,7 @@ public class StuAppController {
     @PostMapping("/recApps")
     public Result getRecApps(String groupName){
         List<StuApp> StuApps = stuAppService.queryRecvapp(groupName);
-        System.out.println(groupName);
+//        System.out.println(groupName);
         return Result.ok().data("items", StuApps);
     }
 
@@ -86,7 +86,7 @@ public class StuAppController {
     public Result getRecApp(Integer id) {
         StuApp StuApp = stuAppService.queryDetailapp(id);
         String isAcceptedStr = stuAppService.findIsAccepted(id); // 直接获取特定id的isAccepted值
-        System.out.println(id);
+//        System.out.println(id);
         return Result.ok().data("items", StuApp).data("isAccepted", isAcceptedStr);
     }
 
@@ -143,7 +143,7 @@ public class StuAppController {
     @RepeatLimit
     @PostMapping("/accept")
     public Result acceptApplication(Integer applicationId){
-        System.out.println(applicationId);
+//        System.out.println(applicationId);
         // System.out.println(isaccepted);
         stuAppService.confirmApplication(applicationId);
         return Result.ok();
@@ -153,7 +153,7 @@ public class StuAppController {
     @RepeatLimit
     @PostMapping("/reject")
     public Result rejectApplication(Integer applicationId){
-        System.out.println(applicationId);
+//        System.out.println(applicationId);
         // System.out.println(isaccepted);
         stuAppService.denyApplication(applicationId);
         return Result.ok();

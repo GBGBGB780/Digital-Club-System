@@ -1,6 +1,7 @@
 package com.chinahitech.shop.service;
 
 import com.chinahitech.shop.bean.User;
+import com.chinahitech.shop.exception.FileTypeException;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.poifs.filesystem.POIFSFileSystem;
@@ -25,15 +26,17 @@ public class ScanExcel {
     public List<User> readExcel(File file) throws Exception{
         int res = checkFile(file);
         if (res == 0) {
-            System.out.println("File not found");
+//            System.out.println("File not found");
+            throw new FileNotFoundException("File not found");
         }else if (res == 1) {//类型为-XLSX
             return readXLSX(file);
         }else if (res == 2) {//类型为-XLS
             return readXLS(file);
         }else{
-            System.out.println("暂不支持读取该文件格式");
+            throw new FileTypeException("暂不支持读取该文件格式");
+//            System.out.println("暂不支持读取该文件格式");
         }
-        return new ArrayList<>();
+//        return new ArrayList<>();
     }
 
     //写入Excel文件（支持.xls和.xlsx）
@@ -114,7 +117,7 @@ public class ScanExcel {
                             if (tempVal.contains("学号")) {
                                 //找出“学号”表头所在行
                                 numRow = i;
-                                System.out.println("numRow:"+ numRow);
+//                                System.out.println("numRow:"+ numRow);
                             }
                         }
                     }

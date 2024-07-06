@@ -56,10 +56,10 @@ public class IndividualGroupService {
         User user = validateManagerName(managerId);
 
         List<IndividualGroup> individualGroupList = individualGroupMapper.getAllManagedGroups(managerId);
-        System.out.println(individualGroupList);
+//        System.out.println(individualGroupList);
         List<Group> groupList = new ArrayList<>();
         for (IndividualGroup individualGroup : individualGroupList) {
-            System.out.println(individualGroup.getGroupId());
+//            System.out.println(individualGroup.getGroupId());
             groupList.add(groupMapper.getGroupById(individualGroup.getGroupId()));
         }
         return groupList;
@@ -76,6 +76,7 @@ public class IndividualGroupService {
 //        System.out.println(groupList);
         for (GroupNum group : groupList) {
             group.setGroupName(groupMapper.getGroupById(group.getGroupId()).getName());
+            group.setHot(groupMapper.getGroupById(group.getGroupId()).getHot());
         }
         return groupList;
     }

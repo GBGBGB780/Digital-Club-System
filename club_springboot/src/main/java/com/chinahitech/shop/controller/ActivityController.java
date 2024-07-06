@@ -42,7 +42,7 @@ public class ActivityController {
     @RequestMapping("/all")
     public Result getAll(String searchInfo){
         List<Activity> activities = activityService.query(searchInfo);
-        System.out.println(activities);
+//        System.out.println(activities);
         return Result.ok().data("items",activities);
     }
 
@@ -50,7 +50,7 @@ public class ActivityController {
     @RepeatLimit
     @PostMapping("/studentDetail")
     public Result getStudentDetail(String groupName, String activityName){
-        System.out.println(activityName);
+//        System.out.println(activityName);
         Activity activity = activityService.getActivityByNameAndGroupName(activityName, groupName);
         return Result.ok().data("activity", activity);
     }
@@ -67,7 +67,7 @@ public class ActivityController {
                     .path("/")
                     .path(relativePath)
                     .toUriString();
-            System.out.println(videoUrl);
+//            System.out.println(videoUrl);
             return Result.ok().data("url", videoUrl);
         } catch (Exception e) {
             return Result.error().message("获取视频失败");
@@ -78,7 +78,7 @@ public class ActivityController {
     @RequestMapping("/top")
     public Result getTop() {
         List<Activity> activities = activityService.queryTop();
-        System.out.println(activities);
+//        System.out.println(activities);
         return Result.ok().data("item", activities);
     }
     // end
@@ -99,7 +99,7 @@ public class ActivityController {
     @PostMapping("/myActivity")
     public Result getMyActivities(String groupName){
         List<Activity> activities = activityService.getActivityByGroupName(groupName);
-        System.out.println(groupName);
+//        System.out.println(groupName);
         return Result.ok().data("items", activities);
     }
 
@@ -107,7 +107,7 @@ public class ActivityController {
     @RepeatLimit
     @PostMapping("/managerDetail")
     public Result getManagerDetail(String groupName, String activityName){
-        System.out.println(activityName);
+//        System.out.println(activityName);
         Activity activity = activityService.getActivityByNameAndGroupName(activityName, groupName);
         return Result.ok().data("activity", activity);
     }
@@ -116,8 +116,8 @@ public class ActivityController {
     @RepeatLimit
     @PostMapping("/modifyDescription")
     public Result  modifyDescription(String groupName, String activityName, String description, String attachment, String image){
-        System.out.println(activityName);
-        System.out.println(description);
+//        System.out.println(activityName);
+//        System.out.println(description);
         activityService.updateDescription(groupName, activityName, description, attachment,image);
         return Result.ok();
     }
@@ -126,7 +126,7 @@ public class ActivityController {
     @RepeatLimit
     @PostMapping("/modifyInfo")
     public Result modifyInfo(Activity activity){
-        System.out.println(activity.getName());
+//        System.out.println(activity.getName());
         activityService.modifyInfo(activity);
         return Result.ok();
     }
@@ -135,7 +135,7 @@ public class ActivityController {
     @RepeatLimit
     @PostMapping("/addActivity")
     public Result addActivity(Activity activity){
-        System.out.println(activity.getName());
+//        System.out.println(activity.getName());
         activity.setIsAccepted(null);
         activityService.addActivity(activity);
         return Result.ok();
@@ -145,7 +145,7 @@ public class ActivityController {
     @RepeatLimit
     @PostMapping("/deleteActivity")
     public Result deleteActivity(Activity activity){
-        System.out.println(activity.getName());
+//        System.out.println(activity.getName());
         activity.setIsAccepted(null);
         activityService.deleteActivity(activity);
         return Result.ok();
@@ -270,14 +270,14 @@ public class ActivityController {
     @RequestMapping("/allApps")
     public Result getAllApps(String searchInfo){
         List<Activity> activities = activityService.getAllApp(searchInfo);
-        System.out.println(activities);
+//        System.out.println(activities);
         return Result.ok().data("items",activities);
     }
     // 申请列表->详情
     @RepeatLimit
     @PostMapping("/appDetail")
     public Result getAppDetail(String groupName, String activityName){
-        System.out.println(activityName);
+//        System.out.println(activityName);
         Activity activity = activityService.getAppByNameAndGroupName(activityName, groupName);
         return Result.ok().data("activity",activity);
     }
@@ -288,7 +288,7 @@ public class ActivityController {
     @RepeatLimit
     @PostMapping("/accept")
     public Result accept(int activityId){
-        System.out.println(activityId);
+//        System.out.println(activityId);
         // System.out.println(isaccepted);
         activityService.confirmApplication(activityId);
         return Result.ok();
@@ -298,7 +298,7 @@ public class ActivityController {
     @RepeatLimit
     @PostMapping("/reject")
     public Result reject(int activityId){
-        System.out.println(activityId);
+//        System.out.println(activityId);
         // System.out.println(isaccepted);
         activityService.denyApplication(activityId);
         return Result.ok();

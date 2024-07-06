@@ -13,4 +13,5 @@ public class GroupNum{
     private int groupId;
     private int count;
     private String groupName;
+    private int hot;
 }

@@ -33,7 +33,9 @@ public interface IndividualGroupMapper extends BaseMapper<IndividualGroup> {
     @Select("select * from `Individual_group` WHERE user_id = #{userId} and group_id = #{groupId}")
     IndividualGroup getUserByUserIdAndGroupId(@Param("userId") String userId, @Param("groupId") int groupId);
 
-    @Select("select group_id as groupId, count(*) as count from `Individual_group` group by group_id order by count desc limit 5")
+    @Select(" select group_id as groupId, count(*) as count " +
+            " from `Individual_group`" +
+            " group by group_id order by count desc limit 5")
     List<GroupNum> getGroupMembers();
 
 //    @Insert("INSERT INTO Individual_group(userId, groupId, position, userName, status, createTime, modifyTime) " +

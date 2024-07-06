@@ -74,7 +74,7 @@ public class GroupService {
     }
 
     public void addHot(String groupName) {
-        System.out.println(groupName);
+//        System.out.println(groupName);
         Group group = groupMapper.getHot(groupName);
         if(group == null){
             throw new EntityNotFoundException("社团"+ groupName +"不存在");

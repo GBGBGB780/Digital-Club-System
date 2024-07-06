@@ -41,7 +41,7 @@ public class Upload {
             String path = "C:/Users/minislother/Desktop/test-excel/";//所需打开文件的路径
 //            System.out.println(path);
             String x = path + tempfilename;
-            System.out.println(x);
+//            System.out.println(x);
             String fileType  = file.getOriginalFilename().substring(file.getOriginalFilename().indexOf("."));
             // 把文件的名称设置唯一值，uuid
 //            String uuid = UUID.randomUUID().toString().replace("-", "");
