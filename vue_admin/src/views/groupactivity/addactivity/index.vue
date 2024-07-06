@@ -19,6 +19,10 @@
         <el-input v-model="ruleForm.place"></el-input>
       </el-form-item>
       <el-form-item label="活动时间" required>
+        <el-date-picker v-model="ruleForm.time" type="datetime" placeholder="选择日期时间">
+        </el-date-picker>
+      </el-form-item>
+      <!-- <el-form-item label="活动时间" required>
         <el-col :span="11">
           <el-form-item prop="date1">
             <el-date-picker type="date" placeholder="选择日期" v-model="ruleForm.date1"
@@ -30,7 +34,7 @@
             <el-time-picker placeholder="选择时间" v-model="ruleForm.date2" style="width: 100%;"></el-time-picker>
           </el-form-item>
         </el-col>
-      </el-form-item>
+      </el-form-item> -->
       <el-form-item label="活动安排" prop="arrange">
         <el-input v-model="ruleForm.arrange"></el-input>
       </el-form-item>
@@ -38,26 +42,24 @@
         <el-input type="textarea" v-model="ruleForm.desc"></el-input>
       </el-form-item>
       <hr>
-      <el-form-item label="上传附件">
-        <!-- TODO action="https://localhost:8081/activity/uploadZip/" -->
-        <el-upload class="upload-demo" drag 
-          :on-remove="handleRemove" :before-remove="beforeRemove" :before-upload="beforeZipUpload">
+      <!-- <el-form-item label="上传附件">
+        <el-upload class="upload-demo" drag :on-remove="handleRemove" :before-remove="beforeRemove"
+          action="https://localhost:8081/activity/uploadZip/" :before-upload="beforeZipUpload">
           <i class="el-icon-upload"></i>
           <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
           <div class="el-upload__tip" slot="tip">只能上传zip文件, 且不超过2MB</div>
         </el-upload>
       </el-form-item>
       <el-form-item label="上传图片">
-        <!-- TODO action="https://localhost:8081/activity/uploadPhoto/" -->
-        <el-upload class="upload-demo" drag :on-remove="handleRemove"
-          :file-list="fileList" list-type="picture">
+        <el-upload class="upload-demo" drag :on-remove="handleRemove" list-type="picture"
+          action="https://localhost:8081/activity/uploadPhoto/">
           <i class="el-icon-upload"></i>
           <i class="el-icon-picture"></i>
           <div class="el-upload__text">将图片拖到此处，或<em>点击上传</em></div>
           <div slot="tip" class="el-upload__tip">只能上传jpg/png文件, 且不超过2MB</div>
         </el-upload>
       </el-form-item>
-      <hr>
+      <hr> -->
       <el-form-item>
         <el-button type="primary" @click="submitActivity('ruleForm')">立即申请</el-button>
         <el-button @click="resetForm('ruleForm')">重置</el-button>
@@ -69,7 +71,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
-// TODO import { modifyInfo, addActivity } from '@/api/activities.js'
+import { addActivity } from '@/api/activities.js'
 
 export default {
   name: 'AddActivity',
@@ -83,12 +85,12 @@ export default {
       ruleForm: {
         name: '',
         organizer: '',
-        number: 0,
+        type: 0,
         place: '',
-        date1: '',
-        date2: '',
+        time: '',
         arrange: '',
-        desc: ''
+        desc: '',
+        groupName: this.$store.state.clubname
       },
       rules: {
         name: [
@@ -103,19 +105,13 @@ export default {
           { required: true, message: '请输入活动地点', trigger: 'blur' },
           { min: 1, max: 31, message: '长度在 1 到 31 个字符', trigger: 'blur' }
         ],
-        date1: [
-          { type: 'date', required: true, message: '请选择日期', trigger: 'change' }
+        time: [
+          { type: 'date', required: true, message: '请选择活动时间', trigger: 'change' }
         ],
-        date2: [
-          { type: 'date', required: true, message: '请选择时间', trigger: 'change' }
-        ],
-        arrange: [
-          { required: true, message: '请填写活动安排', trigger: 'blur' },
-          { min: 1, max: 31, message: '长度在 1 到 31 个字符', trigger: 'blur' }
-        ],
-        desc: [
-          { required: true, message: '请填写活动描述', trigger: 'blur' }
-        ]
+        // arrange: [
+        //   { required: true, message: '请填写活动安排', trigger: 'blur' },
+        //   { min: 1, max: 31, message: '长度在 1 到 31 个字符', trigger: 'blur' }
+        // ]
       }
     };
   },
@@ -123,12 +119,37 @@ export default {
     submitActivity(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          alert('submit!');
+          const a = this.getActivity()
+          console.log(a)
+          addActivity(a).then(response => {
+            console.log(response)
+            this.$message({
+              message: '活动申请成功!',
+              type: 'success'
+            })
+            this.resetForm()
+          }).catch(error => console.log(error))
+          return true
         } else {
-          console.log('error submit!!');
+          this.$message({
+            message: '活动格式错误!',
+            type: 'error'
+          })
           return false;
         }
       });
+    },
+    getActivity() {
+      return {
+        name: this.ruleForm.name,
+        organizer: this.ruleForm.organizer,
+        type: this.ruleForm.type,
+        place: this.ruleForm.place,
+        time: this.ruleForm.time,
+        arrange: this.ruleForm.arrange,
+        desc: this.ruleForm.desc,
+        groupName: this.ruleForm.groupName
+      }
     },
     resetForm(formName) {
       this.$refs[formName].resetFields();
