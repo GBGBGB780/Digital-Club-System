@@ -91,7 +91,19 @@ export const constantRoutes = [
         path: 'index',
         name: 'Activity',
         component: () => import('@/views/activity/index'),
-        meta: { title: '活动管理', icon: 'form' }
+        meta: { title: '活动审批管理', icon: 'el-icon-s-flag' }
+      }
+    ]
+  },
+
+  {
+    path: '/activity',
+    component: Layout,
+    children: [
+      {
+        path: 'activitydetail/:aid',
+        name: 'Activitydetail',
+        component: () => import('@/views/activity/activitydetail')
       }
     ]
   },
