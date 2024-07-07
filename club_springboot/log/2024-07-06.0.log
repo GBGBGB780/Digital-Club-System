@@ -139,3 +139,5 @@
 22:53:06.819 logback-spring [http-nio-8081-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
 22:53:06.910 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 返回结果: {"code":20000,"data":{"items":[{"count":1,"groupId":1,"groupName":"足球社","hot":9},{"count":1,"groupId":2,"groupName":"飞盘社","hot":2},{"count":1,"groupId":3,"groupName":"文学社","hot":0},{"count":1,"groupId":4,"groupName":"说唱社","hot":0}]},"message":"成功","success":true}
 22:53:06.911 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - ------------- 结束 耗时：706 ms -------------
+23:09:09.676 logback-spring [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+23:09:09.695 logback-spring [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
