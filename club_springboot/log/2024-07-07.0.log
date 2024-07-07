@@ -1,0 +1,790 @@
+15:56:52.784 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - Starting ShopApplication using Java 17.0.4.1 on minislother with PID 16972 (D:\java program\club_springboot\target\classes started by 树懒 in D:\java program\club_springboot)
+15:56:52.784 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - No active profile set, falling back to default profiles: default
+15:56:53.301 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+15:56:53.301 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+15:56:53.331 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 10 ms. Found 0 Redis repository interfaces.
+15:56:53.975 logback-spring [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+15:56:53.983 logback-spring [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+15:56:53.984 logback-spring [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+15:56:53.984 logback-spring [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+15:56:54.058 logback-spring [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+15:56:54.059 logback-spring [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1243 ms
+15:56:55.461 logback-spring [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+15:56:55.494 logback-spring [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
+15:56:55.509 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - Started ShopApplication in 3.07 seconds (JVM running for 3.803)
+15:56:55.511 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - 原神 启动！
+15:59:07.829 logback-spring [http-nio-8081-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+15:59:07.829 logback-spring [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+15:59:07.829 logback-spring [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+15:59:07.884 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - ------------- 开始 -------------
+15:59:07.886 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 请求地址: http://localhost:8081/topManager/uploadExcel POST
+15:59:07.886 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 类名方法: com.chinahitech.shop.controller.TopManagerController.uploadExcel
+15:59:07.886 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 远程地址: 0:0:0:0:0:0:0:1
+15:59:07.921 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 请求参数: [null]
+15:59:08.383 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 返回结果: {"body":{"error":"Failed to upload the file."},"headers":{},"statusCode":"BAD_REQUEST","statusCodeValue":400}
+15:59:08.383 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - ------------- 结束 耗时：499 ms -------------
+16:00:03.640 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - Starting ShopApplication using Java 17.0.4.1 on minislother with PID 35568 (D:\java program\club_springboot\target\classes started by 树懒 in D:\java program\club_springboot)
+16:00:03.643 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - No active profile set, falling back to default profiles: default
+16:00:04.082 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+16:00:04.084 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+16:00:04.102 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.
+16:00:04.667 logback-spring [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+16:00:04.674 logback-spring [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+16:00:04.674 logback-spring [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+16:00:04.675 logback-spring [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+16:00:04.749 logback-spring [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+16:00:04.749 logback-spring [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1071 ms
+16:00:06.073 logback-spring [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+16:00:06.107 logback-spring [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
+16:00:06.121 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - Started ShopApplication in 2.782 seconds (JVM running for 3.34)
+16:00:06.123 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - 原神 启动！
+16:00:10.347 logback-spring [http-nio-8081-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+16:00:10.347 logback-spring [http-nio-8081-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+16:00:10.347 logback-spring [http-nio-8081-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+16:00:10.392 logback-spring [http-nio-8081-exec-2] INFO  com.chinahitech.shop.aop.LogAspect - ------------- 开始 -------------
+16:00:10.392 logback-spring [http-nio-8081-exec-2] INFO  com.chinahitech.shop.aop.LogAspect - 请求地址: http://localhost:8081/topManager/uploadExcel POST
+16:00:10.393 logback-spring [http-nio-8081-exec-2] INFO  com.chinahitech.shop.aop.LogAspect - 类名方法: com.chinahitech.shop.controller.TopManagerController.uploadExcel
+16:00:10.393 logback-spring [http-nio-8081-exec-2] INFO  com.chinahitech.shop.aop.LogAspect - 远程地址: 0:0:0:0:0:0:0:1
+16:00:10.424 logback-spring [http-nio-8081-exec-2] INFO  com.chinahitech.shop.aop.LogAspect - 请求参数: [null]
+16:00:10.977 logback-spring [http-nio-8081-exec-2] INFO  com.chinahitech.shop.aop.LogAspect - 返回结果: {"body":{"fileUrl":"http://localhost:8081/upload/20240707160010870_%E6%96%B0%E5%BB%BA%20Microsoft%20Excel%20%E5%B7%A5%E4%BD%9C%E8%A1%A8.xlsx"},"headers":{},"statusCode":"OK","statusCodeValue":200}
+16:00:10.978 logback-spring [http-nio-8081-exec-2] INFO  com.chinahitech.shop.aop.LogAspect - ------------- 结束 耗时：587 ms -------------
+16:02:33.728 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - Starting ShopApplication using Java 17.0.4.1 on minislother with PID 7272 (D:\java program\club_springboot\target\classes started by 树懒 in D:\java program\club_springboot)
+16:02:33.728 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - No active profile set, falling back to default profiles: default
+16:02:34.456 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+16:02:34.462 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+16:02:34.495 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 14 ms. Found 0 Redis repository interfaces.
+16:02:34.662 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - Starting ShopApplication using Java 17.0.4.1 on minislother with PID 33276 (D:\java program\club_springboot\target\classes started by 树懒 in D:\java program\club_springboot)
+16:02:34.664 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - No active profile set, falling back to default profiles: default
+16:02:35.160 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+16:02:35.162 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+16:02:35.180 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.
+16:02:35.213 logback-spring [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+16:02:35.222 logback-spring [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+16:02:35.222 logback-spring [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+16:02:35.223 logback-spring [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+16:02:35.297 logback-spring [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+16:02:35.297 logback-spring [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1513 ms
+16:02:35.766 logback-spring [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+16:02:35.774 logback-spring [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+16:02:35.774 logback-spring [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+16:02:35.775 logback-spring [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+16:02:35.847 logback-spring [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+16:02:35.848 logback-spring [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1133 ms
+16:02:36.881 logback-spring [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+16:02:36.920 logback-spring [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
+16:02:36.937 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - Started ShopApplication in 3.631 seconds (JVM running for 4.826)
+16:02:36.939 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - 原神 启动！
+16:02:37.425 logback-spring [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+16:02:37.457 logback-spring [main] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8081"]
+16:02:37.457 logback-spring [main] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+16:02:37.462 logback-spring [main] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8081"]
+16:02:37.463 logback-spring [main] INFO  o.a.coyote.http11.Http11NioProtocol - Destroying ProtocolHandler ["http-nio-8081"]
+16:02:43.452 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - Starting ShopApplication using Java 17.0.4.1 on minislother with PID 2608 (D:\java program\club_springboot\target\classes started by 树懒 in D:\java program\club_springboot)
+16:02:43.453 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - No active profile set, falling back to default profiles: default
+16:02:43.899 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+16:02:43.900 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+16:02:43.917 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.
+16:02:44.450 logback-spring [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+16:02:44.457 logback-spring [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+16:02:44.458 logback-spring [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+16:02:44.458 logback-spring [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+16:02:44.521 logback-spring [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+16:02:44.521 logback-spring [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1028 ms
+16:02:45.803 logback-spring [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+16:02:45.833 logback-spring [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
+16:02:45.845 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - Started ShopApplication in 2.722 seconds (JVM running for 3.248)
+16:02:45.847 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - 原神 启动！
+16:02:48.196 logback-spring [http-nio-8081-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+16:02:48.196 logback-spring [http-nio-8081-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+16:02:48.197 logback-spring [http-nio-8081-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+16:02:48.247 logback-spring [http-nio-8081-exec-2] INFO  com.chinahitech.shop.aop.LogAspect - ------------- 开始 -------------
+16:02:48.248 logback-spring [http-nio-8081-exec-2] INFO  com.chinahitech.shop.aop.LogAspect - 请求地址: http://localhost:8081/topManager/uploadExcel POST
+16:02:48.248 logback-spring [http-nio-8081-exec-2] INFO  com.chinahitech.shop.aop.LogAspect - 类名方法: com.chinahitech.shop.controller.TopManagerController.uploadExcel
+16:02:48.248 logback-spring [http-nio-8081-exec-2] INFO  com.chinahitech.shop.aop.LogAspect - 远程地址: 0:0:0:0:0:0:0:1
+16:02:48.287 logback-spring [http-nio-8081-exec-2] INFO  com.chinahitech.shop.aop.LogAspect - 请求参数: [null]
+16:02:48.795 logback-spring [http-nio-8081-exec-2] INFO  com.chinahitech.shop.aop.LogAspect - 返回结果: {"body":{"fileUrl":"http://localhost:8081/upload/20240707160248713_%E6%96%B0%E5%BB%BA%20Microsoft%20Excel%20%E5%B7%A5%E4%BD%9C%E8%A1%A8.xlsx"},"headers":{},"statusCode":"OK","statusCodeValue":200}
+16:02:48.795 logback-spring [http-nio-8081-exec-2] INFO  com.chinahitech.shop.aop.LogAspect - ------------- 结束 耗时：548 ms -------------
+16:04:53.793 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - Starting ShopApplication using Java 17.0.4.1 on minislother with PID 1252 (D:\java program\club_springboot\target\classes started by 树懒 in D:\java program\club_springboot)
+16:04:53.795 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - No active profile set, falling back to default profiles: default
+16:04:54.407 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+16:04:54.409 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+16:04:54.426 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+16:04:55.012 logback-spring [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+16:04:55.022 logback-spring [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+16:04:55.022 logback-spring [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+16:04:55.023 logback-spring [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+16:04:55.089 logback-spring [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+16:04:55.089 logback-spring [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1253 ms
+16:04:56.261 logback-spring [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+16:04:56.291 logback-spring [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
+16:04:56.304 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - Started ShopApplication in 2.842 seconds (JVM running for 3.384)
+16:04:56.307 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - 原神 启动！
+16:04:57.589 logback-spring [http-nio-8081-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+16:04:57.589 logback-spring [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+16:04:57.590 logback-spring [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+16:04:57.633 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - ------------- 开始 -------------
+16:04:57.634 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 请求地址: http://localhost:8081/topManager/uploadExcel POST
+16:04:57.635 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 类名方法: com.chinahitech.shop.controller.TopManagerController.uploadExcel
+16:04:57.635 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 远程地址: 0:0:0:0:0:0:0:1
+16:04:57.665 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 请求参数: [null]
+16:04:58.089 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 返回结果: {"body":{"error":"Failed to upload the file."},"headers":{},"statusCode":"BAD_REQUEST","statusCodeValue":400}
+16:04:58.089 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - ------------- 结束 耗时：456 ms -------------
+16:07:53.079 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - Starting ShopApplication using Java 17.0.4.1 on minislother with PID 27568 (D:\java program\club_springboot\target\classes started by 树懒 in D:\java program\club_springboot)
+16:07:53.080 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - No active profile set, falling back to default profiles: default
+16:07:53.514 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+16:07:53.516 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+16:07:53.532 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.
+16:07:54.243 logback-spring [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+16:07:54.325 logback-spring [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1208 ms
+16:07:55.514 logback-spring [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
+16:07:55.526 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - Started ShopApplication in 2.781 seconds (JVM running for 3.297)
+16:07:55.528 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - 原神 启动！
+16:08:08.613 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - Starting ShopApplication using Java 17.0.4.1 on minislother with PID 15124 (D:\java program\club_springboot\target\classes started by 树懒 in D:\java program\club_springboot)
+16:08:08.613 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - No active profile set, falling back to default profiles: default
+16:08:09.091 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+16:08:09.093 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+16:08:09.113 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 11 ms. Found 0 Redis repository interfaces.
+16:08:09.662 logback-spring [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+16:08:09.671 logback-spring [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+16:08:09.672 logback-spring [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+16:08:09.672 logback-spring [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+16:08:09.744 logback-spring [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+16:08:09.744 logback-spring [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1092 ms
+16:08:10.967 logback-spring [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+16:08:10.997 logback-spring [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
+16:08:11.008 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - Started ShopApplication in 2.718 seconds (JVM running for 3.215)
+16:08:11.010 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - 原神 启动！
+16:08:13.286 logback-spring [http-nio-8081-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+16:08:13.286 logback-spring [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+16:08:13.287 logback-spring [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+16:08:13.334 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - ------------- 开始 -------------
+16:08:13.335 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 请求地址: http://localhost:8081/topManager/uploadExcel POST
+16:08:13.336 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 类名方法: com.chinahitech.shop.controller.TopManagerController.uploadExcel
+16:08:13.336 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 远程地址: 0:0:0:0:0:0:0:1
+16:08:13.367 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 请求参数: [null]
+16:08:13.860 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 返回结果: {"body":{"fileUrl":"http://localhost:8081/upload/20240707160813781_%E6%96%B0%E5%BB%BA%20Microsoft%20Excel%20%E5%B7%A5%E4%BD%9C%E8%A1%A8.xlsx"},"headers":{},"statusCode":"OK","statusCodeValue":200}
+16:08:13.860 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - ------------- 结束 耗时：526 ms -------------
+16:12:44.351 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - Starting ShopApplication using Java 17.0.4.1 on minislother with PID 1876 (D:\java program\club_springboot\target\classes started by 树懒 in D:\java program\club_springboot)
+16:12:44.353 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - No active profile set, falling back to default profiles: default
+16:12:44.778 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+16:12:44.780 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+16:12:44.799 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+16:12:45.333 logback-spring [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+16:12:45.340 logback-spring [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+16:12:45.340 logback-spring [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+16:12:45.340 logback-spring [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+16:12:45.404 logback-spring [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+16:12:45.404 logback-spring [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1016 ms
+16:12:46.617 logback-spring [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+16:12:46.647 logback-spring [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
+16:12:46.660 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - Started ShopApplication in 2.617 seconds (JVM running for 3.153)
+16:12:46.662 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - 原神 启动！
+16:12:50.158 logback-spring [http-nio-8081-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+16:12:50.159 logback-spring [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+16:12:50.160 logback-spring [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+16:12:50.181 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - ------------- 开始 -------------
+16:12:50.181 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 请求地址: http://localhost:8081/group/getVideo POST
+16:12:50.183 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 类名方法: com.chinahitech.shop.controller.GroupController.getVideo
+16:12:50.183 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 远程地址: 0:0:0:0:0:0:0:1
+16:12:50.213 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 请求参数: []
+16:12:50.651 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 返回结果: {"code":20000,"data":{"url":"http://localhost:8081/videotest.mp4"},"message":"成功","success":true}
+16:12:50.651 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - ------------- 结束 耗时：471 ms -------------
+16:14:53.454 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - Starting ShopApplication using Java 17.0.4.1 on minislother with PID 21940 (D:\java program\club_springboot\target\classes started by 树懒 in D:\java program\club_springboot)
+16:14:53.456 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - No active profile set, falling back to default profiles: default
+16:14:53.891 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+16:14:53.893 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+16:14:53.910 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.
+16:14:54.523 logback-spring [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+16:14:54.529 logback-spring [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+16:14:54.529 logback-spring [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+16:14:54.529 logback-spring [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+16:14:54.592 logback-spring [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+16:14:54.593 logback-spring [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1100 ms
+16:14:55.853 logback-spring [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+16:14:55.890 logback-spring [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
+16:14:55.904 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - Started ShopApplication in 2.791 seconds (JVM running for 3.328)
+16:14:55.907 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - 原神 启动！
+16:15:02.945 logback-spring [http-nio-8081-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+16:15:02.946 logback-spring [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+16:15:02.947 logback-spring [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+16:15:02.994 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - ------------- 开始 -------------
+16:15:02.994 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 请求地址: http://localhost:8081/topManager/uploadExcel POST
+16:15:02.995 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 类名方法: com.chinahitech.shop.controller.TopManagerController.uploadExcel
+16:15:02.995 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 远程地址: 0:0:0:0:0:0:0:1
+16:15:03.026 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 请求参数: [null]
+16:15:03.485 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 返回结果: {"body":{"fileUrl":"http://localhost:8081/upload/20240707161503408_%E6%96%B0%E5%BB%BA%20Microsoft%20Excel%20%E5%B7%A5%E4%BD%9C%E8%A1%A8.xlsx"},"headers":{},"statusCode":"OK","statusCodeValue":200}
+16:15:03.529 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - ------------- 结束 耗时：536 ms -------------
+16:15:25.371 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - Starting ShopApplication using Java 17.0.4.1 on minislother with PID 35796 (D:\java program\club_springboot\target\classes started by 树懒 in D:\java program\club_springboot)
+16:15:25.371 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - No active profile set, falling back to default profiles: default
+16:15:25.829 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+16:15:25.831 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+16:15:25.850 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 10 ms. Found 0 Redis repository interfaces.
+16:15:26.390 logback-spring [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+16:15:26.397 logback-spring [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+16:15:26.398 logback-spring [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+16:15:26.398 logback-spring [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+16:15:26.462 logback-spring [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+16:15:26.463 logback-spring [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1053 ms
+16:15:27.724 logback-spring [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+16:15:27.755 logback-spring [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
+16:15:27.768 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - Started ShopApplication in 2.736 seconds (JVM running for 3.282)
+16:15:27.770 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - 原神 启动！
+16:15:30.362 logback-spring [http-nio-8081-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+16:15:30.362 logback-spring [http-nio-8081-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+16:15:30.364 logback-spring [http-nio-8081-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+16:15:30.412 logback-spring [http-nio-8081-exec-2] INFO  com.chinahitech.shop.aop.LogAspect - ------------- 开始 -------------
+16:15:30.413 logback-spring [http-nio-8081-exec-2] INFO  com.chinahitech.shop.aop.LogAspect - 请求地址: http://localhost:8081/topManager/uploadExcel POST
+16:15:30.414 logback-spring [http-nio-8081-exec-2] INFO  com.chinahitech.shop.aop.LogAspect - 类名方法: com.chinahitech.shop.controller.TopManagerController.uploadExcel
+16:15:30.414 logback-spring [http-nio-8081-exec-2] INFO  com.chinahitech.shop.aop.LogAspect - 远程地址: 0:0:0:0:0:0:0:1
+16:15:30.445 logback-spring [http-nio-8081-exec-2] INFO  com.chinahitech.shop.aop.LogAspect - 请求参数: [null]
+16:15:30.958 logback-spring [http-nio-8081-exec-2] INFO  com.chinahitech.shop.aop.LogAspect - 返回结果: {"body":{"fileUrl":"http://localhost:8081/20240707161530875_%E6%96%B0%E5%BB%BA%20Microsoft%20Excel%20%E5%B7%A5%E4%BD%9C%E8%A1%A8.xlsx"},"headers":{},"statusCode":"OK","statusCodeValue":200}
+16:15:30.958 logback-spring [http-nio-8081-exec-2] INFO  com.chinahitech.shop.aop.LogAspect - ------------- 结束 耗时：547 ms -------------
+16:15:52.327 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - Starting ShopApplication using Java 17.0.4.1 on minislother with PID 17892 (D:\java program\club_springboot\target\classes started by 树懒 in D:\java program\club_springboot)
+16:15:52.328 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - No active profile set, falling back to default profiles: default
+16:15:52.802 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+16:15:52.803 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+16:15:52.821 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.
+16:15:53.375 logback-spring [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+16:15:53.383 logback-spring [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+16:15:53.384 logback-spring [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+16:15:53.384 logback-spring [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+16:15:53.452 logback-spring [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+16:15:53.452 logback-spring [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1086 ms
+16:15:54.680 logback-spring [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+16:15:54.710 logback-spring [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
+16:15:54.723 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - Started ShopApplication in 2.726 seconds (JVM running for 3.251)
+16:15:54.725 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - 原神 启动！
+16:15:56.719 logback-spring [http-nio-8081-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+16:15:56.719 logback-spring [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+16:15:56.719 logback-spring [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+16:15:56.767 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - ------------- 开始 -------------
+16:15:56.767 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 请求地址: http://localhost:8081/topManager/uploadExcel POST
+16:15:56.767 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 类名方法: com.chinahitech.shop.controller.TopManagerController.uploadExcel
+16:15:56.767 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 远程地址: 0:0:0:0:0:0:0:1
+16:15:56.799 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 请求参数: [null]
+16:15:57.276 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 返回结果: {"body":{"fileUrl":"http://localhost:8081/20240707161557198_%E6%96%B0%E5%BB%BA%20Microsoft%20Excel%20%E5%B7%A5%E4%BD%9C%E8%A1%A8.xlsx"},"headers":{},"statusCode":"OK","statusCodeValue":200}
+16:15:57.276 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - ------------- 结束 耗时：509 ms -------------
+16:17:41.355 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - Starting ShopApplication using Java 17.0.4.1 on minislother with PID 18048 (D:\java program\club_springboot\target\classes started by 树懒 in D:\java program\club_springboot)
+16:17:41.358 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - No active profile set, falling back to default profiles: default
+16:17:41.802 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+16:17:41.804 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+16:17:41.821 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.
+16:17:42.358 logback-spring [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+16:17:42.364 logback-spring [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+16:17:42.365 logback-spring [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+16:17:42.365 logback-spring [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+16:17:42.432 logback-spring [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+16:17:42.432 logback-spring [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1039 ms
+16:17:43.603 logback-spring [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+16:17:43.632 logback-spring [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
+16:17:43.643 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - Started ShopApplication in 2.614 seconds (JVM running for 3.101)
+16:17:43.645 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - 原神 启动！
+16:17:45.735 logback-spring [http-nio-8081-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+16:17:45.736 logback-spring [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+16:17:45.737 logback-spring [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+16:17:45.781 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - ------------- 开始 -------------
+16:17:45.782 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 请求地址: http://localhost:8081/topManager/uploadExcel POST
+16:17:45.783 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 类名方法: com.chinahitech.shop.controller.TopManagerController.uploadExcel
+16:17:45.783 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 远程地址: 0:0:0:0:0:0:0:1
+16:17:45.810 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 请求参数: [null]
+16:17:46.293 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 返回结果: {"body":{"fileUrl":"http://localhost:8081/20240707161746214_%E6%96%B0%E5%BB%BA%20Microsoft%20Excel%20%E5%B7%A5%E4%BD%9C%E8%A1%A8.xlsx"},"headers":{},"statusCode":"OK","statusCodeValue":200}
+16:17:46.293 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - ------------- 结束 耗时：512 ms -------------
+16:23:10.976 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - Starting ShopApplication using Java 17.0.4.1 on minislother with PID 26120 (D:\java program\club_springboot\target\classes started by 树懒 in D:\java program\club_springboot)
+16:23:10.979 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - No active profile set, falling back to default profiles: default
+16:23:11.583 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+16:23:11.584 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+16:23:11.609 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 10 ms. Found 0 Redis repository interfaces.
+16:23:12.319 logback-spring [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+16:23:12.329 logback-spring [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+16:23:12.329 logback-spring [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+16:23:12.329 logback-spring [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+16:23:12.409 logback-spring [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+16:23:12.411 logback-spring [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1376 ms
+16:23:14.593 logback-spring [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+16:23:14.628 logback-spring [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
+16:23:14.642 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - Started ShopApplication in 4.027 seconds (JVM running for 4.556)
+16:23:14.645 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - 原神 启动！
+16:23:20.965 logback-spring [http-nio-8081-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+16:23:20.965 logback-spring [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+16:23:20.965 logback-spring [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+16:23:21.012 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - ------------- 开始 -------------
+16:23:21.012 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 请求地址: http://localhost:8081/topManager/uploadExcel POST
+16:23:21.013 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 类名方法: com.chinahitech.shop.controller.TopManagerController.uploadExcel
+16:23:21.013 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 远程地址: 0:0:0:0:0:0:0:1
+16:23:21.049 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 请求参数: [null]
+16:23:21.582 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 返回结果: {"body":{"fileUrl":"http://localhost:8081/20240707162321486_%E6%96%B0%E5%BB%BA%20Microsoft%20Excel%20%E5%B7%A5%E4%BD%9C%E8%A1%A8.xlsx"},"headers":{},"statusCode":"OK","statusCodeValue":200}
+16:23:21.582 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - ------------- 结束 耗时：570 ms -------------
+16:24:13.059 logback-spring [http-nio-8081-exec-7] INFO  com.chinahitech.shop.aop.LogAspect - ------------- 开始 -------------
+16:24:13.059 logback-spring [http-nio-8081-exec-7] INFO  com.chinahitech.shop.aop.LogAspect - 请求地址: http://localhost:8081/group/getVideo POST
+16:24:13.059 logback-spring [http-nio-8081-exec-7] INFO  com.chinahitech.shop.aop.LogAspect - 类名方法: com.chinahitech.shop.controller.GroupController.getVideo
+16:24:13.059 logback-spring [http-nio-8081-exec-7] INFO  com.chinahitech.shop.aop.LogAspect - 远程地址: 0:0:0:0:0:0:0:1
+16:24:13.059 logback-spring [http-nio-8081-exec-7] INFO  com.chinahitech.shop.aop.LogAspect - 请求参数: []
+16:24:13.073 logback-spring [http-nio-8081-exec-7] INFO  com.chinahitech.shop.aop.LogAspect - 返回结果: {"code":20000,"data":{"url":"http://localhost:8081/videotest.mp4"},"message":"成功","success":true}
+16:24:13.073 logback-spring [http-nio-8081-exec-7] INFO  com.chinahitech.shop.aop.LogAspect - ------------- 结束 耗时：14 ms -------------
+16:24:50.301 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - Starting ShopApplication using Java 17.0.4.1 on minislother with PID 16868 (D:\java program\club_springboot\target\classes started by 树懒 in D:\java program\club_springboot)
+16:24:50.301 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - No active profile set, falling back to default profiles: default
+16:24:50.746 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+16:24:50.748 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+16:24:50.766 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.
+16:24:51.298 logback-spring [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+16:24:51.303 logback-spring [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+16:24:51.303 logback-spring [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+16:24:51.303 logback-spring [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+16:24:51.365 logback-spring [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+16:24:51.366 logback-spring [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1027 ms
+16:24:52.594 logback-spring [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+16:24:52.629 logback-spring [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
+16:24:52.645 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - Started ShopApplication in 2.661 seconds (JVM running for 3.136)
+16:24:52.648 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - 原神 启动！
+16:24:55.929 logback-spring [http-nio-8081-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+16:24:55.929 logback-spring [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+16:24:55.930 logback-spring [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+16:24:55.977 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - ------------- 开始 -------------
+16:24:55.977 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 请求地址: http://localhost:8081/topManager/uploadExcel POST
+16:24:55.978 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 类名方法: com.chinahitech.shop.controller.TopManagerController.uploadExcel
+16:24:55.978 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 远程地址: 0:0:0:0:0:0:0:1
+16:24:56.013 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 请求参数: [null]
+16:24:56.507 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 返回结果: {"body":{"fileUrl":"http://localhost:8081/20240707162456424_%E6%96%B0%E5%BB%BA%20Microsoft%20Excel%20%E5%B7%A5%E4%BD%9C%E8%A1%A8.xlsx"},"headers":{},"statusCode":"OK","statusCodeValue":200}
+16:24:56.507 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - ------------- 结束 耗时：531 ms -------------
+16:25:50.355 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - Starting ShopApplication using Java 17.0.4.1 on minislother with PID 12024 (D:\java program\club_springboot\target\classes started by 树懒 in D:\java program\club_springboot)
+16:25:50.360 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - No active profile set, falling back to default profiles: default
+16:25:50.798 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+16:25:50.800 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+16:25:50.818 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+16:25:51.383 logback-spring [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+16:25:51.390 logback-spring [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+16:25:51.390 logback-spring [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+16:25:51.392 logback-spring [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+16:25:51.456 logback-spring [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+16:25:51.456 logback-spring [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1061 ms
+16:25:52.743 logback-spring [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+16:25:52.774 logback-spring [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
+16:25:52.786 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - Started ShopApplication in 2.787 seconds (JVM running for 3.279)
+16:25:52.788 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - 原神 启动！
+16:26:15.068 logback-spring [http-nio-8081-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+16:26:15.068 logback-spring [http-nio-8081-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+16:26:15.070 logback-spring [http-nio-8081-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+16:26:15.118 logback-spring [http-nio-8081-exec-2] INFO  com.chinahitech.shop.aop.LogAspect - ------------- 开始 -------------
+16:26:15.119 logback-spring [http-nio-8081-exec-2] INFO  com.chinahitech.shop.aop.LogAspect - 请求地址: http://localhost:8081/topManager/uploadExcel POST
+16:26:15.120 logback-spring [http-nio-8081-exec-2] INFO  com.chinahitech.shop.aop.LogAspect - 类名方法: com.chinahitech.shop.controller.TopManagerController.uploadExcel
+16:26:15.120 logback-spring [http-nio-8081-exec-2] INFO  com.chinahitech.shop.aop.LogAspect - 远程地址: 0:0:0:0:0:0:0:1
+16:26:15.153 logback-spring [http-nio-8081-exec-2] INFO  com.chinahitech.shop.aop.LogAspect - 请求参数: [null]
+16:26:15.648 logback-spring [http-nio-8081-exec-2] INFO  com.chinahitech.shop.aop.LogAspect - 返回结果: {"body":{"fileUrl":"http://localhost:8081/20240707162615567_1.xlsx"},"headers":{},"statusCode":"OK","statusCodeValue":200}
+16:26:15.648 logback-spring [http-nio-8081-exec-2] INFO  com.chinahitech.shop.aop.LogAspect - ------------- 结束 耗时：530 ms -------------
+16:27:23.622 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - Starting ShopApplication using Java 17.0.4.1 on minislother with PID 28240 (D:\java program\club_springboot\target\classes started by 树懒 in D:\java program\club_springboot)
+16:27:23.622 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - No active profile set, falling back to default profiles: default
+16:27:24.072 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+16:27:24.074 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+16:27:24.095 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+16:27:24.648 logback-spring [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+16:27:24.656 logback-spring [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+16:27:24.656 logback-spring [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+16:27:24.656 logback-spring [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+16:27:24.717 logback-spring [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+16:27:24.718 logback-spring [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1053 ms
+16:27:25.865 logback-spring [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+16:27:25.893 logback-spring [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
+16:27:25.905 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - Started ShopApplication in 2.631 seconds (JVM running for 3.133)
+16:27:25.907 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - 原神 启动！
+16:27:27.910 logback-spring [http-nio-8081-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+16:27:27.910 logback-spring [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+16:27:27.911 logback-spring [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+16:27:27.956 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - ------------- 开始 -------------
+16:27:27.956 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 请求地址: http://localhost:8081/topManager/uploadExcel POST
+16:27:27.957 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 类名方法: com.chinahitech.shop.controller.TopManagerController.uploadExcel
+16:27:27.957 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 远程地址: 0:0:0:0:0:0:0:1
+16:27:27.988 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 请求参数: [null]
+16:27:28.483 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 返回结果: {"body":{"fileUrl":"http://localhost:8081/20240707162728410_1.xlsx"},"headers":{},"statusCode":"OK","statusCodeValue":200}
+16:27:28.483 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - ------------- 结束 耗时：528 ms -------------
+16:28:02.467 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - Starting ShopApplication using Java 17.0.4.1 on minislother with PID 34484 (D:\java program\club_springboot\target\classes started by 树懒 in D:\java program\club_springboot)
+16:28:02.468 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - No active profile set, falling back to default profiles: default
+16:28:02.890 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+16:28:02.892 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+16:28:02.910 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+16:28:03.431 logback-spring [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+16:28:03.437 logback-spring [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+16:28:03.438 logback-spring [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+16:28:03.438 logback-spring [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+16:28:03.501 logback-spring [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+16:28:03.501 logback-spring [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 995 ms
+16:28:04.663 logback-spring [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+16:28:04.701 logback-spring [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
+16:28:04.713 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - Started ShopApplication in 2.566 seconds (JVM running for 3.078)
+16:28:04.715 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - 原神 启动！
+16:28:07.062 logback-spring [http-nio-8081-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+16:28:07.062 logback-spring [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+16:28:07.063 logback-spring [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+16:28:07.106 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - ------------- 开始 -------------
+16:28:07.106 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 请求地址: http://localhost:8081/topManager/uploadExcel POST
+16:28:07.106 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 类名方法: com.chinahitech.shop.controller.TopManagerController.uploadExcel
+16:28:07.106 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 远程地址: 0:0:0:0:0:0:0:1
+16:28:07.137 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 请求参数: [null]
+16:28:07.606 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 返回结果: {"body":{"fileUrl":"http://localhost:8081/1.xlsx"},"headers":{},"statusCode":"OK","statusCodeValue":200}
+16:28:07.607 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - ------------- 结束 耗时：502 ms -------------
+16:30:42.479 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - Starting ShopApplication using Java 17.0.4.1 on minislother with PID 31236 (D:\java program\club_springboot\target\classes started by 树懒 in D:\java program\club_springboot)
+16:30:42.481 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - No active profile set, falling back to default profiles: default
+16:30:42.938 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+16:30:42.941 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+16:30:42.958 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+16:30:43.508 logback-spring [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+16:30:43.516 logback-spring [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+16:30:43.516 logback-spring [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+16:30:43.516 logback-spring [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+16:30:43.582 logback-spring [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+16:30:43.582 logback-spring [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1066 ms
+16:30:44.803 logback-spring [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+16:30:44.834 logback-spring [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
+16:30:44.845 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - Started ShopApplication in 2.7 seconds (JVM running for 3.242)
+16:30:44.849 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - 原神 启动！
+16:30:47.935 logback-spring [http-nio-8081-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+16:30:47.936 logback-spring [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+16:30:47.936 logback-spring [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+16:30:47.979 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - ------------- 开始 -------------
+16:30:47.980 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 请求地址: http://localhost:8081/topManager/uploadExcel POST
+16:30:47.981 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 类名方法: com.chinahitech.shop.controller.TopManagerController.uploadExcel
+16:30:47.981 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 远程地址: 0:0:0:0:0:0:0:1
+16:30:48.011 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 请求参数: [null]
+16:30:48.469 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 返回结果: {"body":{"fileUrl":"http://localhost:8081/20240707163048434_1.xlsx"},"headers":{},"statusCode":"OK","statusCodeValue":200}
+16:30:48.469 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - ------------- 结束 耗时：491 ms -------------
+16:33:16.094 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - Starting ShopApplication using Java 17.0.4.1 on minislother with PID 15956 (D:\java program\club_springboot\target\classes started by 树懒 in D:\java program\club_springboot)
+16:33:16.096 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - No active profile set, falling back to default profiles: default
+16:33:16.618 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+16:33:16.620 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+16:33:16.638 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.
+16:33:17.171 logback-spring [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+16:33:17.178 logback-spring [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+16:33:17.179 logback-spring [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+16:33:17.179 logback-spring [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+16:33:17.242 logback-spring [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+16:33:17.242 logback-spring [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1104 ms
+16:33:18.440 logback-spring [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+16:33:18.470 logback-spring [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
+16:33:18.483 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - Started ShopApplication in 2.758 seconds (JVM running for 3.283)
+16:33:18.486 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - 原神 启动！
+16:33:20.816 logback-spring [http-nio-8081-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+16:33:20.816 logback-spring [http-nio-8081-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+16:33:20.817 logback-spring [http-nio-8081-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+16:33:20.869 logback-spring [http-nio-8081-exec-2] INFO  com.chinahitech.shop.aop.LogAspect - ------------- 开始 -------------
+16:33:20.870 logback-spring [http-nio-8081-exec-2] INFO  com.chinahitech.shop.aop.LogAspect - 请求地址: http://localhost:8081/topManager/uploadExcel POST
+16:33:20.872 logback-spring [http-nio-8081-exec-2] INFO  com.chinahitech.shop.aop.LogAspect - 类名方法: com.chinahitech.shop.controller.TopManagerController.uploadExcel
+16:33:20.872 logback-spring [http-nio-8081-exec-2] INFO  com.chinahitech.shop.aop.LogAspect - 远程地址: 0:0:0:0:0:0:0:1
+16:33:20.908 logback-spring [http-nio-8081-exec-2] INFO  com.chinahitech.shop.aop.LogAspect - 请求参数: [null]
+16:33:21.435 logback-spring [http-nio-8081-exec-2] INFO  com.chinahitech.shop.aop.LogAspect - 返回结果: {"body":{"fileUrl":"http://localhost:8081/1.xlsx"},"headers":{},"statusCode":"OK","statusCodeValue":200}
+16:33:21.435 logback-spring [http-nio-8081-exec-2] INFO  com.chinahitech.shop.aop.LogAspect - ------------- 结束 耗时：566 ms -------------
+16:36:20.837 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - Starting ShopApplication using Java 17.0.4.1 on minislother with PID 34912 (D:\java program\club_springboot\target\classes started by 树懒 in D:\java program\club_springboot)
+16:36:20.838 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - No active profile set, falling back to default profiles: default
+16:36:21.307 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+16:36:21.309 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+16:36:21.326 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.
+16:36:21.864 logback-spring [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+16:36:21.869 logback-spring [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+16:36:21.870 logback-spring [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+16:36:21.870 logback-spring [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+16:36:21.932 logback-spring [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+16:36:21.932 logback-spring [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1061 ms
+16:36:23.077 logback-spring [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+16:36:23.107 logback-spring [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
+16:36:23.118 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - Started ShopApplication in 2.58 seconds (JVM running for 3.04)
+16:36:23.120 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - 原神 启动！
+16:36:26.159 logback-spring [http-nio-8081-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+16:36:26.159 logback-spring [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+16:36:26.160 logback-spring [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+16:36:26.207 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - ------------- 开始 -------------
+16:36:26.207 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 请求地址: http://localhost:8081/topManager/uploadExcel POST
+16:36:26.208 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 类名方法: com.chinahitech.shop.controller.TopManagerController.uploadExcel
+16:36:26.209 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 远程地址: 0:0:0:0:0:0:0:1
+16:36:26.243 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 请求参数: [null]
+16:36:26.699 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 返回结果: {"body":{"fileUrl":"http://localhost:8081/1.xlsx"},"headers":{},"statusCode":"OK","statusCodeValue":200}
+16:36:26.726 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - ------------- 结束 耗时：520 ms -------------
+16:39:22.929 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - Starting ShopApplication using Java 17.0.4.1 on minislother with PID 20992 (D:\java program\club_springboot\target\classes started by 树懒 in D:\java program\club_springboot)
+16:39:22.930 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - No active profile set, falling back to default profiles: default
+16:39:23.355 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+16:39:23.357 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+16:39:23.373 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.
+16:39:23.922 logback-spring [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+16:39:23.932 logback-spring [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+16:39:23.933 logback-spring [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+16:39:23.933 logback-spring [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+16:39:24.005 logback-spring [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+16:39:24.005 logback-spring [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1046 ms
+16:39:25.195 logback-spring [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+16:39:25.228 logback-spring [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
+16:39:25.240 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - Started ShopApplication in 2.634 seconds (JVM running for 3.164)
+16:39:25.242 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - 原神 启动！
+16:39:28.444 logback-spring [http-nio-8081-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+16:39:28.445 logback-spring [http-nio-8081-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+16:39:28.446 logback-spring [http-nio-8081-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+16:39:28.492 logback-spring [http-nio-8081-exec-2] INFO  com.chinahitech.shop.aop.LogAspect - ------------- 开始 -------------
+16:39:28.492 logback-spring [http-nio-8081-exec-2] INFO  com.chinahitech.shop.aop.LogAspect - 请求地址: http://localhost:8081/topManager/uploadExcel POST
+16:39:28.493 logback-spring [http-nio-8081-exec-2] INFO  com.chinahitech.shop.aop.LogAspect - 类名方法: com.chinahitech.shop.controller.TopManagerController.uploadExcel
+16:39:28.493 logback-spring [http-nio-8081-exec-2] INFO  com.chinahitech.shop.aop.LogAspect - 远程地址: 0:0:0:0:0:0:0:1
+16:39:28.525 logback-spring [http-nio-8081-exec-2] INFO  com.chinahitech.shop.aop.LogAspect - 请求参数: [null]
+16:39:28.978 logback-spring [http-nio-8081-exec-2] INFO  com.chinahitech.shop.aop.LogAspect - 返回结果: {"body":{"error":"Failed to upload the file."},"headers":{},"statusCode":"BAD_REQUEST","statusCodeValue":400}
+16:39:28.978 logback-spring [http-nio-8081-exec-2] INFO  com.chinahitech.shop.aop.LogAspect - ------------- 结束 耗时：487 ms -------------
+16:40:00.364 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - Starting ShopApplication using Java 17.0.4.1 on minislother with PID 25916 (D:\java program\club_springboot\target\classes started by 树懒 in D:\java program\club_springboot)
+16:40:00.364 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - No active profile set, falling back to default profiles: default
+16:40:00.782 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+16:40:00.785 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+16:40:00.802 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.
+16:40:01.332 logback-spring [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+16:40:01.339 logback-spring [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+16:40:01.339 logback-spring [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+16:40:01.340 logback-spring [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+16:40:01.408 logback-spring [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+16:40:01.408 logback-spring [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1009 ms
+16:40:02.613 logback-spring [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+16:40:02.642 logback-spring [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
+16:40:02.654 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - Started ShopApplication in 2.602 seconds (JVM running for 3.096)
+16:40:02.656 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - 原神 启动！
+16:40:04.977 logback-spring [http-nio-8081-exec-4] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+16:40:04.977 logback-spring [http-nio-8081-exec-4] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+16:40:04.978 logback-spring [http-nio-8081-exec-4] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+16:40:05.028 logback-spring [http-nio-8081-exec-4] INFO  com.chinahitech.shop.aop.LogAspect - ------------- 开始 -------------
+16:40:05.028 logback-spring [http-nio-8081-exec-4] INFO  com.chinahitech.shop.aop.LogAspect - 请求地址: http://localhost:8081/topManager/uploadExcel POST
+16:40:05.029 logback-spring [http-nio-8081-exec-4] INFO  com.chinahitech.shop.aop.LogAspect - 类名方法: com.chinahitech.shop.controller.TopManagerController.uploadExcel
+16:40:05.029 logback-spring [http-nio-8081-exec-4] INFO  com.chinahitech.shop.aop.LogAspect - 远程地址: 0:0:0:0:0:0:0:1
+16:40:05.059 logback-spring [http-nio-8081-exec-4] INFO  com.chinahitech.shop.aop.LogAspect - 请求参数: [null]
+16:40:05.485 logback-spring [http-nio-8081-exec-4] INFO  com.chinahitech.shop.aop.LogAspect - 返回结果: {"body":{"error":"Failed to upload the file."},"headers":{},"statusCode":"BAD_REQUEST","statusCodeValue":400}
+16:40:05.486 logback-spring [http-nio-8081-exec-4] INFO  com.chinahitech.shop.aop.LogAspect - ------------- 结束 耗时：459 ms -------------
+16:41:57.233 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - Starting ShopApplication using Java 17.0.4.1 on minislother with PID 24160 (D:\java program\club_springboot\target\classes started by 树懒 in D:\java program\club_springboot)
+16:41:57.236 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - No active profile set, falling back to default profiles: default
+16:41:57.748 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+16:41:57.750 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+16:41:57.766 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+16:41:58.292 logback-spring [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+16:41:58.299 logback-spring [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+16:41:58.299 logback-spring [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+16:41:58.299 logback-spring [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+16:41:58.361 logback-spring [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+16:41:58.361 logback-spring [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1071 ms
+16:41:59.513 logback-spring [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+16:41:59.543 logback-spring [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
+16:41:59.555 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - Started ShopApplication in 2.683 seconds (JVM running for 3.264)
+16:41:59.556 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - 原神 启动！
+16:42:03.306 logback-spring [http-nio-8081-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+16:42:03.306 logback-spring [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+16:42:03.306 logback-spring [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+16:42:03.354 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - ------------- 开始 -------------
+16:42:03.356 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 请求地址: http://localhost:8081/topManager/uploadExcel POST
+16:42:03.356 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 类名方法: com.chinahitech.shop.controller.TopManagerController.uploadExcel
+16:42:03.357 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 远程地址: 0:0:0:0:0:0:0:1
+16:42:03.387 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 请求参数: [null]
+16:42:03.806 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 返回结果: {"body":{"fileUrl":"http://localhost:8081/20240707164203775_1.xlsx"},"headers":{},"statusCode":"OK","statusCodeValue":200}
+16:42:03.806 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - ------------- 结束 耗时：452 ms -------------
+16:42:48.186 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - Starting ShopApplication using Java 17.0.4.1 on minislother with PID 23056 (D:\java program\club_springboot\target\classes started by 树懒 in D:\java program\club_springboot)
+16:42:48.193 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - No active profile set, falling back to default profiles: default
+16:42:48.649 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+16:42:48.651 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+16:42:48.668 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.
+16:42:49.214 logback-spring [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+16:42:49.220 logback-spring [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+16:42:49.221 logback-spring [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+16:42:49.221 logback-spring [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+16:42:49.287 logback-spring [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+16:42:49.287 logback-spring [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1056 ms
+16:42:50.472 logback-spring [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+16:42:50.503 logback-spring [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
+16:42:50.515 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - Started ShopApplication in 2.65 seconds (JVM running for 3.17)
+16:42:50.518 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - 原神 启动！
+16:42:53.233 logback-spring [http-nio-8081-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+16:42:53.233 logback-spring [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+16:42:53.234 logback-spring [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+16:42:53.278 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - ------------- 开始 -------------
+16:42:53.278 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 请求地址: http://localhost:8081/topManager/uploadExcel POST
+16:42:53.279 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 类名方法: com.chinahitech.shop.controller.TopManagerController.uploadExcel
+16:42:53.280 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 远程地址: 0:0:0:0:0:0:0:1
+16:42:53.310 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 请求参数: [null]
+16:42:53.730 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 返回结果: {"body":{"fileUrl":"http://localhost:8081/20240707164253698_1.xlsx"},"headers":{},"statusCode":"OK","statusCodeValue":200}
+16:42:53.730 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - ------------- 结束 耗时：453 ms -------------
+16:43:40.604 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - Starting ShopApplication using Java 17.0.4.1 on minislother with PID 16128 (D:\java program\club_springboot\target\classes started by 树懒 in D:\java program\club_springboot)
+16:43:40.606 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - No active profile set, falling back to default profiles: default
+16:43:41.038 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+16:43:41.040 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+16:43:41.057 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+16:43:41.586 logback-spring [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+16:43:41.594 logback-spring [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+16:43:41.594 logback-spring [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+16:43:41.595 logback-spring [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+16:43:41.665 logback-spring [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+16:43:41.665 logback-spring [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1024 ms
+16:43:42.848 logback-spring [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+16:43:42.881 logback-spring [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
+16:43:42.896 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - Started ShopApplication in 2.601 seconds (JVM running for 3.061)
+16:43:42.897 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - 原神 启动！
+16:43:45.216 logback-spring [http-nio-8081-exec-6] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+16:43:45.217 logback-spring [http-nio-8081-exec-6] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+16:43:45.218 logback-spring [http-nio-8081-exec-6] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+16:43:45.263 logback-spring [http-nio-8081-exec-6] INFO  com.chinahitech.shop.aop.LogAspect - ------------- 开始 -------------
+16:43:45.264 logback-spring [http-nio-8081-exec-6] INFO  com.chinahitech.shop.aop.LogAspect - 请求地址: http://localhost:8081/topManager/uploadExcel POST
+16:43:45.265 logback-spring [http-nio-8081-exec-6] INFO  com.chinahitech.shop.aop.LogAspect - 类名方法: com.chinahitech.shop.controller.TopManagerController.uploadExcel
+16:43:45.265 logback-spring [http-nio-8081-exec-6] INFO  com.chinahitech.shop.aop.LogAspect - 远程地址: 0:0:0:0:0:0:0:1
+16:43:45.297 logback-spring [http-nio-8081-exec-6] INFO  com.chinahitech.shop.aop.LogAspect - 请求参数: [null]
+16:43:46.231 logback-spring [http-nio-8081-exec-6] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+16:43:46.579 logback-spring [http-nio-8081-exec-6] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+16:43:46.668 logback-spring [http-nio-8081-exec-6] INFO  com.chinahitech.shop.aop.LogAspect - 返回结果: {"body":{"fileUrl":"http://localhost:8081/20240707164345721_1.xlsx"},"headers":{},"statusCode":"OK","statusCodeValue":200}
+16:43:46.668 logback-spring [http-nio-8081-exec-6] INFO  com.chinahitech.shop.aop.LogAspect - ------------- 结束 耗时：1406 ms -------------
+16:45:24.088 logback-spring [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+16:45:24.097 logback-spring [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+16:45:28.487 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - Starting ShopApplication using Java 17.0.4.1 on minislother with PID 11032 (D:\java program\club_springboot\target\classes started by 树懒 in D:\java program\club_springboot)
+16:45:28.489 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - No active profile set, falling back to default profiles: default
+16:45:28.985 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+16:45:28.987 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+16:45:29.007 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 10 ms. Found 0 Redis repository interfaces.
+16:45:29.612 logback-spring [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+16:45:29.620 logback-spring [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+16:45:29.621 logback-spring [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+16:45:29.621 logback-spring [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+16:45:29.688 logback-spring [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+16:45:29.689 logback-spring [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1163 ms
+16:45:30.990 logback-spring [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+16:45:31.021 logback-spring [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
+16:45:31.035 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - Started ShopApplication in 2.886 seconds (JVM running for 3.392)
+16:45:31.038 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - 原神 启动！
+16:45:40.063 logback-spring [http-nio-8081-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+16:45:40.063 logback-spring [http-nio-8081-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+16:45:40.064 logback-spring [http-nio-8081-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+16:45:40.108 logback-spring [http-nio-8081-exec-2] INFO  com.chinahitech.shop.aop.LogAspect - ------------- 开始 -------------
+16:45:40.108 logback-spring [http-nio-8081-exec-2] INFO  com.chinahitech.shop.aop.LogAspect - 请求地址: http://localhost:8081/topManager/uploadExcel POST
+16:45:40.109 logback-spring [http-nio-8081-exec-2] INFO  com.chinahitech.shop.aop.LogAspect - 类名方法: com.chinahitech.shop.controller.TopManagerController.uploadExcel
+16:45:40.109 logback-spring [http-nio-8081-exec-2] INFO  com.chinahitech.shop.aop.LogAspect - 远程地址: 0:0:0:0:0:0:0:1
+16:45:40.141 logback-spring [http-nio-8081-exec-2] INFO  com.chinahitech.shop.aop.LogAspect - 请求参数: [null]
+16:45:40.994 logback-spring [http-nio-8081-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+16:45:41.221 logback-spring [http-nio-8081-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+16:45:41.281 logback-spring [http-nio-8081-exec-2] INFO  com.chinahitech.shop.aop.LogAspect - 返回结果: {"body":{"fileUrl":"http://localhost:8081/20240707164540574_1.xlsx"},"headers":{},"statusCode":"OK","statusCodeValue":200}
+16:45:41.281 logback-spring [http-nio-8081-exec-2] INFO  com.chinahitech.shop.aop.LogAspect - ------------- 结束 耗时：1174 ms -------------
+16:47:15.925 logback-spring [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+16:47:15.938 logback-spring [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+16:47:20.987 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - Starting ShopApplication using Java 17.0.4.1 on minislother with PID 34976 (D:\java program\club_springboot\target\classes started by 树懒 in D:\java program\club_springboot)
+16:47:20.990 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - No active profile set, falling back to default profiles: default
+16:47:21.568 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+16:47:21.571 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+16:47:21.594 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+16:47:22.311 logback-spring [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+16:47:22.322 logback-spring [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+16:47:22.323 logback-spring [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+16:47:22.323 logback-spring [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+16:47:22.415 logback-spring [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+16:47:22.415 logback-spring [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1373 ms
+16:47:23.910 logback-spring [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+16:47:23.948 logback-spring [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
+16:47:23.964 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - Started ShopApplication in 3.4 seconds (JVM running for 4.088)
+16:47:23.967 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - 原神 启动！
+16:47:32.204 logback-spring [http-nio-8081-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+16:47:32.204 logback-spring [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+16:47:32.207 logback-spring [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+16:47:40.831 logback-spring [http-nio-8081-exec-3] INFO  com.chinahitech.shop.aop.LogAspect - ------------- 开始 -------------
+16:47:40.832 logback-spring [http-nio-8081-exec-3] INFO  com.chinahitech.shop.aop.LogAspect - 请求地址: http://localhost:8081/topManager/uploadExcel POST
+16:47:40.833 logback-spring [http-nio-8081-exec-3] INFO  com.chinahitech.shop.aop.LogAspect - 类名方法: com.chinahitech.shop.controller.TopManagerController.uploadExcel
+16:47:40.833 logback-spring [http-nio-8081-exec-3] INFO  com.chinahitech.shop.aop.LogAspect - 远程地址: 0:0:0:0:0:0:0:1
+16:47:40.881 logback-spring [http-nio-8081-exec-3] INFO  com.chinahitech.shop.aop.LogAspect - 请求参数: [null]
+16:47:42.005 logback-spring [http-nio-8081-exec-3] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+16:47:42.370 logback-spring [http-nio-8081-exec-3] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+16:47:42.486 logback-spring [http-nio-8081-exec-3] INFO  com.chinahitech.shop.aop.LogAspect - 返回结果: {"body":{"fileUrl":"http://localhost:8081/upload/20240707164741329_1.xlsx"},"headers":{},"statusCode":"OK","statusCodeValue":200}
+16:47:42.486 logback-spring [http-nio-8081-exec-3] INFO  com.chinahitech.shop.aop.LogAspect - ------------- 结束 耗时：1657 ms -------------
+16:48:25.808 logback-spring [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+16:48:25.820 logback-spring [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+16:50:41.163 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - Starting ShopApplication using Java 17.0.4.1 on minislother with PID 4636 (D:\java program\club_springboot\target\classes started by 树懒 in D:\java program\club_springboot)
+16:50:41.165 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - No active profile set, falling back to default profiles: default
+16:50:41.688 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+16:50:41.690 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+16:50:41.711 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+16:50:42.300 logback-spring [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+16:50:42.310 logback-spring [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+16:50:42.310 logback-spring [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+16:50:42.310 logback-spring [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+16:50:42.382 logback-spring [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+16:50:42.382 logback-spring [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1174 ms
+16:50:43.640 logback-spring [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+16:50:43.672 logback-spring [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
+16:50:43.686 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - Started ShopApplication in 2.906 seconds (JVM running for 3.519)
+16:50:43.688 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - 原神 启动！
+16:50:55.039 logback-spring [http-nio-8081-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+16:50:55.040 logback-spring [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+16:50:55.040 logback-spring [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+16:50:55.086 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - ------------- 开始 -------------
+16:50:55.086 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 请求地址: http://localhost:8081/topManager/uploadExcel POST
+16:50:55.087 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 类名方法: com.chinahitech.shop.controller.TopManagerController.uploadExcel
+16:50:55.087 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 远程地址: 0:0:0:0:0:0:0:1
+16:50:55.118 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 请求参数: [null]
+16:50:55.953 logback-spring [http-nio-8081-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+16:50:56.171 logback-spring [http-nio-8081-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+16:50:56.250 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 返回结果: {"body":{"fileUrl":"http://localhost:8081/upload/20240707165055547_1.xlsx"},"headers":{},"statusCode":"OK","statusCodeValue":200}
+16:50:56.250 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - ------------- 结束 耗时：1166 ms -------------
+16:52:40.132 logback-spring [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+16:52:40.146 logback-spring [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+16:52:44.902 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - Starting ShopApplication using Java 17.0.4.1 on minislother with PID 17244 (D:\java program\club_springboot\target\classes started by 树懒 in D:\java program\club_springboot)
+16:52:44.905 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - No active profile set, falling back to default profiles: default
+16:52:45.366 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+16:52:45.367 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+16:52:45.386 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.
+16:52:45.925 logback-spring [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+16:52:45.932 logback-spring [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+16:52:45.932 logback-spring [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+16:52:45.932 logback-spring [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+16:52:45.996 logback-spring [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+16:52:45.996 logback-spring [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1051 ms
+16:52:47.270 logback-spring [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+16:52:47.302 logback-spring [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
+16:52:47.314 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - Started ShopApplication in 2.752 seconds (JVM running for 3.241)
+16:52:47.318 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - 原神 启动！
+16:52:50.379 logback-spring [http-nio-8081-exec-5] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+16:52:50.380 logback-spring [http-nio-8081-exec-5] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+16:52:50.381 logback-spring [http-nio-8081-exec-5] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+16:52:50.433 logback-spring [http-nio-8081-exec-5] INFO  com.chinahitech.shop.aop.LogAspect - ------------- 开始 -------------
+16:52:50.434 logback-spring [http-nio-8081-exec-5] INFO  com.chinahitech.shop.aop.LogAspect - 请求地址: http://localhost:8081/topManager/uploadExcel POST
+16:52:50.434 logback-spring [http-nio-8081-exec-5] INFO  com.chinahitech.shop.aop.LogAspect - 类名方法: com.chinahitech.shop.controller.TopManagerController.uploadExcel
+16:52:50.434 logback-spring [http-nio-8081-exec-5] INFO  com.chinahitech.shop.aop.LogAspect - 远程地址: 0:0:0:0:0:0:0:1
+16:52:50.467 logback-spring [http-nio-8081-exec-5] INFO  com.chinahitech.shop.aop.LogAspect - 请求参数: [null]
+16:52:51.347 logback-spring [http-nio-8081-exec-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+16:52:51.599 logback-spring [http-nio-8081-exec-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+16:52:51.661 logback-spring [http-nio-8081-exec-5] INFO  com.chinahitech.shop.aop.LogAspect - 返回结果: {"body":{"fileUrl":"http://localhost:8081/upload/20240707165250919_1.xlsx"},"headers":{},"statusCode":"OK","statusCodeValue":200}
+16:52:51.661 logback-spring [http-nio-8081-exec-5] INFO  com.chinahitech.shop.aop.LogAspect - ------------- 结束 耗时：1228 ms -------------
+16:53:28.484 logback-spring [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+16:53:28.494 logback-spring [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+16:57:25.846 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - Starting ShopApplication using Java 17.0.4.1 on minislother with PID 33744 (D:\java program\club_springboot\target\classes started by 树懒 in D:\java program\club_springboot)
+16:57:25.851 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - No active profile set, falling back to default profiles: default
+16:57:26.379 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+16:57:26.381 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+16:57:26.399 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+16:57:26.938 logback-spring [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+16:57:26.943 logback-spring [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+16:57:26.944 logback-spring [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+16:57:26.944 logback-spring [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+16:57:27.006 logback-spring [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+16:57:27.006 logback-spring [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1110 ms
+16:57:28.273 logback-spring [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+16:57:28.306 logback-spring [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
+16:57:28.320 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - Started ShopApplication in 2.808 seconds (JVM running for 3.301)
+16:57:28.323 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - 原神 启动！
+16:57:28.491 logback-spring [http-nio-8081-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+16:57:28.492 logback-spring [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+16:57:28.497 logback-spring [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 5 ms
+17:00:08.114 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - Starting ShopApplication using Java 17.0.4.1 on minislother with PID 33836 (D:\java program\club_springboot\target\classes started by 树懒 in D:\java program\club_springboot)
+17:00:08.115 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - No active profile set, falling back to default profiles: default
+17:00:08.603 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+17:00:08.605 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+17:00:08.624 logback-spring [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+17:00:09.205 logback-spring [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+17:00:09.213 logback-spring [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+17:00:09.213 logback-spring [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+17:00:09.213 logback-spring [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+17:00:09.279 logback-spring [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+17:00:09.279 logback-spring [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1124 ms
+17:00:10.577 logback-spring [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+17:00:10.606 logback-spring [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
+17:00:10.619 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - Started ShopApplication in 2.852 seconds (JVM running for 3.473)
+17:00:10.620 logback-spring [main] INFO  com.chinahitech.shop.ShopApplication - 原神 启动！
+17:00:19.502 logback-spring [http-nio-8081-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+17:00:19.502 logback-spring [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+17:00:19.504 logback-spring [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+17:00:19.545 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - ------------- 开始 -------------
+17:00:19.545 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 请求地址: http://localhost:8081/topManager/uploadExcel POST
+17:00:19.546 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 类名方法: com.chinahitech.shop.controller.TopManagerController.uploadExcel
+17:00:19.547 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 远程地址: 0:0:0:0:0:0:0:1
+17:00:19.577 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 请求参数: [null]
+17:00:20.440 logback-spring [http-nio-8081-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+17:00:20.700 logback-spring [http-nio-8081-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+17:00:20.766 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - 返回结果: {"body":{"fileUrl":"http://localhost:8081/upload/20240707170020047_2.xlsx"},"headers":{},"statusCode":"OK","statusCodeValue":200}
+17:00:20.766 logback-spring [http-nio-8081-exec-1] INFO  com.chinahitech.shop.aop.LogAspect - ------------- 结束 耗时：1222 ms -------------
+17:01:14.155 logback-spring [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+17:01:14.162 logback-spring [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

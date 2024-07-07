@@ -201,7 +201,7 @@ public class TopManagerService {
         }
     }
 
-    public void uploadExcel(MultipartFile file, String fileUrl, Path targetLocation) {
+    public void uploadExcel(String fileUrl) {
         try {
 //            String tempfilename = file.getOriginalFilename();
 ////            System.out.println(tempfilename);
@@ -211,17 +211,16 @@ public class TopManagerService {
 ////            System.out.println(path);
 //            String x = path + tempfilename;
 //            System.out.println(targetLocation);
-            String fileType  = file.getOriginalFilename().substring(file.getOriginalFilename().indexOf("."));
+            String fileType  = fileUrl.substring(fileUrl.indexOf("."));
             // 把文件的名称设置唯一值，uuid
 //            String uuid = UUID.randomUUID().toString().replace("-", "");
 //            String filename = uuid+fileType;
-//            System.out.println(fileType);
+            System.out.println(fileType);
             if(fileType.equals(XLSX) || fileType.equals(XLS)){
                 try {
-                    File f1 = new File(fileUrl);
                     ScanExcel scanExcel = new ScanExcel();
                     //启动
-                    List<User> users = scanExcel.readExcel(f1);
+                    List<User> users = scanExcel.readExcel(fileUrl);
 //                    System.out.println(users);
 //                    String pathname = file.getName();
 //                    JSONArray jsonArray = utils.readExcel(f1);

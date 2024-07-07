@@ -273,6 +273,7 @@ public class TopManagerController {
 
         try {
             Path targetLocation = Paths.get(uploadDir, fileName);
+            Files.createDirectories(targetLocation);
             Files.copy(file.getInputStream(), targetLocation, StandardCopyOption.REPLACE_EXISTING);
 
 
@@ -280,8 +281,10 @@ public class TopManagerController {
                     .pathSegment("upload")
                     .pathSegment(fileName)
                     .toUriString();
+//            System.out.println(targetLocation);
+//            System.out.println(fileUrl);
 
-            topManagerService.uploadExcel(file, fileUrl, targetLocation);
+            topManagerService.uploadExcel(String.valueOf(targetLocation));
             Map<String, String> response = new HashMap<>();
             response.put("fileUrl", fileUrl);
 
