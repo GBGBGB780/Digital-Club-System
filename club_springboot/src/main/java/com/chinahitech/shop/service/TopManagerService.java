@@ -210,7 +210,7 @@ public class TopManagerService {
 //            String path = "C:/Users/minislother/Desktop/test-excel/";//所需打开文件的路径
 ////            System.out.println(path);
 //            String x = path + tempfilename;
-            System.out.println(targetLocation);
+//            System.out.println(targetLocation);
             String fileType  = file.getOriginalFilename().substring(file.getOriginalFilename().indexOf("."));
             // 把文件的名称设置唯一值，uuid
 //            String uuid = UUID.randomUUID().toString().replace("-", "");
@@ -222,7 +222,7 @@ public class TopManagerService {
                     ScanExcel scanExcel = new ScanExcel();
                     //启动
                     List<User> users = scanExcel.readExcel(f1);
-                    System.out.println(users);
+//                    System.out.println(users);
 //                    String pathname = file.getName();
 //                    JSONArray jsonArray = utils.readExcel(f1);
 //                    String s = JSON.toJSONString(jsonArray);

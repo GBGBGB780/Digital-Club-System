@@ -28,7 +28,7 @@ public class IndividualGroupController {
     @RequestMapping("/allGroups")
     public Result getIndividualGroup(String studentId) {
         List<IndividualGroup> individualGroupList = individualGroupService.getGroupByStuId(studentId);
-        System.out.println(individualGroupList);
+//        System.out.println(individualGroupList);
         return Result.ok().data("items", individualGroupList);
     }
 
@@ -38,7 +38,7 @@ public class IndividualGroupController {
     @RequestMapping("/getStudentsByGroup")
     public Result getStudentsByGroup(int groupId, String searchInfo) {
         List<IndividualGroup> studentList = individualGroupService.getStudentsByGroup(groupId, searchInfo);
-        System.out.println(studentList);
+//        System.out.println(studentList);
         return Result.ok().data("items", studentList);
     }
 
@@ -70,9 +70,9 @@ public class IndividualGroupController {
     @RepeatLimit
     @RequestMapping("/allManagedGroups")
     public Result getAllManagedGroups(String managerId) {
-        System.out.println(managerId);
+//        System.out.println(managerId);
         List<Group> groupList = individualGroupService.getAllManagedGroups(managerId);
-        System.out.println(groupList);
+//        System.out.println(groupList);
         return Result.ok().data("items", groupList);
     }
 
@@ -99,16 +99,16 @@ public class IndividualGroupController {
     @RequestMapping("/getAllStudents")
     public Result getAllStudents(String searchInfo) {
         List<IndividualGroup> studentList = individualGroupService.getAllStudents(searchInfo);
-        System.out.println(studentList);
+//        System.out.println(studentList);
         return Result.ok().data("items", studentList);
     }
 
-    //获取人数前五多的社团查询
+    //获取人数前五多的社团查询同时获取社团热度
     @RepeatLimit
     @RequestMapping("/getGroupMembers")
     public Result getGroupMembers() {
         List<GroupNum> groupList = individualGroupService.getGroupMembers();
-        System.out.println(groupList);
+//        System.out.println(groupList);
         return Result.ok().data("items", groupList);
     }
 }
