@@ -273,7 +273,7 @@ public class TopManagerController {
 
         try {
             Path targetLocation = Paths.get(uploadDir, fileName);
-            Files.createDirectories(targetLocation);
+//            Files.createDirectories(targetLocation);
             Files.copy(file.getInputStream(), targetLocation, StandardCopyOption.REPLACE_EXISTING);
 
 
