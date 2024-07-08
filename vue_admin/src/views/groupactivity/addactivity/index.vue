@@ -18,7 +18,7 @@
       <el-form-item label="活动地点" prop="place">
         <el-input v-model="ruleForm.place"></el-input>
       </el-form-item>
-      <el-form-item label="活动时间" required>
+      <el-form-item label="活动时间" prop="time" required>
         <el-date-picker v-model="ruleForm.time" type="datetime" placeholder="选择日期时间">
         </el-date-picker>
       </el-form-item>
@@ -108,10 +108,9 @@ export default {
         time: [
           { type: 'date', required: true, message: '请选择活动时间', trigger: 'change' }
         ],
-        // arrange: [
-        //   { required: true, message: '请填写活动安排', trigger: 'blur' },
-        //   { min: 1, max: 31, message: '长度在 1 到 31 个字符', trigger: 'blur' }
-        // ]
+        arrange: [
+          { min: 1, max: 31, message: '长度在 1 到 31 个字符', trigger: 'blur' }
+        ]
       }
     };
   },
@@ -119,16 +118,14 @@ export default {
     submitActivity(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          const a = this.getActivity()
-          console.log(a)
-          addActivity(a).then(response => {
+          console.log(this.ruleForm)
+          addActivity(this.ruleForm).then(response => {
             console.log(response)
             this.$message({
               message: '活动申请成功!',
               type: 'success'
             })
-            this.resetForm(formName)
-            this.ruleForm.groupName = this.$store.state.clubname
+            this.resetForm(this.ruleForm)
           }).catch(error => console.log(error))
           return true
         } else {
@@ -139,19 +136,6 @@ export default {
           return false;
         }
       });
-    },
-    getActivity() {
-      // use URLSearchParams to avoid decoding error
-      let data = new URLSearchParams();
-      data.append("name", this.ruleForm.name)
-      data.append("organizer", this.ruleForm.organizer,)
-      data.append("type", this.ruleForm.type,)
-      data.append("place", this.ruleForm.place,)
-      data.append("time", this.ruleForm.time,)
-      data.append("arrange", this.ruleForm.arrange,)
-      data.append("desc", this.ruleForm.desc,)
-      data.append("groupName", this.ruleForm.groupName)
-      return data
     },
     resetForm(formName) {
       this.$refs[formName].resetFields();

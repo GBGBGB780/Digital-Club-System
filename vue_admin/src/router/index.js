@@ -164,12 +164,12 @@ export const constantRoutes = [{
     {
         path: '/',
         component: Layout,
-        redirect: '/groupactivity/activityapplication',
+        redirect: '/groupactivity/pendingctivity',
         children: [{
-          path: 'groupactivity/activityapplication',
-          name: 'Activityapplication',
+          path: 'groupactivity/pendingctivity',
+          name: 'PendingActivity',
           component: () =>
-            import('@/views/groupactivity/activityapplication/index'),
+            import('@/views/groupactivity/pendingctivity/index'),
             meta: { title: '在申活动', icon: 'el-icon-s-check' }
         }]
     },
