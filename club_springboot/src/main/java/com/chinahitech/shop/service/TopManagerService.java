@@ -1,17 +1,15 @@
 package com.chinahitech.shop.service;
 
 import com.chinahitech.shop.bean.User;
-import com.chinahitech.shop.exception.UseridDuplicateException;
+import com.chinahitech.shop.exception.*;
 import com.chinahitech.shop.mapper.TopManagerMapper;
-import com.chinahitech.shop.exception.EntityNotFoundException;
-import com.chinahitech.shop.exception.InsertException;
-import com.chinahitech.shop.exception.UpdateException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -26,7 +24,7 @@ public class TopManagerService {
     private final String XLS=".xls";
 
     public User getByUserId(String num) {
-        User stu = topManagerMapper.getByNum(num);
+        User stu = topManagerMapper.getTopManagerByNum(num);
         if (stu == null) {
             throw new EntityNotFoundException("超级管理员"+ num +"不存在");
         }
@@ -34,7 +32,7 @@ public class TopManagerService {
     }
 
     public User login(String num, String pwd) {
-        User user = topManagerMapper.getByNum(num);
+        User user = topManagerMapper.getTopManagerByNum(num);
         if (user == null){
             throw new EntityNotFoundException("超级管理员"+ num +"不存在");
         }
@@ -64,7 +62,7 @@ public class TopManagerService {
 //            System.out.println(salt);
         String currPwd = md5.MD5handler(lastPwd, salt);
 
-        User user = topManagerMapper.getByNum(userId);
+        User user = topManagerMapper.getTopManagerByNum(userId);
         if (user != null) {
             throw new UseridDuplicateException("超级管理员"+ userId +"已存在");
         } else {
@@ -201,58 +199,44 @@ public class TopManagerService {
         }
     }
 
-    public void uploadExcel(MultipartFile file, String fileUrl, Path targetLocation) {
-        try {
-//            String tempfilename = file.getOriginalFilename();
-////            System.out.println(tempfilename);
-//
-////            String path = request.getSession().getServletContext().getRealPath("/uploads/");
-//            String path = "C:/Users/minislother/Desktop/test-excel/";//所需打开文件的路径
-////            System.out.println(path);
-//            String x = path + tempfilename;
-//            System.out.println(targetLocation);
-            String fileType  = file.getOriginalFilename().substring(file.getOriginalFilename().indexOf("."));
-            // 把文件的名称设置唯一值，uuid
-//            String uuid = UUID.randomUUID().toString().replace("-", "");
-//            String filename = uuid+fileType;
-//            System.out.println(fileType);
-            if(fileType.equals(XLSX) || fileType.equals(XLS)){
-                try {
-                    File f1 = new File(fileUrl);
-                    ScanExcel scanExcel = new ScanExcel();
-                    //启动
-                    List<User> users = scanExcel.readExcel(f1);
-//                    System.out.println(users);
-//                    String pathname = file.getName();
-//                    JSONArray jsonArray = utils.readExcel(f1);
-//                    String s = JSON.toJSONString(jsonArray);
-//                    System.out.println(s);
-//                    utils.writeExcel(f1, fileurl,s);
-//                    file.transferTo(new File(path,filename));
-                    for (User user : users) {
-                        Date date = new Date();
-                        //密码加密(MD5算法)
-//            System.out.println(lastPwd);
-                        String salt = UUID.randomUUID().toString().toUpperCase();
-//            System.out.println(salt);
-                        String currPwd = md5.MD5handler(user.getPassword(), salt);
-                        user.setPassword(currPwd);
-                        user.setSalt(salt);
-                        user.setCreateTime(date);
-                        user.setModifyTime(date);
-                        user.setStatus(0);
+    public void uploadExcel(String fileUrl) {
+        String fileType  = fileUrl.substring(fileUrl.indexOf("."));
+//        System.out.println(fileType);
+        if(fileType.equals(XLSX) || fileType.equals(XLS)){
+            List<User> users;
+            try {
+                ScanExcel scanExcel = new ScanExcel();
+                //启动
+                users = scanExcel.readExcel(fileUrl);
+            } catch (Exception e) {
+                throw new FileUploadException("Excel文件处理出错！");
+            }
 
-                        int i = topManagerMapper.insert(user);
-                        if(i != 1){
-                            throw new InsertException("用户"+ user.getUserId() +"添加失败");
-                        }
+            if (users != null && !users.isEmpty()){
+                for (User user : users) {
+                    Date date = new Date();
+                    //密码加密(MD5算法)
+//            System.out.println(lastPwd);
+                    String salt = UUID.randomUUID().toString().toUpperCase();
+//            System.out.println(salt);
+                    String currPwd = md5.MD5handler(user.getPassword(), salt);
+                    user.setPassword(currPwd);
+                    user.setSalt(salt);
+                    user.setCreateTime(date);
+                    user.setModifyTime(date);
+                    user.setStatus(0);
+                    User tempUser = topManagerMapper.getUserByNum(user.getUserId());
+                    if (tempUser != null) {
+                        throw new UseridDuplicateException("用户" + user.getUserId() + "已存在");
                     }
-                } catch (Exception e) {
-                    e.printStackTrace();
+                    int i = topManagerMapper.insert(user);
+                    if(i != 1){
+                        throw new InsertException("用户"+ user.getUserId() +"添加失败");
+                    }
                 }
             }
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+        } else {
+            throw new FileTypeException("文件类型错误！");
         }
     }
 }

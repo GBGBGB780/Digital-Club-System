@@ -134,6 +134,9 @@ public class ActivityService {
         activity.setNumber(0);
         activity.setCreateTime(date);
         activity.setModifyTime(date);
+        if (activity.getName() == null || activity.getName().trim().isEmpty()) {
+            activity.setName("未知");
+        }
         int i = activityMapper.insert(activity);
         if(i != 1){
             throw new UpdateException("活动"+ activity.getName() +"添加失败");
