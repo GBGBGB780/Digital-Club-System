@@ -1,24 +1,95 @@
 <template>
-	<div>
-		<el-upload
-		    class="upload-demo"
-		     ref="uploadFile"     
-		     :action="actionUrl"
-		     :before-upload="beforeFileUpload"
-		     :auto-upload="false"
-		     :on-success='onSuccess'
-		     :on-error="onError">
-		     <el-button size="small" type="primary">选择文件</el-button>
-		</el-upload>
-		<el-button type="primary" @click="submitUpload">确认上传</el-button>
-	</div>
+    <div style="display: flex;margin-top: 10%;">
+        <div class="uploadbox1">
+            <div style="text-align: center;margin-top: 5px;">批量添加学生</div>
+            <div class="size-icon">
+                <i class="el-icon-upload" />
+            </div>
+            <div style="text-align: center;">
+                <el-upload
+                    class="upload-demo"
+                    ref="uploadFile"     
+                    action="string"
+                    :limit="1"
+                    :on-exceed="handleExceed"
+                    :before-upload="beforeFileUpload"
+                    :auto-upload="false"
+                    :on-success='onSuccess'
+                    :on-error="onError"
+                    :http-request="UploadRequest">
+                    <el-button style="width: 200px" type="primary">选择文件</el-button>
+                </el-upload>
+            </div>
+            <div style="text-align: center;margin-top: 20px;">
+                <el-button type="primary" @click="submitUpload">确认上传</el-button>
+            </div>
+            <div style="text-align: center;margin-top: 20px;">
+                查看<a href="https://www.baidu.com">模板文件</a>
+            </div>
+        </div>
+
+        <div class="uploadbox2">
+            <div style="text-align: center;margin-top: 5px;">批量添加管理员</div>
+            <div class="size-icon">
+                <i class="el-icon-upload" />
+            </div>
+            <div style="text-align: center;">
+                <el-upload
+                    class="upload-demo"
+                    ref="uploadFile"     
+                    action="string"
+                    :limit="1"
+                    :on-exceed="handleExceed"
+                    :before-upload="beforeFileUpload"
+                    :auto-upload="false"
+                    :on-success='onSuccess'
+                    :on-error="onError"
+                    :http-request="UploadRequest">
+                    <el-button style="width: 200px" type="primary">选择文件</el-button>
+                </el-upload>
+            </div>
+            <div style="text-align: center;margin-top: 20px;">
+                <el-button type="primary" @click="submitUpload">确认上传</el-button>
+            </div>
+            <div style="text-align: center;margin-top: 20px;">
+                查看<a href="https://www.baidu.com">模板文件</a>
+            </div>
+        </div>
+
+        <div class="uploadbox3">
+            <div style="text-align: center;margin-top: 5px;">批量添加社团</div>
+            <div class="size-icon">
+                <i class="el-icon-upload" />
+            </div>
+            <div style="text-align: center;">
+                <el-upload
+                    class="upload-demo"
+                    ref="uploadFile"     
+                    action="string"
+                    :limit="1"
+                    :on-exceed="handleExceed"
+                    :before-upload="beforeFileUpload"
+                    :auto-upload="false"
+                    :on-success='onSuccess'
+                    :on-error="onError"
+                    :http-request="UploadRequest">
+                    <el-button style="width: 200px" type="primary">选择文件</el-button>
+                </el-upload>
+            </div>
+            <div style="text-align: center;margin-top: 20px;">
+                <el-button type="primary" @click="submitUpload">确认上传</el-button>
+            </div>
+            <div style="text-align: center;margin-top: 20px;">
+                查看<a href="https://www.baidu.com">模板文件</a>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
-// import { BASE_URL_Manage } from 'config'
-export default { 
-     
-    data () { 
+import { uploadfile1 } from '@/api/user'
+export default{ 
+    data (){ 
         return { 
         //   actionUrl: BASE_URL_Manage+'/webManage/upload', // 上传地址 
         }
@@ -26,7 +97,7 @@ export default {
     methods:{ 
     	//确认上传
     	submitUpload() { 
-        	this.$refs.uploadFile.submit();
+            this.$refs.uploadFile.submit()
       	},
       	 //文件上传之前
         beforeFileUpload(file){ 
@@ -45,8 +116,52 @@ export default {
         //上传失败
         onError(){ 
              this.$refs.upload.clearFiles();
-             this.$message.error("文件上传失败")
+             this.$message.error("文件上传失败,请联系管理员")
+        },
+        handleExceed(){
+            this.$message({
+                type:'warning',
+                message:'超出最大上传文件数量的限制！'
+            });return
+        },
+        UploadRequest(item){
+            let formData = new FormData();
+            formData.append('file', item.file);
+            console.log(item.file)
+            uploadfile1(item.file).then(response => {
+            }).catch((error)=>{
+                console.log(error)
+            })
         }
     }
 }
 </script>
+
+<style scoped>
+.uploadbox1{
+    margin: auto;
+    width: 400px;
+    height: 500px;
+    border: 1px dashed #11222e;
+    border-radius: 10px;
+}
+.uploadbox2{
+    margin: auto;
+    width: 400px;
+    height: 500px;
+    border: 1px dashed #11222e;
+    border-radius: 10px;
+}
+.uploadbox3{
+    margin: auto;
+    width: 400px;
+    height: 500px;
+    border: 1px dashed #11222e;
+    border-radius: 10px;
+}
+.size-icon{
+  font-size: 200px;
+  text-align: center;
+  color: #76afd8;
+}
+</style>
