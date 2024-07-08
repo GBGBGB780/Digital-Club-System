@@ -35,7 +35,15 @@ public class IndividualGroupController {
     public Result getIndividualGroup(String studentId) {
         List<IndividualGroup> individualGroupList = individualGroupService.getGroupByStuId(studentId);
 //        System.out.println(individualGroupList);
-        return Result.ok().data("items", individualGroupList);
+        List<Group> groupList = new ArrayList<>();
+        for (IndividualGroup individualGroup : individualGroupList) {
+            groupList.add(groupService.getGroupById(individualGroup.getGroupId()));
+        }
+        Map<String, Object> map = new HashMap<>();
+        map.put("stuItems",individualGroupList);
+        map.put("groupItems",groupList);
+//        return Result.ok().data("items", individualGroupList);
+        return Result.ok().data(map);
     }
 
     //管理员端
@@ -44,16 +52,16 @@ public class IndividualGroupController {
     @RequestMapping("/getStudentsByGroup")
     public Result getStudentsByGroup(int groupId, String searchInfo) {
         List<IndividualGroup> studentList = individualGroupService.getStudentsByGroup(groupId, searchInfo);
-        List<Group> groupList = new ArrayList<>();
-        for (IndividualGroup individualGroup : studentList) {
-            groupList.add(groupService.getGroupById(individualGroup.getGroupId()));
-        }
-        Map<String, Object> map = new HashMap<>();
-        map.put("stuItems",studentList);
-        map.put("groupItems",groupList);
+//        List<Group> groupList = new ArrayList<>();
+//        for (IndividualGroup individualGroup : studentList) {
+//            groupList.add(groupService.getGroupById(individualGroup.getGroupId()));
+//        }
+//        Map<String, Object> map = new HashMap<>();
+//        map.put("stuItems",studentList);
+//        map.put("groupItems",groupList);
 //        System.out.println(studentList);
-//        return Result.ok().data("items", studentList);
-        return Result.ok().data(map);
+        return Result.ok().data("items", studentList);
+//        return Result.ok().data(map);
     }
 
     //该社团普通成员的增加
