@@ -151,11 +151,11 @@ public class ActivityService {
         }
     }
 
-    public List<Activity> getMyApps(String searchinfo) {
+    public List<Activity> getMyApps(String searchinfo, String groupName) {
         if (searchinfo == null || searchinfo.trim().isEmpty()) {
-            return activityMapper.getMyApps();
+            return activityMapper.getMyApps(groupName);
         } else {
-            return activityMapper.getMyAppsBySearch(searchinfo);
+            return activityMapper.getMyAppsBySearch(searchinfo, groupName);
         }
     }
 
