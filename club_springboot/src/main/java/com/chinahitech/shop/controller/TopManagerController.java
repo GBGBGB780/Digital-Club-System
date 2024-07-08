@@ -249,7 +249,7 @@ public class TopManagerController {
     //修改用户信息
     @RepeatLimit
     @PostMapping("/modifyUserInfo")
-    public Result modifyUserInfo(User user){
+    public Result modifyUserInfo(@RequestBody User user){
 //        System.out.println(user);
         topManagerService.updateUserInfo(user);
         return Result.ok();
@@ -258,13 +258,13 @@ public class TopManagerController {
     //删除用户
     @RepeatLimit
     @RequestMapping("/deleteUser")
-    public Result deleteUser(User user){
+    public Result deleteUser(@RequestBody User user){
 //        System.out.println(user.getUserName());
         topManagerService.deleteUser(user);
         return Result.ok();
     }
 
-    //todo 批量导入
+    //批量导入
     @RepeatLimit
     @PostMapping("/uploadExcel")
     public ResponseEntity<Map<String, String>> uploadExcel(@RequestParam("file") MultipartFile file) {
