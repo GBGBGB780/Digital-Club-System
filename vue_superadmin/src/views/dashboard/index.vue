@@ -4,14 +4,14 @@
     class="echart"
     ref="mychart2"
     id="mychart2"
-    :style="{ float: 'left', width: '45%', height: '500px'  }"
+    :style="{ float: 'left', width: '100%', height: '500px'  }"
   ></div>
   <div></div>
   <div
     class="echart"
     ref="mychart1"
     id="mychart1"
-    :style="{ float: 'right', width: '45%', height: '500px' }"
+    :style="{ float: 'left', width: '100%', height: '500px' }"
   ></div>
   </div>
 </template>
@@ -72,7 +72,7 @@ export default {
       findtop()
       .then((response)=>{
         this.groups = response.data.item
-        // console.error(response)
+        console.error(response)
 const option = {
     legend: {
         // 图例

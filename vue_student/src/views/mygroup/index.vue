@@ -23,11 +23,6 @@
       <el-dialog :visible.sync="dialogVisible" title="社团详情" width="30%">
         <div style="font-weight: bold; font-size: 20px;">{{ currentGroup.description }}</div>
         <span slot="footer" class="dialog-footer">
-          <el-button
-            type="primary"
-            style="margin-left: 50px; margin-top: 15px;"
-            @click="downloadAttachment(currentGroup.id)"
-          >下载社团详情附件</el-button>
           <el-button type="primary" @click="dialogVisible = false">关闭</el-button>
         </span>
       </el-dialog>
@@ -48,7 +43,6 @@
       ]) },
     data() {
       return {
-        groupID:[],
         groups: [],
         userID:'',
         dialogVisible: false,
@@ -66,7 +60,9 @@
       .then((res) => {
         this.userID = res.data.student.userId
       getMyGroups(this.userID).then((response) => {
-        this.groupID = response.data.items
+        this.groups = response.data.groupItems
+        console.log(response)
+        console.log(this.groups)
       })
         .catch(error => {
           console.error(error)
