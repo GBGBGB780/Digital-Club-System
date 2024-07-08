@@ -1,5 +1,6 @@
 package com.chinahitech.shop.controller;
 
+import cn.hutool.core.io.FileUtil;
 import com.chinahitech.shop.aop.RepeatLimit;
 import com.chinahitech.shop.bean.User;
 import com.chinahitech.shop.bean.notAddedToDatabase.RegisterUser;
@@ -16,6 +17,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -37,6 +41,8 @@ public class TopManagerController {
 
     @Value("${upload-dir}")
     private String uploadDir;
+
+    private static final String ROOT_PATH = System.getProperty("user.dir") + File.separator + "upload";
 
     //登录
     @RepeatLimit
@@ -272,7 +278,10 @@ public class TopManagerController {
         String fileName = generateUniqueFileName(file.getOriginalFilename());
 
         try {
-            Path targetLocation = Paths.get(uploadDir, fileName);
+            Path targetLocation = Paths.get(ROOT_PATH, fileName);
+            if(!FileUtil.exist(ROOT_PATH)){
+                FileUtil.mkdir(ROOT_PATH);    // 如果当前文件的父级目录不存在，就创建
+            }
             Files.copy(file.getInputStream(), targetLocation, StandardCopyOption.REPLACE_EXISTING);
 
 
@@ -293,20 +302,22 @@ public class TopManagerController {
         }
     }
 
-//    @PostMapping("/submitExcel")
-//    public ResponseEntity<Map<String, String>> submitExcel(@RequestParam("attachment") String attachment, @RequestParam("name") String name) {
-//        try {
-////            TopManagerService.submitExcel(name, attachment);
-//
-//            Map<String, String> response = new HashMap<>();
-//            response.put("message", "Successfully updated attachment.");
-//
-//            return ResponseEntity.ok(response);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            return ResponseEntity.badRequest().body(createErrorResponse("Failed to update the attachment."));
-//        }
-//    }
+    @GetMapping("/downloadExcel")
+    public void downloadExcel(String fileName, HttpServletResponse response) throws IOException {
+//        response.addHeader("Content-Disposition", "attachment;filename=" + URLEncoder.encode(fileName, "UTF-8"));  // 附件下载
+        // 默认格式就是预览，浏览器会根据格式进行判断，如果可以就预览，不可以就下载
+//        response.addHeader("Content-Disposition", "inline;filename=" + URLEncoder.encode(fileName, "UTF-8"));  // 附件预览
+        String filePath = ROOT_PATH + File.separator + fileName;
+        if (!FileUtil.exist(filePath)) {
+            return;
+        }
+        byte[] bytes = FileUtil.readBytes(filePath);
+        response.setContentType("text/html;charset=utf-8");
+        ServletOutputStream outputStream = response.getOutputStream();
+        outputStream.write(bytes);    // 数组是一个字节数组，也就是文件的字节流数组
+        outputStream.flush();
+        outputStream.close();
+    }
 
     private String generateUniqueFileName(String originalFilename) {
         String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMddHHmmssSSS"));

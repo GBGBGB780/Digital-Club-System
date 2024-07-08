@@ -23,14 +23,6 @@
               <span class="text">{{ scope.row.userId }}</span>
             </template>
           </el-table-column>
-          <el-table-column
-            prop=cteate_time
-            label="申请时间"
-            width="300">
-            <template slot-scope="scope">
-              <span class="text">{{ formatDate(scope.row.cteateTime) }}</span>
-            </template>
-          </el-table-column>
         </el-table>
       </div>
     </div>
