@@ -95,9 +95,9 @@ public class TopManagerController {
     @RepeatLimit
     @PostMapping("/getEmail")
     public Result getEmail(String userNumber) throws Exception {
-        System.out.println(userNumber);
+//        System.out.println(userNumber);
         User user = topManagerService.getByUserId(userNumber);
-        System.out.println(user);
+//        System.out.println(user);
         String email = user.getEmail();
         EmailService sEmail;
         sEmail = new EmailService(email);
@@ -126,7 +126,7 @@ public class TopManagerController {
     @PostMapping("/validateEmail")
     public Result validateEmail(String email) throws Exception {
 //        String email = emailInfo.getEmail();
-        System.out.println(email);
+//        System.out.println(email);
         EmailService sEmail;
         sEmail = new EmailService(email);
         sEmail.sendEmail();
@@ -137,8 +137,8 @@ public class TopManagerController {
     @RepeatLimit
     @PostMapping("/modifyPass")
     public Result modifyPassword(String userId, String password){
-        System.out.println(userId);
-        System.out.println(password);
+//        System.out.println(userId);
+//        System.out.println(password);
         topManagerService.updatePassword(userId, password);
         return Result.ok();
     }
@@ -147,8 +147,8 @@ public class TopManagerController {
     @RepeatLimit
     @PostMapping("/modifyPhone")
     public Result modifyPhone(String userId, String phone){
-        System.out.println(userId);
-        System.out.println(phone);
+//        System.out.println(userId);
+//        System.out.println(phone);
         topManagerService.updatePhone(userId, phone);
         return Result.ok();
     }
@@ -157,8 +157,8 @@ public class TopManagerController {
     @RepeatLimit
     @PostMapping("/modifyDescription")
     public Result modifyDescription(String userId, String description){
-        System.out.println(userId);
-        System.out.println(description);
+//        System.out.println(userId);
+//        System.out.println(description);
         topManagerService.updateDescription(userId, description);
         return Result.ok();
     }
@@ -167,8 +167,8 @@ public class TopManagerController {
     @RepeatLimit
     @PostMapping("/modifyNickname")
     public Result modifyNickname(String userId, String nickname){
-        System.out.println(userId);
-        System.out.println(nickname);
+//        System.out.println(userId);
+//        System.out.println(nickname);
         topManagerService.updateNickname(userId, nickname);
         return Result.ok();
     }
@@ -177,10 +177,10 @@ public class TopManagerController {
     @RepeatLimit
     @PostMapping("/modifyMajor")
     public Result modifyMajor(String userId, String campus, String school, String major){
-        System.out.println(userId);
-        System.out.println(campus);
-        System.out.println(school);
-        System.out.println(major);
+//        System.out.println(userId);
+//        System.out.println(campus);
+//        System.out.println(school);
+//        System.out.println(major);
         topManagerService.updateMajor(userId, campus, school, major);
         return Result.ok();
     }
@@ -189,9 +189,9 @@ public class TopManagerController {
     @RepeatLimit
     @PostMapping("/profile")
     public Result getProfile(String userId){
-        System.out.println(userId);
+//        System.out.println(userId);
         User user = topManagerService.getByUserId(userId);
-        System.out.println(user);
+//        System.out.println(user);
         return Result.ok().data("user", user);
     }
 
@@ -242,15 +242,15 @@ public class TopManagerController {
     @RequestMapping("/getAllUsers")
     public Result getAllUsers(String searchInfo){
         List<User> Users = topManagerService.getAllUsers(searchInfo);
-        System.out.println(Users);
+//        System.out.println(Users);
         return Result.ok().data("items",Users);
     }
 
     //修改用户信息
     @RepeatLimit
     @PostMapping("/modifyUserInfo")
-    public Result modifyUserInfo(User user){
-        System.out.println(user);
+    public Result modifyUserInfo(@RequestBody User user){
+//        System.out.println(user);
         topManagerService.updateUserInfo(user);
         return Result.ok();
     }
@@ -258,13 +258,13 @@ public class TopManagerController {
     //删除用户
     @RepeatLimit
     @RequestMapping("/deleteUser")
-    public Result deleteUser(User user){
-        System.out.println(user.getUserName());
+    public Result deleteUser(@RequestBody User user){
+//        System.out.println(user.getUserName());
         topManagerService.deleteUser(user);
         return Result.ok();
     }
 
-    //todo 批量导入
+    //批量导入
     @RepeatLimit
     @PostMapping("/uploadExcel")
     public ResponseEntity<Map<String, String>> uploadExcel(@RequestParam("file") MultipartFile file) {
@@ -273,6 +273,7 @@ public class TopManagerController {
 
         try {
             Path targetLocation = Paths.get(uploadDir, fileName);
+//            Files.createDirectories(targetLocation);
             Files.copy(file.getInputStream(), targetLocation, StandardCopyOption.REPLACE_EXISTING);
 
 
@@ -280,8 +281,10 @@ public class TopManagerController {
                     .pathSegment("upload")
                     .pathSegment(fileName)
                     .toUriString();
+//            System.out.println(targetLocation);
+//            System.out.println(fileUrl);
 
-            topManagerService.uploadExcel(file, fileUrl, targetLocation);
+            topManagerService.uploadExcel(String.valueOf(targetLocation));
             Map<String, String> response = new HashMap<>();
             response.put("fileUrl", fileUrl);
 

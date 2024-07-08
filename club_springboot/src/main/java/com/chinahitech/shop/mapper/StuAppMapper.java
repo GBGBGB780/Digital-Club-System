@@ -25,6 +25,9 @@ public interface StuAppMapper extends BaseMapper<StuApp> {
     @Select("SELECT * FROM `stu_app` WHERE application_id = #{id}")
     StuApp getById(Integer id);
 
+    @Select("select * from `stu_app` WHERE stu_number = #{studentId} and group_name = #{groupName}")
+    List<StuApp> getByStuAndGroup(String studentId, String groupName);
+
     @Select("SELECT CASE WHEN is_accepted IS NULL THEN 'null' " +
             "WHEN is_accepted = true THEN 'true' " +
             "ELSE 'false' END as isaccepted " +
@@ -39,4 +42,6 @@ public interface StuAppMapper extends BaseMapper<StuApp> {
 
     @Update("update `stu_app` set is_accepted = false where application_id = #{applicationid}")
     int denyApplicationByid(@Param("applicationid") Integer applicationid);
+
+
 }

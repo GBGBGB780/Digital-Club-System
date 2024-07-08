@@ -1,6 +1,7 @@
 package com.chinahitech.shop.service;
 
 import com.chinahitech.shop.bean.StuApp;
+import com.chinahitech.shop.exception.ApplyException;
 import com.chinahitech.shop.mapper.StuAppMapper;
 import com.chinahitech.shop.exception.InsertException;
 import com.chinahitech.shop.exception.UpdateException;
@@ -23,6 +24,10 @@ public class StuAppService {
     }
 
     public void insert(StuApp stuApp) {
+        List<StuApp> appList = stuAppMapper.getByStuAndGroup(stuApp.getStuNumber(), stuApp.getGroupName());
+        if (appList.size() >= 5) {
+            throw new ApplyException("申请次数过多！");
+        }
         int i = stuAppMapper.insert(stuApp);
         if (i != 1) {
             throw new InsertException("申请" + stuApp + "无法保存到数据库");

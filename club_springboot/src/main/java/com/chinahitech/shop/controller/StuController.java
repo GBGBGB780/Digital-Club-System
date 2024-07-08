@@ -75,9 +75,9 @@ public class StuController {
     @RepeatLimit
     @PostMapping("/getEmail")
     public Result getEmail(String stuNumber) throws Exception{
-        System.out.println(stuNumber);
+//        System.out.println(stuNumber);
         User student = stuService.getByStuNumber(stuNumber);
-        System.out.println(student);
+//        System.out.println(student);
         String email = student.getEmail();
         EmailService sEmail;
         sEmail = new EmailService(email);
@@ -106,7 +106,7 @@ public class StuController {
     @PostMapping("/validateEmail")
     public Result validateEmail(String email) throws Exception {
 //        String email = emailInfo.getEmail();
-        System.out.println(email);
+//        System.out.println(email);
         EmailService sEmail;
         sEmail = new EmailService(email);
         sEmail.sendEmail();
@@ -116,8 +116,8 @@ public class StuController {
     @RepeatLimit
     @PostMapping("/modifyPass")
     public Result modifyPassword(String stuNumber, String password){
-        System.out.println(stuNumber);
-        System.out.println(password);
+//        System.out.println(stuNumber);
+//        System.out.println(password);
         stuService.updatePassword(stuNumber, password);
         return Result.ok();
     }
@@ -125,8 +125,8 @@ public class StuController {
     @RepeatLimit
     @PostMapping("/modifyPhone")
     public Result modifyPhone(String stuNumber, String phone){
-        System.out.println(stuNumber);
-        System.out.println(phone);
+//        System.out.println(stuNumber);
+//        System.out.println(phone);
         stuService.updatePhone(stuNumber, phone);
         return Result.ok();
     }
@@ -134,8 +134,8 @@ public class StuController {
     @RepeatLimit
     @PostMapping("/modifyDescription")
     public Result modifyDescription(String stuNumber, String description){
-        System.out.println(stuNumber);
-        System.out.println(description);
+//        System.out.println(stuNumber);
+//        System.out.println(description);
         stuService.updateDescription(stuNumber, description);
         return Result.ok();
     }
@@ -143,8 +143,8 @@ public class StuController {
     @RepeatLimit
     @PostMapping("/modifyNickname")
     public Result modifyNickname(String stuNumber, String nickname){
-        System.out.println(stuNumber);
-        System.out.println(nickname);
+//        System.out.println(stuNumber);
+//        System.out.println(nickname);
         stuService.updateNickname(stuNumber, nickname);
         return Result.ok();
     }
@@ -152,9 +152,9 @@ public class StuController {
     @RepeatLimit
     @PostMapping("/profile")
     public Result getProfile(String stuNumber){
-        System.out.println(stuNumber);
+//        System.out.println(stuNumber);
         User student = stuService.getByStuNumber(stuNumber);
-        System.out.println(student);
+//        System.out.println(student);
         return Result.ok().data("student", student);
     }
 

@@ -28,7 +28,7 @@ public class IndividualActivityController {
     @RequestMapping("/allActivities")
     public Result getIndividualActivity(String studentId) {
         List<IndividualActivity> individualActivityList = individualActivityService.getActivityByStuId(studentId);
-        System.out.println(individualActivityList);
+//        System.out.println(individualActivityList);
         return Result.ok().data("items", individualActivityList);
     }
 
@@ -46,7 +46,7 @@ public class IndividualActivityController {
     @RequestMapping("/getAllStudents")
     public Result getStudentsByActivity(int activityId) {
         List<IndividualActivity> individualActivityList = individualActivityService.getActivityByActivityId(activityId);
-        System.out.println(individualActivityList);
+//        System.out.println(individualActivityList);
         return Result.ok().data("items", individualActivityList);
     }
 
@@ -55,7 +55,7 @@ public class IndividualActivityController {
     @RequestMapping("/getAllApplyStudents")
     public Result getAllApplyStudents(int activityId) {
         List<IndividualActivity> applyList = individualActivityService.getApplyByActivityId(activityId);
-        System.out.println(applyList);
+//        System.out.println(applyList);
         return Result.ok().data("items", applyList);
     }
 
@@ -88,7 +88,7 @@ public class IndividualActivityController {
     @RequestMapping("/allManagedActivities")
     public Result getAllManagedActivities(String managerId) {
         List<Activity> activityList = individualActivityService.getAllManagedActivities(managerId);
-        System.out.println(activityList);
+//        System.out.println(activityList);
         return Result.ok().data("items", activityList);
     }
 
@@ -96,7 +96,7 @@ public class IndividualActivityController {
     @RepeatLimit
     @PostMapping("/accept")
     public Result acceptApplication(int activityId, String studentId){
-        System.out.println(activityId);
+//        System.out.println(activityId);
         // System.out.println(isaccepted);
         individualActivityService.confirmApplication(activityId, studentId);
         return Result.ok();
@@ -106,7 +106,7 @@ public class IndividualActivityController {
     @RepeatLimit
     @PostMapping("/reject")
     public Result rejectApplication(int activityId, String studentId){
-        System.out.println(activityId);
+//        System.out.println(activityId);
         // System.out.println(isaccepted);
         individualActivityService.denyApplication(activityId, studentId);
         return Result.ok();
@@ -119,7 +119,7 @@ public class IndividualActivityController {
     @RequestMapping("/getActivityMembers")
     public Result getActivityMembers() {
         List<ActivityNum> activityList = individualActivityService.getActivityMembers();
-        System.out.println(activityList);
+//        System.out.println(activityList);
         return Result.ok().data("items", activityList);
     }
 }

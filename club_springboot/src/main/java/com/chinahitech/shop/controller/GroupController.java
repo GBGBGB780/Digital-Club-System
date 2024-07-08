@@ -51,7 +51,7 @@ public class GroupController {
     @RepeatLimit
     @PostMapping("/studentDetail")
         public Result getStudentDetail(String groupName){
-        System.out.println(groupName);
+//        System.out.println(groupName);
         Group group = groupService.getByName(groupName);
         return Result.ok().data("group",group);
     }
@@ -74,7 +74,7 @@ public class GroupController {
             String relativePath = "videotest.mp4";
 
             Path targetLocation = Paths.get(uploadDir, "videotest.mp4");
-            System.out.println(targetLocation);
+//            System.out.println(targetLocation);
             // 构造视频URL
             String videoUrl = ServletUriComponentsBuilder.fromCurrentContextPath()
                     .path("/")
@@ -92,7 +92,7 @@ public class GroupController {
     @RequestMapping("/top")
     public Result getTop() {
         List<Group> groups = groupService.queryTop();
-        System.out.println(groups);
+//        System.out.println(groups);
         return Result.ok().data("item", groups);
     }
     // end
@@ -106,7 +106,7 @@ public class GroupController {
     @RepeatLimit
     @PostMapping("/managerDetail")
     public Result getManagerDetail(String groupname){
-        System.out.println(groupname);
+//        System.out.println(groupname);
         Group group = groupService.getByName(groupname);
         return Result.ok().data("group",group);
     }
@@ -115,8 +115,8 @@ public class GroupController {
     @RepeatLimit
     @PostMapping("/modifydescription")
     public Result  modifyDescription(String groupname, String description,String attachment,String image){
-        System.out.println(groupname);
-        System.out.println(description);
+//        System.out.println(groupname);
+//        System.out.println(description);
         groupService.updateDescription(groupname, description, attachment,image);
         return Result.ok();
     }
@@ -239,7 +239,7 @@ public class GroupController {
     @RequestMapping("/allApps")
     public Result getAllApps(String searchinfo){
         List<Group> groups = groupService.getAllApp(searchinfo);
-        System.out.println(groups);
+//        System.out.println(groups);
         return Result.ok().data("items",groups);
     }
 
@@ -247,7 +247,7 @@ public class GroupController {
     @RepeatLimit
     @PostMapping("/appDetail")
     public Result getAppDetail(String groupname){
-        System.out.println(groupname);
+//        System.out.println(groupname);
         Group group = groupService.getAppByName(groupname);
         return Result.ok().data("group",group);
     }
@@ -258,7 +258,7 @@ public class GroupController {
     @RepeatLimit
     @PostMapping("/accept")
     public Result accept(int groupId){
-        System.out.println(groupId);
+//        System.out.println(groupId);
         // System.out.println(isaccepted);
         groupService.confirmApplication(groupId);
         return Result.ok();
@@ -268,7 +268,7 @@ public class GroupController {
     @RepeatLimit
     @PostMapping("/reject")
     public Result reject(int groupId){
-        System.out.println(groupId);
+//        System.out.println(groupId);
         // System.out.println(isaccepted);
         groupService.denyApplication(groupId);
         return Result.ok();

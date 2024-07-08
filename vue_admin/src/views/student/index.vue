@@ -57,6 +57,8 @@
     created: function () {
         getStudentList(this.$store.state.clubid).then((response) => {
         this.studentlist = response.data.items;
+        console.log(this.studentlist);
+
       })
       .catch(error => {
         console.error(error);

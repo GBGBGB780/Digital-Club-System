@@ -29,7 +29,7 @@ export function modifyInfo(activity) {
     return request({
         url: '/activity/modifyInfo',
         method: 'post',
-        params: { activity }
+        data: activity
     });
 }
 
@@ -37,7 +37,7 @@ export function addActivity(activity) {
     return request({
         url: '/activity/addActivity',
         method: 'post',
-        params: { activity }
+        data: activity
     });
 }
 

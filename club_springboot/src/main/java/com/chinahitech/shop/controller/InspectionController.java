@@ -41,7 +41,7 @@ public class InspectionController {
     @RequestMapping("/findAllByGroup")
     public Result findAllByGroup(String groupName) {
         List<Inspection> inspections = inspectionService.findAllByGroup(groupName);
-        System.out.println(inspections);
+//        System.out.println(inspections);
         return Result.ok().data("items", inspections);
     }
 
@@ -50,7 +50,7 @@ public class InspectionController {
     @RequestMapping("/findAllByGroupAndYear")
     public Result findAllByGroupAndYear(String groupName, Year year) {
         List<Inspection> inspections = inspectionService.findAllByGroupAndYear(groupName, year);
-        System.out.println(inspections);
+//        System.out.println(inspections);
         return Result.ok().data("items", inspections);
     }
 
@@ -58,7 +58,7 @@ public class InspectionController {
     @RepeatLimit
     @PostMapping("/addInspection")
     public Result addInspection(Inspection inspection){
-        System.out.println(inspection.getGroupName());
+//        System.out.println(inspection.getGroupName());
         inspection.setIsAccepted(null);
         inspectionService.addInspection(inspection);
         return Result.ok();
@@ -68,9 +68,9 @@ public class InspectionController {
     @RepeatLimit
     @PostMapping("/modifyInfo")
     public Result modifyInfo(Inspection inspection){
-        System.out.println(inspection.getGroupName());
+//        System.out.println(inspection.getGroupName());
         inspectionService.modifyAttachment(inspection.getId(), inspection.getGroupName(), inspection.getAttachment());
-        System.out.println(inspection);
+//        System.out.println(inspection);
         return Result.ok();
     }
 
@@ -151,7 +151,7 @@ public class InspectionController {
     @RequestMapping("/all")
     public Result findAll(String searchInfo) {
         List<Inspection> inspections = inspectionService.findAll(searchInfo);
-        System.out.println(inspections);
+//        System.out.println(inspections);
         return Result.ok().data("items", inspections);
     }
 
@@ -160,15 +160,15 @@ public class InspectionController {
     @RequestMapping("/findAllByYear")
     public Result findAllByYear(Year year) {
         List<Inspection> inspections = inspectionService.findAllByYear(year);
-        System.out.println(inspections);
+//        System.out.println(inspections);
         return Result.ok().data("items", inspections);
     }
 
     //编辑反馈
     @RepeatLimit
     @PostMapping("/addFeedback")
-    public Result addFeedback(Inspection inspection){
-        System.out.println(inspection.getGroupName());
+    public Result addFeedback(@RequestBody Inspection inspection){
+//        System.out.println(inspection.getGroupName());
         inspection.setIsAccepted(null);
         inspectionService.addFeedback(inspection.getId(), inspection.getGroupName(), inspection.getFeedback());
         return Result.ok();
@@ -178,7 +178,7 @@ public class InspectionController {
     @RepeatLimit
     @PostMapping("/accept")
     public Result accept(int inspectionId){
-        System.out.println(inspectionId);
+//        System.out.println(inspectionId);
         // System.out.println(isaccepted);
         inspectionService.confirmApplication(inspectionId);
         return Result.ok();
@@ -188,7 +188,7 @@ public class InspectionController {
     @RepeatLimit
     @PostMapping("/reject")
     public Result reject(int inspectionId){
-        System.out.println(inspectionId);
+//        System.out.println(inspectionId);
         // System.out.println(isaccepted);
         inspectionService.denyApplication(inspectionId);
         return Result.ok();

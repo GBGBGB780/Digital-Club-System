@@ -102,4 +102,10 @@ public class GlobalExceptionHandler {
     public Result handle(Exception e) {
         return Result.error().message(e.getMessage());
     }
+
+    @ExceptionHandler(ApplyException.class)
+    @ResponseBody
+    public Result handle(ApplyException e) {
+        return Result.error().message(e.getMessage());
+    }
 }
