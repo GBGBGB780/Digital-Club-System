@@ -132,9 +132,35 @@ export const constantRoutes = [{
             name: 'groupactivity',
             component: () =>
                 import ('@/views/groupactivity/index'),
-            meta: { title: '社团活动详情', icon: 'table' }
+            meta: { title: '社团活动', icon: 'el-icon-s-flag' }
         }]
     },
+
+    {
+        path: '/',
+        component: Layout,
+        redirect: '/groupactivity/activitydetail/:aid',
+        children: [{
+          path: 'groupactivity/activitydetail/:aid',
+          name: 'Activitydetail',
+          component: () =>
+            import('@/views/groupactivity/activitydetail/index'),
+        }]
+    },
+
+    {
+        path: '/',
+        component: Layout,
+        redirect: '/groupactivity/addactivity',
+        children: [{
+          path: 'groupactivity/addactivity',
+          name: 'Addactivity',
+          component: () =>
+            import('@/views/groupactivity/addactivity/index'),
+            meta: { title: '申请活动', icon: 'el-icon-plus' }
+        }]
+    },
+
     // 404 page must be placed at the end !!!
     { path: '*', redirect: '/404', hidden: true }
 ]

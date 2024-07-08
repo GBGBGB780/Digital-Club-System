@@ -44,3 +44,19 @@ export function getGroups(searchInfo) {
     params: { searchInfo }
   })
 }
+
+export function findtop() {
+  return request({
+    url: '/group/top',
+    method: 'get',
+    params: { }
+  })
+}
+
+export function getcount() {
+  return request({
+    url: '/individualGroup/getGroupMembers',
+    method: 'get',
+    params: { }
+  })
+}

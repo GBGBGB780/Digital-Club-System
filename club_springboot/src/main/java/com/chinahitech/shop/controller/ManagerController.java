@@ -78,9 +78,9 @@ public class ManagerController {
     @RepeatLimit
     @PostMapping("/getEmail")
     public Result getEmail(String userNumber) throws Exception {
-        System.out.println(userNumber);
+//        System.out.println(userNumber);
         User user = managerService.getByUserId(userNumber);
-        System.out.println(user);
+//        System.out.println(user);
         String email = user.getEmail();
         EmailService sEmail;
         sEmail = new EmailService(email);
@@ -109,7 +109,7 @@ public class ManagerController {
     @PostMapping("/validateEmail")
     public Result validateEmail(String email) throws Exception {
 //        String email = emailInfo.getEmail();
-        System.out.println(email);
+//        System.out.println(email);
         EmailService sEmail;
         sEmail = new EmailService(email);
         sEmail.sendEmail();
@@ -120,8 +120,8 @@ public class ManagerController {
     @RepeatLimit
     @PostMapping("/modifyPass")
     public Result modifyPassword(String userId, String password){
-        System.out.println(userId);
-        System.out.println(password);
+//        System.out.println(userId);
+//        System.out.println(password);
         managerService.updatePassword(userId, password);
         return Result.ok();
     }
@@ -130,8 +130,8 @@ public class ManagerController {
     @RepeatLimit
     @PostMapping("/modifyPhone")
     public Result modifyPhone(String userId, String phone){
-        System.out.println(userId);
-        System.out.println(phone);
+//        System.out.println(userId);
+//        System.out.println(phone);
         managerService.updatePhone(userId, phone);
         return Result.ok();
     }
@@ -140,8 +140,8 @@ public class ManagerController {
     @RepeatLimit
     @PostMapping("/modifyDescription")
     public Result modifyDescription(String userId, String description){
-        System.out.println(userId);
-        System.out.println(description);
+//        System.out.println(userId);
+//        System.out.println(description);
         managerService.updateDescription(userId, description);
         return Result.ok();
     }
@@ -150,8 +150,8 @@ public class ManagerController {
     @RepeatLimit
     @PostMapping("/modifyNickname")
     public Result modifyNickname(String userId, String nickname){
-        System.out.println(userId);
-        System.out.println(nickname);
+//        System.out.println(userId);
+//        System.out.println(nickname);
         managerService.updateNickname(userId, nickname);
         return Result.ok();
     }
@@ -160,9 +160,9 @@ public class ManagerController {
     @RepeatLimit
     @PostMapping("/profile")
     public Result getProfile(String userId){
-        System.out.println(userId);
+//        System.out.println(userId);
         User user = managerService.getByUserId(userId);
-        System.out.println(user);
+//        System.out.println(user);
         return Result.ok().data("user", user);
     }
 

@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="ANALYZE_INJECTED_CODE" value="false" />
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
@@ -102,7 +105,7 @@
     &quot;Spring Boot.ShopApplication.executor&quot;: &quot;Run&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/java program/club_springboot&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/java program/club_springboot/src/main/resources/static&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -110,7 +113,8 @@
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;project.structure.last.edited&quot;: &quot;库&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.17&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.59128386&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
     &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.notifications&quot;,
     &quot;spring.configuration.checksum&quot;: &quot;fb54f3c5992b96d001bb16e8e92d968d&quot;,
@@ -130,6 +134,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\java program\club_springboot\src\main\resources\static" />
       <recent name="D:\java program\club_springboot\src\main\java\com\chinahitech\shop\service" />
       <recent name="D:\java program\club_student\src\main\java\com\chinahitech\shop\service\exception" />
     </key>
@@ -140,7 +145,7 @@
       <recent name="com.chinahitech.shop.bean" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.ShopApplication (1)">
+  <component name="RunManager" selected="Spring Boot.ShopApplication">
     <configuration name="ActivityMapperTest.deleteActivityTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="shop" />
       <extension name="coverage">
@@ -218,8 +223,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ShopApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+    <configuration name="ShopApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="shop" />
+      <option name="SHORTEN_COMMAND_LINE" value="NONE" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.chinahitech.shop.ShopApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -227,7 +233,7 @@
     </configuration>
     <configuration name="test_projectApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
-      <module name="scan" />
+      <module name="shop" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.test_project.test_projectApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -235,12 +241,22 @@
     </configuration>
     <configuration name="test_projectApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
-      <module name="test_project" />
+      <module name="shop" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.test_project.test_projectApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="JUnit.ActivityMapperTest.deleteActivityTest" />
+      <item itemvalue="JUnit.ActivityMapperTest.updateHotTest" />
+      <item itemvalue="JUnit.IndividualGroupServiceTest.getAllManagedGroupsTest" />
+      <item itemvalue="JUnit.StuMapperTest.addStudentTest" />
+      <item itemvalue="Spring Boot.ShopApplication" />
+      <item itemvalue="Spring Boot.test_projectApplication" />
+      <item itemvalue="Spring Boot.test_projectApplication (1)" />
+      <item itemvalue="Spring Boot.MemberApplication" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.MemberApplication" />
@@ -344,7 +360,17 @@
       <workItem from="1719327238523" duration="624000" />
       <workItem from="1719327874562" duration="4681000" />
       <workItem from="1719377175112" duration="7583000" />
-      <workItem from="1719396171874" duration="7844000" />
+      <workItem from="1719396171874" duration="13414000" />
+      <workItem from="1719467197874" duration="20000" />
+      <workItem from="1719986736430" duration="103000" />
+      <workItem from="1719988235157" duration="3217000" />
+      <workItem from="1720160967075" duration="595000" />
+      <workItem from="1720162671254" duration="44000" />
+      <workItem from="1720271549627" duration="5679000" />
+      <workItem from="1720322670309" duration="1249000" />
+      <workItem from="1720338850911" duration="5980000" />
+      <workItem from="1720421417790" duration="2306000" />
+      <workItem from="1720424208437" duration="1002000" />
     </task>
     <task id="LOCAL-00001" summary="增加了一个查询天气的api">
       <created>1686468078163</created>

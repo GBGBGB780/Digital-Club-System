@@ -14,7 +14,10 @@ import java.util.List;
 @Repository
 public interface TopManagerMapper extends BaseMapper<User> {
     @Select("SELECT * FROM user WHERE user_id = #{num} and status >= 10")
-    User getByNum(String num);
+    User getTopManagerByNum(String num);
+
+    @Select("SELECT * FROM user WHERE user_id = #{num}")
+    User getUserByNum(String num);
 
     @Select("select * from `user` order by status")
     List<User> getAllUsers();
