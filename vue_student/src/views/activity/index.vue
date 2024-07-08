@@ -12,8 +12,8 @@
               </div>
               <div class="activity-details">
                 <!-- <div>index</div> -->
-                <div class="activity-rank">{{ activity.organizer }}</div>
-                <div class="activity-name">{{ activity.name }}</div>
+                <div class="activity-rank">{{ activity.name }}</div>
+                <div class="activity-name">{{ activity.organizer }}</div>
                 <div class="activity-buttons">
                   <el-button type="primary" class="activity-button" size="mini" @click="redirectToApplication(activity.id)">申请加入</el-button>
                   <el-button type="primary" class="activity-button" size="mini" @click="showDescription(activity)">查看详情</el-button>

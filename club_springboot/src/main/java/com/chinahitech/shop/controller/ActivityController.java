@@ -151,6 +151,15 @@ public class ActivityController {
         return Result.ok();
     }
 
+    //该社团活动申请列表
+    @RepeatLimit
+    @RequestMapping("/myApps")
+    public Result getMyApps(String searchInfo, String groupName){
+        List<Activity> activities = activityService.getMyApps(searchInfo, groupName);
+//        System.out.println(activities);
+        return Result.ok().data("items",activities);
+    }
+
     @RepeatLimit
     @PostMapping("/uploadZip")
     public ResponseEntity<Map<String, String>> uploadFile(@RequestParam("file") MultipartFile file) {

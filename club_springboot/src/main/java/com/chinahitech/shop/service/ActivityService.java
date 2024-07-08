@@ -151,6 +151,13 @@ public class ActivityService {
         }
     }
 
+    public List<Activity> getMyApps(String searchinfo, String groupName) {
+        if (searchinfo == null || searchinfo.trim().isEmpty()) {
+            return activityMapper.getMyApps(groupName);
+        } else {
+            return activityMapper.getMyAppsBySearch(searchinfo, groupName);
+        }
+    }
 
     public List<Activity> getAllApp(String searchinfo) {
         if (searchinfo == null || searchinfo.trim().isEmpty()) {

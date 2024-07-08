@@ -7,23 +7,11 @@
         <el-input v-model="stuNumber" :disabled="true"/>
       </el-form-item>
       <el-form-item label="电话" prop="phone">
-        <el-input v-model="ruleForm.phone" />
-      </el-form-item>
-      <el-form-item label="性别" prop="gender">
-        <el-radio-group v-model="ruleForm.gender">
-          <el-radio label="男" />
-          <el-radio label="女" />
-        </el-radio-group>
+        <el-input v-model="ruleForm.phone" :disabled="true"/>
       </el-form-item>
       <el-form-item label="专业" prop="major">
-      <el-autocomplete
-        class="inline-input"
-        v-model="ruleForm.major"
-        :fetch-suggestions="querySearch"
-        placeholder="请输入专业"
-        @select="handleSelect"
-      ></el-autocomplete>
-      </el-form-item>
+      <el-input v-model="ruleForm.major" :disabled="true"/>
+    </el-form-item>
       <el-form-item label="自我陈述" prop="selfintro">
         <el-input v-model="ruleForm.selfintro" type="textarea" :rows="8" />
       </el-form-item>
@@ -115,7 +103,9 @@
       this.stuNumber = this.name
       getProfile(this.name)
         .then((response) => {
-          this.stuname = response.data.student.stuname
+          this.stuname = response.data.student.userName
+          this.ruleForm.major = response.data.student.major
+          this.ruleForm.phone = response.data.student.phone
         })
         .catch((error) => {
           console.error(error)

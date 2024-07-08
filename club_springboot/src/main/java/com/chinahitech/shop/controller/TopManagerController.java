@@ -273,7 +273,6 @@ public class TopManagerController {
 
         try {
             Path targetLocation = Paths.get(uploadDir, fileName);
-//            Files.createDirectories(targetLocation);
             Files.copy(file.getInputStream(), targetLocation, StandardCopyOption.REPLACE_EXISTING);
 
 
@@ -284,14 +283,11 @@ public class TopManagerController {
 //            System.out.println(targetLocation);
 //            System.out.println(fileUrl);
 
-            topManagerService.uploadExcel(String.valueOf(targetLocation));
+            topManagerService.uploadExcel(file);
             Map<String, String> response = new HashMap<>();
             response.put("fileUrl", fileUrl);
 
             return ResponseEntity.ok(response);
-        } catch (IOException e) {
-            e.printStackTrace();
-            return ResponseEntity.badRequest().body(createErrorResponse("Failed to upload the file."));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

@@ -11,9 +11,9 @@
             <div class="group-details">
               <!-- <div>index</div> -->
               <div class="group-rank">第{{ index + 1 }}名</div>
-              <div class="group-name">{{ group.userName }}</div>
+              <div class="group-name">{{ group.name }}</div>
               <div class="group-buttons">
-                <el-button type="primary" class="group-button" size="mini" @click="redirectToApplication(group.userName)">申请加入</el-button>
+                <el-button type="primary" class="group-button" size="mini" @click="redirectToApplication(group.name)">申请加入</el-button>
                 <el-button type="primary" class="group-button" size="mini" @click="showDescription(group)">查看详情</el-button>
               </div>
             </div>

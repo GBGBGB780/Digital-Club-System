@@ -38,7 +38,7 @@
           </tr>
           <tr>
             <td>申请时间:</td>
-            <td>{{ applications.time | formatDate }}</td>
+            <td>{{ applications.createTime | formatDate }}</td>
           </tr>
           <tr>
             <td>申请状态:</td>
@@ -142,7 +142,7 @@ export default {
         type: 'success'
       })
       setTimeout(() => {
-        acceptApplication(applications.applicationId)
+        acceptApplication(this.applications.applicationId)
           .then((response) => {
             console.log(response.data)
             // detail.isAccepted = true;

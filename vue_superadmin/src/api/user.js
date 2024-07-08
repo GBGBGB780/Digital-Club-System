@@ -24,7 +24,7 @@ export function logout() {
 }
 export function getAllStudent(searchInfo) {
   return request({
-    url: '/topManager/getAllUsers',
+    url: '/individualGroup/getAllStudents',
     method: 'post',
     params: { searchInfo }
   })
