@@ -142,7 +142,7 @@ export default {
         type: 'success'
       })
       setTimeout(() => {
-        acceptApplication(applications.applicationId)
+        acceptApplication(this.applications.applicationId)
           .then((response) => {
             console.log(response.data)
             // detail.isAccepted = true;
