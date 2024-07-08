@@ -7,11 +7,9 @@ import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.poifs.filesystem.POIFSFileSystem;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.util.*;
 
 /*
@@ -23,21 +21,17 @@ public class ScanExcel {
     private final String XLS=".xls";
 
     //读取Excel文件（支持.xls和.xlsx）
-    public List<User> readExcel(String fileUrl) throws Exception{
-        File file = new File(fileUrl);
+    public List<User> readExcel(MultipartFile file) throws Exception{
         int res = checkFile(file);
         if (res == 0) {
-//            System.out.println("File not found");
             throw new FileNotFoundException("File not found");
         }else if (res == 1) {//类型为-XLSX
-            return readXLSX(fileUrl);
+            return readXLSX(file);
         }else if (res == 2) {//类型为-XLS
-            return readXLS(fileUrl);
+            return readXLS(file);
         }else{
             throw new FileTypeException("暂不支持读取该文件格式");
-//            System.out.println("暂不支持读取该文件格式");
         }
-//        return new ArrayList<>();
     }
 
     //写入Excel文件（支持.xls和.xlsx）
@@ -60,11 +54,14 @@ public class ScanExcel {
 
 
     //判断File文件的类型
-    public int checkFile(File file){
-        if (file==null) {
+    public int checkFile(MultipartFile file){
+        if (file == null) {
             return 0;
         }
-        String fileName = file.getName();
+        String fileName = file.getOriginalFilename();
+        if (fileName == null) {
+            return 0;
+        }
         if (fileName.endsWith(XLSX)) {
             return 1;
         }
@@ -75,17 +72,16 @@ public class ScanExcel {
     }
 
     //读取XLSX文件
-    public List<User> readXLSX(String fileUrl) throws InvalidFormatException, IOException {
-//        System.out.println(file.getName());
-        FileInputStream fis = new FileInputStream(fileUrl);
-        Workbook book = new XSSFWorkbook(fis);
+    public List<User> readXLSX(MultipartFile file) throws IOException {
+        InputStream fileInputStream = file.getInputStream();
+        Workbook book = new XSSFWorkbook(fileInputStream);
         return read(book);
     }
 
     //读取XLS文件
-    public List<User> readXLS(String fileUrl) throws FileNotFoundException, IOException{
-        POIFSFileSystem poifsFileSystem = new POIFSFileSystem(new FileInputStream(fileUrl));
-        Workbook book = new HSSFWorkbook(poifsFileSystem);
+    public List<User> readXLS(MultipartFile file) throws IOException{
+        InputStream fileInputStream = file.getInputStream();
+        Workbook book = new HSSFWorkbook(fileInputStream);
         return read(book);
     }
 

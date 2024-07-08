@@ -57,3 +57,19 @@ export function getAttachmentUrl(groupId) {
   })
 }
 
+export function showGroups(searchInfo) {
+  return request({
+    url: '/group/all',
+    method: 'post',
+    params: { searchInfo }
+  })
+}
+
+export function getMyGroups(studentId) {
+  return request({
+    url: '/individualGroup/allGroups',
+    method: 'post',
+    params: { studentId }
+  })
+}
+
