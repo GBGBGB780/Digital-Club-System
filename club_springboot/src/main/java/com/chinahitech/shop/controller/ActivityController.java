@@ -125,7 +125,7 @@ public class ActivityController {
     //活动其他信息修改
     @RepeatLimit
     @PostMapping("/modifyInfo")
-    public Result modifyInfo(Activity activity){
+    public Result modifyInfo(@RequestBody Activity activity){
 //        System.out.println(activity.getName());
         activityService.modifyInfo(activity);
         return Result.ok();
@@ -134,7 +134,7 @@ public class ActivityController {
     //申请增加活动
     @RepeatLimit
     @PostMapping("/addActivity")
-    public Result addActivity(Activity activity){
+    public Result addActivity(@RequestBody Activity activity){
 //        System.out.println(activity.getName());
         activity.setIsAccepted(null);
         activityService.addActivity(activity);
@@ -144,11 +144,20 @@ public class ActivityController {
     //申请删除活动
     @RepeatLimit
     @PostMapping("/deleteActivity")
-    public Result deleteActivity(Activity activity){
+    public Result deleteActivity(@RequestBody Activity activity){
 //        System.out.println(activity.getName());
         activity.setIsAccepted(null);
         activityService.deleteActivity(activity);
         return Result.ok();
+    }
+
+    //该社团活动申请列表
+    @RepeatLimit
+    @RequestMapping("/myApps")
+    public Result getMyApps(String searchInfo, String groupName){
+        List<Activity> activities = activityService.getMyApps(searchInfo, groupName);
+//        System.out.println(activities);
+        return Result.ok().data("items",activities);
     }
 
     @RepeatLimit

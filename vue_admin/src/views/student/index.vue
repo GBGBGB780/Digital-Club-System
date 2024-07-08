@@ -1,7 +1,7 @@
 <template>
     <div class="student-container">
       <div>
-        <el-input @keyup.enter.native="handleSearch" v-model="searchInfo" placeholder="搜索成员" clearable style="width: 10%;"/>
+        <el-input @keyup.enter.native="handleSearch" v-model="searchInfo" placeholder="搜索成员" clearable style="width: 20%;"/>
          <el-button icon="el-icon-search" @click="handleSearch" />
         <el-table 
           :data="studentlist"
@@ -55,8 +55,10 @@
         };
       },
     created: function () {
-        getStudentList(this.$store.state.clubid).then((response) => {
+        getStudentList(this.$store.state.clubid,null).then((response) => {
         this.studentlist = response.data.items;
+        console.log(this.studentlist);
+
       })
       .catch(error => {
         console.error(error);

@@ -161,6 +161,19 @@ export const constantRoutes = [{
         }]
     },
 
+    {
+        path: '/',
+        component: Layout,
+        redirect: '/groupactivity/activityapplication',
+        children: [{
+          path: 'groupactivity/activityapplication',
+          name: 'Activityapplication',
+          component: () =>
+            import('@/views/groupactivity/activityapplication/index'),
+            meta: { title: '在申活动', icon: 'el-icon-s-check' }
+        }]
+    },
+
     // 404 page must be placed at the end !!!
     { path: '*', redirect: '/404', hidden: true }
 ]

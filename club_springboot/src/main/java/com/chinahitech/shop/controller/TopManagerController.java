@@ -249,7 +249,7 @@ public class TopManagerController {
     //修改用户信息
     @RepeatLimit
     @PostMapping("/modifyUserInfo")
-    public Result modifyUserInfo(User user){
+    public Result modifyUserInfo(@RequestBody User user){
 //        System.out.println(user);
         topManagerService.updateUserInfo(user);
         return Result.ok();
@@ -258,13 +258,13 @@ public class TopManagerController {
     //删除用户
     @RepeatLimit
     @RequestMapping("/deleteUser")
-    public Result deleteUser(User user){
+    public Result deleteUser(@RequestBody User user){
 //        System.out.println(user.getUserName());
         topManagerService.deleteUser(user);
         return Result.ok();
     }
 
-    //todo 批量导入
+    //批量导入
     @RepeatLimit
     @PostMapping("/uploadExcel")
     public ResponseEntity<Map<String, String>> uploadExcel(@RequestParam("file") MultipartFile file) {
@@ -280,15 +280,14 @@ public class TopManagerController {
                     .pathSegment("upload")
                     .pathSegment(fileName)
                     .toUriString();
+//            System.out.println(targetLocation);
+//            System.out.println(fileUrl);
 
-            topManagerService.uploadExcel(file, fileUrl, targetLocation);
+            topManagerService.uploadExcel(file);
             Map<String, String> response = new HashMap<>();
             response.put("fileUrl", fileUrl);
 
             return ResponseEntity.ok(response);
-        } catch (IOException e) {
-            e.printStackTrace();
-            return ResponseEntity.badRequest().body(createErrorResponse("Failed to upload the file."));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

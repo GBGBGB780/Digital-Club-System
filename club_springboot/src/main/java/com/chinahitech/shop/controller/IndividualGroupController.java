@@ -5,6 +5,7 @@ import com.chinahitech.shop.aop.RepeatLimit;
 import com.chinahitech.shop.bean.Group;
 import com.chinahitech.shop.bean.IndividualGroup;
 import com.chinahitech.shop.bean.notAddedToDatabase.GroupNum;
+import com.chinahitech.shop.service.GroupService;
 import com.chinahitech.shop.service.IndividualGroupService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.chinahitech.shop.utils.Result;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/individualGroup")
@@ -21,6 +25,8 @@ import java.util.List;
 public class IndividualGroupController {
     @Autowired
     private IndividualGroupService individualGroupService;
+    @Autowired
+    private GroupService groupService;
 
     // 学生端
     //获取该学生参加的所有社团及其在对应社团的职位
@@ -29,7 +35,15 @@ public class IndividualGroupController {
     public Result getIndividualGroup(String studentId) {
         List<IndividualGroup> individualGroupList = individualGroupService.getGroupByStuId(studentId);
 //        System.out.println(individualGroupList);
-        return Result.ok().data("items", individualGroupList);
+        List<Group> groupList = new ArrayList<>();
+        for (IndividualGroup individualGroup : individualGroupList) {
+            groupList.add(groupService.getGroupById(individualGroup.getGroupId()));
+        }
+        Map<String, Object> map = new HashMap<>();
+        map.put("stuItems",individualGroupList);
+        map.put("groupItems",groupList);
+//        return Result.ok().data("items", individualGroupList);
+        return Result.ok().data(map);
     }
 
     //管理员端
@@ -38,8 +52,16 @@ public class IndividualGroupController {
     @RequestMapping("/getStudentsByGroup")
     public Result getStudentsByGroup(int groupId, String searchInfo) {
         List<IndividualGroup> studentList = individualGroupService.getStudentsByGroup(groupId, searchInfo);
+//        List<Group> groupList = new ArrayList<>();
+//        for (IndividualGroup individualGroup : studentList) {
+//            groupList.add(groupService.getGroupById(individualGroup.getGroupId()));
+//        }
+//        Map<String, Object> map = new HashMap<>();
+//        map.put("stuItems",studentList);
+//        map.put("groupItems",groupList);
 //        System.out.println(studentList);
         return Result.ok().data("items", studentList);
+//        return Result.ok().data(map);
     }
 
     //该社团普通成员的增加

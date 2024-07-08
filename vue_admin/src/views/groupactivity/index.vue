@@ -15,12 +15,12 @@
         <span class="text">{{ scope.row.organizer }}</span>
       </template>
     </el-table-column>
-    <el-table-column prop=time label="申请时间" width="300">
+    <el-table-column prop=time label="申请时间" width="300" sortable>
       <template slot-scope="scope">
         <span class="text">{{ formatDate(scope.row.time) }}</span>
       </template>
     </el-table-column>
-    <el-table-column prop="isAccepted" label="申请状态">
+    <el-table-column prop="isAccepted" label="申请状态" sortable>
       <template slot-scope="scope">
         <span v-if="scope.row.isAccepted === true" class="text success-text">已批准</span>
         <span v-else-if="scope.row.isAccepted === false" class="text fail-text">已拒绝</span>

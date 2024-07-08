@@ -80,7 +80,7 @@ public class GroupController {
                     .path("/")
                     .path(relativePath)
                     .toUriString();
-//            System.out.println(videoUrl);
+            System.out.println(videoUrl);
             return Result.ok().data("url", videoUrl);
         } catch (Exception e) {
             return Result.error().message("获取视频失败");

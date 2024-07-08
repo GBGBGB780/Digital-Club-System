@@ -134,6 +134,9 @@ public class ActivityService {
         activity.setNumber(0);
         activity.setCreateTime(date);
         activity.setModifyTime(date);
+        if (activity.getName() == null || activity.getName().trim().isEmpty()) {
+            activity.setName("未知");
+        }
         int i = activityMapper.insert(activity);
         if(i != 1){
             throw new UpdateException("活动"+ activity.getName() +"添加失败");
@@ -148,6 +151,13 @@ public class ActivityService {
         }
     }
 
+    public List<Activity> getMyApps(String searchinfo, String groupName) {
+        if (searchinfo == null || searchinfo.trim().isEmpty()) {
+            return activityMapper.getMyApps(groupName);
+        } else {
+            return activityMapper.getMyAppsBySearch(searchinfo, groupName);
+        }
+    }
 
     public List<Activity> getAllApp(String searchinfo) {
         if (searchinfo == null || searchinfo.trim().isEmpty()) {

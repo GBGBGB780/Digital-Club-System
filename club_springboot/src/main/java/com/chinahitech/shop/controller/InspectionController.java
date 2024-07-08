@@ -167,7 +167,7 @@ public class InspectionController {
     //编辑反馈
     @RepeatLimit
     @PostMapping("/addFeedback")
-    public Result addFeedback(Inspection inspection){
+    public Result addFeedback(@RequestBody Inspection inspection){
 //        System.out.println(inspection.getGroupName());
         inspection.setIsAccepted(null);
         inspectionService.addFeedback(inspection.getId(), inspection.getGroupName(), inspection.getFeedback());

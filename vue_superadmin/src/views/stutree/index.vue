@@ -49,9 +49,7 @@ export default {
     }
   },
 
-  mounted() {
-    
-  },
+
 
   created: function () {
       getAllStudent(this.searchInfo).then((response) => {
@@ -87,9 +85,11 @@ export default {
         this.index = this.grouplist[index].id;
       });
       console.log(this.grouplist)
+      this.index = this.index+1
       this.studentlist.forEach(item => {
         item.index = this.index++;
       });
+      console.log(this.studentlist)
       this.data2 = arrayToTree([...this.grouplist,...this.studentlist], {
       parentProperty: 'groupId',
       customID: 'index'
@@ -100,6 +100,7 @@ export default {
         children: this.data2
       }
       this.data2 = [node];
+      console.log(this.studentlist)
 
     },
 

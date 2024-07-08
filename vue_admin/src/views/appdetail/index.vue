@@ -38,7 +38,7 @@
           </tr>
           <tr>
             <td>申请时间:</td>
-            <td>{{ applications.time | formatDate }}</td>
+            <td>{{ applications.createTime | formatDate }}</td>
           </tr>
           <tr>
             <td>申请状态:</td>

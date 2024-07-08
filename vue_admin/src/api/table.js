@@ -10,7 +10,7 @@ export function getList(params) {
 
 export function getStudentList(groupId) {
   return request({
-    url: '/individualGroup/getAllStudents',
+    url: '/individualGroup/getStudentsByGroup',
     method: 'post',
     params: { groupId }
   })
