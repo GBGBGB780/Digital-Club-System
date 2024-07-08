@@ -8,11 +8,11 @@ export function getManages(groupName) {
   })
 }
 
-export function getDetails(groupName) {
+export function getDetails(groupname) {
   return request({
-    url: '/group/detail',
+    url: '/group/managerDetail',
     method: 'post',
-    params: { groupName }
+    params: { groupname }
   })
 }
 
@@ -24,11 +24,11 @@ export function redirectToGroupDetail(groupName) {
   })
 }
 
-export function updateForm(groupName, description, attachment, image) {
+export function updateForm(groupname, description, attachment,image) {
   return request({
-    url: '/group/modifyDescription',
+    url: '/group/modifydescription',
     method: 'post',
-    params: { groupName, description, attachment, image }
+    params: { groupname, description, attachment, image }
   })
 }
 

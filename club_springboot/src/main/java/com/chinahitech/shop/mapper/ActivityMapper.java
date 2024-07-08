@@ -30,7 +30,7 @@ public interface ActivityMapper extends BaseMapper<Activity> {
     @Select("select * from `Activity` where name = #{name} and group_name = #{groupName} and is_accepted = true")
     Activity getActivityByNameAndGroupName(@Param("name") String name, @Param("groupName") String groupName);
 
-    @Select("select * from `Activity` where group_name = #{groupName} and is_accepted = true")
+    @Select("select * from `Activity` where group_name = #{groupName}")
     List<Activity> getActivityByGroupName(@Param("groupName") String groupName);
 
     @Update("UPDATE `Activity` SET attachment = #{attachment}, modify_time = #{modifyTime} " +
@@ -84,10 +84,10 @@ public interface ActivityMapper extends BaseMapper<Activity> {
     int deleteActivity(@Param("id") int id);
 
     @Select("select * from `Activity` where group_name = #{groupName} and is_accepted IS NULL")
-    List<Activity> getMyApps();
+    List<Activity> getMyApps(String groupName);
 
     @Select("SELECT * FROM `Activity` WHERE name LIKE CONCAT('%', #{searchinfo}, '%') and group_name = #{groupName} and is_accepted IS NULL")
-    List<Activity> getMyAppsBySearch(String searchinfo);
+    List<Activity> getMyAppsBySearch(String searchinfo, String groupName);
 
     @Select("select * from `Activity` ")
     List<Activity> findAllApp();

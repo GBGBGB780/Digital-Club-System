@@ -39,7 +39,7 @@ export default {
       getcount()
       .then((response)=>{
         this.groups = response.data.items
-        console.log(response)
+        // console.log(response)
         console.log(this.groups)
       const option = {
         title: {

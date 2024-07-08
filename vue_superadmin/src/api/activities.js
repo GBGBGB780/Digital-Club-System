@@ -68,6 +68,9 @@ export function getAppDetail(groupName, activityName) {
   return request({
     url: '/activity/appDetail',
     method: 'post',
+    headers: {
+      'Content-Type': 'multipart/form-data'
+    },
     params: { groupName, activityName }
   })
 }

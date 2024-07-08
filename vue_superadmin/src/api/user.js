@@ -60,3 +60,14 @@ export function getcount() {
     params: { }
   })
 }
+
+export function uploadfile1(file) {
+  return request({
+    url: '/topManager/uploadExcel',
+    method: 'post',
+    headers: {
+      'Content-Type': 'multipart/form-data'
+    },
+    params: { file }
+  })
+}

@@ -154,8 +154,8 @@ public class ActivityController {
     //该社团活动申请列表
     @RepeatLimit
     @RequestMapping("/myApps")
-    public Result getMyApps(String searchInfo){
-        List<Activity> activities = activityService.getMyApps(searchInfo);
+    public Result getMyApps(String searchInfo, String groupName){
+        List<Activity> activities = activityService.getMyApps(searchInfo, groupName);
 //        System.out.println(activities);
         return Result.ok().data("items",activities);
     }

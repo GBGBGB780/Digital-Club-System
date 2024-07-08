@@ -68,12 +68,12 @@ export const constantRoutes = [
         component: () => import('@/views/clubtable/index'),
         meta: { title: '社团列表', icon: 'el-icon-folder-checked' }
       },
-      {
-        path: 'clubapp',
-        name: 'Clubapp',
-        component: () => import('@/views/clubapp/index'),
-        meta: { title: '社团申请列表', icon: 'el-icon-folder-add' }
-      },
+      // {
+      //   path: 'clubapp',
+      //   name: 'Clubapp',
+      //   component: () => import('@/views/clubapp/index'),
+      //   meta: { title: '社团申请列表', icon: 'el-icon-folder-add' }
+      // },
       {
         path: 'stutree',
         name: 'Stutree',
@@ -108,18 +108,18 @@ export const constantRoutes = [
     ]
   },
 
-  {
-    path: '/form',
-    component: Layout,
-    children: [
-      {
-        path: 'index',
-        name: 'Form',
-        component: () => import('@/views/form/index'),
-        meta: { title: 'Form', icon: 'form' }
-      }
-    ]
-  },
+  // {
+  //   path: '/form',
+  //   component: Layout,
+  //   children: [
+  //     {
+  //       path: 'index',
+  //       name: 'Form',
+  //       component: () => import('@/views/form/index'),
+  //       meta: { title: 'Form', icon: 'form' }
+  //     }
+  //   ]
+  // },
 
   {
     path: '/add',
@@ -127,7 +127,7 @@ export const constantRoutes = [
     children: [{
       path: 'index',
       name: 'Add',
-      meta: { title: '批量添加学生/管理员', icon: 'nested' },
+      meta: { title: '批量添加', icon: 'nested' },
       component: () => import('@/views/add/index')
     }]
   },

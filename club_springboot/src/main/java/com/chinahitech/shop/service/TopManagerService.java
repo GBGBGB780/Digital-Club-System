@@ -199,44 +199,40 @@ public class TopManagerService {
         }
     }
 
-    public void uploadExcel(String fileUrl) {
-        String fileType  = fileUrl.substring(fileUrl.indexOf("."));
-//        System.out.println(fileType);
-        if(fileType.equals(XLSX) || fileType.equals(XLS)){
-            List<User> users;
-            try {
-                ScanExcel scanExcel = new ScanExcel();
-                //启动
-                users = scanExcel.readExcel(fileUrl);
-            } catch (Exception e) {
-                throw new FileUploadException("Excel文件处理出错！");
-            }
+    public void uploadExcel(MultipartFile file) {
+        List<User> users;
+        try {
+            ScanExcel scanExcel = new ScanExcel();
+            //启动
+            users = scanExcel.readExcel(file);
+        } catch (Exception e) {
+            throw new FileUploadException("Excel文件处理出错！");
+        }
 
-            if (users != null && !users.isEmpty()){
-                for (User user : users) {
-                    Date date = new Date();
-                    //密码加密(MD5算法)
+        if (users != null && !users.isEmpty()){
+            for (User user : users) {
+                Date date = new Date();
+                //密码加密(MD5算法)
 //            System.out.println(lastPwd);
-                    String salt = UUID.randomUUID().toString().toUpperCase();
+                String salt = UUID.randomUUID().toString().toUpperCase();
 //            System.out.println(salt);
-                    String currPwd = md5.MD5handler(user.getPassword(), salt);
-                    user.setPassword(currPwd);
-                    user.setSalt(salt);
-                    user.setCreateTime(date);
-                    user.setModifyTime(date);
-                    user.setStatus(0);
-                    User tempUser = topManagerMapper.getUserByNum(user.getUserId());
-                    if (tempUser != null) {
-                        throw new UseridDuplicateException("用户" + user.getUserId() + "已存在");
-                    }
-                    int i = topManagerMapper.insert(user);
-                    if(i != 1){
-                        throw new InsertException("用户"+ user.getUserId() +"添加失败");
-                    }
+                String currPwd = md5.MD5handler(user.getPassword(), salt);
+                user.setPassword(currPwd);
+                user.setSalt(salt);
+                user.setCreateTime(date);
+                user.setModifyTime(date);
+                user.setStatus(0);
+                User tempUser = topManagerMapper.getUserByNum(user.getUserId());
+                if (tempUser != null) {
+                    throw new UseridDuplicateException("用户" + user.getUserId() + "已存在");
+                }
+                int i = topManagerMapper.insert(user);
+                if(i != 1){
+                    throw new InsertException("用户"+ user.getUserId() +"添加失败");
                 }
             }
         } else {
-            throw new FileTypeException("文件类型错误！");
+            throw new FileEmptyException("Excel文件没有需要的数据！");
         }
     }
 }
