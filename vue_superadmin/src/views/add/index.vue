@@ -36,7 +36,7 @@
             <div style="text-align: center;">
                 <el-upload
                     class="upload-demo"
-                    ref="uploadFile"     
+                    ref="uploadFile1"     
                     action="string"
                     :limit="1"
                     :on-exceed="handleExceed"
@@ -64,7 +64,7 @@
             <div style="text-align: center;">
                 <el-upload
                     class="upload-demo"
-                    ref="uploadFile"     
+                    ref="uploadFile2"     
                     action="string"
                     :limit="1"
                     :on-exceed="handleExceed"
@@ -99,6 +99,12 @@ export default{
     	submitUpload() { 
             this.$refs.uploadFile.submit()
       	},
+        submitUpload1() { 
+            this.$refs.uploadFile.submit()
+      	},
+        submitUpload2() { 
+            this.$refs.uploadFile.submit()
+      	},
       	 //文件上传之前
         beforeFileUpload(file){ 
             const File = file.name.replace(/.+\./,"");
@@ -127,8 +133,8 @@ export default{
         UploadRequest(item){
             let formData = new FormData();
             formData.append('file', item.file);
-            console.log(item.file)
-            uploadfile1(item.file).then(response => {
+            console.log(item)
+            uploadfile1(formData).then(response => {
             }).catch((error)=>{
                 console.log(error)
             })
