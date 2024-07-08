@@ -127,7 +127,8 @@ export default {
               message: '活动申请成功!',
               type: 'success'
             })
-            this.resetForm()
+            this.resetForm(formName)
+            this.ruleForm.groupName = this.$store.state.clubname
           }).catch(error => console.log(error))
           return true
         } else {
@@ -140,16 +141,17 @@ export default {
       });
     },
     getActivity() {
-      return {
-        name: this.ruleForm.name,
-        organizer: this.ruleForm.organizer,
-        type: this.ruleForm.type,
-        place: this.ruleForm.place,
-        time: this.ruleForm.time,
-        arrange: this.ruleForm.arrange,
-        desc: this.ruleForm.desc,
-        groupName: this.ruleForm.groupName
-      }
+      // use URLSearchParams to avoid decoding error
+      let data = new URLSearchParams();
+      data.append("name", this.ruleForm.name)
+      data.append("organizer", this.ruleForm.organizer,)
+      data.append("type", this.ruleForm.type,)
+      data.append("place", this.ruleForm.place,)
+      data.append("time", this.ruleForm.time,)
+      data.append("arrange", this.ruleForm.arrange,)
+      data.append("desc", this.ruleForm.desc,)
+      data.append("groupName", this.ruleForm.groupName)
+      return data
     },
     resetForm(formName) {
       this.$refs[formName].resetFields();
