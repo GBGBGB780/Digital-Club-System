@@ -1,21 +1,22 @@
 <template>
-  <div>
+  <div style="margin-left: 1%;">
     <br>
     <el-row :gutter="20">
-      <el-col :span="6">
-        <el-statistic :value="activities.length" title="活动数" />
+      <el-col :span="2">
+        <el-tag>活动数：{{ activities.length }}</el-tag>
       </el-col>
-      <el-col :span="6">
-        <el-statistic :value="toBeAccepted" title="已通过" />
+      <el-col :span="2">
+        <el-tag type="success">已通过： {{ accepted }}</el-tag>
       </el-col>
-      <el-col :span="6">
-        <el-statistic :value="toBeAccepted" title="已拒绝" />
+      <el-col :span="2">
+        <el-tag type="danger">已拒绝： {{ rejected }}</el-tag>
       </el-col>
-      <el-col :span="6">
-        <el-statistic :value="toBeAccepted" title="待审批" />
+      <el-col :span="2">
+        <el-tag type="warning">待审批： {{ toBeAccepted }}</el-tag>
       </el-col>
     </el-row>
-    <div class="search-container" style="margin-left: 1%;">
+    <br>
+    <div class="search-container">
       <el-input v-model="searchInfo" placeholder="搜索活动" clearable @keyup.enter.native="handleSearch" />
       <el-button icon="el-icon-search" @click="handleSearch" />
       <el-button @click="clearSearch">清空搜索</el-button>
@@ -48,8 +49,7 @@
           <span v-else class="text pending-text">待审核</span>
           <el-button v-show="scope.row.isAccepted !== true" type="primary" style="float: right;"
             @click="acceptActivity(scope.row.id)">批准</el-button>
-          <el-button v-show="scope.row.isAccepted === true" type="primary" style="float: right;"
-           disabled>批准</el-button>
+          <el-button v-show="scope.row.isAccepted === true" type="primary" style="float: right;" disabled>批准</el-button>
           <el-button v-show="scope.row.isAccepted !== false" type="primary" style="float: right;"
             @click="rejectActivity(scope.row.id)">拒绝</el-button>
           <el-button v-show="scope.row.isAccepted === false" type="primary" style="float: right;"
