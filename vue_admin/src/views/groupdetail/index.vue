@@ -56,19 +56,7 @@
         <el-button type="primary" @click="updateDescription('newForm')">确认修改</el-button>
       </el-form-item>
     </el-form>
-    <el-form ref="ruleForm" :model="ruleForm" status-icon :rules="rules" label-width="100px" class="demo-ruleForm">
-      <el-form-item label="修改密码" label-width="180px" />
-      <el-form-item label="新密码" prop="pass">
-        <el-input v-model="ruleForm.pass" type="password" autocomplete="off" class="custom-data" />
-      </el-form-item>
-      <el-form-item label="确认密码" prop="checkPass">
-        <el-input v-model="ruleForm.checkPass" type="password" autocomplete="off" class="custom-data" />
-      </el-form-item>
-      <el-form-item>
-        <el-button type="primary" @click="submitPassword('ruleForm')">提交</el-button>
-        <el-button @click="resetForm('ruleForm')">重置</el-button>
-      </el-form-item>
-    </el-form>
+    
   </div>
 </div>
 </template>
@@ -130,9 +118,10 @@ export default {
   },
   created: function() {
     this.staticForm.name = this.name
-    getDetails(this.name)
+
+    getDetails(this.$store.state.clubname)
       .then((response) => {
-        this.staticForm.name = response.data.group.userName
+        this.staticForm.name = response.data.group.name
         this.staticForm.leader = response.data.group.leader
         this.newForm.description = response.data.group.description
         this.newForm.image = response.data.group.image

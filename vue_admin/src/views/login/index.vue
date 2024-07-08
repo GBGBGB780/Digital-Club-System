@@ -145,7 +145,7 @@ export default {
               // console.log(res.data.items[0].userName)
               for(var i=0; i<res.data.items.length; i++)
               {
-                this.addButton(i,res.data.items[i].userName,res.data.items[i].name)
+                this.addButton(i,res.data.items[i].id,res.data.items[i].name)
               }
             })
             // this.dialogVisible = true 如果放在这里的话就会导致打开时还未渲染，因为Vue是异步进行
