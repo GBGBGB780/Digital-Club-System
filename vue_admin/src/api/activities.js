@@ -1,5 +1,18 @@
 import request from '@/utils/request'
 
+// 本社未审核的活动
+export function getMyApps(searchInfo, groupName) {
+    let data = new URLSearchParams();
+    data.append("searchInfo", searchInfo)
+    data.append("groupName", groupName)
+    return request({
+        url: '/activity/myApps',
+        method: 'post',
+        data: data
+    });
+}
+
+// 本社审核通过和不通过的活动
 export function getMyActivity(groupName) {
     return request({
         url: '/activity/myActivity',
