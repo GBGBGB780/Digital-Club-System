@@ -30,8 +30,7 @@ public interface ActivityMapper extends BaseMapper<Activity> {
     @Select("select * from `Activity` where name = #{name} and group_name = #{groupName} and is_accepted = true")
     Activity getActivityByNameAndGroupName(@Param("name") String name, @Param("groupName") String groupName);
 
-    // @Select("select * from `Activity` where group_name = #{groupName} and is_accepted = true")
-    @Select("select * from `Activity` where group_name = #{groupName}")
+    @Select("select * from `Activity` where group_name = #{groupName} and is_accepted = true")
     List<Activity> getActivityByGroupName(@Param("groupName") String groupName);
 
     @Update("UPDATE `Activity` SET attachment = #{attachment}, modify_time = #{modifyTime} " +
