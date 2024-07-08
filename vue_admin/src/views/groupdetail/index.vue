@@ -179,7 +179,7 @@ export default {
             message: '详情介绍更新成功',
             type: 'success'
           })
-          updateForm(this.name, this.newForm.description, this.newForm.attachment, this.newForm.image)
+          updateForm(this.staticForm.name, this.newForm.description, this.newForm.attachment, this.newForm.image)
             .then(response => {
               console.log(response.data)
               this.$router.push({ name: 'Groupdetail' })
