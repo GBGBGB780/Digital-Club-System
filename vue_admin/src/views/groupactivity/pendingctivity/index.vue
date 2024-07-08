@@ -5,7 +5,7 @@
       <el-button icon="el-icon-search" @click="handleSearch" />
       <el-button @click="clearSearch">清空搜索</el-button>
     </el-row>
-    <el-table :data="searcchRes" @row-click="handleRowClick">
+    <el-table :data="searcchRes">
       <el-table-column prop=name label="活动名" :span="6">
         <template slot-scope="scope">
           <span class="text">{{ scope.row.name }}</span>
@@ -29,7 +29,7 @@
       <el-table-column prop="isAccepted" label="申请状态" :span="3">
         <template slot-scope="scope">
           <span class="text pending-text">待审核&emsp;</span>
-          <el-button @click="handleEdit">修改</el-button>
+          <el-button  @click.native.prevent="handleEdit(scope.$index)">修改</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -56,7 +56,7 @@
         </el-form-item>
       </el-form>
       <span slot="footer" class="dialog-footer">
-        <el-button @click="dialogVisible = false; this.$refs[ruleForm].resetFields();">取 消</el-button>
+        <el-button @click="dialogVisible = false;">取 消</el-button>
         <el-button type="primary" @click="submitForm">确 定</el-button>
       </span>
     </el-dialog>
@@ -81,7 +81,6 @@ export default {
       searcchRes: [],
       dialogVisible: false,
       curActivity: null,
-      curIndex: -1,
       ruleForm: {
         name: '',
         organizer: '',
@@ -129,9 +128,6 @@ export default {
       })
   },
   methods: {
-    handleRowClick(row) {
-      this.curIndex = this.searcchRes.indexOf(row);
-    },
     formatDate(date) {
       // 格式化日期时间
       const d = new Date(date);
@@ -152,10 +148,8 @@ export default {
       this.searcchRes = this.activities
       // this.$router.go()
     },
-    handleEdit() {
-      if (this.curIndex < 0 || this.curIndex > this.searcchRes.length)
-        return
-      const a = this.searcchRes[this.curIndex]
+    handleEdit(index) {
+      const a = this.searcchRes[index]
       this.ruleForm.name = a.name
       this.ruleForm.organizer = a.organizer
       this.ruleForm.place = a.place
@@ -176,8 +170,8 @@ export default {
         .catch(_ => { });
     },
     submitForm() {
-      console.log('before: ', this.searcchRes[this.curIndex])
-      console.log('after: ', this.ruleForm)
+      console.log('before: ', JSON.stringify(this.searcchRes[this.curIndex]))
+      console.log('after: ', JSON.stringify(this.ruleForm))
       modifyInfo(this.ruleForm).then(response => {
         console.log(response)
         this.dialogVisible = false;
@@ -189,10 +183,6 @@ export default {
         console.log(error)
         this.$message({
           message: error,
-          type: 'info'
-        })
-        this.$message({
-          message: '哔咔哔咔被玩坏了!\n这肯定不是哔咔的问题\n绝对不是!',
           type: 'info'
         })
       })

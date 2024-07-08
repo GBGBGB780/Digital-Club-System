@@ -125,7 +125,7 @@ export default {
               message: '活动申请成功!',
               type: 'success'
             })
-            this.resetForm(this.ruleForm)
+            this.resetForm('ruleForm')
           }).catch(error => console.log(error))
           return true
         } else {

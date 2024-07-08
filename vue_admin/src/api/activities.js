@@ -38,20 +38,21 @@ export function modDesc(groupName, activityName, description, attachment, image)
 }
 
 // TODO: modifyInfo, addActivity, deleteActivity with param(activity)
+// the hell who can fix this
 export function modifyInfo(activity) {
-    let data = new URLSearchParams();
-    data.append("name", activity.name)
-    data.append("organizer", activity.organizer,)
-    data.append("type", activity.type,)
-    data.append("place", activity.place,)
-    data.append("time", activity.time,)
-    data.append("arrange", activity.arrange,)
-    data.append("desc", activity.desc,)
-    data.append("groupName", activity.groupName)
+    // let data = new URLSearchParams();
+    // data.append("name", activity.name)
+    // data.append("organizer", activity.organizer,)
+    // data.append("type", activity.type,)
+    // data.append("place", activity.place,)
+    // data.append("time", activity.time,)
+    // data.append("arrange", activity.arrange,)
+    // data.append("desc", activity.desc,)
+    // data.append("groupName", activity.groupName)
     return request({
         url: '/activity/modifyInfo',
         method: 'post',
-        data: data
+        data: activity
     });
 }
 
@@ -59,7 +60,7 @@ export function addActivity(activity) {
     return request({
         url: '/activity/addActivity',
         method: 'post',
-        activity: activity
+        data: activity
     });
 }
 
