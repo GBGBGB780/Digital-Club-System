@@ -170,7 +170,7 @@ export const constantRoutes = [{
           name: 'PendingActivity',
           component: () =>
             import('@/views/groupactivity/pendingctivity/index'),
-            meta: { title: '在申活动', icon: 'el-icon-s-check' }
+            meta: { title: '更改活动', icon: 'el-icon-s-check' }
         }]
     },
 

@@ -83,7 +83,7 @@ public interface ActivityMapper extends BaseMapper<Activity> {
     @Delete("delete from Activity WHERE id = #{id} and is_accepted = true")
     int deleteActivity(@Param("id") int id);
 
-    @Select("select * from `Activity` where group_name = #{groupName} and is_accepted IS NULL")
+    @Select("select * from `Activity` where group_name = #{groupName} and is_accepted = true")
     List<Activity> getMyApps(String groupName);
 
     @Select("SELECT * FROM `Activity` WHERE name LIKE CONCAT('%', #{searchinfo}, '%') and group_name = #{groupName} and is_accepted IS NULL")

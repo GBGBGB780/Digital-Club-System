@@ -28,7 +28,7 @@
       </el-table-column>
       <el-table-column prop="isAccepted" label="申请状态" :span="3">
         <template slot-scope="scope">
-          <span class="text pending-text">待审核&emsp;</span>
+          <span class="text success-text">已通过&emsp;</span>
           <el-button  @click.native.prevent="handleEdit(scope.$index)">修改</el-button>
         </template>
       </el-table-column>
@@ -178,7 +178,8 @@ export default {
         this.$message.success({
           message: '修改成功!',
           type: 'success'
-        });
+        })
+        this.$router.go()
       }).catch(error => {
         console.log(error)
         this.$message({
