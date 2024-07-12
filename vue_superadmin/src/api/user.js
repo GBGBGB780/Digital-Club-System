@@ -71,3 +71,11 @@ export function uploadfile1(file) {
     data: file 
   })
 }
+
+export function download1(fileName) {
+  return request({
+    url: '/topManager/downloadExcel',
+    method: 'get',
+    params: { fileName }
+  })
+}
