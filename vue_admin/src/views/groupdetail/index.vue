@@ -130,6 +130,17 @@ export default {
       .catch((error) => {
         console.error(error)
       })
+      if(this.$store.state.clubid==0) {
+      if(confirm("登陆身份失效，请重新登陆"))
+      {
+        this.reload()
+      }
+      else
+      {
+        window.alert("取消也得重新登陆")
+        this.reload()
+      }
+    }
   },
   methods: {
     handlePhotoExceed(files, fileList) {
@@ -224,7 +235,11 @@ export default {
       console.log( this.$store.state.clubid)
       console.log( this.$store.state.clubname)
       this.$refs[formName].resetFields()
-    }
+    },
+    async reload() {
+      await this.$store.dispatch('user/logout')
+      this.$router.push(`/login?redirect=${this.$route.fullPath}`)
+    },
   }
 }
 </script>
