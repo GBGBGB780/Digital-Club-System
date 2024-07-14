@@ -80,6 +80,19 @@ export default {
       'name'
     ])
   },
+  created: function() {
+    if(this.$store.state.clubid==0) {
+      if(confirm("登陆身份失效，请重新登陆"))
+      {
+        this.reload()
+      }
+      else
+      {
+        window.alert("取消也得重新登陆")
+        this.reload()
+      }
+    }
+  },
   data() {
     return {
       ruleForm: {
@@ -160,7 +173,11 @@ export default {
       if (!isLt2M)
         this.$message.error('上传图片大小不能超过 2MB!')
       return isJPG && isLt2M;
-    }
+    },
+    async reload() {
+      await this.$store.dispatch('user/logout')
+      this.$router.push(`/login?redirect=${this.$route.fullPath}`)
+    },
   }
 }
 </script>
