@@ -32,6 +32,7 @@ import Layout from '@/layout'
  */
 export const constantRoutes = [{
         path: '/login',
+        name: 'Login',
         component: () =>
             import ('@/views/login/index'),
         hidden: true
@@ -164,13 +165,13 @@ export const constantRoutes = [{
     {
         path: '/',
         component: Layout,
-        redirect: '/groupactivity/activityapplication',
+        redirect: '/groupactivity/pendingctivity',
         children: [{
-          path: 'groupactivity/activityapplication',
-          name: 'Activityapplication',
+          path: 'groupactivity/pendingctivity',
+          name: 'PendingActivity',
           component: () =>
-            import('@/views/groupactivity/activityapplication/index'),
-            meta: { title: '在申活动', icon: 'el-icon-s-check' }
+            import('@/views/groupactivity/pendingctivity/index'),
+            meta: { title: '更改活动', icon: 'el-icon-s-check' }
         }]
     },
 

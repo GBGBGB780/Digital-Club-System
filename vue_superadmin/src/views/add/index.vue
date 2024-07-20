@@ -24,7 +24,7 @@
                 <el-button type="primary" @click="submitUpload">确认上传</el-button>
             </div>
             <div style="text-align: center;margin-top: 20px;">
-                查看<a href="https://www.baidu.com">模板文件</a>
+                <a @click="downloadexcel">点击下载模板文件</a>  
             </div>
         </div>
 
@@ -36,7 +36,7 @@
             <div style="text-align: center;">
                 <el-upload
                     class="upload-demo"
-                    ref="uploadFile"     
+                    ref="uploadFile1"     
                     action="string"
                     :limit="1"
                     :on-exceed="handleExceed"
@@ -52,7 +52,7 @@
                 <el-button type="primary" @click="submitUpload">确认上传</el-button>
             </div>
             <div style="text-align: center;margin-top: 20px;">
-                查看<a href="https://www.baidu.com">模板文件</a>
+                <a @click="downloadexcel">点击下载模板文件</a>
             </div>
         </div>
 
@@ -64,7 +64,7 @@
             <div style="text-align: center;">
                 <el-upload
                     class="upload-demo"
-                    ref="uploadFile"     
+                    ref="uploadFile2"     
                     action="string"
                     :limit="1"
                     :on-exceed="handleExceed"
@@ -80,14 +80,14 @@
                 <el-button type="primary" @click="submitUpload">确认上传</el-button>
             </div>
             <div style="text-align: center;margin-top: 20px;">
-                查看<a href="https://www.baidu.com">模板文件</a>
+                <a @click="downloadexcel">点击下载模板文件</a>
             </div>
         </div>
     </div>
 </template>
 
 <script>
-import { uploadfile1 } from '@/api/user'
+import { uploadfile1,download1 } from '@/api/user'
 export default{ 
     data (){ 
         return { 
@@ -97,6 +97,12 @@ export default{
     methods:{ 
     	//确认上传
     	submitUpload() { 
+            this.$refs.uploadFile.submit()
+      	},
+        submitUpload1() { 
+            this.$refs.uploadFile.submit()
+      	},
+        submitUpload2() { 
             this.$refs.uploadFile.submit()
       	},
       	 //文件上传之前
@@ -127,8 +133,15 @@ export default{
         UploadRequest(item){
             let formData = new FormData();
             formData.append('file', item.file);
-            console.log(item.file)
-            uploadfile1(item.file).then(response => {
+            console.log(item)
+            uploadfile1(formData).then(response => {
+            })
+            // .catch((error)=>{
+            //     console.log(error)
+            // })
+        },
+        downloadexcel(){
+            download1("模板.xlsx").then(response => {
             }).catch((error)=>{
                 console.log(error)
             })

@@ -36,6 +36,17 @@ export default {
     getManages(this.name).then((response) => {
       this.manages = response.data.items;
     })
+    if(this.$store.state.clubid==0) {
+      if(confirm("登陆身份失效，请重新登陆"))
+      {
+        this.reload()
+      }
+      else
+      {
+        window.alert("取消也得重新登陆")
+        this.reload()
+      }
+    }
   },
   methods: {
     redirectToGroupDetail(groupName) {
@@ -46,7 +57,11 @@ export default {
         }
       });
       console.log(this.$route.params)
-    }
+    },
+    async reload() {
+      await this.$store.dispatch('user/logout')
+      this.$router.push(`/login?redirect=${this.$route.fullPath}`)
+    },
   }
 }
 </script>

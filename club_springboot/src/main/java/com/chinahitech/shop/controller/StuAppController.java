@@ -1,5 +1,6 @@
 package com.chinahitech.shop.controller;
 
+import cn.hutool.core.io.FileUtil;
 import com.chinahitech.shop.aop.RepeatLimit;
 import com.chinahitech.shop.bean.StuApp;
 import com.chinahitech.shop.service.StuAppService;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -33,10 +35,12 @@ public class StuAppController {
     @Autowired
     private GroupService groupService;
 
-    //学生端
     @Value("${upload-dir}")
     private String uploadDir;
 
+    private static final String ROOT_PATH = System.getProperty("user.dir") + File.separator + "upload";
+
+    //学生端
     //获取所有学生的申请
     @RepeatLimit
     @RequestMapping("/all")
@@ -111,6 +115,9 @@ public class StuAppController {
 
         try {
             Path targetLocation = Paths.get(uploadDir, fileName);
+            if(!FileUtil.exist(ROOT_PATH)){
+                FileUtil.mkdir(ROOT_PATH);    // 如果当前文件的父级目录不存在，就创建
+            }
             Files.copy(file.getInputStream(), targetLocation, StandardCopyOption.REPLACE_EXISTING);
 
             String fileUrl = ServletUriComponentsBuilder.fromCurrentContextPath()

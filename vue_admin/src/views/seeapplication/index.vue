@@ -67,6 +67,17 @@ export default {
     .catch(error => {
       console.error(error);
     });
+    if(this.$store.state.clubid==0) {
+      if(confirm("登陆身份失效，请重新登陆"))
+      {
+        this.reload()
+      }
+      else
+      {
+        window.alert("取消也得重新登陆")
+        this.reload()
+      }
+    }
   },
   methods: {
     handleRowClick(row) {
@@ -82,6 +93,10 @@ export default {
       return `${d.getFullYear()}年${
         d.getMonth() + 1
       }月${d.getDate()}日 ${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}:${String(d.getSeconds()).padStart(2, '0')}`;
+    },
+    async reload() {
+      await this.$store.dispatch('user/logout')
+      this.$router.push(`/login?redirect=${this.$route.fullPath}`)
     },
   },
 }

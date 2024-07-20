@@ -98,6 +98,17 @@ export default {
   },
   created: function () {
     this.activity = this.$route.params.activity // 获取路由参数activity
+    if(this.$store.state.clubid==0) {
+      if(confirm("登陆身份失效，请重新登陆"))
+      {
+        this.reload()
+      }
+      else
+      {
+        window.alert("取消也得重新登陆")
+        this.reload()
+      }
+    }
   },
   methods: {
     openAttachment() {
@@ -105,6 +116,10 @@ export default {
     },
     openImage() {
       window.open(activity.image)
+    },
+    async reload() {
+      await this.$store.dispatch('user/logout')
+      this.$router.push(`/login?redirect=${this.$route.fullPath}`)
     },
     // submitAccept() {
     //   this.$message({

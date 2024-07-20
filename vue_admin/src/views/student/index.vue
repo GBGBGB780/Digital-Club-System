@@ -23,14 +23,6 @@
               <span class="text">{{ scope.row.userId }}</span>
             </template>
           </el-table-column>
-          <el-table-column
-            prop=cteate_time
-            label="申请时间"
-            width="300">
-            <template slot-scope="scope">
-              <span class="text">{{ formatDate(scope.row.cteateTime) }}</span>
-            </template>
-          </el-table-column>
         </el-table>
       </div>
     </div>
@@ -63,6 +55,17 @@
       .catch(error => {
         console.error(error);
       });
+      if(this.$store.state.clubid==0) {
+      if(confirm("登陆身份失效，请重新登陆"))
+      {
+        this.reload()
+      }
+      else
+      {
+        window.alert("取消也得重新登陆")
+        this.reload()
+      }
+    }
     },
     methods: {
       handleRowClick(row) {
@@ -89,7 +92,11 @@
         .catch((error) => {
           console.error(error)
         })
-      }
+      },
+    async reload() {
+      await this.$store.dispatch('user/logout')
+      this.$router.push(`/login?redirect=${this.$route.fullPath}`)
+    },
     },
     
   }
