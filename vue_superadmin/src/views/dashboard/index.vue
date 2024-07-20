@@ -1,17 +1,17 @@
 <template>
-  <div>
+  <div style="margin-top: 15%;">
   <div
     class="echart"
     ref="mychart2"
     id="mychart2"
-    :style="{ float: 'left', width: '100%', height: '500px'  }"
+    :style="{ float: 'left', width: '45%', height: '500px'  }"
   ></div>
   <div></div>
   <div
     class="echart"
     ref="mychart1"
     id="mychart1"
-    :style="{ float: 'left', width: '100%', height: '500px' }"
+    :style="{ float: 'right', width: '45%', height: '500px' }"
   ></div>
   </div>
 </template>
@@ -63,6 +63,10 @@ export default {
       };
       const myChart = echarts.init(this.$refs.mychart1);// 图标初始化
       myChart.setOption(option);// 渲染页面
+      myChart.on("click", clickFunc);
+      function clickFunc(param) {
+        alert(param.data.name); // 当前点击对象的name
+      }
       //随着屏幕大小调节图表
       window.addEventListener("resize", () => {
         myChart.resize();
